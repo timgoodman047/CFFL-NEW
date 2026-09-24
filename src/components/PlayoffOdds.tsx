@@ -29,16 +29,16 @@ r.settings?.fpts_decimal || 0
 ) / 100
 );
  
-const gamesPlayed =
+const games =
 Math.max(
 wins + losses,
 1
 );
  
 const ppg =
-pf / gamesPlayed;
+pf / games;
  
-const score =
+const playoffScore =
 (wins * 100) +
 (pf * 0.5) +
 (ppg * 10);
@@ -50,7 +50,11 @@ owner?.metadata?.team_name ||
 owner?.display_name ||
 "Unknown",
  
-score
+wins,
+losses,
+pf,
+ppg,
+playoffScore
  
 };
  
@@ -58,8 +62,11 @@ score
  
 const totalScore =
 teams.reduce(
-(sum, t) =>
-sum + t.score,
+(
+total: number,
+team: any
+) =>
+total + team.playoffScore,
 0
 );
  
@@ -71,16 +78,14 @@ teams
  
 playoffOdds:
 (
-team.score /
-totalScore *
-100
-)
+team.playoffScore /
+totalScore
+) * 100,
  
 }))
 .sort(
-(a, b) =>
-b.playoffOdds -
-a.playoffOdds
+(a: any, b: any) =>
+b.playoffOdds - a.playoffOdds
 );
  
 return (
@@ -101,7 +106,7 @@ color:"#22c55e"
 🎲 Playoff Odds
 </h2>
  
-{odds.map((team)=>(
+{odds.map((team:any)=>(
  
 <div
 key={team.team}
@@ -109,18 +114,53 @@ style={{
 background:"#1b2a40",
 padding:"12px",
 borderRadius:"8px",
-marginBottom:"8px"
+marginBottom:"10px"
 }}
 >
  
-<strong>
+<div
+style={{
+display:"flex",
+justifyContent:"space-between",
+fontWeight:"bold"
+}}
+>
+ 
+<span>
 {team.team}
-</strong>
+</span>
  
-<br />
+<span
+style={{
+color:"#22c55e"
+}}
+>
+{team.playoffOdds.toFixed(1)}%
+</span>
  
-{team.playoffOdds
-.toFixed(1)}%
+</div>
+ 
+<div
+style={{
+marginTop:"8px",
+width:"100%",
+height:"8px",
+background:"#0e1624",
+borderRadius:"999px"
+}}
+>
+ 
+<div
+style={{
+width:
+`${team.playoffOdds}%`,
+height:"8px",
+background:"#22c55e",
+borderRadius:"999px"
+}}
+/>
+ 
+</div>
  
 </div>
  
