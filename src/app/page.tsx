@@ -4,6 +4,7 @@ import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
+import PlayoffOdds from "../components/PlayoffOdds";
 import News from "../components/News";
  
 export default function Home() {
@@ -15,9 +16,13 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Page Header */}
+{/* Header */}
  
-<div style={{ marginBottom: "24px" }}>
+<div
+style={{
+marginBottom: "24px",
+}}
+>
 <h1
 style={{
 color: "#22c55e",
@@ -31,6 +36,7 @@ Fantasy Football Network
 <p
 style={{
 color: "#94a3b8",
+margin: 0,
 }}
 >
 League HQ • Anti-PPR Coalition
@@ -53,16 +59,26 @@ marginTop: "24px",
 }}
 >
 <Standings />
-<PowerRankings />
- 
 <Matchups />
+ 
+<PowerRankings />
 <DressTracker />
  
 <Owners />
+<PlayoffOdds />
+</div>
+ 
+{/* News Section */}
+ 
+<div
+style={{
+marginTop: "24px",
+}}
+>
 <News />
 </div>
  
-{/* Footer Sections */}
+{/* Footer Cards */}
  
 <div
 style={{
@@ -130,6 +146,17 @@ style={{
 background: "#1b2a40",
 padding: "10px",
 borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+$222 League Buy-In
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "10px",
+borderRadius: "8px",
 }}
 >
 Dress Punishment Active
@@ -156,9 +183,31 @@ style={{
 background: "#1b2a40",
 padding: "10px",
 borderRadius: "8px",
+marginBottom: "8px",
 }}
 >
-Coming Soon
+Highest Weekly Score
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "10px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+Most Points For
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "10px",
+borderRadius: "8px",
+}}
+>
+Biggest Blowout
 </div>
 </div>
 </div>
