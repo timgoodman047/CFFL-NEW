@@ -1,3 +1,11 @@
+import Standings from "../components/Standings";
+ 
+const heroCard = {
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+};
+ 
 export default function Home() {
 return (
 <main
@@ -17,7 +25,12 @@ marginBottom: "5px",
 Fantasy Football Network
 </h1>
  
-<p style={{ color: "#94a3b8" }}>
+<p
+style={{
+color: "#94a3b8",
+marginBottom: "20px",
+}}
+>
 League HQ • Anti-PPR Coalition
 </p>
  
@@ -25,9 +38,9 @@ League HQ • Anti-PPR Coalition
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(250px,1fr))",
+"repeat(auto-fit, minmax(250px, 1fr))",
 gap: "20px",
-marginTop: "20px",
+marginBottom: "30px",
 }}
 >
 <div style={heroCard}>
@@ -47,32 +60,45 @@ marginTop: "20px",
  
 <div style={heroCard}>
 <h2>🏆</h2>
-<p>Trophy</p>
+<p>League Trophy</p>
 </div>
 </div>
  
-<h2
+<div
 style={{
-marginTop: "40px",
-color: "#22c55e",
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit, minmax(500px, 1fr))",
+gap: "20px",
 }}
 >
-Coming Next
-</h2>
+<Standings />
  
-<ul>
-<li>🏆 Live Standings</li>
-<li>📈 Power Rankings</li>
-<li>👗 Dress Tracker™</li>
-<li>🎯 Weekly Matchups</li>
-<li>🎲 Playoff Odds</li>
-</ul>
-</main>
-);
-}
- 
-const heroCard = {
+<div
+style={{
 background: "#111c2d",
 padding: "20px",
 borderRadius: "12px",
-};
+}}
+>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+🚧 Coming Next
+</h2>
+ 
+<ul>
+<li>📈 Power Rankings</li>
+<li>👗 Dress Tracker™</li>
+<li>🎯 Weekly Matchups</li>
+<li>👤 Owners</li>
+<li>🎲 Playoff Odds</li>
+<li>📰 League News Network</li>
+</ul>
+</div>
+</div>
+</main>
+);
+}
