@@ -16,13 +16,7 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Site Header */}
- 
-<div
-style={{
-marginBottom: "24px",
-}}
->
+<div style={{ marginBottom: "24px" }}>
 <h1
 style={{
 color: "#22c55e",
@@ -43,11 +37,7 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero Banner */}
- 
 <Hero />
- 
-{/* Main Dashboard Grid */}
  
 <div
 style={{
@@ -58,30 +48,19 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Row 1 */}
 <Standings />
 <Matchups />
  
-{/* Row 2 */}
 <PowerRankings />
 <DressTracker />
  
-{/* Row 3 */}
 <Owners />
 <PlayoffOdds />
 </div>
  
-{/* News Section */}
- 
-<div
-style={{
-marginTop: "24px",
-}}
->
+<div style={{ marginTop: "24px" }}>
 <News />
 </div>
- 
-{/* Bottom Row */}
  
 <div
 style={{
@@ -92,8 +71,6 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Hall of Champions */}
- 
 <div
 style={{
 background: "#111c2d",
@@ -101,11 +78,7 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 🏆 Hall of Champions
 </h2>
  
@@ -114,14 +87,11 @@ style={{
 background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
-marginBottom: "8px",
 }}
 >
 2026 Champion — TBD
 </div>
 </div>
- 
-{/* Constitution */}
  
 <div
 style={{
@@ -130,11 +100,7 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📜 Constitution
 </h2>
  
@@ -171,8 +137,6 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Record Book */}
- 
 <div
 style={{
 background: "#111c2d",
@@ -180,11 +144,7 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📊 Record Book
 </h2>
  
@@ -207,4 +167,20 @@ borderRadius: "8px",
 marginBottom: "8px",
 }}
 >
-Most Points
+Most Points For
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
+Biggest Blowout
+</div>
+</div>
+</div>
+</main>
+);
+}
