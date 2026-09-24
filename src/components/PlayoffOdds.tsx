@@ -38,7 +38,7 @@ wins + losses,
 const ppg =
 pf / games;
  
-const playoffScore =
+const teamStrength =
 (wins * 100) +
 (pf * 0.5) +
 (ppg * 10);
@@ -54,85 +54,124 @@ wins,
 losses,
 pf,
 ppg,
-playoffScore
+teamStrength
  
 };
  
 });
  
-const totalScore =
-teams.reduce(
-(
-total: number,
-team: any
-) =>
-total + team.playoffScore,
-0
+// ==========================
+// PLAYOFF MODEL
+// ==========================
+ 
+const strongest =
+Math.max(
+...teams.map(
+t => t.teamStrength
+)
 );
  
-const odds =
-teams
-.map(team => ({
+const weakest =
+Math.min(
+...teams.map(
+t => t.teamStrength
+)
+);
+ 
+const playoffOdds =
+teams.map(team => {
+ 
+const normalized =
+(
+team.teamStrength -
+weakest
+) /
+(
+strongest -
+weakest ||
+1
+);
+ 
+const playoff =
+20 + (normalized * 75);
+ 
+const championship =
+playoff * 0.35;
+ 
+const sacko =
+100 - playoff;
+ 
+return {
  
 ...team,
  
 playoffOdds:
-(
-team.playoffScore /
-totalScore
-) * 100,
+Math.min(
+playoff,
+99
+),
  
-}))
+championshipOdds:
+championship,
+ 
+sackoOdds:
+sacko
+ 
+};
+ 
+})
 .sort(
-(a: any, b: any) =>
-b.playoffOdds - a.playoffOdds
+(a, b) =>
+b.playoffOdds -
+a.playoffOdds
 );
  
 return (
  
 <div
 style={{
-background:"#111c2d",
-padding:"20px",
-borderRadius:"12px"
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px"
 }}
 >
  
 <h2
 style={{
-color:"#22c55e"
+color: "#22c55e"
 }}
 >
 🎲 Playoff Odds
 </h2>
  
-{odds.map((team:any)=>(
+{playoffOdds.map(team => (
  
 <div
 key={team.team}
 style={{
-background:"#1b2a40",
-padding:"12px",
-borderRadius:"8px",
-marginBottom:"10px"
+background: "#1b2a40",
+padding: "15px",
+borderRadius: "10px",
+marginBottom: "12px"
 }}
 >
  
 <div
 style={{
-display:"flex",
-justifyContent:"space-between",
-fontWeight:"bold"
+display: "flex",
+justifyContent:
+"space-between",
+marginBottom: "8px"
 }}
 >
  
-<span>
+<strong>
 {team.team}
-</span>
+</strong>
  
 <span
 style={{
-color:"#22c55e"
+color: "#22c55e"
 }}
 >
 {team.playoffOdds.toFixed(1)}%
@@ -140,13 +179,15 @@ color:"#22c55e"
  
 </div>
  
+{/* Playoff Bar */}
+ 
 <div
 style={{
-marginTop:"8px",
-width:"100%",
-height:"8px",
-background:"#0e1624",
-borderRadius:"999px"
+height: "8px",
+borderRadius: "999px",
+background: "#08111f",
+overflow: "hidden",
+marginBottom: "10px"
 }}
 >
  
@@ -154,11 +195,30 @@ borderRadius:"999px"
 style={{
 width:
 `${team.playoffOdds}%`,
-height:"8px",
-background:"#22c55e",
-borderRadius:"999px"
+height: "100%",
+background:
+"#22c55e"
 }}
 />
+ 
+</div>
+ 
+<div
+style={{
+fontSize: "14px",
+color: "#d1d5db"
+}}
+>
+ 
+Championship:
+{" "}
+{team.championshipOdds.toFixed(1)}%
+ 
+<br />
+ 
+Sacko:
+{" "}
+{team.sackoOdds.toFixed(1)}%
  
 </div>
  
