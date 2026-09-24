@@ -1,81 +1,88 @@
 import {
 getUsers,
-getRosters,
+getRosters
 } from "../lib/sleeper";
  
-export default async function PowerRankings() {
+import {
+calculatePowerRankings
+} from "../lib/powerRankings";
  
-const users = await getUsers();
-const rosters = await getRosters();
+export default async function
+PowerRankings() {
  
-const teams = rosters.map((r: any) => {
+const users =
+await getUsers();
  
-const owner = users.find(
-(u: any) =>
-u.user_id === r.owner_id
+const rosters =
+await getRosters();
+ 
+const teams =
+rosters.map((r:any)=>{
+ 
+const owner =
+users.find(
+(u:any)=>
+u.user_id===r.owner_id
 );
- 
-const pf =
-Number(r.settings?.fpts || 0) +
-(
-Number(
-r.settings?.fpts_decimal || 0
-) / 100
-);
- 
-const wins =
-r.settings?.wins || 0;
- 
-const losses =
-r.settings?.losses || 0;
- 
-// Custom Ranking Score
-const score =
-(wins * 100) + pf;
  
 return {
  
 team:
-owner?.metadata?.team_name ||
-owner?.display_name,
+owner?.metadata
+?.team_name ||
  
-wins,
-losses,
-pf,
-score
+owner
+?.display_name,
+ 
+wins:
+r.settings.wins,
+ 
+losses:
+r.settings.losses,
+ 
+pf:
+Number(
+r.settings.fpts
+) +
+(
+Number(
+r.settings
+.fpts_decimal
+) / 100
+)
  
 };
  
 });
  
-teams.sort(
-(a: any, b: any) =>
-b.score - a.score
+const rankings =
+calculatePowerRankings(
+teams
 );
  
 return (
  
 <div
 style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px"
+background:"#111c2d",
+padding:"20px",
+borderRadius:"12px"
 }}
 >
  
 <h2
 style={{
-color: "#22c55e"
+color:"#22c55e"
 }}
 >
 📈 Power Rankings
 </h2>
  
-{teams.map(
+{rankings.map(
 (
-team: any,
-index: number
-) => (
+team:any,
+index:number
+)=>(
  
 <div
 key={team.team}
@@ -83,7 +90,7 @@ style={{
 background:"#1b2a40",
 padding:"12px",
 borderRadius:"8px",
-marginBottom:"10px"
+marginBottom:"8px"
 }}
 >
  
@@ -95,20 +102,19 @@ marginBottom:"10px"
  
 <br />
  
-Record:
+Score:
 {" "}
-{team.wins}-{team.losses}
+{team.score.toFixed(1)}
  
 <br />
  
-PF:
+Avg PPG:
 {" "}
-{team.pf.toFixed(2)}
+{team.avgPPG.toFixed(1)}
  
 </div>
  
-)
-)}
+))}
  
 </div>
  
