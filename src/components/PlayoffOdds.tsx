@@ -3,6 +3,16 @@ getUsers,
 getRosters,
 } from "../lib/sleeper";
  
+function simulateGame(teamA: any, teamB: any) {
+const total =
+teamA.strength + teamB.strength;
+ 
+const teamAChance =
+teamA.strength / total;
+ 
+return Math.random() < teamAChance;
+}
+ 
 export default async function PlayoffOdds() {
  
 const users = await getUsers();
@@ -29,97 +39,198 @@ r.settings?.fpts_decimal || 0
 ) / 100
 );
  
-const games =
+const gamesPlayed =
 Math.max(
 wins + losses,
 1
 );
  
 const ppg =
-pf / games;
+pf / gamesPlayed;
  
-const teamStrength =
+const strength =
 (wins * 100) +
-(pf * 0.5) +
-(ppg * 10);
+(ppg * 15);
  
 return {
  
 team:
 owner?.metadata?.team_name ||
-owner?.display_name ||
-"Unknown",
+owner?.display_name,
  
 wins,
 losses,
 pf,
 ppg,
-teamStrength
+strength,
+ 
+playoffCount: 0,
+championshipCount: 0,
+sackoCount: 0,
+totalSeed: 0
  
 };
  
 });
  
-// ==========================
-// PLAYOFF MODEL
-// ==========================
+const SIMULATIONS = 5000;
  
-const strongest =
+for (
+let sim = 0;
+sim < SIMULATIONS;
+sim++
+) {
+ 
+const simTeams =
+teams.map(t => ({
+...t,
+simWins: t.wins
+}));
+ 
+// Remaining schedule estimate
+const remainingWeeks =
 Math.max(
-...teams.map(
-t => t.teamStrength
-)
-);
- 
-const weakest =
-Math.min(
-...teams.map(
-t => t.teamStrength
-)
-);
- 
-const playoffOdds =
-teams.map(team => {
- 
-const normalized =
+14 -
 (
-team.teamStrength -
-weakest
-) /
-(
-strongest -
-weakest ||
+teams[0].wins +
+teams[0].losses
+),
 1
 );
  
-const playoff =
-20 + (normalized * 75);
+for (
+let week = 0;
+week < remainingWeeks;
+week++
+) {
  
-const championship =
-playoff * 0.35;
+const shuffled =
+[...simTeams]
+.sort(
+() =>
+Math.random() - 0.5
+);
  
-const sacko =
-100 - playoff;
+for (
+let i = 0;
+i < shuffled.length;
+i += 2
+) {
  
-return {
+const teamA =
+shuffled[i];
+ 
+const teamB =
+shuffled[i + 1];
+ 
+if (!teamA || !teamB)
+continue;
+ 
+const aWins =
+simulateGame(
+teamA,
+teamB
+);
+ 
+if (aWins) {
+teamA.simWins++;
+}
+else {
+teamB.simWins++;
+}
+}
+}
+ 
+const standings =
+[...simTeams]
+.sort((a, b) => {
+ 
+if (
+b.simWins !==
+a.simWins
+) {
+return (
+b.simWins -
+a.simWins
+);
+}
+ 
+return (
+b.pf -
+a.pf
+);
+ 
+});
+ 
+standings.forEach(
+(
+team,
+index
+) => {
+ 
+const real =
+teams.find(
+t =>
+t.team ===
+team.team
+);
+ 
+if (!real) return;
+ 
+const seed =
+index + 1;
+ 
+real.totalSeed +=
+seed;
+ 
+if (seed <= 6) {
+real.playoffCount++;
+}
+ 
+if (seed === 1) {
+real.championshipCount++;
+}
+ 
+if (seed === 10) {
+real.sackoCount++;
+}
+ 
+}
+);
+ 
+}
+ 
+const results =
+teams
+.map(team => ({
  
 ...team,
  
 playoffOdds:
-Math.min(
-playoff,
-99
-),
+(
+team.playoffCount /
+SIMULATIONS
+) * 100,
  
 championshipOdds:
-championship,
+(
+team.championshipCount /
+SIMULATIONS
+) * 100,
  
 sackoOdds:
-sacko
+(
+team.sackoCount /
+SIMULATIONS
+) * 100,
  
-};
+averageSeed:
+(
+team.totalSeed /
+SIMULATIONS
+)
  
-})
+}))
 .sort(
 (a, b) =>
 b.playoffOdds -
@@ -130,38 +241,29 @@ return (
  
 <div
 style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px"
+background:"#111c2d",
+padding:"20px",
+borderRadius:"12px"
 }}
 >
  
 <h2
 style={{
-color: "#22c55e"
+color:"#22c55e"
 }}
 >
 🎲 Playoff Odds
 </h2>
  
-{playoffOdds.map(team => (
+{results.map(team => (
  
 <div
 key={team.team}
 style={{
-background: "#1b2a40",
-padding: "15px",
-borderRadius: "10px",
-marginBottom: "12px"
-}}
->
- 
-<div
-style={{
-display: "flex",
-justifyContent:
-"space-between",
-marginBottom: "8px"
+background:"#1b2a40",
+padding:"14px",
+borderRadius:"10px",
+marginBottom:"12px"
 }}
 >
  
@@ -169,46 +271,13 @@ marginBottom: "8px"
 {team.team}
 </strong>
  
-<span
-style={{
-color: "#22c55e"
-}}
->
+<br />
+ 
+Playoffs:
+{" "}
 {team.playoffOdds.toFixed(1)}%
-</span>
  
-</div>
- 
-{/* Playoff Bar */}
- 
-<div
-style={{
-height: "8px",
-borderRadius: "999px",
-background: "#08111f",
-overflow: "hidden",
-marginBottom: "10px"
-}}
->
- 
-<div
-style={{
-width:
-`${team.playoffOdds}%`,
-height: "100%",
-background:
-"#22c55e"
-}}
-/>
- 
-</div>
- 
-<div
-style={{
-fontSize: "14px",
-color: "#d1d5db"
-}}
->
+<br />
  
 Championship:
 {" "}
@@ -220,7 +289,11 @@ Sacko:
 {" "}
 {team.sackoOdds.toFixed(1)}%
  
-</div>
+<br />
+ 
+Avg Seed:
+{" "}
+{team.averageSeed.toFixed(1)}
  
 </div>
  
@@ -229,5 +302,4 @@ Sacko:
 </div>
  
 );
- 
 }
