@@ -5,8 +5,15 @@ children: React.ReactNode;
 }) {
 return (
 <html lang="en">
-<body>{children}</body>
+<body
+style={{
+background: "#08111f",
+color: "white",
+margin: 0
+}}
+>
+{children}
+</body>
 </html>
 );
 }
-Show more lines
