@@ -16,7 +16,7 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Header */}
+{/* Site Header */}
  
 <div
 style={{
@@ -43,11 +43,11 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero Cards */}
+{/* Hero Banner */}
  
 <Hero />
  
-{/* Main Dashboard */}
+{/* Main Dashboard Grid */}
  
 <div
 style={{
@@ -58,12 +58,15 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+{/* Row 1 */}
 <Standings />
 <Matchups />
  
+{/* Row 2 */}
 <PowerRankings />
 <DressTracker />
  
+{/* Row 3 */}
 <Owners />
 <PlayoffOdds />
 </div>
@@ -78,7 +81,7 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* Footer Cards */}
+{/* Bottom Row */}
  
 <div
 style={{
@@ -89,6 +92,8 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+{/* Hall of Champions */}
+ 
 <div
 style={{
 background: "#111c2d",
@@ -107,13 +112,16 @@ color: "#22c55e",
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
+marginBottom: "8px",
 }}
 >
 2026 Champion — TBD
 </div>
 </div>
+ 
+{/* Constitution */}
  
 <div
 style={{
@@ -133,7 +141,7 @@ color: "#22c55e",
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
 marginBottom: "8px",
 }}
@@ -144,7 +152,7 @@ marginBottom: "8px",
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
 marginBottom: "8px",
 }}
@@ -155,13 +163,15 @@ $222 League Buy-In
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
 }}
 >
 Dress Punishment Active
 </div>
 </div>
+ 
+{/* Record Book */}
  
 <div
 style={{
@@ -181,7 +191,7 @@ color: "#22c55e",
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
 marginBottom: "8px",
 }}
@@ -192,25 +202,9 @@ Highest Weekly Score
 <div
 style={{
 background: "#1b2a40",
-padding: "10px",
+padding: "12px",
 borderRadius: "8px",
 marginBottom: "8px",
 }}
 >
-Most Points For
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "10px",
-borderRadius: "8px",
-}}
->
-Biggest Blowout
-</div>
-</div>
-</div>
-</main>
-);
-}
+Most Points
