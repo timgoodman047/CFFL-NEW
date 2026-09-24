@@ -53,9 +53,9 @@ marginTop: "24px",
 }}
 >
 <Standings />
-<Matchups />
- 
 <PowerRankings />
+ 
+<Matchups />
 <DressTracker />
  
 <Owners />
