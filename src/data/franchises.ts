@@ -10,7 +10,7 @@ highestScore: 206.96,
 highestPlayoffScore: 182.52,
 notes:
 "Original member and former commissioner."
-};
+},
  
 {
 slug: "tim",
@@ -23,7 +23,7 @@ highestScore: 209.2,
 highestPlayoffScore: 194.68,
 notes:
 "Original member and first commissioner."
-};
+},
  
 {
 slug: "brian",
@@ -36,7 +36,7 @@ highestScore: 173.88,
 highestPlayoffScore: 192.42,
 notes:
 "Two championships and multiple playoff runs."
-};
+},
  
 {
 slug: "nick",
@@ -49,7 +49,7 @@ highestScore: 192.08,
 highestPlayoffScore: 174.94,
 notes:
 "Won championships in 2022 and 2023."
-};
+},
  
 {
 slug: "chris",
@@ -62,7 +62,7 @@ highestScore: 198.72,
 highestPlayoffScore: 192.88,
 notes:
 "2025 Champion."
-};
+},
  
 {
 slug: "jason",
@@ -75,7 +75,7 @@ highestScore: 179.18,
 highestPlayoffScore: 179.18,
 notes:
 "2015 Champion."
-};
+},
  
 {
 slug: "jeff",
@@ -88,7 +88,7 @@ highestScore: 191.42,
 highestPlayoffScore: 191.42,
 notes:
 "2024 Champion."
-};
+},
  
 {
 slug: "tom",
@@ -101,7 +101,7 @@ highestScore: 178.48,
 highestPlayoffScore: 177.24,
 notes:
 "Original member with multiple playoff appearances."
-};
+},
  
 {
 slug: "spencer",
@@ -114,7 +114,7 @@ highestScore: 191.84,
 highestPlayoffScore: 185.08,
 notes:
 "2023 runner-up."
-};
+},
  
 {
 slug: "matt",
