@@ -121,8 +121,6 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Constitution */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -153,8 +151,6 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Roadmap */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -165,7 +161,7 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Clickable Franchise Pages
+Dynamic Franchise Pages
 </div>
  
 <div style={itemStyle}>
@@ -173,7 +169,7 @@ Rivalry Tracker
 </div>
  
 <div style={itemStyle}>
-Historical Season Browser V2
+Historical Season Browser
 </div>
  
 <div style={itemStyle}>
@@ -184,4 +180,37 @@ Monte Carlo Playoff Simulator
 Championship Odds
 </div>
  
-<div style=
+<div style={itemStyle}>
+Sacko Probability
+</div>
+</div>
+ 
+<div style={cardStyle}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+📚 League History
+</h2>
+ 
+<div style={itemStyle}>
+Founded: 2006
+</div>
+ 
+<div style={itemStyle}>
+20+ Seasons Tracked
+</div>
+ 
+<div style={itemStyle}>
+Yahoo Era + Sleeper Era
+</div>
+ 
+<div style={itemStyle}>
+Historical Records Preserved
+</div>
+</div>
+</div>
+</main>
+);
+}
