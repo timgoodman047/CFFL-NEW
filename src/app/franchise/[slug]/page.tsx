@@ -9,7 +9,6 @@ slug: string;
 export default function FranchisePage({
 params,
 }: Props) {
- 
 const franchise = franchises.find(
 (f) => f.slug === params.slug
 );
@@ -45,6 +44,7 @@ padding: "24px",
 <h1
 style={{
 color: "#22c55e",
+fontSize: "48px",
 marginBottom: "8px",
 }}
 >
@@ -69,24 +69,24 @@ gap: "20px",
 }}
 >
 <StatCard
-label="🏆 Championships"
+title="🏆 Championships"
 value={franchise.championships}
 />
  
 <StatCard
-label="🎯 Playoff Trips"
+title="🎯 Playoff Trips"
 value={franchise.playoffTrips}
 />
  
 <StatCard
-label="📈 Win %"
+title="📈 Win %"
 value={`${(
 franchise.winningPct * 100
 ).toFixed(1)}%`}
 />
  
 <StatCard
-label="📋 Record"
+title="📋 Record"
 value={franchise.overallRecord}
 />
 </div>
@@ -144,7 +144,56 @@ style={{
 color: "#22c55e",
 }}
 >
-📝 Franchise Notes
+👤 Franchise Summary
+</h2>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
+Years Active: {franchise.yearsActive}
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
+Best Finish: {franchise.bestFinish}
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
+Total Money Won: {franchise.moneyWon}
+</div>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
+}}
+>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+📝 Notes
 </h2>
  
 <p>{franchise.notes}</p>
@@ -154,10 +203,10 @@ color: "#22c55e",
 }
  
 function StatCard({
-label,
+title,
 value,
 }: {
-label: string;
+title: string;
 value: string | number;
 }) {
 return (
@@ -173,7 +222,7 @@ style={{
 color: "#94a3b8",
 }}
 >
-{label}
+{title}
 </div>
  
 <div
