@@ -11,6 +11,7 @@ import HallOfChampions from "../components/HallOfChampions";
 import DynastyRankings from "../components/DynastyRankings";
 import FranchiseProfiles from "../components/FranchiseProfiles";
 import RecordBook from "../components/RecordBook";
+import SeasonBrowser from "../components/SeasonBrowser";
  
 const cardStyle = {
 background: "#111c2d",
@@ -105,6 +106,8 @@ marginTop: "24px",
  
 <FranchiseProfiles />
 <RecordBook />
+ 
+<SeasonBrowser />
 </div>
  
 {/* League Information */}
@@ -162,7 +165,7 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Dynamic Franchise Pages
+Clickable Franchise Pages
 </div>
  
 <div style={itemStyle}>
@@ -170,7 +173,7 @@ Rivalry Tracker
 </div>
  
 <div style={itemStyle}>
-Historical Season Browser
+Historical Season Browser V2
 </div>
  
 <div style={itemStyle}>
@@ -181,39 +184,4 @@ Monte Carlo Playoff Simulator
 Championship Odds
 </div>
  
-<div style={itemStyle}>
-Sacko Probability
-</div>
-</div>
- 
-{/* League History */}
- 
-<div style={cardStyle}>
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📚 League History
-</h2>
- 
-<div style={itemStyle}>
-Founded: 2006
-</div>
- 
-<div style={itemStyle}>
-20+ Seasons Tracked
-</div>
- 
-<div style={itemStyle}>
-Yahoo Era + Sleeper Era
-</div>
- 
-<div style={itemStyle}>
-Historical Records Preserved
-</div>
-</div>
-</div>
-</main>
-);
-}
+<div style=
