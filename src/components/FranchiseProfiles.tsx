@@ -1,68 +1,48 @@
 import Link from "next/link";
+import { franchises } from "../data/franchises";
  
-import {
-franchises
-}
-from "../data/franchises";
- 
-export default function FranchiseProfiles(){
- 
+export default function FranchiseProfiles() {
 return (
- 
 <div
 style={{
-background:"#111c2d",
-padding:"20px",
-borderRadius:"12px"
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
 }}
 >
- 
 <h2
 style={{
-color:"#22c55e"
+color: "#22c55e",
 }}
 >
 👤 Franchise Profiles
 </h2>
  
-{franchises.map(franchise => (
- 
+{franchises.map((franchise) => (
 {`/franchise/${franchise.slug}`}
- 
 <div
 style={{
-background:"#1b2a40",
-padding:"12px",
-borderRadius:"8px",
-marginBottom:"10px",
-cursor:"pointer"
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+cursor: "pointer",
 }}
 >
- 
 <strong>
 {franchise.owner}
 </strong>
  
 <br />
  
-Championships:
-{" "}
-{franchise.championships}
+Championships: {franchise.championships}
  
 <br />
  
-Playoff Trips:
-{" "}
-{franchise.playoffTrips}
- 
+Playoff Trips: {franchise.playoffTrips}
 </div>
- 
 </Link>
- 
 ))}
- 
 </div>
- 
 );
- 
 }
