@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { franchises } from "../data/franchises";
  
 export default function FranchiseProfiles() {
