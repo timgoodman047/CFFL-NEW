@@ -7,12 +7,11 @@ import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
- 
 import HallOfChampions from "../components/HallOfChampions";
 import DynastyRankings from "../components/DynastyRankings";
-import FranchiseProfiles from "../components/FranchiseProfiles";
+import HistoryDashboard from "../components/HistoryDashboard";
 import RecordBook from "../components/RecordBook";
-
+ 
 const cardStyle = {
 background: "#111c2d",
 padding: "20px",
@@ -35,7 +34,7 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Site Header */}
+{/* Header */}
  
 <div
 style={{
@@ -62,7 +61,7 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero Section */}
+{/* Hero */}
  
 <Hero />
  
@@ -90,7 +89,7 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* History Section */}
+{/* History & Legacy */}
  
 <div
 style={{
@@ -101,19 +100,20 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+<HistoryDashboard />
 <HallOfChampions />
-<DynastyRankings />
  
-<FranchiseProfiles />
+<DynastyRankings />
+<RecordBook />
 </div>
  
-{/* Footer Section */}
+{/* League Information */}
  
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(400px,1fr))",
+"repeat(auto-fit,minmax(350px,1fr))",
 gap: "20px",
 marginTop: "24px",
 }}
@@ -150,10 +150,6 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Record Book */}
- 
-<RecordBook />
- 
 {/* Roadmap */}
  
 <div style={cardStyle}>
@@ -182,7 +178,39 @@ Franchise Pages
 </div>
  
 <div style={itemStyle}>
+Rivalry Tracker
+</div>
+ 
+<div style={itemStyle}>
 Matchup Impact Scores
+</div>
+</div>
+ 
+{/* League History Summary */}
+ 
+<div style={cardStyle}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+📚 League History
+</h2>
+ 
+<div style={itemStyle}>
+Founded: 2006
+</div>
+ 
+<div style={itemStyle}>
+20+ Seasons of History
+</div>
+ 
+<div style={itemStyle}>
+Historical Records Tracked
+</div>
+ 
+<div style={itemStyle}>
+Championship Archive
 </div>
 </div>
 </div>
