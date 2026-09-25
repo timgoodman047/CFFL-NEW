@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import FranchiseProfiles from "../components/FranchiseProfiles";
 import Standings from "../components/Standings";
 import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
@@ -101,6 +102,8 @@ marginTop: "24px",
 >
 <HallOfChampions />
 <DynastyRankings />
+ 
+<FranchiseProfiles />
 </div>
  
 {/* Footer Section */}
@@ -109,7 +112,7 @@ marginTop: "24px",
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(350px,1fr))",
+"repeat(auto-fit,minmax(400px,1fr))",
 gap: "20px",
 marginTop: "24px",
 }}
