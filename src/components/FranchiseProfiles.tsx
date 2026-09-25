@@ -32,7 +32,7 @@ marginBottom: "10px",
  
 <br />
  
-Record: {franchise.record}
+Record: {franchise.overallRecord}
  
 <br />
  
