@@ -102,7 +102,7 @@ marginBottom: "10px",
  
 <br />
  
-{season.highestScore}
+{season.highestScore ?? "N/A"}
 </div>
  
 <div
@@ -116,7 +116,7 @@ borderRadius: "8px",
  
 <br />
  
-{season.notes}
+{season.notes ?? "No notes available."}
 </div>
 </div>
 );
