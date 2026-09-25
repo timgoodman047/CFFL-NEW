@@ -12,7 +12,7 @@ import HallOfChampions from "../components/HallOfChampions";
 import DynastyRankings from "../components/DynastyRankings";
 import FranchiseProfiles from "../components/FranchiseProfiles";
 import RecordBook from "../components/RecordBook";
-`
+
 const cardStyle = {
 background: "#111c2d",
 padding: "20px",
