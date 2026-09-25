@@ -66,7 +66,7 @@ owner: "Brian",
 championships: 2,
 playoffTrips: 12,
 winningPct: 0.520,
-notes: "Always around the playoff bubble."
+notes: "Consistent playoff contender."
 },
  
 {
