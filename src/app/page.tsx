@@ -7,6 +7,8 @@ import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
+import HallOfChampions from "../components/HallOfChampions";
+import DynastyRankings from "../components/DynastyRankings";
  
 export default function Home() {
 return (
@@ -59,28 +61,35 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Row 1 */}
- 
 <Standings />
 <Matchups />
- 
-{/* Row 2 */}
  
 <PowerRankings />
 <DressTracker />
  
-{/* Row 3 */}
- 
 <Owners />
 <PlayoffOdds />
- 
-{/* Row 4 */}
  
 <WeeklyAwards />
 <News />
 </div>
  
-{/* Footer Grid */}
+{/* Legacy / History Section */}
+ 
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(450px,1fr))",
+gap: "20px",
+marginTop: "24px",
+}}
+>
+<HallOfChampions />
+<DynastyRankings />
+</div>
+ 
+{/* Footer Cards */}
  
 <div
 style={{
@@ -91,45 +100,6 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Hall of Champions */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-🏆 Hall of Champions
-</h2>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-2026 Champion — TBD
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-League History Coming Soon
-</div>
-</div>
- 
 {/* Constitution */}
  
 <div
@@ -167,6 +137,17 @@ marginBottom: "8px",
 }}
 >
 $222 League Buy-In
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+$1,100 Championship Prize
 </div>
  
 <div
@@ -216,7 +197,18 @@ borderRadius: "8px",
 marginBottom: "8px",
 }}
 >
-Most Points For
+Highest Playoff Score
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+Most Points For Season
 </div>
  
 <div
@@ -226,7 +218,68 @@ padding: "12px",
 borderRadius: "8px",
 }}
 >
-Biggest Blowout
+Longest Winning Streak
+</div>
+</div>
+ 
+{/* Future Feature Card */}
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+}}
+>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+🚀 Coming Soon
+</h2>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+True Monte Carlo Playoff Simulator
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+Championship Odds
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+}}
+>
+Sacko Odds
+</div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
+Franchise Pages
 </div>
 </div>
 </div>
