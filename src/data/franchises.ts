@@ -8,6 +8,9 @@ championships: 4,
 playoffTrips: 15,
 highestScore: 206.96,
 highestPlayoffScore: 182.52,
+yearsActive: "2006-Present",
+bestFinish: "Champion",
+moneyWon: "$1355",
 notes:
 "Original member and former commissioner."
 },
@@ -21,6 +24,9 @@ championships: 3,
 playoffTrips: 15,
 highestScore: 209.2,
 highestPlayoffScore: 194.68,
+yearsActive: "2006-Present",
+bestFinish: "Champion",
+moneyWon: "$1798.34",
 notes:
 "Original member and first commissioner."
 },
@@ -34,8 +40,11 @@ championships: 2,
 playoffTrips: 12,
 highestScore: 173.88,
 highestPlayoffScore: 192.42,
+yearsActive: "2006-Present",
+bestFinish: "Champion",
+moneyWon: "$1453.33",
 notes:
-"Two championships and multiple playoff runs."
+"Won titles in 2010 and 2016."
 },
  
 {
@@ -47,6 +56,9 @@ championships: 2,
 playoffTrips: 5,
 highestScore: 192.08,
 highestPlayoffScore: 174.94,
+yearsActive: "2018-Present",
+bestFinish: "Champion",
+moneyWon: "$1715",
 notes:
 "Won championships in 2022 and 2023."
 },
@@ -60,6 +72,9 @@ championships: 2,
 playoffTrips: 8,
 highestScore: 198.72,
 highestPlayoffScore: 192.88,
+yearsActive: "2008-Present",
+bestFinish: "Champion",
+moneyWon: "$1135",
 notes:
 "2025 Champion."
 },
@@ -73,8 +88,11 @@ championships: 1,
 playoffTrips: 9,
 highestScore: 179.18,
 highestPlayoffScore: 179.18,
+yearsActive: "2011-Present",
+bestFinish: "Champion",
+moneyWon: "$1910",
 notes:
-"2015 Champion."
+"Won championship in 2015."
 },
  
 {
@@ -86,34 +104,11 @@ championships: 1,
 playoffTrips: 4,
 highestScore: 191.42,
 highestPlayoffScore: 191.42,
+yearsActive: "2021-Present",
+bestFinish: "Champion",
+moneyWon: "$1258.33",
 notes:
-"2024 Champion."
-},
- 
-{
-slug: "tom",
-owner: "Tom",
-overallRecord: "107-131-1",
-winningPct: 0.450,
-championships: 0,
-playoffTrips: 9,
-highestScore: 178.48,
-highestPlayoffScore: 177.24,
-notes:
-"Original member with multiple playoff appearances."
-},
- 
-{
-slug: "spencer",
-owner: "Spencer",
-overallRecord: "101-137-1",
-winningPct: 0.425,
-championships: 0,
-playoffTrips: 6,
-highestScore: 191.84,
-highestPlayoffScore: 185.08,
-notes:
-"2023 runner-up."
+"Won the title in 2024."
 },
  
 {
@@ -125,9 +120,42 @@ championships: 0,
 playoffTrips: 10,
 highestScore: 198.72,
 highestPlayoffScore: 172.58,
+yearsActive: "2006-Present",
+bestFinish: "Runner-Up",
+moneyWon: "$430",
 notes:
-"Longest winning streak of five games in 2016."
-}
+"Original member. Multiple playoff appearances but still chasing a title."
+},
  
+{
+slug: "tom",
+owner: "Tom",
+overallRecord: "107-131-1",
+winningPct: 0.450,
+championships: 0,
+playoffTrips: 9,
+highestScore: 178.48,
+highestPlayoffScore: 177.24,
+yearsActive: "2006-Present",
+bestFinish: "Runner-Up",
+moneyWon: "$690",
+notes:
+"Original member with multiple deep playoff runs."
+},
+ 
+{
+slug: "spencer",
+owner: "Spencer",
+overallRecord: "101-137-1",
+winningPct: 0.425,
+championships: 0,
+playoffTrips: 6,
+highestScore: 191.84,
+highestPlayoffScore: 185.08,
+yearsActive: "2008-Present",
+bestFinish: "Runner-Up",
+moneyWon: "$510",
+notes:
+"Runner-up in 2023. Highest playoff score of 185.08."
+}
 ];
-``
