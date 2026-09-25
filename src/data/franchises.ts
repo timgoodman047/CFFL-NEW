@@ -1,63 +1,29 @@
 export const franchises = [
-{
-slug: "tim",
-owner: "Tim",
-championships: 5,
-playoffTrips: 16,
-winningPct: 0.577,
-highestScore: 209.2,
-highestPlayoffScore: 194.68,
-notes: "Original member and multiple-time champion."
-},
  
 {
 slug: "danny",
 owner: "Danny",
 championships: 4,
 playoffTrips: 15,
-winningPct: 0.581,
+winningPct: .581,
+overallRecord: "145-104-4",
 highestScore: 206.96,
-notes: "Original member and former commissioner."
+highestPlayoffScore: 182.52,
+notes:
+"Original member and former commissioner."
 },
  
 {
-slug: "chris",
-owner: "Chris",
-championships: 2,
-playoffTrips: 14,
-winningPct: 0.447,
-highestPlayoffScore: 192.88,
-notes: "Won the 2025 Championship."
-},
- 
-{
-slug: "tom",
-owner: "Tom",
+slug: "tim",
+owner: "Tim",
 championships: 3,
 playoffTrips: 15,
-winningPct: 0.515,
-highestPlayoffScore: 177.24,
-notes: "Long-time contender."
-},
- 
-{
-slug: "spencer",
-owner: "Spencer",
-championships: 1,
-playoffTrips: 8,
-winningPct: 0.425,
-highestPlayoffScore: 185.08,
-notes: "2023 playoff scoring machine."
-},
- 
-{
-slug: "nick",
-owner: "Nick",
-championships: 2,
-playoffTrips: 10,
-winningPct: 0.509,
-highestScore: 192.08,
-notes: "Recent dynasty-era success."
+winningPct: .577,
+overallRecord: "145-106-2",
+highestScore: 209.2,
+highestPlayoffScore: 194.68,
+notes:
+"Original member and first commissioner."
 },
  
 {
@@ -65,26 +31,90 @@ slug: "brian",
 owner: "Brian",
 championships: 2,
 playoffTrips: 12,
-winningPct: 0.520,
-notes: "Consistent playoff contender."
+winningPct: .520,
+overallRecord: "131-121-1",
+highestScore: 173.88,
+highestPlayoffScore: 192.42,
+notes:
+"Won titles in 2010 and 2016."
+},
+ 
+{
+slug: "nick",
+owner: "Nick",
+championships: 2,
+playoffTrips: 5,
+winningPct: .509,
+overallRecord: "55-53-1",
+highestScore: 192.08,
+highestPlayoffScore: 174.94,
+notes:
+"Won championships in 2022 and 2023."
+},
+ 
+{
+slug: "chris",
+owner: "Chris",
+championships: 2,
+playoffTrips: 8,
+winningPct: .437,
+overallRecord: "103-133-3",
+highestScore: 198.72,
+highestPlayoffScore: 192.88,
+notes:
+"2025 champion."
+},
+ 
+{
+slug: "jason",
+owner: "Jason",
+championships: 1,
+playoffTrips: 9,
+winningPct: .515,
+overallRecord: "102-96-2",
+highestScore: 179.18,
+highestPlayoffScore: 179.18,
+notes:
+"Won championship in 2015."
 },
  
 {
 slug: "jeff",
 owner: "Jeff",
 championships: 1,
-playoffTrips: 8,
-winningPct: 0.514,
-notes: "Strong postseason history."
+playoffTrips: 4,
+winningPct: .514,
+overallRecord: "36-34-0",
+highestScore: 191.42,
+highestPlayoffScore: 191.42,
+notes:
+"Champion in 2024."
 },
  
 {
-slug: "jason",
-owner: "Jason",
-championships: 3,
-playoffTrips: 12,
-winningPct: 0.489,
-highestPlayoffScore: 179.18,
-notes: "Several deep playoff runs."
+slug: "tom",
+owner: "Tom",
+championships: 0,
+playoffTrips: 9,
+winningPct: .450,
+overallRecord: "107-131-1",
+highestScore: 178.48,
+highestPlayoffScore: 177.24,
+notes:
+"Long-time league member with multiple deep playoff runs."
+},
+ 
+{
+slug: "spencer",
+owner: "Spencer",
+championships: 0,
+playoffTrips: 6,
+winningPct: .425,
+overallRecord: "101-137-1",
+highestScore: 191.84,
+highestPlayoffScore: 185.08,
+notes:
+"Runner-up in 2023."
 }
+ 
 ];
