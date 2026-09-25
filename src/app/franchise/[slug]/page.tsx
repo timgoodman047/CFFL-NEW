@@ -7,25 +7,16 @@ params: Promise<{
 slug: string;
 }>;
 }) {
-const { slug } = await params;
  
-const franchise = franchises.find(
-(f) => f.slug === slug
+const { slug } =
+await params;
+ 
+const franchise =
+franchises.find(
+f => f.slug === slug
 );
  
 if (!franchise) {
-return (
-<main
-style={{
-maxWidth: "1200px",
-margin: "0 auto",
-padding: "24px",
-}}
->
-<h1>Franchise Not Found</h1>
-</main>
-);
-}
  
 return (
 <main
@@ -35,6 +26,24 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
+<h1>
+Franchise Not Found
+</h1>
+</main>
+);
+ 
+}
+ 
+return (
+ 
+<main
+style={{
+maxWidth: "1200px",
+margin: "0 auto",
+padding: "24px",
+}}
+>
+ 
 <h1
 style={{
 color: "#22c55e",
@@ -47,13 +56,10 @@ marginBottom: "8px",
 <p
 style={{
 color: "#94a3b8",
-marginBottom: "24px",
 }}
 >
 Franchise Profile
 </p>
- 
-{/* Overview */}
  
 <div
 style={{
@@ -61,32 +67,35 @@ display: "grid",
 gridTemplateColumns:
 "repeat(auto-fit,minmax(250px,1fr))",
 gap: "20px",
+marginTop: "24px",
 }}
 >
+ 
 <StatCard
-title="🏆 Championships"
+label="🏆 Championships"
 value={franchise.championships}
 />
  
 <StatCard
-title="🎯 Playoff Trips"
+label="🎯 Playoff Trips"
 value={franchise.playoffTrips}
 />
  
 <StatCard
-title="📈 Win %"
-value={`${(
+label="📈 Win %"
+value={
+`${(
 franchise.winningPct * 100
-).toFixed(1)}%`}
+).toFixed(1)}%`
+}
 />
  
 <StatCard
-title="📋 Record"
+label="📋 Record"
 value={franchise.overallRecord}
 />
-</div>
  
-{/* Records */}
+</div>
  
 <div
 style={{
@@ -96,6 +105,7 @@ borderRadius: "12px",
 marginTop: "24px",
 }}
 >
+ 
 <h2
 style={{
 color: "#22c55e",
@@ -104,20 +114,32 @@ color: "#22c55e",
 📊 Franchise Records
 </h2>
  
-<div style={recordCard}>
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
 Highest Score:
 {" "}
 {franchise.highestScore}
 </div>
  
-<div style={recordCard}>
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
 Highest Playoff Score:
 {" "}
 {franchise.highestPlayoffScore}
 </div>
-</div>
  
-{/* Notes */}
+</div>
  
 <div
 style={{
@@ -127,28 +149,37 @@ borderRadius: "12px",
 marginTop: "24px",
 }}
 >
+ 
 <h2
 style={{
 color: "#22c55e",
 }}
 >
-📝 Franchise Notes
+📝 Notes
 </h2>
  
-<p>{franchise.notes}</p>
+<p>
+{franchise.notes}
+</p>
+ 
 </div>
+ 
 </main>
+ 
 );
+ 
 }
  
 function StatCard({
-title,
+label,
 value,
 }: {
-title: string;
+label: string;
 value: string | number;
 }) {
+ 
 return (
+ 
 <div
 style={{
 background: "#111c2d",
@@ -156,31 +187,28 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
+ 
 <div
 style={{
 color: "#94a3b8",
 }}
 >
-{title}
+{label}
 </div>
  
 <div
 style={{
 color: "#22c55e",
-fontSize: "32px",
 fontWeight: "bold",
-marginTop: "10px",
+fontSize: "32px",
+marginTop: "8px",
 }}
 >
 {value}
 </div>
-</div>
-);
-}
  
-const recordCard = {
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-};
+</div>
+ 
+);
+ 
+}
