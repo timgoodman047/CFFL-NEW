@@ -1,4 +1,3 @@
-import FranchiseProfiles from "../components/FranchiseProfiles";
 import Hero from "../components/Hero";
 import Standings from "../components/Standings";
 import Matchups from "../components/Matchups";
@@ -8,6 +7,7 @@ import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
+import HallOfChampions from "../components/HallOfChampions";
 import RecordBook from "../components/RecordBook";
  
 const cardStyle = {
@@ -87,18 +87,19 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* History & Legacy */}
+{/* History Section */}
  
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(450px,1fr))",
+"repeat(auto-fit,minmax(500px,1fr))",
 gap: "20px",
 marginTop: "24px",
 }}
 >
-
+<HallOfChampions />
+<RecordBook />
 </div>
  
 {/* League Information */}
@@ -112,8 +113,6 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Constitution */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -144,8 +143,6 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Roadmap */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -156,7 +153,15 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Real Monte Carlo Simulator
+Dynasty Rankings
+</div>
+ 
+<div style={itemStyle}>
+Franchise Profiles
+</div>
+ 
+<div style={itemStyle}>
+Rivalry Tracker
 </div>
  
 <div style={itemStyle}>
@@ -168,19 +173,9 @@ Sacko Probability
 </div>
  
 <div style={itemStyle}>
-Franchise Pages
-</div>
- 
-<div style={itemStyle}>
-Rivalry Tracker
-</div>
- 
-<div style={itemStyle}>
-Matchup Impact Scores
+Real Monte Carlo Simulator
 </div>
 </div>
- 
-{/* League History Summary */}
  
 <div style={cardStyle}>
 <h2
@@ -196,15 +191,15 @@ Founded: 2006
 </div>
  
 <div style={itemStyle}>
-20+ Seasons of History
+20+ Seasons Tracked
 </div>
  
 <div style={itemStyle}>
-Historical Records Tracked
+Historical Records Available
 </div>
  
 <div style={itemStyle}>
-Championship Archive
+Yahoo Era + Sleeper Era
 </div>
 </div>
 </div>
