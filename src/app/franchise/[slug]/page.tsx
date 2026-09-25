@@ -1,12 +1,4 @@
-JSX
-export default async function FranchisePage({
-params,
-}: {
-params: Promise<{ slug: string }>;
-}) {
- 
-const { slug } = await params;
- 
+export default function FranchisePage() {
 return (
 <main
 style={{
@@ -20,7 +12,7 @@ style={{
 color: "#22c55e",
 }}
 >
-Franchise: {slug}
+Franchise Page Test
 </h1>
  
 <div
@@ -31,7 +23,7 @@ borderRadius: "12px",
 marginTop: "20px",
 }}
 >
-Franchise page is working.
+Dynamic route is working.
 </div>
 </main>
 );
