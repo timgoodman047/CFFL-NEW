@@ -8,8 +8,7 @@ slug: string;
 }>;
 }) {
  
-const { slug } =
-await params;
+const { slug } = await params;
  
 const franchise =
 franchises.find(
@@ -21,14 +20,10 @@ if (!franchise) {
 return (
 <main
 style={{
-maxWidth: "1200px",
-margin: "0 auto",
-padding: "24px",
+padding: "24px"
 }}
 >
-<h1>
 Franchise Not Found
-</h1>
 </main>
 );
  
@@ -38,7 +33,7 @@ return (
  
 <main
 style={{
-maxWidth: "1200px",
+maxWidth: "1400px",
 margin: "0 auto",
 padding: "24px",
 }}
@@ -47,7 +42,8 @@ padding: "24px",
 <h1
 style={{
 color: "#22c55e",
-marginBottom: "8px",
+fontSize: "48px",
+marginBottom: "10px",
 }}
 >
 {franchise.owner}
@@ -56,6 +52,7 @@ marginBottom: "8px",
 <p
 style={{
 color: "#94a3b8",
+marginBottom: "24px",
 }}
 >
 Franchise Profile
@@ -67,22 +64,21 @@ display: "grid",
 gridTemplateColumns:
 "repeat(auto-fit,minmax(250px,1fr))",
 gap: "20px",
-marginTop: "24px",
 }}
 >
  
-<StatCard
-label="🏆 Championships"
+<Stat
+title="🏆 Championships"
 value={franchise.championships}
 />
  
-<StatCard
-label="🎯 Playoff Trips"
+<Stat
+title="🎯 Playoff Trips"
 value={franchise.playoffTrips}
 />
  
-<StatCard
-label="📈 Win %"
+<Stat
+title="📈 Win %"
 value={
 `${(
 franchise.winningPct * 100
@@ -90,8 +86,8 @@ franchise.winningPct * 100
 }
 />
  
-<StatCard
-label="📋 Record"
+<Stat
+title="📋 Record"
 value={franchise.overallRecord}
 />
  
@@ -99,63 +95,68 @@ value={franchise.overallRecord}
  
 <div
 style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
+background:"#111c2d",
+padding:"20px",
+borderRadius:"12px",
+marginTop:"24px",
 }}
 >
  
 <h2
 style={{
-color: "#22c55e",
+color:"#22c55e",
 }}
 >
-📊 Franchise Records
+📊 Career Records
 </h2>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-Highest Score:
+<p>
+Highest Weekly Score:
 {" "}
 {franchise.highestScore}
-</div>
+</p>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
+<p>
 Highest Playoff Score:
 {" "}
 {franchise.highestPlayoffScore}
-</div>
+</p>
+ 
+<p>
+Years Active:
+{" "}
+{franchise.yearsActive}
+</p>
+ 
+<p>
+Best Finish:
+{" "}
+{franchise.bestFinish}
+</p>
+ 
+<p>
+Money Won:
+{" "}
+{franchise.moneyWon}
+</p>
  
 </div>
  
 <div
 style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
+background:"#111c2d",
+padding:"20px",
+borderRadius:"12px",
+marginTop:"24px",
 }}
 >
  
 <h2
 style={{
-color: "#22c55e",
+color:"#22c55e",
 }}
 >
-📝 Notes
+📝 Franchise Notes
 </h2>
  
 <p>
@@ -170,38 +171,38 @@ color: "#22c55e",
  
 }
  
-function StatCard({
-label,
-value,
-}: {
-label: string;
-value: string | number;
-}) {
+function Stat({
+title,
+value
+}:{
+title:string;
+value:string|number;
+}){
  
-return (
+return(
  
 <div
 style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
+background:"#111c2d",
+padding:"20px",
+borderRadius:"12px",
 }}
 >
  
 <div
 style={{
-color: "#94a3b8",
+color:"#94a3b8",
 }}
 >
-{label}
+{title}
 </div>
  
 <div
 style={{
-color: "#22c55e",
-fontWeight: "bold",
-fontSize: "32px",
-marginTop: "8px",
+color:"#22c55e",
+fontSize:"32px",
+fontWeight:"bold",
+marginTop:"10px",
 }}
 >
 {value}
