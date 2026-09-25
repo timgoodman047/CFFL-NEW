@@ -1,4 +1,8 @@
+import { franchises } from "../../../data/franchises";
+ 
 export default function FranchisePage() {
+const franchise = franchises[0];
+ 
 return (
 <main
 style={{
@@ -12,7 +16,7 @@ style={{
 color: "#22c55e",
 }}
 >
-Franchise Page Test
+{franchise.owner}
 </h1>
  
 <div
@@ -23,7 +27,15 @@ borderRadius: "12px",
 marginTop: "20px",
 }}
 >
-Dynamic route is working.
+Championships: {franchise.championships}
+ 
+<br />
+ 
+Playoff Trips: {franchise.playoffTrips}
+ 
+<br />
+ 
+Record: {franchise.overallRecord}
 </div>
 </main>
 );
