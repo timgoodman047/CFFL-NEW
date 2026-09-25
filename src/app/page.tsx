@@ -9,6 +9,7 @@ import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
 import HallOfChampions from "../components/HallOfChampions";
 import DynastyRankings from "../components/DynastyRankings";
+import FranchiseProfiles from "../components/FranchiseProfiles";
 import RecordBook from "../components/RecordBook";
  
 const cardStyle = {
@@ -33,7 +34,13 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-<div style={{ marginBottom: "24px" }}>
+{/* Header */}
+ 
+<div
+style={{
+marginBottom: "24px",
+}}
+>
 <h1
 style={{
 color: "#22c55e",
@@ -54,7 +61,11 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
+{/* Hero */}
+ 
 <Hero />
+ 
+{/* Current Season Dashboard */}
  
 <div
 style={{
@@ -78,6 +89,8 @@ marginTop: "24px",
 <News />
 </div>
  
+{/* Historical Section */}
+ 
 <div
 style={{
 display: "grid",
@@ -90,8 +103,11 @@ marginTop: "24px",
 <HallOfChampions />
 <DynastyRankings />
  
+<FranchiseProfiles />
 <RecordBook />
 </div>
+ 
+{/* League Information */}
  
 <div
 style={{
@@ -102,6 +118,8 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+{/* Constitution */}
+ 
 <div style={cardStyle}>
 <h2
 style={{
@@ -132,6 +150,8 @@ Dress Punishment Active
 </div>
 </div>
  
+{/* Future Roadmap */}
+ 
 <div style={cardStyle}>
 <h2
 style={{
@@ -142,7 +162,7 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Franchise Profile Pages
+Dynamic Franchise Pages
 </div>
  
 <div style={itemStyle}>
@@ -160,7 +180,13 @@ Championship Odds
 <div style={itemStyle}>
 Sacko Probability
 </div>
+ 
+<div style={itemStyle}>
+Historical Season Browser
 </div>
+</div>
+ 
+{/* League History */}
  
 <div style={cardStyle}>
 <h2
