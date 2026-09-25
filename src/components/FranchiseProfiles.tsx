@@ -19,13 +19,13 @@ color: "#22c55e",
 </h2>
  
 {franchises.map((franchise) => (
-{`/franchise/${franchise.slug}`}
-<div
-style={{
-background: "#1b2a40",
+<Link
+key={franchise.slug}
+href={`/franchise/${franchise background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
 marginBottom: "10px",
+cursor: "pointer",
 }}
 >
 <strong>
@@ -34,15 +34,15 @@ marginBottom: "10px",
  
 <br />
  
-Record:
-{" "}
-{franchise.overallRecord}
+Record: {franchise.overallRecord}
  
 <br />
  
-Championships:
-{" "}
-{franchise.championships}
+Championships: {franchise.championships}
+ 
+<br />
+ 
+Playoff Trips: {franchise.playoffTrips}
 </div>
 </Link>
 ))}
