@@ -30,6 +30,7 @@ r.settings?.fpts_decimal || 0
 );
  
 return {
+ 
 team:
 owner?.metadata?.team_name ||
 owner?.display_name ||
@@ -38,63 +39,87 @@ owner?.display_name ||
 wins,
 losses,
 pf
+ 
 };
  
 });
  
-// LEAGUE LEADER
+// League leader
  
 const leader =
 [...teams]
-.sort((a,b)=>{
+.sort((a, b) => {
  
-if(b.wins !== a.wins){
-return b.wins-a.wins;
+if (b.wins !== a.wins) {
+return b.wins - a.wins;
 }
  
-return b.pf-a.pf;
+return b.pf - a.pf;
  
 })[0];
  
-// BIGGEST THREAT
+// Highest scoring team
  
-const contender =
+const highestPF =
 [...teams]
-.sort((a,b)=>b.pf-a.pf)[0];
+.sort(
+(a, b) =>
+b.pf - a.pf
+)[0];
  
-// SACKO FAVORITE
+// Sacko favorite
  
 const sacko =
 [...teams]
-.sort((a,b)=>a.pf-b.pf)[0];
+.sort(
+(a, b) =>
+a.pf - b.pf
+)[0];
+ 
+// Playoff bubble
+ 
+const bubble =
+[...teams]
+.sort((a, b) => {
+ 
+if (b.wins !== a.wins) {
+return b.wins - a.wins;
+}
+ 
+return b.pf - a.pf;
+ 
+})[5];
  
 const headline =
-`${leader.team} continues to lead the league while ${sacko.team} remains under heavy Sacko pressure.`;
+`${leader.team} continues to control the league race while ${sacko.team} remains stuck on Sacko Watch.`;
  
 return (
  
 <div
 style={{
-background:"#111c2d",
-padding:"20px",
-borderRadius:"12px"
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
 }}
 >
  
 <h2
 style={{
-color:"#22c55e"
+color: "#22c55e",
 }}
 >
 📰 League News Network
 </h2>
  
+{/* Headline */}
+ 
 <div
 style={{
-background:"#1b2a40",
-padding:"15px",
-borderRadius:"10px",
-marginBottom:"12px"
+background: "#1b2a40",
+padding: "15px",
+borderRadius: "10px",
+marginBottom: "12px",
+lineHeight: "1.6",
 }}
 >
  
@@ -108,12 +133,14 @@ Headline
  
 </div>
  
+{/* League Leader */}
+ 
 <div
 style={{
-background:"#1b2a40",
-padding:"15px",
-borderRadius:"10px",
-marginBottom:"12px"
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "10px",
+marginBottom: "10px",
 }}
 >
  
@@ -133,36 +160,61 @@ Record:
  
 </div>
  
+{/* Highest PF */}
+ 
 <div
 style={{
-background:"#1b2a40",
-padding:"15px",
-borderRadius:"10px",
-marginBottom:"12px"
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "10px",
+marginBottom: "10px",
 }}
 >
  
 <strong>
-🔥 Biggest Threat
+🔥 Highest Scoring Team
 </strong>
  
 <br />
  
-{contender.team}
+{highestPF.team}
  
 <br />
  
 PF:
 {" "}
-{contender.pf.toFixed(2)}
+{highestPF.pf.toFixed(2)}
  
 </div>
  
+{/* Bubble Team */}
+ 
 <div
 style={{
-background:"#1b2a40",
-padding:"15px",
-borderRadius:"10px"
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "10px",
+marginBottom: "10px",
+}}
+>
+ 
+<strong>
+📈 Playoff Bubble
+</strong>
+ 
+<br />
+ 
+{bubble?.team || "TBD"}
+ 
+</div>
+ 
+{/* Sacko Watch */}
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "10px",
 }}
 >
  
