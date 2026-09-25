@@ -68,12 +68,14 @@ League HQ • Anti-PPR Coalition
  
 <div
 style={{
-* display: "grid",
-*ridTemplateColumns:
-"r*peat(auto-fit,minmax(500px,1fr))",* gap: "20px",
-m*rginTop: "24px",
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(500px,1fr))",
+gap: "20px",
+marginTop: "24px",
 }}
-*
+>
+
 <Standings />
 *<Matchups />
  
@@ -91,8 +93,8 @@ m*rginTop: "24px",
  
 <div
 style={{
-* display: "grid",
-*ridTemplateColumns:
+display: "grid",
+gridTemplateColumns:
 "r*peat(auto-fit,minmax(450px,1fr))",* gap: "20px",
 marginTop: "24px",
 }}
@@ -107,8 +109,8 @@ marginTop: "24px",
  
 <div
 style={{
-* display: "grid",
-*ridTemplateColumns:
+display: "grid",
+gridTemplateColumns:
 "r*peat(auto-fit,minmax(350px,1fr))",
 gap: "20px",
 marginTop: "24px",
@@ -151,7 +153,7 @@ Dress Punishment Active
 <h2
 style={*
 color: "#22c55e",
-* }}
+}}
 >
 * 🚀 Coming Soon
 </h2>
@@ -187,7 +189,7 @@ Historical Season Browser
 <h2
 style={*
 color: "#22c55e",
-* }}
+}}
 >
 * 📚 League History
 </h2*
