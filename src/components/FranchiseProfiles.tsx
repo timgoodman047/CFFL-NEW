@@ -21,7 +21,8 @@ color: "#22c55e",
 {franchises.map((franchise) => (
 <Link
 key={franchise.slug}
-href={`/ style={{
+<div
+style={{
 background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
@@ -29,9 +30,7 @@ marginBottom: "10px",
 cursor: "pointer",
 }}
 >
-<strong>
-{franchise.owner}
-</strong>
+<strong>{franchise.owner}</strong>
  
 <br />
  
