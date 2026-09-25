@@ -9,6 +9,20 @@ import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
 import HallOfChampions from "../components/HallOfChampions";
 import DynastyRankings from "../components/DynastyRankings";
+import RecordBook from "../components/RecordBook";
+ 
+const cardStyle = {
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+};
+ 
+const itemStyle = {
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "8px",
+};
  
 export default function Home() {
 return (
@@ -19,7 +33,7 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Header */}
+{/* Site Header */}
  
 <div
 style={{
@@ -46,7 +60,7 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero */}
+{/* Hero Section */}
  
 <Hero />
  
@@ -74,7 +88,7 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* Legacy / History Section */}
+{/* History Section */}
  
 <div
 style={{
@@ -89,7 +103,7 @@ marginTop: "24px",
 <DynastyRankings />
 </div>
  
-{/* Footer Cards */}
+{/* Footer Section */}
  
 <div
 style={{
@@ -102,13 +116,7 @@ marginTop: "24px",
 >
 {/* Constitution */}
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
+<div style={cardStyle}>
 <h2
 style={{
 color: "#22c55e",
@@ -117,120 +125,34 @@ color: "#22c55e",
 📜 Constitution
 </h2>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
+<div style={itemStyle}>
 2 Keepers Allowed
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
+<div style={itemStyle}>
 $222 League Buy-In
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-$1,100 Championship Prize
+<div style={itemStyle}>
+$1,100 Champion Prize
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
+<div style={itemStyle}>
+Lock Of The Week
+</div>
+ 
+<div style={itemStyle}>
 Dress Punishment Active
 </div>
 </div>
  
 {/* Record Book */}
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📊 Record Book
-</h2>
+<RecordBook />
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-Highest Weekly Score
-</div>
+{/* Roadmap */}
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-Highest Playoff Score
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-Most Points For Season
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-Longest Winning Streak
-</div>
-</div>
- 
-{/* Future Feature Card */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
+<div style={cardStyle}>
 <h2
 style={{
 color: "#22c55e",
@@ -239,47 +161,24 @@ color: "#22c55e",
 🚀 Coming Soon
 </h2>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-True Monte Carlo Playoff Simulator
+<div style={itemStyle}>
+Real Monte Carlo Simulator
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
+<div style={itemStyle}>
 Championship Odds
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
-}}
->
-Sacko Odds
+<div style={itemStyle}>
+Sacko Probability
 </div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
+<div style={itemStyle}>
 Franchise Pages
+</div>
+ 
+<div style={itemStyle}>
+Matchup Impact Scores
 </div>
 </div>
 </div>
