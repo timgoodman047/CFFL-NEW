@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { franchises } from "../data/franchises";
  
 export default function FranchiseProfiles() {
@@ -19,17 +18,16 @@ color: "#22c55e",
 </h2>
  
 {franchises.map((franchise) => (
-<Link
+<div
 key={franchise.slug}
-href={`/franchise/${franchise background: "#1b2a40",
+style={{
+background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>
-{franchise.owner}
-</strong>
+<strong>{franchise.owner}</strong>
  
 <br />
  
@@ -42,8 +40,13 @@ Championships: {franchise.championships}
 <br />
  
 Playoff Trips: {franchise.playoffTrips}
+ 
+<br />
+ 
+URL:
+{" "}
+/franchise/{franchise.slug}
 </div>
-</Link>
 ))}
 </div>
 );
