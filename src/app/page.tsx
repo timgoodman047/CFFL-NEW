@@ -5,6 +5,7 @@ import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
+import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
  
 export default function Home() {
@@ -16,7 +17,13 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-<div style={{ marginBottom: "24px" }}>
+{/* Header */}
+ 
+<div
+style={{
+marginBottom: "24px",
+}}
+>
 <h1
 style={{
 color: "#22c55e",
@@ -37,7 +44,11 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
+{/* Hero */}
+ 
 <Hero />
+ 
+{/* Main Dashboard */}
  
 <div
 style={{
@@ -48,19 +59,28 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+{/* Row 1 */}
+ 
 <Standings />
 <Matchups />
+ 
+{/* Row 2 */}
  
 <PowerRankings />
 <DressTracker />
  
+{/* Row 3 */}
+ 
 <Owners />
 <PlayoffOdds />
-</div>
  
-<div style={{ marginTop: "24px" }}>
+{/* Row 4 */}
+ 
+<WeeklyAwards />
 <News />
 </div>
+ 
+{/* Footer Grid */}
  
 <div
 style={{
@@ -71,6 +91,8 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
+{/* Hall of Champions */}
+ 
 <div
 style={{
 background: "#111c2d",
@@ -78,7 +100,11 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 🏆 Hall of Champions
 </h2>
  
@@ -87,11 +113,24 @@ style={{
 background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
+marginBottom: "8px",
 }}
 >
 2026 Champion — TBD
 </div>
+ 
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
+League History Coming Soon
 </div>
+</div>
+ 
+{/* Constitution */}
  
 <div
 style={{
@@ -100,7 +139,11 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 📜 Constitution
 </h2>
  
@@ -137,6 +180,8 @@ Dress Punishment Active
 </div>
 </div>
  
+{/* Record Book */}
+ 
 <div
 style={{
 background: "#111c2d",
@@ -144,7 +189,11 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 📊 Record Book
 </h2>
  
