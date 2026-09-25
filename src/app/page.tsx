@@ -1,3 +1,4 @@
+import FranchiseProfiles from "../components/FranchiseProfiles";
 import Hero from "../components/Hero";
 import Standings from "../components/Standings";
 import Matchups from "../components/Matchups";
