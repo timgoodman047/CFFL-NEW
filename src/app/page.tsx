@@ -1,5 +1,4 @@
 import Hero from "../components/Hero";
-import FranchiseProfiles from "../components/FranchiseProfiles";
 import Standings from "../components/Standings";
 import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
@@ -8,8 +7,6 @@ import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
-import HallOfChampions from "../components/HallOfChampions";
-import DynastyRankings from "../components/DynastyRankings";
 import RecordBook from "../components/RecordBook";
  
 const cardStyle = {
