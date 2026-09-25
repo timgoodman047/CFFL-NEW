@@ -7,9 +7,6 @@ import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
-import HallOfChampions from "../components/HallOfChampions";
-import DynastyRankings from "../components/DynastyRankings";
-import HistoryDashboard from "../components/HistoryDashboard";
 import RecordBook from "../components/RecordBook";
  
 const cardStyle = {
@@ -100,11 +97,7 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-<HistoryDashboard />
-<HallOfChampions />
- 
-<DynastyRankings />
-<RecordBook />
+
 </div>
  
 {/* League Information */}
