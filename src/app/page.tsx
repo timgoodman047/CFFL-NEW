@@ -33,13 +33,7 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Header */}
- 
-<div
-style={{
-marginBottom: "24px",
-}}
->
+<div style={{ marginBottom: "24px" }}>
 <h1
 style={{
 color: "#22c55e",
@@ -60,11 +54,7 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero */}
- 
 <Hero />
- 
-{/* Main Dashboard */}
  
 <div
 style={{
@@ -75,9 +65,8 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-
 <Standings />
-*<Matchups />
+<Matchups />
  
 <PowerRankings />
 <DressTracker />
@@ -89,13 +78,12 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* Historical Section */}
- 
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
-"r*peat(auto-fit,minmax(450px,1fr))",* gap: "20px",
+"repeat(auto-fit,minmax(450px,1fr))",
+gap: "20px",
 marginTop: "24px",
 }}
 >
@@ -105,36 +93,33 @@ marginTop: "24px",
 <RecordBook />
 </div>
  
-{/* Footer Section */}
- 
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
-"r*peat(auto-fit,minmax(350px,1fr))",
+"repeat(auto-fit,minmax(350px,1fr))",
 gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Constitution */}
- 
-<div style={cardStyle}*
+<div style={cardStyle}>
 <h2
-style={*
+style={{
 color: "#22c55e",
-* }}
+}}
 >
-* 📜 Constitution
+📜 Constitution
 </h2>
-* <div*style={itemStyle}>
-2 K*epers Allowed
+ 
+<div style={itemStyle}>
+2 Keepers Allowed
 </div>
  
-* <div style={itemStyle}>
-* $222 League Buy-In
-* </div>
+<div style={itemStyle}>
+$222 League Buy-In
+</div>
  
-<div style={it*mStyle}>
+<div style={itemStyle}>
 $1,100 Champion Prize
 </div>
  
@@ -147,70 +132,62 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Future Roadmap */}
- 
-<div style={cardStyle}*
+<div style={cardStyle}>
 <h2
-style={*
+style={{
 color: "#22c55e",
 }}
 >
-* 🚀 Coming Soon
+🚀 Coming Soon
 </h2>
  
-* <div style={itemStyle}>
-* Franchise Profile Pages
-* </div>
- 
-<div st*le={itemStyle}>
-Rivalr* Tracker
+<div style={itemStyle}>
+Franchise Profile Pages
 </div>
  
-* <div style={itemStyle}>
-* Monte Carlo Playoff Simulator
-* </div>
+<div style={itemStyle}>
+Rivalry Tracker
+</div>
  
-<div sty*e={itemStyle}>
+<div style={itemStyle}>
+Monte Carlo Playoff Simulator
+</div>
+ 
+<div style={itemStyle}>
 Championship Odds
 </div>
  
 <div style={itemStyle}>
 Sacko Probability
 </div>
- 
-<div style={itemStyle}>
-Historical Season Browser
-</div>
 </div>
  
-{/* League History */}
- 
-<div style={cardStyle}*
+<div style={cardStyle}>
 <h2
-style={*
+style={{
 color: "#22c55e",
 }}
 >
-* 📚 League History
-</h2*
+📚 League History
+</h2>
  
-<div style={itemStyle}*
+<div style={itemStyle}>
 Founded: 2006
-* </div>
- 
-<div style={it*mStyle}>
-20+ Seasons T*acked
 </div>
  
-*div style={itemStyle}>
-*Yahoo Era + Sleeper Era
-*/div>
- 
-<div style={itemS*yle}>
-Historical Recor*s Preserved
+<div style={itemStyle}>
+20+ Seasons Tracked
 </div>
-* </div>
+ 
+<div style={itemStyle}>
+Yahoo Era + Sleeper Era
+</div>
+ 
+<div style={itemStyle}>
+Historical Records Preserved
+</div>
+</div>
 </div>
 </main>
-* );
+);
 }
