@@ -1,14 +1,13 @@
 import { franchises } from "../data/franchises";
  
 export default function DynastyRankings() {
- 
 const rankings =
 franchises
-.map(franchise => {
+.map((franchise) => {
  
 const dynastyScore =
-(franchise.championships * 250) +
-(franchise.playoffTrips * 25) +
+(franchise.championships * 300) +
+(franchise.playoffTrips * 20) +
 (franchise.winningPct * 100);
  
 return {
@@ -24,7 +23,6 @@ a.dynastyScore
 );
  
 return (
- 
 <div
 style={{
 background: "#111c2d",
@@ -32,7 +30,6 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
- 
 <h2
 style={{
 color: "#22c55e",
@@ -56,7 +53,6 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
- 
 <strong>
 #{index + 1}
 {" "}
@@ -86,10 +82,11 @@ Win %:
  
 Dynasty Score:
 {" "}
-{franchise.dynastyScore?.toFixed?.(1) ??
+{franchise.dynastyScore
+?.toFixed?.(1) ??
 (
-franchise.championships * 250 +
-franchise.playoffTrips * 25 +
+franchise.championships * 300 +
+franchise.playoffTrips * 20 +
 franchise.winningPct * 100
 ).toFixed(1)}
  
@@ -97,9 +94,6 @@ franchise.winningPct * 100
  
 )
 )}
- 
 </div>
- 
 );
- 
 }
