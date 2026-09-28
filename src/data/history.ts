@@ -16,6 +16,9 @@ semifinals: [
 "Spencer def. Brian"
 ],
  
+thirdPlaceGame:
+"Nick def. Brian",
+ 
 championship:
 "Chris def. Spencer 164.2 - 141.5",
  
@@ -38,7 +41,14 @@ standings: [
 "10. Matt"
 ],
  
-notes: "Championship season."
+records: [
+"Highest Weekly Score: 195.94",
+"Most Points For: Chris",
+"Best Record: Spencer"
+],
+ 
+notes:
+"Chris won the championship after defeating Spencer."
 },
  
 {
@@ -57,6 +67,9 @@ semifinals: [
 "Jeff def. Danny",
 "Chris def. Jason"
 ],
+ 
+thirdPlaceGame:
+"Danny def. Jason",
  
 championship:
 "Jeff def. Chris 152.8 - 138.9",
@@ -80,7 +93,14 @@ standings: [
 "10. Tom"
 ],
  
-notes: "Championship season."
+records: [
+"Highest Weekly Score: 191.22",
+"Most Points For: Spencer",
+"Best Record: Spencer"
+],
+ 
+notes:
+"Jeff earned his first league championship."
 },
  
 {
@@ -91,7 +111,8 @@ runnerUp: "Spencer",
 highestScore: 206.96,
 championshipScore: "171.4 - 145.8",
 mvp: "Nick",
-storyline: "Nick won back-to-back championships.",
+storyline:
+"Nick completed back-to-back championships.",
 pointsLeader: "Nick",
 sacko: "Matt",
  
@@ -99,6 +120,9 @@ semifinals: [
 "Nick def. Danny",
 "Spencer def. Jason"
 ],
+ 
+thirdPlaceGame:
+"Danny def. Jason",
  
 championship:
 "Nick def. Spencer 171.4 - 145.8",
@@ -122,6 +146,13 @@ standings: [
 "10. Matt"
 ],
  
-notes: "Championship season."
+records: [
+"Highest Weekly Score: 206.96",
+"Most Points For: Nick",
+"Best Record: Nick"
+],
+ 
+notes:
+"Nick secured consecutive championships."
 }
 ];
