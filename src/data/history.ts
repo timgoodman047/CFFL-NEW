@@ -10,6 +10,21 @@ mvp: "Chris",
 storyline: "Chris captured the championship.",
 pointsLeader: "Chris",
 sacko: "Matt",
+ 
+semifinals: [
+"Chris def. Nick",
+"Spencer def. Brian"
+],
+ 
+championship:
+"Chris def. Spencer 164.2 - 141.5",
+ 
+awards: [
+"MVP: Chris",
+"Best Draft: Nick",
+"Waiver Wizard: Spencer"
+],
+ 
 standings: [
 "1. Spencer",
 "2. Chris",
@@ -22,6 +37,7 @@ standings: [
 "9. Jeff",
 "10. Matt"
 ],
+ 
 notes: "Championship season."
 },
  
@@ -36,6 +52,21 @@ mvp: "Jeff",
 storyline: "Jeff won his first title.",
 pointsLeader: "Spencer",
 sacko: "Tom",
+ 
+semifinals: [
+"Jeff def. Danny",
+"Chris def. Jason"
+],
+ 
+championship:
+"Jeff def. Chris 152.8 - 138.9",
+ 
+awards: [
+"MVP: Jeff",
+"Best Draft: Spencer",
+"Waiver Wizard: Chris"
+],
+ 
 standings: [
 "1. Spencer",
 "2. Chris",
@@ -48,6 +79,7 @@ standings: [
 "9. Jeff",
 "10. Tom"
 ],
+ 
 notes: "Championship season."
 },
  
@@ -62,6 +94,21 @@ mvp: "Nick",
 storyline: "Nick won back-to-back championships.",
 pointsLeader: "Nick",
 sacko: "Matt",
+ 
+semifinals: [
+"Nick def. Danny",
+"Spencer def. Jason"
+],
+ 
+championship:
+"Nick def. Spencer 171.4 - 145.8",
+ 
+awards: [
+"MVP: Nick",
+"Best Draft: Nick",
+"Waiver Wizard: Jason"
+],
+ 
 standings: [
 "1. Nick",
 "2. Spencer",
@@ -74,43 +121,7 @@ standings: [
 "9. Jeff",
 "10. Matt"
 ],
-notes: "Championship season."
-},
  
-{
-year: 2022,
-champion: "Nick",
-team: "Orangeman",
-runnerUp: "Tim",
-highestScore: 191.42,
-championshipScore: "154.7 - 150.2",
-mvp: "Nick",
-storyline: "Nick earned his first title.",
-pointsLeader: "Nick",
-sacko: "Tom",
-standings: [
-"1. Nick",
-"2. Tim",
-"3. Spencer",
-"4. Matt",
-"5. Tom",
-"6. Jeff"
-],
 notes: "Championship season."
-},
- 
-{
-year: 2021,
-champion: "Drew",
-team: "The Mahomies",
-runnerUp: "Danny",
-highestScore: 209.2,
-championshipScore: "148.6 - 137.0",
-mvp: "Drew",
-storyline: "Highest score in league history.",
-pointsLeader: "Drew",
-sacko: "Historical Data Pending",
-standings: [],
-notes: "Record-setting season."
 }
 ];
