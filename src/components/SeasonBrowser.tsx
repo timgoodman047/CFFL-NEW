@@ -59,113 +59,74 @@ value={season.year}
 ))}
 </select>
  
-<SeasonCard
-title="🏆 Champion"
-value={season.champion}
-/>
+<Section title="🏆 Champion">
+{season.champion}
+</Section>
  
-<SeasonCard
-title="🏈 Team Name"
-value={season.team}
-/>
+<Section title="🏈 Team Name">
+{season.team}
+</Section>
  
-<SeasonCard
-title="🥈 Runner-Up"
-value={season.runnerUp}
-/>
+<Section title="🥈 Runner-Up">
+{season.runnerUp}
+</Section>
  
-<SeasonCard
-title="🔥 Highest Weekly Score"
-value={season.highestScore}
-/>
+<Section title="🔥 Highest Weekly Score">
+{season.highestScore}
+</Section>
  
-<SeasonCard
-title="🏅 MVP"
-value={season.mvp}
-/>
+<Section title="🏅 MVP">
+{season.mvp}
+</Section>
  
-<SeasonCard
-title="🏆 Championship Score"
-value={season.championshipScore}
-/>
+<Section title="🎯 Most Points For">
+{season.pointsLeader}
+</Section>
  
-<SeasonCard
-title="🎯 Most Points For"
-value={season.pointsLeader}
-/>
+<Section title="💀 Sacko">
+{season.sacko}
+</Section>
  
-<SeasonCard
-title="💀 Sacko"
-value={season.sacko}
-/>
- 
-<SeasonCard
-title="📖 Biggest Storyline"
-value={season.storyline}
-/>
- 
-<SeasonCard
-title="📝 Notes"
-value={season.notes}
-/>
- 
-<SectionCard title="🏆 Championship Matchup">
+<Section title="🏆 Championship Game">
 {season.championship}
-</SectionCard>
+</Section>
  
-<SectionCard title="🏈 Semifinal Results">
+<Section title="🥉 Third Place Game">
+{season.thirdPlaceGame}
+</Section>
+ 
+<Section title="🏈 Semifinal Results">
 {season.semifinals.map((game) => (
-<div key={game}>
-{game}
-</div>
+<div key={game}>{game}</div>
 ))}
-</SectionCard>
+</Section>
  
-<SectionCard title="🏅 Season Awards">
+<Section title="🏅 Season Awards">
 {season.awards.map((award) => (
-<div key={award}>
-{award}
-</div>
+<div key={award}>{award}</div>
 ))}
-</SectionCard>
+</Section>
  
-<SectionCard title="📊 Final Standings">
+<Section title="📊 Final Standings">
 {season.standings.map((team) => (
-<div key={team}>
-{team}
-</div>
+<div key={team}>{team}</div>
 ))}
-</SectionCard>
+</Section>
+ 
+<Section title="📈 Season Records">
+{season.records.map((record) => (
+<div key={record}>{record}</div>
+))}
+</Section>
+ 
+<Section title="📖 Historical Summary">
+{season.notes}
+</Section>
 </div>
 );
 }
  
-function SeasonCard({
-title,
-value,
-}: {
-title: string;
-value: string | number;
-}) {
-return (
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-<strong>{title}</strong>
- 
-<br />
- 
-{value}
-</div>
-);
-}
- 
-function SectionCard({
+function Section({
 title,
 children,
 }: {
