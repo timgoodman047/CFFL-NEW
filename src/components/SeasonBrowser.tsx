@@ -7,8 +7,7 @@ export default function SeasonBrowser() {
 const [selectedYear, setSelectedYear] =
 useState(history[0].year);
  
-const season =
-history.find(
+const season = history.find(
 (s) => s.year === selectedYear
 );
  
@@ -59,27 +58,42 @@ value={season.year}
 ))}
 </select>
  
-<InfoCard
+<SeasonCard
 title="🏆 Champion"
 value={season.champion}
 />
  
-<InfoCard
+<SeasonCard
 title="🏈 Team Name"
 value={season.team}
 />
  
-<InfoCard
+<SeasonCard
 title="🥈 Runner-Up"
 value={season.runnerUp}
 />
  
-<InfoCard
+<SeasonCard
 title="🔥 Highest Weekly Score"
 value={season.highestScore}
 />
  
-<InfoCard
+<SeasonCard
+title="🏅 Regular Season MVP"
+value={season.mvp}
+/>
+ 
+<SeasonCard
+title="🏆 Championship Score"
+value={season.championshipScore}
+/>
+ 
+<SeasonCard
+title="📖 Biggest Storyline"
+value={season.storyline}
+/>
+ 
+<SeasonCard
 title="📝 Notes"
 value={season.notes}
 />
@@ -87,7 +101,7 @@ value={season.notes}
 );
 }
  
-function InfoCard({
+function SeasonCard({
 title,
 value,
 }: {
