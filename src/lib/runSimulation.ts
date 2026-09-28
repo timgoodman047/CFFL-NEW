@@ -1,46 +1,94 @@
-import { simulateGame }
-from "./simulateGame";
+import { simulateGame } from "./simulateGame";
  
-export function runSimulation(
-teams: any[]
+export async function runSimulation(
+teams: any[],
+remainingWeeks: any[]
 ) {
-const simulatedTeams =
-teams.map((team) => ({
+const seasonTeams = teams.map(
+(team) => ({
 ...team,
 simWins: team.wins,
 simLosses: team.losses,
-}));
+})
+);
  
-for (
-let i = 0;
-i < simulatedTeams.length;
-i++
+const teamMap = new Map(
+seasonTeams.map((team) => [
+team.rosterId,
+team,
+])
+);
+ 
+for (const week of remainingWeeks) {
+const matchupGroups =
+new Map<number, any[]>();
+ 
+for (const matchup of week.matchups) {
+const matchupId =
+matchup.matchup_id;
+ 
+if (
+!matchupGroups.has(matchupId)
 ) {
-for (
-let j = i + 1;
-j < simulatedTeams.length;
-j++
-) {
+matchupGroups.set(
+matchupId,
+[]
+);
+}
+ 
+matchupGroups
+.get(matchupId)!
+.push(matchup);
+}
+ 
+for (const pair of matchupGroups.values()) {
+if (pair.length !== 2)
+continue;
+ 
+const teamA =
+teamMap.get(
+pair[0].roster_id
+);
+ 
+const teamB =
+teamMap.get(
+pair[1].roster_id
+);
+ 
+if (!teamA || !teamB)
+continue;
+ 
 const result =
 simulateGame(
-simulatedTeams[i].avgPPG,
-simulatedTeams[j].avgPPG
+teamA.avgPPG,
+teamB.avgPPG
 );
  
 if (
 result.winner === "A"
 ) {
-simulatedTeams[i].simWins++;
-simulatedTeams[j].simLosses++;
+teamA.simWins++;
+teamB.simLosses++;
 } else {
-simulatedTeams[j].simWins++;
-simulatedTeams[i].simLosses++;
+teamB.simWins++;
+teamA.simLosses++;
 }
 }
 }
  
-return simulatedTeams.sort(
-(a, b) =>
-b.simWins - a.simWins
+return seasonTeams.sort(
+(a, b) => {
+if (
+b.simWins !==
+a.simWins
+) {
+return (
+b.simWins -
+a.simWins
+);
+}
+ 
+return b.pf - a.pf;
+}
 );
 }
