@@ -1,140 +1,94 @@
-import { getStandingsData } from "../lib/getStandingsData";
+import { getLeagueTeams } from "../lib/sleeper";
+import { runSimulation } from "../lib/runSimulation";
  
 export default async function PlayoffSimulator() {
-const standings = await getStandingsData();
+const teams = await getLeagueTeams();
  
-const simulations = 5000;
+const simulations = 1000;
  
-const teams = standings.map((team) => ({
+const results = teams.map((team) => ({
 ...team,
-playoffs: 0,
 championships: 0,
-runnersUp: 0,
+playoffs: 0,
 sackos: 0,
-byes: 0,
-topThree: 0,
-totalSeed: 0,
 totalFinish: 0,
 }));
  
 for (let sim = 0; sim < simulations; sim++) {
-const season = standings
-.map((team) => ({
-...team,
-rating:
-team.wins * 12 +
-team.pointsFor / 100 +
-Math.random() * 50,
-}))
-.sort((a, b) => b.rating - a.rating);
+const simulatedSeason =
+runSimulation(teams);
  
-season.forEach((team, index) => {
-const finish = index + 1;
- 
-const target = teams.find(
-(t) => t.team === team.team
+simulatedSeason.forEach(
+(team, index) => {
+const target =
+results.find(
+(r) =>
+r.team === team.team
 );
  
 if (!target) return;
  
-target.totalFinish += finish;
+const finish =
+index + 1;
  
-if (finish <= 3) {
-target.topThree++;
-}
- 
-if (finish <= 2) {
-target.byes++;
-}
+target.totalFinish +=
+finish;
  
 if (finish <= 6) {
 target.playoffs++;
-target.totalSeed += finish;
 }
  
-if (finish === season.length) {
+if (finish === 1) {
+target.championships++;
+}
+ 
+if (
+finish ===
+simulatedSeason.length
+) {
 target.sackos++;
 }
-});
- 
-const seed1 = season[0];
-const seed2 = season[1];
-const seed3 = season[2];
-const seed4 = season[3];
-const seed5 = season[4];
-const seed6 = season[5];
- 
-const qf1 = simulateGame(seed3, seed6);
-const qf2 = simulateGame(seed4, seed5);
- 
-const sf1 = simulateGame(seed1, qf2);
-const sf2 = simulateGame(seed2, qf1);
- 
-const champion = simulateGame(sf1, sf2);
- 
-const runnerUp =
-champion.team === sf1.team
-? sf2
-: sf1;
- 
-const champTarget = teams.find(
-(t) => t.team === champion.team
+}
 );
- 
-if (champTarget) {
-champTarget.championships++;
 }
  
-const runnerTarget = teams.find(
-(t) => t.team === runnerUp.team
-);
- 
-if (runnerTarget) {
-runnerTarget.runnersUp++;
-}
-}
- 
-const results = teams.map((team) => ({
+const finalResults =
+results.map((team) => ({
 ...team,
  
-playoffOdds: Math.round(
-(team.playoffs / simulations) * 100
+playoffOdds:
+Math.round(
+(
+team.playoffs /
+simulations
+) * 100
 ),
  
-championshipOdds: Math.round(
-(team.championships / simulations) * 100
+championshipOdds:
+Math.round(
+(
+team.championships /
+simulations
+) * 100
 ),
  
-runnerUpOdds: Math.round(
-(team.runnersUp / simulations) * 100
+sackoOdds:
+Math.round(
+(
+team.sackos /
+simulations
+) * 100
 ),
  
-sackoOdds: Math.round(
-(team.sackos / simulations) * 100
-),
- 
-byeOdds: Math.round(
-(team.byes / simulations) * 100
-),
- 
-topThreeOdds: Math.round(
-(team.topThree / simulations) * 100
-),
- 
-averageSeed:
-team.playoffs > 0
-? (
-team.totalSeed /
-team.playoffs
-).toFixed(1)
-: "N/A",
- 
-averageFinish: (
-team.totalFinish / simulations
+averageFinish:
+(
+team.totalFinish /
+simulations
 ).toFixed(1),
 }));
  
-const table = [...results].sort(
+const sorted =
+[...finalResults].sort(
 (a, b) =>
 b.championshipOdds -
 a.championshipOdds
@@ -153,7 +107,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V10
+🎲 Monte Carlo Simulator V11
 </h2>
  
 <div
@@ -162,11 +116,11 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-5,000 simulated seasons with
-playoff bracket projections.
+1,000 full-season simulations
+using live Sleeper team data.
 </div>
  
-{table.map((team) => (
+{sorted.map((team) => (
 <div
 key={team.team}
 style={{
@@ -176,76 +130,42 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>{team.team}</strong>
+<strong>
+{team.team}
+</strong>
  
 <br />
  
-🏆 Championship:
+🏆 Championship Odds:
 {" "}
-{team.championshipOdds}%
+{
+team.championshipOdds
+}
+%
  
 <br />
  
-🥈 Runner-Up:
+🎯 Playoff Odds:
 {" "}
-{team.runnerUpOdds}%
+{team.playoffOdds}
+%
  
 <br />
  
-🎯 Playoff:
+📈 Average Finish:
 {" "}
-{team.playoffOdds}%
+{
+team.averageFinish
+}
  
 <br />
  
-👑 Bye:
+💀 Sacko Odds:
 {" "}
-{team.byeOdds}%
- 
-<br />
- 
-🥉 Top 3:
-{" "}
-{team.topThreeOdds}%
- 
-<br />
- 
-📈 Avg Finish:
-{" "}
-{team.averageFinish}
- 
-<br />
- 
-#️⃣ Avg Seed:
-{" "}
-{team.averageSeed}
- 
-<br />
- 
-💀 Sacko:
-{" "}
-{team.sackoOdds}%
+{team.sackoOdds}
+%
 </div>
 ))}
 </div>
 );
-}
- 
-function simulateGame(
-teamA: any,
-teamB: any
-) {
-const scoreA =
-teamA.wins * 12 +
-teamA.pointsFor / 100 +
-Math.random() * 45;
- 
-const scoreB =
-teamB.wins * 12 +
-teamB.pointsFor / 100 +
-Math.random() * 45;
- 
-return scoreA >= scoreB
-? teamA
-: teamB;
 }
