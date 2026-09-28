@@ -209,9 +209,71 @@ const sorted = [
 b.championshipOdds -
 a.championshipOdds
 );
+
+const favorite = sorted[0];
  
-return (
 <div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+}}
+>
+<div
+style={{
+background:
+"linear-gradient(135deg,#14532d,#166534)",
+padding: "18px",
+borderRadius: "12px",
+marginBottom: "20px",
+border:
+"1px solid #22c55e",
+}}
+>
+<div
+style={{
+fontSize: "12px",
+color: "#bbf7d0",
+textTransform:
+"uppercase",
+letterSpacing: "1px",
+marginBottom: "6px",
+}}
+>
+Most Likely Champion
+</div>
+ 
+<div
+style={{
+fontSize: "24px",
+fontWeight: "bold",
+color: "white",
+}}
+>
+🏆 {favorite.team}
+</div>
+ 
+<div
+style={{
+marginTop: "10px",
+color: "#dcfce7",
+lineHeight: "1.8",
+}}
+>
+Championship Odds:{" "}
+{favorite.championshipOdds}%
+ 
+<br />
+ 
+Playoff Odds:{" "}
+{favorite.playoffOdds}%
+ 
+<br />
+ 
+Average Finish:{" "}
+{favorite.averageFinish}
+</div>
+</div>
 style={{
 background: "#111c2d",
 padding: "20px",
