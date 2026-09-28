@@ -8,8 +8,7 @@ export default function SeasonBrowser() {
 const [selectedYear, setSelectedYear] =
 useState(history[0].year);
  
-const season =
-history.find(
+const season = history.find(
 (s) => s.year === selectedYear
 );
  
@@ -36,9 +35,7 @@ color: "#22c55e",
 <select
 value={selectedYear}
 onChange={(e) =>
-setSelectedYear(
-Number(e.target.value)
-)
+setSelectedYear(Number(e.target.value))
 }
 style={{
 width: "100%",
@@ -60,8 +57,9 @@ value={season.year}
 ))}
 </select>
  
-<Link
-href={`/season/${season.year}` style={{
+{`/season/${season.year}`}
+<div
+style={{
 background: "#22c55e",
 color: "#111827",
 padding: "12px",
