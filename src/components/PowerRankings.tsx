@@ -1,4 +1,4 @@
-import { getAllRatings } from "@/data/teamRatings";
+import { getAllRatings } from "../data/teamRatings";
  
 export default function PowerRankings() {
 const rankings = getAllRatings();
