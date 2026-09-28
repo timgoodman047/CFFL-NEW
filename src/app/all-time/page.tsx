@@ -17,6 +17,33 @@ const highestScores = [...franchises].sort(
 (a, b) => b.highestScore - a.highestScore
 );
  
+const highestPlayoffScores = [...franchises].sort(
+(a, b) =>
+b.highestPlayoffScore - a.highestPlayoffScore
+);
+ 
+const earnings = [...franchises].sort(
+(a, b) =>
+parseFloat(
+String(b.moneyWon).replace("$", "")
+) -
+parseFloat(
+String(a.moneyWon).replace("$", "")
+)
+);
+ 
+const dynastyRankings = [...franchises]
+.map((f) => ({
+...f,
+dynastyScore:
+f.championships * 300 +
+f.playoffTrips * 20 +
+f.winningPct * 100,
+}))
+.sort(
+(a, b) => b.dynastyScore - a.dynastyScore
+);
+ 
 return (
 <main
 style={{
@@ -29,34 +56,67 @@ padding: "24px",
 style={{
 color: "#22c55e",
 fontSize: "48px",
-marginBottom: "24px",
+marginBottom: "8px",
 }}
 >
 🏆 All-Time Records & Leaderboards
 </h1>
  
+<p
+style={{
+color: "#94a3b8",
+marginBottom: "24px",
+}}
+>
+Career records across league history.
+</p>
+ 
 <Leaderboard
 title="🏆 Championships"
 rows={championships}
-valueField="championships"
+valueRenderer={(f) => f.championships}
 />
  
 <Leaderboard
 title="🎯 Playoff Trips"
 rows={playoffTrips}
-valueField="playoffTrips"
+valueRenderer={(f) => f.playoffTrips}
 />
  
 <Leaderboard
 title="📈 Winning Percentage"
 rows={winningPct}
-valueField="winningPct"
+valueRenderer={(f) =>
+`${(f.winningPct * 100).toFixed(1)}%`
+}
 />
  
 <Leaderboard
 title="🔥 Highest Weekly Score"
 rows={highestScores}
-valueField="highestScore"
+valueRenderer={(f) => f.highestScore}
+/>
+ 
+<Leaderboard
+title="🔥 Highest Playoff Score"
+rows={highestPlayoffScores}
+valueRenderer={(f) =>
+f.highestPlayoffScore
+}
+/>
+ 
+<Leaderboard
+title="💰 Career Earnings"
+rows={earnings}
+valueRenderer={(f) => f.moneyWon}
+/>
+ 
+<Leaderboard
+title="👑 Dynasty Rankings"
+rows={dynastyRankings}
+valueRenderer={(f) =>
+Math.round(f.dynastyScore)
+}
 />
 </main>
 );
@@ -65,11 +125,11 @@ valueField="highestScore"
 function Leaderboard({
 title,
 rows,
-valueField,
+valueRenderer,
 }: {
 title: string;
 rows: any[];
-valueField: string;
+valueRenderer: (row: any) => string | number;
 }) {
 return (
 <div
@@ -90,7 +150,7 @@ color: "#22c55e",
  
 {rows.map((row, index) => (
 <div
-key={row.slug}
+key={`${row.slug}-${index}`}
 style={{
 background: "#1b2a40",
 padding: "12px",
@@ -104,11 +164,7 @@ justifyContent: "space-between",
 #{index + 1} {row.owner}
 </div>
  
-<div>
-{valueField === "winningPct"
-? `${(row.winningPct * 100).toFixed(1)}%`
-: row[valueField]}
-</div>
+<div>{valueRenderer(row)}</div>
 </div>
 ))}
 </div>
