@@ -1,20 +1,31 @@
-import { franchises } from "./franchises";
+import { simulationData } from "./simulationData";
  
 export function getTeamRating(
-owner: string
+teamName: string
 ): number {
-const franchise = franchises.find(
-(f) => f.owner === owner
+const team = simulationData.find(
+(t) => t.team === teamName
 );
  
-if (!franchise) {
+if (!team) {
 return 50;
 }
  
+const gamesPlayed =
+team.wins + team.losses;
+ 
+const winPct =
+gamesPlayed > 0
+? team.wins / gamesPlayed
+: 0.5;
+ 
+const avgPF =
+team.pointsFor / gamesPlayed;
+ 
 const rating =
-franchise.winningPct * 100 +
-franchise.championships * 8 +
-franchise.playoffTrips * 1.5;
+50 +
+winPct * 40 +
+(avgPF - 120) * 0.3;
  
 return Number(
 rating.toFixed(1)
@@ -22,11 +33,11 @@ rating.toFixed(1)
 }
  
 export function getAllRatings() {
-return franchises
-.map((franchise) => ({
-owner: franchise.owner,
+return simulationData
+.map((team) => ({
+team: team.team,
 rating: getTeamRating(
-franchise.owner
+team.team
 ),
 }))
 .sort(
