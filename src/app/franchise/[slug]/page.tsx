@@ -1,4 +1,4 @@
-import Link from "next/link";
+JSX
 import { franchises } from "../../../data/franchises";
 import { franchiseTimelines } from "../../../data/franchiseTimelines";
  
@@ -157,19 +157,17 @@ background = "#6b7280";
 }
  
 return (
-<Link
-key={season.year}
 <div
+key={season.year}
 style={{
 background,
 padding: "12px",
 borderRadius: "8px",
+marginBottom: "10px",
 color: "white",
 }}
 >
-<strong>
-{season.year}
-</strong>
+<strong>{season.year}</strong>
  
 <br />
  
@@ -177,9 +175,10 @@ Finish: {season.finish}
  
 <br />
  
-View Season Archive →
+Season Archive:
+{" "}
+/season/{season.year}
 </div>
-</Link>
 );
 })
 )}
