@@ -207,10 +207,7 @@ Yahoo Era + Sleeper Era
 <div style={itemStyle}>
 Historical Records Preserved
 </div>
- 
-/all-time
-View All-Time Records →
-</a>
+
 </div>
 </div>
 </main>
