@@ -63,8 +63,6 @@ League HQ • Anti-PPR Coalition
  
 <Hero />
  
-{/* Current Season */}
- 
 <div
 style={{
 display: "grid",
@@ -87,8 +85,6 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* Historical Section */}
- 
 <div
 style={{
 display: "grid",
@@ -108,8 +104,6 @@ marginTop: "24px",
 <RivalryTracker />
 </div>
  
-{/* League Information */}
- 
 <div
 style={{
 display: "grid",
@@ -120,11 +114,7 @@ marginTop: "24px",
 }}
 >
 <div style={cardStyle}>
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📜 Constitution
 </h2>
  
@@ -150,28 +140,24 @@ Dress Punishment Active
 </div>
  
 <div style={cardStyle}>
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 🚀 Coming Soon
 </h2>
- 
-<div style={itemStyle}>
-Clickable Franchise Profiles
-</div>
  
 <div style={itemStyle}>
 All-Time Leaderboards
 </div>
  
 <div style={itemStyle}>
-Dedicated Season Archive Pages
+Fully Clickable Franchise Profiles
 </div>
  
 <div style={itemStyle}>
-Historical Season Browser V7
+Dedicated Season Pages
+</div>
+ 
+<div style={itemStyle}>
+Franchise Career Timelines
 </div>
  
 <div style={itemStyle}>
@@ -184,11 +170,7 @@ Championship Odds
 </div>
  
 <div style={cardStyle}>
-<h2
-style={{
-color: "#22c55e",
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📚 League History
 </h2>
  
@@ -207,9 +189,13 @@ Yahoo Era + Sleeper Era
 <div style={itemStyle}>
 Historical Records Preserved
 </div>
-
+ 
+<div style={itemStyle}>
+All-Time Records: /all-time
+</div>
 </div>
 </div>
 </main>
 );
 }
+`
