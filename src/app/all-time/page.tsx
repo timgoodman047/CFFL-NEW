@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { franchises } from "../../data/franchises";
  
 export default function AllTimePage() {
@@ -30,55 +29,34 @@ padding: "24px",
 style={{
 color: "#22c55e",
 fontSize: "48px",
-marginBottom: "8px",
+marginBottom: "24px",
 }}
 >
 🏆 All-Time Records & Leaderboards
 </h1>
  
-<p
-style={{
-color: "#94a3b8",
-marginBottom: "24px",
-}}
->
-Career records across league history.
-</p>
- 
 <Leaderboard
 title="🏆 Championships"
-rows={championships.map((f) => ({
-slug: f.slug,
-owner: f.owner,
-value: f.championships,
-}))}
+rows={championships}
+valueField="championships"
 />
  
 <Leaderboard
 title="🎯 Playoff Trips"
-rows={playoffTrips.map((f) => ({
-slug: f.slug,
-owner: f.owner,
-value: f.playoffTrips,
-}))}
+rows={playoffTrips}
+valueField="playoffTrips"
 />
  
 <Leaderboard
 title="📈 Winning Percentage"
-rows={winningPct.map((f) => ({
-slug: f.slug,
-owner: f.owner,
-value: `${(f.winningPct * 100).toFixed(1)}%`,
-}))}
+rows={winningPct}
+valueField="winningPct"
 />
  
 <Leaderboard
 title="🔥 Highest Weekly Score"
-rows={highestScores.map((f) => ({
-slug: f.slug,
-owner: f.owner,
-value: f.highestScore,
-}))}
+rows={highestScores}
+valueField="highestScore"
 />
 </main>
 );
@@ -87,13 +65,11 @@ value: f.highestScore,
 function Leaderboard({
 title,
 rows,
+valueField,
 }: {
 title: string;
-rows: {
-slug: string;
-owner: string;
-value: string | number;
-}[];
+rows: any[];
+valueField: string;
 }) {
 return (
 <div
@@ -114,7 +90,7 @@ color: "#22c55e",
  
 {rows.map((row, index) => (
 <div
-key={`${row.slug}-${index}`}
+key={row.slug}
 style={{
 background: "#1b2a40",
 padding: "12px",
@@ -125,12 +101,16 @@ justifyContent: "space-between",
 }}
 >
 <div>
-#{index + 1}{" "}
-<Link
-href={`/franchise/${row.slug}`}
-style={{
-color: "#22c55e",
-textDecoration ))}
+#{index + 1} {row.owner}
+</div>
+ 
+<div>
+{valueField === "winningPct"
+? `${(row.winningPct * 100).toFixed(1)}%`
+: row[valueField]}
+</div>
+</div>
+))}
 </div>
 );
 }
