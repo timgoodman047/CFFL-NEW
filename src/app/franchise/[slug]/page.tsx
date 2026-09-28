@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { franchises } from "../../../data/franchises";
 import { franchiseTimelines } from "../../../data/franchiseTimelines";
  
@@ -136,23 +137,51 @@ borderRadius: "8px",
 Timeline coming soon.
 </div>
 ) : (
-timeline.map((season) => (
-<div
+timeline.map((season) => {
+let background = "#1b2a40";
+ 
+if (
+season.finish
+.toLowerCase()
+.includes("champion")
+) {
+background = "#854d0e";
+}
+ 
+if (
+season.finish
+.toLowerCase()
+.includes("runner")
+) {
+background = "#6b7280";
+}
+ 
+return (
+<Link
 key={season.year}
+<div
 style={{
-background: "#1b2a40",
+background,
 padding: "12px",
 borderRadius: "8px",
-marginBottom: "10px",
+color: "white",
 }}
 >
-<strong>{season.year}</strong>
+<strong>
+{season.year}
+</strong>
  
 <br />
  
 Finish: {season.finish}
+ 
+<br />
+ 
+View Season Archive →
 </div>
-))
+</Link>
+);
+})
 )}
 </Section>
  
@@ -300,8 +329,7 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>{label}:</strong>{" "}
-{value}
+<strong>{label}:</strong> {value}
 </div>
 );
 }
