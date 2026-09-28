@@ -8,6 +8,20 @@ highestScore: 195.94,
 championshipScore: "164.2 - 141.5",
 mvp: "Chris",
 storyline: "Chris captured the championship.",
+pointsLeader: "Chris",
+sacko: "Matt",
+standings: [
+"1. Spencer",
+"2. Chris",
+"3. Nick",
+"4. Brian",
+"5. Jason",
+"6. Tim",
+"7. Tom",
+"8. Danny",
+"9. Jeff",
+"10. Matt"
+],
 notes: "Championship season."
 },
  
@@ -20,6 +34,20 @@ highestScore: 191.22,
 championshipScore: "152.8 - 138.9",
 mvp: "Jeff",
 storyline: "Jeff won his first title.",
+pointsLeader: "Spencer",
+sacko: "Tom",
+standings: [
+"1. Spencer",
+"2. Chris",
+"3. Jason",
+"4. Danny",
+"5. Tim",
+"6. Nick",
+"7. Brian",
+"8. Matt",
+"9. Jeff",
+"10. Tom"
+],
 notes: "Championship season."
 },
  
@@ -32,6 +60,20 @@ highestScore: 206.96,
 championshipScore: "171.4 - 145.8",
 mvp: "Nick",
 storyline: "Nick won back-to-back championships.",
+pointsLeader: "Nick",
+sacko: "Matt",
+standings: [
+"1. Nick",
+"2. Spencer",
+"3. Danny",
+"4. Jason",
+"5. Tim",
+"6. Tom",
+"7. Chris",
+"8. Brian",
+"9. Jeff",
+"10. Matt"
+],
 notes: "Championship season."
 },
  
@@ -44,6 +86,16 @@ highestScore: 191.42,
 championshipScore: "154.7 - 150.2",
 mvp: "Nick",
 storyline: "Nick earned his first title.",
+pointsLeader: "Nick",
+sacko: "Tom",
+standings: [
+"1. Nick",
+"2. Tim",
+"3. Spencer",
+"4. Matt",
+"5. Tom",
+"6. Jeff"
+],
 notes: "Championship season."
 },
  
@@ -56,42 +108,9 @@ highestScore: 209.2,
 championshipScore: "148.6 - 137.0",
 mvp: "Drew",
 storyline: "Highest score in league history.",
+pointsLeader: "Drew",
+sacko: "Historical Data Pending",
+standings: [],
 notes: "Record-setting season."
-},
- 
-{
-year: 2020,
-champion: "Danny",
-team: "Office Quotes",
-runnerUp: "Tom",
-highestScore: 205.64,
-championshipScore: "167.8 - 132.4",
-mvp: "Danny",
-storyline: "Dominant regular season and playoff run.",
-notes: "Championship season."
-},
- 
-{
-year: 2019,
-champion: "Tim",
-team: "Chiefs 2020 Champs",
-runnerUp: "Jason",
-highestScore: 194.68,
-championshipScore: "170.2 - 143.8",
-mvp: "Tim",
-storyline: "Highest playoff score season.",
-notes: "Championship season."
-},
- 
-{
-year: 2018,
-champion: "Drew",
-team: "Moose Knuckles",
-runnerUp: "Tim",
-highestScore: 157,
-championshipScore: "142.1 - 133.4",
-mvp: "Drew",
-storyline: "First championship season.",
-notes: "Championship season."
 }
 ];
