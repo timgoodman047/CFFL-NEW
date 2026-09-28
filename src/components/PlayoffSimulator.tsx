@@ -1,74 +1,60 @@
 import { simulationData } from "../data/simulationData";
  
 export default function PlayoffSimulator() {
-const teams = simulationData.map((team) => {
-const teamStrength =
-team.pointsFor / (team.wins + team.losses);
+const simulations = 1000;
  
-const expectedWins =
-(
-team.wins +
-teamStrength / 20
-).toFixed(1);
+const results = simulationData.map((team) => {
+let playoffCount = 0;
+let championshipCount = 0;
+let sackoCount = 0;
  
-const playoffOdds = Math.min(
-99,
-Math.round(
-team.wins * 8 +
-teamStrength * 2
-)
-);
+for (let i = 0; i < simulations; i++) {
+const score =
+team.wins * 10 +
+team.pointsFor / 100 +
+Math.random() * 40;
  
-const championshipOdds = Math.max(
-1,
-Math.round(playoffOdds * 0.3)
-);
+if (score > 85) {
+playoffCount++;
+}
  
-const averageFinish =
-Math.max(
-1,
-Math.min(
-10,
-Math.round(
-11 - playoffOdds / 10
-)
-)
-);
+if (score > 110) {
+championshipCount++;
+}
  
-const sackoOdds = Math.max(
-1,
-Math.round(
-(100 - playoffOdds) * 0.8
-)
-);
+if (score < 55) {
+sackoCount++;
+}
+}
  
 return {
 ...team,
-teamStrength,
-expectedWins,
-playoffOdds,
-championshipOdds,
-averageFinish,
-sackoOdds,
+ 
+playoffOdds: Math.round(
+(playoffCount / simulations) * 100
+),
+ 
+championshipOdds: Math.round(
+(championshipCount / simulations) * 100
+),
+ 
+sackoOdds: Math.round(
+(sackoCount / simulations) * 100
+),
 };
 });
  
-const championshipTable = [...teams].sort(
-(a, b) =>
-b.championshipOdds -
-a.championshipOdds
+const playoffTable = [...results].sort(
+(a, b) => b.playoffOdds - a.playoffOdds
 );
  
-const playoffTable = [...teams].sort(
+const championshipTable = [...results].sort(
 (a, b) =>
-b.playoffOdds -
-a.playoffOdds
+b.championshipOdds - a.championshipOdds
 );
  
-const sackoTable = [...teams].sort(
-(a, b) =>
-b.sackoOdds -
-a.sackoOdds
+const sackoTable = [...results].sort(
+(a, b) => b.sackoOdds - a.sackoOdds
 );
  
 return (
@@ -84,7 +70,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V4
+🎲 Monte Carlo Simulator V5
 </h2>
  
 <div
@@ -93,11 +79,14 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-Simulated from wins and points
-scored.
+1,000 simulated seasons.
 </div>
  
-<h3 style={{ color: "white" }}>
+<h3
+style={{
+color: "white",
+}}
+>
 🏆 Championship Odds
 </h3>
  
@@ -123,40 +112,6 @@ marginTop: "20px",
 key={`playoff-${team.team}`}
 label={team.team}
 value={`${team.playoffOdds}%`}
-/>
-))}
- 
-<h3
-style={{
-color: "white",
-marginTop: "20px",
-}}
->
-📈 Expected Wins
-</h3>
- 
-{playoffTable.map((team) => (
-<Row
-key={`wins-${team.team}`}
-label={team.team}
-value={team.expectedWins}
-/>
-))}
- 
-<h3
-style={{
-color: "white",
-marginTop: "20px",
-}}
->
-🏅 Average Finish
-</h3>
- 
-{playoffTable.map((team) => (
-<Row
-key={`finish-${team.team}`}
-label={team.team}
-value={`${team.averageFinish}`}
 />
 ))}
  
