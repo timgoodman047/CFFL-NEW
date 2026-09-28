@@ -77,7 +77,7 @@ const expectedA =
 (1 +
 Math.pow(
 10,
--ratingDiff / 15
+-ratingDiff / 30
 ));
  
 const baseScoreA =
