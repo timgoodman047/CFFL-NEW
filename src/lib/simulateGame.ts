@@ -1,5 +1,4 @@
-import { teamProfiles }
-from "../data/teamProfiles";
+import { teamProfiles } from "../data/teamProfiles";
  
 function randomNormal() {
 let u = 0;
@@ -16,6 +15,31 @@ v = Math.random();
 return (
 Math.sqrt(-2 * Math.log(u)) *
 Math.cos(2 * Math.PI * v)
+);
+}
+ 
+function getTeamRating(team: any) {
+const wins = team.wins ?? 0;
+const losses = team.losses ?? 0;
+ 
+const gamesPlayed = Math.max(
+wins + losses,
+1
+);
+ 
+const winPct = wins / gamesPlayed;
+ 
+const pf = team.pf ?? 0;
+ 
+const ppg =
+pf > 0
+? pf / gamesPlayed
+: team.avgPPG ?? 100;
+ 
+return (
+50 +
+winPct * 35 +
+(ppg - 100) * 0.75
 );
 }
  
@@ -39,25 +63,75 @@ consistency: 75,
 ceiling: 40,
 };
  
+const ratingA =
+getTeamRating(teamA);
+ 
+const ratingB =
+getTeamRating(teamB);
+ 
+const ratingDiff =
+ratingA - ratingB;
+ 
+const expectedA =
+1 /
+(1 +
+Math.pow(
+10,
+-ratingDiff / 15
+));
+ 
+const baseScoreA =
+95 +
+expectedA * 35;
+ 
+const baseScoreB =
+95 +
+(1 - expectedA) * 35;
+ 
 const stdDevA =
-(100 - profileA.consistency) * 1.2;
+Math.max(
+8,
+(100 - profileA.consistency) *
+0.9
+);
  
 const stdDevB =
-(100 - profileB.consistency) * 1.2;
+Math.max(
+8,
+(100 - profileB.consistency) *
+0.9
+);
+ 
+const ceilingBoostA =
+Math.random() *
+(profileA.ceiling / 3);
+ 
+const ceilingBoostB =
+Math.random() *
+(profileB.ceiling / 3);
  
 const scoreA =
-teamA.avgPPG +
+baseScoreA +
+ceilingBoostA +
 randomNormal() * stdDevA;
  
 const scoreB =
-teamB.avgPPG +
+baseScoreB +
+ceilingBoostB +
 randomNormal() * stdDevB;
  
 return {
 winner:
-scoreA >= scoreB ? "A" : "B",
+scoreA >= scoreB
+? "A"
+: "B",
  
-scoreA,
-scoreB,
+scoreA: Number(
+scoreA.toFixed(2)
+),
+ 
+scoreB: Number(
+scoreB.toFixed(2)
+),
 };
 }
