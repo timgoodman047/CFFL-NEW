@@ -1,8 +1,12 @@
 import { getLeagueTeams } from "../lib/sleeper";
+import { getRemainingMatchups } from "../lib/getRemainingMatchups";
 import { runSimulation } from "../lib/runSimulation";
  
 export default async function PlayoffSimulator() {
 const teams = await getLeagueTeams();
+ 
+const remainingWeeks =
+await getRemainingMatchups();
  
 const simulations = 1000;
  
@@ -16,7 +20,10 @@ totalFinish: 0,
  
 for (let sim = 0; sim < simulations; sim++) {
 const simulatedSeason =
-runSimulation(teams);
+await runSimulation(
+teams,
+remainingWeeks
+);
  
 simulatedSeason.forEach(
 (team, index) => {
@@ -107,7 +114,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V11
+🎲 Monte Carlo Simulator V12
 </h2>
  
 <div
@@ -116,8 +123,9 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-1,000 full-season simulations
-using live Sleeper team data.
+1,000 simulations using live
+Sleeper standings and remaining
+schedule.
 </div>
  
 {sorted.map((team) => (
