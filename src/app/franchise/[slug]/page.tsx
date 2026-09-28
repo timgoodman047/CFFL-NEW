@@ -1,4 +1,3 @@
-JSX
 import { franchises } from "../../../data/franchises";
 import { franchiseTimelines } from "../../../data/franchiseTimelines";
  
