@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { franchises } from "../../data/franchises";
  
 export default function AllTimePage() {
@@ -19,7 +20,8 @@ const highestScores = [...franchises].sort(
  
 const highestPlayoffScores = [...franchises].sort(
 (a, b) =>
-b.highestPlayoffScore - a.highestPlayoffScore
+b.highestPlayoffScore -
+a.highestPlayoffScore
 );
  
 const earnings = [...franchises].sort(
@@ -41,7 +43,8 @@ f.playoffTrips * 20 +
 f.winningPct * 100,
 }))
 .sort(
-(a, b) => b.dynastyScore - a.dynastyScore
+(a, b) =>
+b.dynastyScore - a.dynastyScore
 );
  
 return (
@@ -56,20 +59,11 @@ padding: "24px",
 style={{
 color: "#22c55e",
 fontSize: "48px",
-marginBottom: "8px",
+marginBottom: "24px",
 }}
 >
 🏆 All-Time Records & Leaderboards
 </h1>
- 
-<p
-style={{
-color: "#94a3b8",
-marginBottom: "24px",
-}}
->
-Career records across league history.
-</p>
  
 <Leaderboard
 title="🏆 Championships"
@@ -87,7 +81,9 @@ valueRenderer={(f) => f.playoffTrips}
 title="📈 Winning Percentage"
 rows={winningPct}
 valueRenderer={(f) =>
-`${(f.winningPct * 100).toFixed(1)}%`
+`${(
+f.winningPct * 100
+).toFixed(1)}%`
 }
 />
  
@@ -129,7 +125,9 @@ valueRenderer,
 }: {
 title: string;
 rows: any[];
-valueRenderer: (row: any) => string | number;
+valueRenderer: (
+row: any
+) => string | number;
 }) {
 return (
 <div
@@ -161,10 +159,15 @@ justifyContent: "space-between",
 }}
 >
 <div>
-#{index + 1} {row.owner}
+#{index + 1}{" "}
+<Link
+href={`/franchise/${row.slug}`}
+style={{
 </div>
  
-<div>{valueRenderer(row)}</div>
+<div>
+{valueRenderer(row)}
+</div>
 </div>
 ))}
 </div>
