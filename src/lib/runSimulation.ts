@@ -69,8 +69,8 @@ continue;
  
 const result =
 simulateGame(
-teamA.avgPPG,
-teamB.avgPPG
+teamA,
+teamB
 );
  
 if (
