@@ -5,6 +5,7 @@ import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
+import PlayoffSimulator from "../components/PlayoffSimulator";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
 import HallOfChampions from "../components/HallOfChampions";
@@ -81,7 +82,9 @@ marginTop: "24px",
 <Owners />
 <PlayoffOdds />
  
+<PlayoffSimulator />
 <WeeklyAwards />
+ 
 <News />
 </div>
  
@@ -145,27 +148,27 @@ Dress Punishment Active
 </h2>
  
 <div style={itemStyle}>
-All-Time Leaderboards
-</div>
- 
-<div style={itemStyle}>
 Fully Clickable Franchise Profiles
 </div>
  
 <div style={itemStyle}>
-Dedicated Season Pages
+True Monte Carlo Simulation Engine
 </div>
  
 <div style={itemStyle}>
-Franchise Career Timelines
+League Hall Of Fame
 </div>
  
 <div style={itemStyle}>
-Monte Carlo Playoff Simulator
+Franchise Analytics
 </div>
  
 <div style={itemStyle}>
-Championship Odds
+Historical Season Browser Expansion
+</div>
+ 
+<div style={itemStyle}>
+Automated Weekly Recaps
 </div>
 </div>
  
