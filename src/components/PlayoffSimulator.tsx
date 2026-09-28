@@ -1,35 +1,38 @@
 import { simulationData } from "../data/simulationData";
  
 export default function PlayoffSimulator() {
-const rankedTeams = [...simulationData]
-.sort(
-(a, b) =>
-b.powerRating - a.powerRating
-)
-.map((team) => ({
+const rankedTeams = simulationData
+.map((team) => {
+const powerScore =
+team.wins * 10 +
+team.pointsFor / 100;
+ 
+return {
 ...team,
+powerScore,
  
 playoffOdds: Math.min(
 99,
-Math.round(
-team.powerRating * 1.05
-)
+Math.round(powerScore)
 ),
  
 championshipOdds: Math.max(
 1,
-Math.round(
-team.powerRating * 0.3
-)
+Math.round(powerScore * 0.32)
 ),
  
 sackoOdds: Math.max(
 1,
 Math.round(
-(100 - team.powerRating) * 0.8
+(100 - powerScore) * 0.8
 )
 ),
-}));
+};
+})
+.sort(
+(a, b) =>
+b.powerScore - a.powerScore
+);
  
 const championshipOdds =
 [...rankedTeams].sort(
@@ -57,8 +60,17 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Playoff Simulator V2
+🎲 Playoff Simulator V3
 </h2>
+ 
+<div
+style={{
+color: "#94a3b8",
+marginBottom: "20px",
+}}
+>
+Based on wins and total points scored.
+</div>
  
 <h3 style={{ color: "white" }}>
 🏆 Championship Odds
@@ -103,6 +115,23 @@ marginTop: "20px",
 key={`sacko-${team.team}`}
 label={team.team}
 value={`${team.sackoOdds}%`}
+/>
+))}
+ 
+<h3
+style={{
+color: "white",
+marginTop: "20px",
+}}
+>
+📈 Team Power Scores
+</h3>
+ 
+{rankedTeams.map((team) => (
+<Row
+key={`power-${team.team}`}
+label={team.team}
+value={team.powerScore.toFixed(1)}
 />
 ))}
 </div>
