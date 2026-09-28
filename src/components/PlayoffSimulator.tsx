@@ -209,9 +209,10 @@ const sorted = [
 b.championshipOdds -
 a.championshipOdds
 );
-
+ 
 const favorite = sorted[0];
  
+return (
 <div
 style={{
 background: "#111c2d",
@@ -234,8 +235,7 @@ border:
 style={{
 fontSize: "12px",
 color: "#bbf7d0",
-textTransform:
-"uppercase",
+textTransform: "uppercase",
 letterSpacing: "1px",
 marginBottom: "6px",
 }}
@@ -274,18 +274,13 @@ Average Finish:{" "}
 {favorite.averageFinish}
 </div>
 </div>
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
+ 
 <h2
 style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V14
+🎲 Monte Carlo Simulator V15
 </h2>
  
 <div
@@ -306,13 +301,10 @@ brackets.
 <div
 key={team.team}
 style={{
-background:
-"#1b2a40",
+background: "#1b2a40",
 padding: "12px",
-borderRadius:
-"8px",
-marginBottom:
-"10px",
+borderRadius: "8px",
+marginBottom: "10px",
 }}
 >
 <strong>
