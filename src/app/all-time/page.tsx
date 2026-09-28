@@ -163,9 +163,7 @@ justifyContent: "space-between",
 <Link
 href={`/franchise/${row.slug}`}
 style={{
-</div>
- 
-<div>
+color: "#22c55e",
 {valueRenderer(row)}
 </div>
 </div>
