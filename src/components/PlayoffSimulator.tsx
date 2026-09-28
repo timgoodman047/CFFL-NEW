@@ -11,6 +11,8 @@ playoffs: 0,
 championships: 0,
 runnersUp: 0,
 sackos: 0,
+byes: 0,
+topThree: 0,
 totalSeed: 0,
 totalFinish: 0,
 }));
@@ -27,22 +29,30 @@ Math.random() * 50,
 .sort((a, b) => b.rating - a.rating);
  
 season.forEach((team, index) => {
+const finish = index + 1;
+ 
 const target = teams.find(
 (t) => t.team === team.team
 );
  
 if (!target) return;
  
-const finish = index + 1;
- 
 target.totalFinish += finish;
+ 
+if (finish <= 3) {
+target.topThree++;
+}
+ 
+if (finish <= 2) {
+target.byes++;
+}
  
 if (finish <= 6) {
 target.playoffs++;
 target.totalSeed += finish;
 }
  
-if (finish === 10) {
+if (finish === season.length) {
 target.sackos++;
 }
 });
@@ -103,6 +113,14 @@ sackoOdds: Math.round(
 (team.sackos / simulations) * 100
 ),
  
+byeOdds: Math.round(
+(team.byes / simulations) * 100
+),
+ 
+topThreeOdds: Math.round(
+(team.topThree / simulations) * 100
+),
+ 
 averageSeed:
 team.playoffs > 0
 ? (
@@ -116,7 +134,7 @@ team.totalFinish / simulations
 ).toFixed(1),
 }));
  
-const championshipTable = [...results].sort(
+const table = [...results].sort(
 (a, b) =>
 b.championshipOdds -
 a.championshipOdds
@@ -135,7 +153,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V9
+🎲 Monte Carlo Simulator V10
 </h2>
  
 <div
@@ -144,11 +162,11 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-5,000 simulated seasons with playoff
-brackets.
+5,000 simulated seasons with
+playoff bracket projections.
 </div>
  
-{championshipTable.map((team) => (
+{table.map((team) => (
 <div
 key={team.team}
 style={{
@@ -174,21 +192,33 @@ marginBottom: "10px",
  
 <br />
  
-🎯 Playoffs:
+🎯 Playoff:
 {" "}
 {team.playoffOdds}%
  
 <br />
  
-👑 Avg Seed:
+👑 Bye:
 {" "}
-{team.averageSeed}
+{team.byeOdds}%
+ 
+<br />
+ 
+🥉 Top 3:
+{" "}
+{team.topThreeOdds}%
  
 <br />
  
 📈 Avg Finish:
 {" "}
 {team.averageFinish}
+ 
+<br />
+ 
+#️⃣ Avg Seed:
+{" "}
+{team.averageSeed}
  
 <br />
  
