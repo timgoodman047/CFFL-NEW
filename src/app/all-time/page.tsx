@@ -157,8 +157,7 @@ justifyContent: "space-between",
 >
 <div>
 #{index + 1}{" "}
-<Link
-href={
+{`/franchise/${row.slug}`}
 {row.owner}
 </Link>
 </div>
