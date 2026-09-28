@@ -4,7 +4,6 @@ import { useState } from "react";
 import { history } from "../data/history";
  
 export default function SeasonBrowser() {
- 
 const [selectedYear, setSelectedYear] =
 useState(history[0].year);
  
@@ -60,6 +59,42 @@ value={season.year}
 ))}
 </select>
  
+<InfoCard
+title="🏆 Champion"
+value={season.champion}
+/>
+ 
+<InfoCard
+title="🏈 Team Name"
+value={season.team}
+/>
+ 
+<InfoCard
+title="🥈 Runner-Up"
+value={season.runnerUp}
+/>
+ 
+<InfoCard
+title="🔥 Highest Weekly Score"
+value={season.highestScore}
+/>
+ 
+<InfoCard
+title="📝 Notes"
+value={season.notes}
+/>
+</div>
+);
+}
+ 
+function InfoCard({
+title,
+value,
+}: {
+title: string;
+value: string | number;
+}) {
+return (
 <div
 style={{
 background: "#1b2a40",
@@ -68,56 +103,11 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>🏆 Champion</strong>
+<strong>{title}</strong>
  
 <br />
  
-{season.champion}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-<strong>🏈 Team Name</strong>
- 
-<br />
- 
-{season.team}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-<strong>🔥 Highest Score</strong>
- 
-<br />
- 
-{season.highestScore ?? "N/A"}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-<strong>📝 Notes</strong>
- 
-<br />
- 
-{season.notes ?? "No notes available."}
-</div>
+{value}
 </div>
 );
 }
