@@ -81,25 +81,23 @@ Math.pow(
 ));
  
 const baseScoreA =
-100 +
-expectedA * 20;
+105 + expectedA * 10;
  
 const baseScoreB =
-100 +
-(1 - expectedA) * 20;
+105 + (1 - expectedA) * 10;
  
 const stdDevA =
 Math.max(
-8,
+12,
 (100 - profileA.consistency) *
-0.9
+1.1
 );
  
 const stdDevB =
 Math.max(
-8,
+12,
 (100 - profileB.consistency) *
-0.9
+1.1
 );
  
 const ceilingBoostA =
