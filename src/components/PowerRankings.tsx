@@ -2,8 +2,7 @@ import Link from "next/link";
 import { getAllRatings } from "@/lib/teamRatings";
  
 export default function PowerRankings() {
-const rankings =
-getAllRatings();
+const rankings = getAllRatings();
  
 return (
 <div
@@ -22,23 +21,19 @@ marginBottom: "16px",
 📈 Franchise Power Ratings
 </h2>
  
-{rankings.map(
-(team, index) => (
+{rankings.map((team, index) => (
 <div
 key={team.owner}
 style={{
 display: "flex",
-justifyContent:
-"space-between",
+justifyContent: "space-between",
 padding: "10px 0",
-borderBottom:
-"1px solid #1f2937",
+borderBottom: "1px solid #1f2937",
 }}
 >
-{`/franchise/${team.owner.toLowerCase()}`}
-#{index + 1}{" "}
-{team.owner}
-</Link>
+<Link
+href={`/franchise/${team.owner.toLowerCase()}`}
+style= </Link>
  
 <strong
 style={{
@@ -48,8 +43,7 @@ color: "#22c55e",
 {team.rating}
 </strong>
 </div>
-)
-)}
+))}
 </div>
 );
 }
