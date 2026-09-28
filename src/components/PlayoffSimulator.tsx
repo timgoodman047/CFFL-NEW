@@ -1,100 +1,153 @@
 import { simulationData } from "../data/simulationData";
  
 export default function PlayoffSimulator() {
-const simulations = 1000;
+const simulations = 5000;
  
-const results = simulationData.map((team) => {
-let playoffCount = 0;
-let championshipCount = 0;
-let sackoCount = 0;
+const teams = simulationData.map((team) => ({
+...team,
+championships: 0,
+runnersUp: 0,
+playoffAppearances: 0,
+sackos: 0,
+}));
  
-let totalFinish = 0;
-let totalSeed = 0;
- 
-for (let i = 0; i < simulations; i++) {
-const score =
+for (let sim = 0; sim < simulations; sim++) {
+const standings = simulationData
+.map((team) => ({
+...team,
+strength:
 team.wins * 10 +
 team.pointsFor / 100 +
-Math.random() * 40;
+Math.random() * 40,
+}))
+.sort(
+(a, b) =>
+b.strength - a.strength
+);
  
-let finish = 10;
+standings
+.slice(0, 6)
+.forEach((team) => {
+const target = teams.find(
+(t) => t.team === team.team
+);
  
-if (score > 120) {
-finish = 1;
-} else if (score > 110) {
-finish = 2;
-} else if (score > 100) {
-finish = 3;
-} else if (score > 90) {
-finish = 4;
-} else if (score > 80) {
-finish = 5;
-} else if (score > 70) {
-finish = 6;
-} else if (score > 60) {
-finish = 7;
-} else if (score > 50) {
-finish = 8;
-} else if (score > 40) {
-finish = 9;
+if (target) {
+target.playoffAppearances++;
+}
+});
+ 
+const sackoTeam =
+standings[standings.length - 1];
+ 
+const sackoTarget = teams.find(
+(t) => t.team === sackoTeam.team
+);
+ 
+if (sackoTarget) {
+sackoTarget.sackos++;
 }
  
-totalFinish += finish;
-totalSeed += Math.min(6, finish);
+const seed1 = standings[0];
+const seed2 = standings[1];
+const seed3 = standings[2];
+const seed4 = standings[3];
+const seed5 = standings[4];
+const seed6 = standings[5];
  
-if (finish <= 6) {
-playoffCount++;
+const qf1 =
+simulateGame(seed3, seed6);
+ 
+const qf2 =
+simulateGame(seed4, seed5);
+ 
+const sf1 =
+simulateGame(seed1, qf2);
+ 
+const sf2 =
+simulateGame(seed2, qf1);
+ 
+const champion =
+simulateGame(sf1, sf2);
+ 
+const runnerUp =
+champion.team === sf1.team
+? sf2
+: sf1;
+ 
+const championTarget =
+teams.find(
+(t) => t.team === champion.team
+);
+ 
+if (championTarget) {
+championTarget.championships++;
 }
  
-if (finish === 1) {
-championshipCount++;
+const runnerUpTarget =
+teams.find(
+(t) => t.team === runnerUp.team
+);
+ 
+if (runnerUpTarget) {
+runnerUpTarget.runnersUp++;
+}
 }
  
-if (finish === 10) {
-sackoCount++;
-}
-}
- 
-return {
+const results = teams.map((team) => ({
 ...team,
  
-playoffOdds: Math.round(
-(playoffCount / simulations) * 100
+championshipOdds: Math.round(
+(team.championships /
+simulations) *
+100
 ),
  
-championshipOdds: Math.round(
-(championshipCount / simulations) * 100
+playoffOdds: Math.round(
+(team.playoffAppearances /
+simulations) *
+100
+),
+ 
+runnerUpOdds: Math.round(
+(team.runnersUp /
+simulations) *
+100
 ),
  
 sackoOdds: Math.round(
-(sackoCount / simulations) * 100
+(team.sackos /
+simulations) *
+100
 ),
+}));
  
-averageFinish: (
-totalFinish / simulations
-).toFixed(1),
- 
-averageSeed: (
-totalSeed / simulations
-).toFixed(1),
-};
-});
- 
-const championshipTable = [...results].sort(
+const championshipTable =
+[...results].sort(
 (a, b) =>
 b.championshipOdds -
 a.championshipOdds
 );
  
-const playoffTable = [...results].sort(
+const playoffTable =
+[...results].sort(
 (a, b) =>
 b.playoffOdds -
 a.playoffOdds
 );
  
-const sackoTable = [...results].sort(
+const runnerUpTable =
+[...results].sort(
 (a, b) =>
-b.sackoOdds - a.sackoOdds
+b.runnerUpOdds -
+a.runnerUpOdds
+);
+ 
+const sackoTable =
+[...results].sort(
+(a, b) =>
+b.sackoOdds -
+a.sackoOdds
 );
  
 return (
@@ -110,7 +163,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V6
+🎲 Monte Carlo Simulator V7
 </h2>
  
 <div
@@ -119,7 +172,7 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-1,000 simulated seasons.
+5,000 playoff bracket simulations.
 </div>
  
 <h3 style={{ color: "white" }}>
@@ -157,31 +210,14 @@ color: "white",
 marginTop: "20px",
 }}
 >
-🏅 Average Seed
+🥈 Runner-Up Odds
 </h3>
  
-{playoffTable.map((team) => (
+{runnerUpTable.map((team) => (
 <Row
-key={`seed-${team.team}`}
+key={`runner-${team.team}`}
 label={team.team}
-value={team.averageSeed}
-/>
-))}
- 
-<h3
-style={{
-color: "white",
-marginTop: "20px",
-}}
->
-📈 Average Finish
-</h3>
- 
-{playoffTable.map((team) => (
-<Row
-key={`finish-${team.team}`}
-label={team.team}
-value={team.averageFinish}
+value={`${team.runnerUpOdds}%`}
 />
 ))}
  
@@ -203,6 +239,25 @@ value={`${team.sackoOdds}%`}
 ))}
 </div>
 );
+}
+ 
+function simulateGame(
+teamA: any,
+teamB: any
+) {
+const scoreA =
+teamA.wins * 10 +
+teamA.pointsFor / 100 +
+Math.random() * 50;
+ 
+const scoreB =
+teamB.wins * 10 +
+teamB.pointsFor / 100 +
+Math.random() * 50;
+ 
+return scoreA >= scoreB
+? teamA
+: teamB;
 }
  
 function Row({
