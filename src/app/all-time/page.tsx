@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { franchises } from "../../data/franchises";
  
 export default function AllTimePage() {
@@ -43,7 +42,8 @@ f.playoffTrips * 20 +
 f.winningPct * 100,
 }))
 .sort(
-(a, b) => b.dynastyScore - a.dynastyScore
+(a, b) =>
+b.dynastyScore - a.dynastyScore
 );
  
 return (
@@ -156,13 +156,18 @@ justifyContent: "space-between",
 }}
 >
 <div>
-#{index + 1}{" "}
-<Link
-href={`/franchise/${row.slug}`}
+#{index + 1} {row.owner}
+ 
+<div
 style={{
-color: "#22c55e",
-textDecoration: "none",
-fontWeight: "bold",
+color: "#94a3b8",
+fontSize: "12px",
+marginTop: "4px",
+}}
+>
+/franchise/{row.slug}
+</div>
+</div>
  
 <div>
 {valueRenderer(row)}
