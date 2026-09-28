@@ -1,103 +1,63 @@
-import { simulateGame } from "./simulateGame";
+import { teamProfiles }
+from "../data/teamProfiles";
  
-export async function runSimulation(
-teams: any[],
-remainingWeeks: any[]
-) {
-const seasonTeams = teams.map(
-(team) => ({
-...team,
-simWins: team.wins,
-simLosses: team.losses,
-})
-);
+function randomNormal() {
+let u = 0;
+let v = 0;
  
-const teamMap = new Map(
-seasonTeams.map((team) => [
-team.rosterId,
-team,
-])
-);
- 
-for (const week of remainingWeeks) {
-const matchupGroups = new Map<
-number,
-any[]
->();
- 
-for (const matchup of week.matchups) {
-const matchupId =
-matchup.matchup_id;
- 
-if (
-!matchupGroups.has(matchupId)
-) {
-matchupGroups.set(
-matchupId,
-[]
-);
+while (u === 0) {
+u = Math.random();
 }
  
-matchupGroups
-.get(matchupId)!
-.push(matchup);
+while (v === 0) {
+v = Math.random();
 }
  
-const matchupPairs =
-Array.from(
-matchupGroups.values()
-);
- 
-for (const pair of matchupPairs) {
-if (pair.length !== 2) {
-continue;
-}
- 
-const teamA =
-teamMap.get(
-pair[0].roster_id
-);
- 
-const teamB =
-teamMap.get(
-pair[1].roster_id
-);
- 
-if (!teamA || !teamB) {
-continue;
-}
- 
-const result =
-simulateGame(
-teamA,
-teamB
-);
- 
-if (
-result.winner === "A"
-) {
-teamA.simWins++;
-teamB.simLosses++;
-} else {
-teamB.simWins++;
-teamA.simLosses++;
-}
-}
-}
- 
-return seasonTeams.sort(
-(a, b) => {
-if (
-b.simWins !==
-a.simWins
-) {
 return (
-b.simWins -
-a.simWins
+Math.sqrt(-2 * Math.log(u)) *
+Math.cos(2 * Math.PI * v)
 );
 }
  
-return b.pf - a.pf;
-}
-);
+export function simulateGame(
+teamA: any,
+teamB: any
+) {
+const profileA =
+teamProfiles[
+teamA.owner as keyof typeof teamProfiles
+] || {
+consistency: 75,
+ceiling: 40,
+};
+ 
+const profileB =
+teamProfiles[
+teamB.owner as keyof typeof teamProfiles
+] || {
+consistency: 75,
+ceiling: 40,
+};
+ 
+const stdDevA =
+(100 - profileA.consistency) * 1.2;
+ 
+const stdDevB =
+(100 - profileB.consistency) * 1.2;
+ 
+const scoreA =
+teamA.avgPPG +
+randomNormal() * stdDevA;
+ 
+const scoreB =
+teamB.avgPPG +
+randomNormal() * stdDevB;
+ 
+return {
+winner:
+scoreA >= scoreB ? "A" : "B",
+ 
+scoreA,
+scoreB,
+};
 }
