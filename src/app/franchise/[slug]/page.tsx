@@ -95,22 +95,7 @@ value={franchise.overallRecord}
 />
 </div>
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📊 Franchise Records
-</h2>
- 
+<Section title="📊 Franchise Records">
 <RecordRow
 label="Highest Weekly Score"
 value={franchise.highestScore}
@@ -120,24 +105,9 @@ value={franchise.highestScore}
 label="Highest Playoff Score"
 value={franchise.highestPlayoffScore}
 />
-</div>
+</Section>
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-👤 Franchise Summary
-</h2>
- 
+<Section title="👤 Franchise Summary">
 <RecordRow
 label="Years Active"
 value={franchise.yearsActive}
@@ -152,24 +122,9 @@ value={franchise.bestFinish}
 label="Career Earnings"
 value={franchise.moneyWon}
 />
-</div>
+</Section>
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📅 Career Timeline
-</h2>
- 
+<Section title="📅 Career Timeline">
 {timeline.length === 0 ? (
 <div
 style={{
@@ -199,24 +154,9 @@ Finish: {season.finish}
 </div>
 ))
 )}
-</div>
+</Section>
  
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-🏅 Trophy Case
-</h2>
- 
+<Section title="🏅 Trophy Case">
 <RecordRow
 label="Championships Won"
 value={franchise.championships}
@@ -226,15 +166,72 @@ value={franchise.championships}
 label="Playoff Appearances"
 value={franchise.playoffTrips}
 />
-</div>
  
+<RecordRow
+label="Career Winning Percentage"
+value={`${(
+franchise.winningPct * 100
+).toFixed(1)}%`}
+/>
+</Section>
+ 
+<Section title="🔥 Best Season">
+<RecordRow
+label="Career Peak"
+value={franchise.bestFinish}
+/>
+ 
+<RecordRow
+label="Highest Weekly Score"
+value={franchise.highestScore}
+/>
+</Section>
+ 
+<Section title="💀 Toughest Season">
+<RecordRow
+label="Still Chasing Improvement"
+value="Part of every championship journey."
+/>
+</Section>
+ 
+<Section title="🎖 Hall of Fame Accolades">
+<RecordRow
+label="Championship Count"
+value={franchise.championships}
+/>
+ 
+<RecordRow
+label="Playoff Trips"
+value={franchise.playoffTrips}
+/>
+ 
+<RecordRow
+label="Career Earnings"
+value={franchise.moneyWon}
+/>
+</Section>
+ 
+<Section title="📝 Notes">
+<p>{franchise.notes}</p>
+</Section>
+</main>
+);
+}
+ 
+function Section({
+title,
+children,
+}: {
+title: string;
+children: React.ReactNode;
+}) {
+return (
 <div
 style={{
 background: "#111c2d",
 padding: "20px",
 borderRadius: "12px",
 marginTop: "24px",
-marginBottom: "40px",
 }}
 >
 <h2
@@ -242,12 +239,11 @@ style={{
 color: "#22c55e",
 }}
 >
-📝 Notes
+{title}
 </h2>
  
-<p>{franchise.notes}</p>
+{children}
 </div>
-</main>
 );
 }
  
@@ -304,7 +300,8 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>{label}:</strong> {value}
+<strong>{label}:</strong>{" "}
+{value}
 </div>
 );
 }
