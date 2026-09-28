@@ -1,55 +1,49 @@
-const playoffOdds = [
-{
-team: "Nick",
-playoff: 96,
-title: 28,
-},
-{
-team: "Chris",
-playoff: 92,
-title: 24,
-},
-{
-team: "Spencer",
-playoff: 88,
-title: 19,
-},
-{
-team: "Tim",
-playoff: 71,
-title: 11,
-},
-{
-team: "Brian",
-playoff: 65,
-title: 10,
-},
-];
- 
-const sackoOdds = [
-{
-team: "Matt",
-sacko: 45,
-},
-{
-team: "Jeff",
-sacko: 22,
-},
-{
-team: "Tom",
-sacko: 17,
-},
-{
-team: "Danny",
-sacko: 10,
-},
-{
-team: "Jason",
-sacko: 6,
-},
-];
+import { simulationData } from "../data/simulationData";
  
 export default function PlayoffSimulator() {
+const rankedTeams = [...simulationData]
+.sort(
+(a, b) =>
+b.powerRating - a.powerRating
+)
+.map((team) => ({
+...team,
+ 
+playoffOdds: Math.min(
+99,
+Math.round(
+team.powerRating * 1.05
+)
+),
+ 
+championshipOdds: Math.max(
+1,
+Math.round(
+team.powerRating * 0.3
+)
+),
+ 
+sackoOdds: Math.max(
+1,
+Math.round(
+(100 - team.powerRating) * 0.8
+)
+),
+}));
+ 
+const championshipOdds =
+[...rankedTeams].sort(
+(a, b) =>
+b.championshipOdds -
+a.championshipOdds
+);
+ 
+const sackoOdds =
+[...rankedTeams].sort(
+(a, b) =>
+b.sackoOdds - a.sackoOdds
+);
+ 
 return (
 <div
 style={{
@@ -63,18 +57,18 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Playoff Simulator
+🎲 Playoff Simulator V2
 </h2>
  
 <h3 style={{ color: "white" }}>
 🏆 Championship Odds
 </h3>
  
-{playoffOdds.map((team) => (
+{championshipOdds.map((team) => (
 <Row
-key={team.team}
+key={`title-${team.team}`}
 label={team.team}
-value={`${team.title}%`}
+value={`${team.championshipOdds}%`}
 />
 ))}
  
@@ -87,11 +81,11 @@ marginTop: "20px",
 🎯 Playoff Odds
 </h3>
  
-{playoffOdds.map((team) => (
+{rankedTeams.map((team) => (
 <Row
-key={`${team.team}-playoff`}
+key={`playoff-${team.team}`}
 label={team.team}
-value={`${team.playoff}%`}
+value={`${team.playoffOdds}%`}
 />
 ))}
  
@@ -106,9 +100,9 @@ marginTop: "20px",
  
 {sackoOdds.map((team) => (
 <Row
-key={team.team}
+key={`sacko-${team.team}`}
 label={team.team}
-value={`${team.sacko}%`}
+value={`${team.sackoOdds}%`}
 />
 ))}
 </div>
