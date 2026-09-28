@@ -1,50 +1,74 @@
 import { simulationData } from "../data/simulationData";
  
 export default function PlayoffSimulator() {
-const rankedTeams = simulationData
-.map((team) => {
-const powerScore =
-team.wins * 10 +
-team.pointsFor / 100;
+const teams = simulationData.map((team) => {
+const teamStrength =
+team.pointsFor / (team.wins + team.losses);
+ 
+const expectedWins =
+(
+team.wins +
+teamStrength / 20
+).toFixed(1);
+ 
+const playoffOdds = Math.min(
+99,
+Math.round(
+team.wins * 8 +
+teamStrength * 2
+)
+);
+ 
+const championshipOdds = Math.max(
+1,
+Math.round(playoffOdds * 0.3)
+);
+ 
+const averageFinish =
+Math.max(
+1,
+Math.min(
+10,
+Math.round(
+11 - playoffOdds / 10
+)
+)
+);
+ 
+const sackoOdds = Math.max(
+1,
+Math.round(
+(100 - playoffOdds) * 0.8
+)
+);
  
 return {
 ...team,
-powerScore,
- 
-playoffOdds: Math.min(
-99,
-Math.round(powerScore)
-),
- 
-championshipOdds: Math.max(
-1,
-Math.round(powerScore * 0.32)
-),
- 
-sackoOdds: Math.max(
-1,
-Math.round(
-(100 - powerScore) * 0.8
-)
-),
+teamStrength,
+expectedWins,
+playoffOdds,
+championshipOdds,
+averageFinish,
+sackoOdds,
 };
-})
-.sort(
-(a, b) =>
-b.powerScore - a.powerScore
-);
+});
  
-const championshipOdds =
-[...rankedTeams].sort(
+const championshipTable = [...teams].sort(
 (a, b) =>
 b.championshipOdds -
 a.championshipOdds
 );
  
-const sackoOdds =
-[...rankedTeams].sort(
+const playoffTable = [...teams].sort(
 (a, b) =>
-b.sackoOdds - a.sackoOdds
+b.playoffOdds -
+a.playoffOdds
+);
+ 
+const sackoTable = [...teams].sort(
+(a, b) =>
+b.sackoOdds -
+a.sackoOdds
 );
  
 return (
@@ -60,7 +84,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Playoff Simulator V3
+🎲 Monte Carlo Simulator V4
 </h2>
  
 <div
@@ -69,14 +93,15 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-Based on wins and points scored.
+Simulated from wins and points
+scored.
 </div>
  
 <h3 style={{ color: "white" }}>
 🏆 Championship Odds
 </h3>
  
-{championshipOdds.map((team) => (
+{championshipTable.map((team) => (
 <Row
 key={`champ-${team.team}`}
 label={team.team}
@@ -93,7 +118,7 @@ marginTop: "20px",
 🎯 Playoff Odds
 </h3>
  
-{rankedTeams.map((team) => (
+{playoffTable.map((team) => (
 <Row
 key={`playoff-${team.team}`}
 label={team.team}
@@ -107,14 +132,14 @@ color: "white",
 marginTop: "20px",
 }}
 >
-💀 Sacko Odds
+📈 Expected Wins
 </h3>
  
-{sackoOdds.map((team) => (
+{playoffTable.map((team) => (
 <Row
-key={`sacko-${team.team}`}
+key={`wins-${team.team}`}
 label={team.team}
-value={`${team.sackoOdds}%`}
+value={team.expectedWins}
 />
 ))}
  
@@ -124,14 +149,31 @@ color: "white",
 marginTop: "20px",
 }}
 >
-📈 Power Score
+🏅 Average Finish
 </h3>
  
-{rankedTeams.map((team) => (
+{playoffTable.map((team) => (
 <Row
-key={`power-${team.team}`}
+key={`finish-${team.team}`}
 label={team.team}
-value={team.powerScore.toFixed(1)}
+value={`${team.averageFinish}`}
+/>
+))}
+ 
+<h3
+style={{
+color: "white",
+marginTop: "20px",
+}}
+>
+💀 Sacko Odds
+</h3>
+ 
+{sackoTable.map((team) => (
+<Row
+key={`sacko-${team.team}`}
+label={team.team}
+value={`${team.sackoOdds}%`}
 />
 ))}
 </div>
