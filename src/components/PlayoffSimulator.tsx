@@ -69,7 +69,7 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-Based on wins and total points scored.
+Based on wins and points scored.
 </div>
  
 <h3 style={{ color: "white" }}>
@@ -78,7 +78,7 @@ Based on wins and total points scored.
  
 {championshipOdds.map((team) => (
 <Row
-key={`title-${team.team}`}
+key={`champ-${team.team}`}
 label={team.team}
 value={`${team.championshipOdds}%`}
 />
@@ -124,7 +124,7 @@ color: "white",
 marginTop: "20px",
 }}
 >
-📈 Team Power Scores
+📈 Power Score
 </h3>
  
 {rankedTeams.map((team) => (
