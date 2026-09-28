@@ -20,8 +20,10 @@ team,
 );
  
 for (const week of remainingWeeks) {
-const matchupGroups =
-new Map<number, any[]>();
+const matchupGroups = new Map<
+number,
+any[]
+>();
  
 for (const matchup of week.matchups) {
 const matchupId =
@@ -41,9 +43,15 @@ matchupGroups
 .push(matchup);
 }
  
-for (const pair of matchupGroups.values()) {
-if (pair.length !== 2)
+const matchupPairs =
+Array.from(
+matchupGroups.values()
+);
+ 
+for (const pair of matchupPairs) {
+if (pair.length !== 2) {
 continue;
+}
  
 const teamA =
 teamMap.get(
@@ -55,8 +63,9 @@ teamMap.get(
 pair[1].roster_id
 );
  
-if (!teamA || !teamB)
+if (!teamA || !teamB) {
 continue;
+}
  
 const result =
 simulateGame(
