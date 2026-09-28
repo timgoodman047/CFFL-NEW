@@ -8,21 +8,49 @@ let playoffCount = 0;
 let championshipCount = 0;
 let sackoCount = 0;
  
+let totalFinish = 0;
+let totalSeed = 0;
+ 
 for (let i = 0; i < simulations; i++) {
 const score =
 team.wins * 10 +
 team.pointsFor / 100 +
 Math.random() * 40;
  
-if (score > 85) {
+let finish = 10;
+ 
+if (score > 120) {
+finish = 1;
+} else if (score > 110) {
+finish = 2;
+} else if (score > 100) {
+finish = 3;
+} else if (score > 90) {
+finish = 4;
+} else if (score > 80) {
+finish = 5;
+} else if (score > 70) {
+finish = 6;
+} else if (score > 60) {
+finish = 7;
+} else if (score > 50) {
+finish = 8;
+} else if (score > 40) {
+finish = 9;
+}
+ 
+totalFinish += finish;
+totalSeed += Math.min(6, finish);
+ 
+if (finish <= 6) {
 playoffCount++;
 }
  
-if (score > 110) {
+if (finish === 1) {
 championshipCount++;
 }
  
-if (score < 55) {
+if (finish === 10) {
 sackoCount++;
 }
 }
@@ -41,20 +69,32 @@ championshipOdds: Math.round(
 sackoOdds: Math.round(
 (sackoCount / simulations) * 100
 ),
+ 
+averageFinish: (
+totalFinish / simulations
+).toFixed(1),
+ 
+averageSeed: (
+totalSeed / simulations
+).toFixed(1),
 };
 });
  
-const playoffTable = [...results].sort(
-(a, b) => b.playoffOdds - a.playoffOdds
-);
- 
 const championshipTable = [...results].sort(
 (a, b) =>
-b.championshipOdds - a.championshipOdds
+b.championshipOdds -
+a.championshipOdds
+);
+ 
+const playoffTable = [...results].sort(
+(a, b) =>
+b.playoffOdds -
+a.playoffOdds
 );
  
 const sackoTable = [...results].sort(
-(a, b) => b.sackoOdds - a.sackoOdds
+(a, b) =>
+b.sackoOdds - a.sackoOdds
 );
  
 return (
@@ -70,7 +110,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V5
+🎲 Monte Carlo Simulator V6
 </h2>
  
 <div
@@ -82,11 +122,7 @@ marginBottom: "20px",
 1,000 simulated seasons.
 </div>
  
-<h3
-style={{
-color: "white",
-}}
->
+<h3 style={{ color: "white" }}>
 🏆 Championship Odds
 </h3>
  
@@ -112,6 +148,40 @@ marginTop: "20px",
 key={`playoff-${team.team}`}
 label={team.team}
 value={`${team.playoffOdds}%`}
+/>
+))}
+ 
+<h3
+style={{
+color: "white",
+marginTop: "20px",
+}}
+>
+🏅 Average Seed
+</h3>
+ 
+{playoffTable.map((team) => (
+<Row
+key={`seed-${team.team}`}
+label={team.team}
+value={team.averageSeed}
+/>
+))}
+ 
+<h3
+style={{
+color: "white",
+marginTop: "20px",
+}}
+>
+📈 Average Finish
+</h3>
+ 
+{playoffTable.map((team) => (
+<Row
+key={`finish-${team.team}`}
+label={team.team}
+value={team.averageFinish}
 />
 ))}
  
