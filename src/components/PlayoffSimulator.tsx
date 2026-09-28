@@ -8,7 +8,7 @@ const teams = await getLeagueTeams();
 const remainingWeeks =
 await getRemainingMatchups();
  
-const simulations = 1000;
+const simulations = 10000;
  
 const results = teams.map((team) => ({
 ...team,
