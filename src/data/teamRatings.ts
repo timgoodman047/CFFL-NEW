@@ -1,4 +1,4 @@
-import { franchises } from "@/data/franchises";
+import { franchises } from "./franchises";
  
 export function getTeamRating(
 owner: string
