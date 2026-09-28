@@ -1,4 +1,8 @@
+import { getAllRatings } from "@/data/teamRatings";
+ 
 export default function PowerRankings() {
+const rankings = getAllRatings();
+ 
 return (
 <div
 style={{
@@ -10,18 +14,40 @@ borderRadius: "12px",
 <h2
 style={{
 color: "#22c55e",
+marginBottom: "16px",
 }}
 >
 📈 Power Rankings
 </h2>
  
-<p
+{rankings.map(
+(team, index) => (
+<div
+key={team.team}
 style={{
-color: "#94a3b8",
+display: "flex",
+justifyContent:
+"space-between",
+padding: "10px 0",
+borderBottom:
+"1px solid #1f2937",
 }}
 >
-Coming Soon
-</p>
+<span>
+#{index + 1}{" "}
+{team.team}
+</span>
+ 
+<strong
+style={{
+color: "#22c55e",
+}}
+>
+{team.rating}
+</strong>
+</div>
+)
+)}
 </div>
 );
 }
