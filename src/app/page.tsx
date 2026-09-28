@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Standings from "../components/Standings";
+import ExpectedStandings from "../components/ExpectedStandings";
 import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
@@ -87,6 +88,7 @@ marginTop: "24px",
 <PlayoffSimulator />
 <ProjectedBracket />
  
+<ExpectedStandings />
 <WeeklyScoreDistributions />
  
 <WeeklyAwards />
