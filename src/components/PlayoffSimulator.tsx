@@ -259,6 +259,9 @@ marginBottom:
  
 <br />
  
+🏆 Championship Odds:{" "}
+{team.championshipOdds}%
+ 
 <br />
  
 🎯 Playoff Odds:{" "}
