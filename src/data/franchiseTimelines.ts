@@ -1,301 +1,78 @@
-import { franchises } from "../../../data/franchises";
-import { franchiseTimelines } from "../../../data/franchiseTimelines";
+export const franchiseTimelines = {
+danny: [
+{ year: 2025, finish: "8th Place" },
+{ year: 2024, finish: "4th Place" },
+{ year: 2023, finish: "3rd Place" },
+{ year: 2020, finish: "Champion" },
+{ year: 2013, finish: "Champion" },
+{ year: 2008, finish: "Champion" }
+],
  
-export default async function FranchisePage({
-params,
-}: {
-params: Promise<{ slug: string }>;
-}) {
-const resolvedParams = await params;
+tim: [
+{ year: 2025, finish: "6th Place" },
+{ year: 2024, finish: "5th Place" },
+{ year: 2023, finish: "5th Place" },
+{ year: 2022, finish: "Runner-Up" },
+{ year: 2019, finish: "Champion" },
+{ year: 2012, finish: "Champion" }
+],
  
-const franchise = franchises.find(
-(f) => f.slug === resolvedParams.slug
-);
+brian: [
+{ year: 2025, finish: "4th Place" },
+{ year: 2024, finish: "7th Place" },
+{ year: 2023, finish: "8th Place" },
+{ year: 2017, finish: "Champion" },
+{ year: 2016, finish: "Champion" },
+{ year: 2010, finish: "Champion" }
+],
  
-if (!franchise) {
-return (
-<main
-style={{
-maxWidth: "1200px",
-margin: "0 auto",
-padding: "24px",
-}}
->
-<h1
-style={{
-color: "#22c55e",
-}}
->
-Franchise Not Found
-</h1>
-</main>
-);
-}
+nick: [
+{ year: 2025, finish: "3rd Place" },
+{ year: 2024, finish: "6th Place" },
+{ year: 2023, finish: "Champion" },
+{ year: 2022, finish: "Champion" },
+{ year: 2014, finish: "Champion" }
+],
  
-const timeline =
-franchiseTimelines[
-franchise.slug as keyof typeof franchiseTimelines
-] || [];
+chris: [
+{ year: 2025, finish: "Champion" },
+{ year: 2024, finish: "2nd Place" },
+{ year: 2023, finish: "7th Place" },
+{ year: 2009, finish: "Champion" }
+],
  
-return (
-<main
-style={{
-maxWidth: "1400px",
-margin: "0 auto",
-padding: "24px",
-}}
->
-<h1
-style={{
-color: "#22c55e",
-fontSize: "48px",
-marginBottom: "8px",
-}}
->
-{franchise.owner}
-</h1>
+jason: [
+{ year: 2025, finish: "5th Place" },
+{ year: 2024, finish: "3rd Place" },
+{ year: 2023, finish: "4th Place" },
+{ year: 2015, finish: "Champion" }
+],
  
-<p
-style={{
-color: "#94a3b8",
-marginBottom: "24px",
-}}
->
-Franchise Profile
-</p>
+jeff: [
+{ year: 2025, finish: "9th Place" },
+{ year: 2024, finish: "Champion" },
+{ year: 2023, finish: "9th Place" },
+{ year: 2022, finish: "6th Place" }
+],
  
-{/* Career Overview */}
+matt: [
+{ year: 2025, finish: "10th Place" },
+{ year: 2024, finish: "8th Place" },
+{ year: 2023, finish: "10th Place" },
+{ year: 2022, finish: "4th Place" }
+],
  
-<div
-style={{
-display: "grid",
-gridTemplateColumns:
-"repeat(auto-fit,minmax(250px,1fr))",
-gap: "20px",
-}}
->
-<StatCard
-title="🏆 Championships"
-value={franchise.championships}
-/>
+tom: [
+{ year: 2025, finish: "7th Place" },
+{ year: 2024, finish: "10th Place" },
+{ year: 2023, finish: "6th Place" },
+{ year: 2022, finish: "5th Place" }
+],
  
-<StatCard
-title="🎯 Playoff Trips"
-value={franchise.playoffTrips}
-/>
- 
-<StatCard
-title="📈 Win %"
-value={`${(
-franchise.winningPct * 100
-).toFixed(1)}%`}
-/>
- 
-<StatCard
-title="📋 Record"
-value={franchise.overallRecord}
-/>
-</div>
- 
-{/* Records */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📊 Franchise Records
-</h2>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-Highest Weekly Score:{" "}
-{franchise.highestScore}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-Highest Playoff Score:{" "}
-{franchise.highestPlayoffScore}
-</div>
-</div>
- 
-{/* Franchise Information */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-👤 Franchise Summary
-</h2>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-Years Active: {franchise.yearsActive}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-Best Finish: {franchise.bestFinish}
-</div>
- 
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-Total Money Won: {franchise.moneyWon}
-</div>
-</div>
- 
-{/* Timeline */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📅 Franchise Timeline
-</h2>
- 
-{timeline.length === 0 ? (
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-Timeline coming soon.
-</div>
-) : (
-timeline.map((season) => (
-<div
-key={season.year}
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-<strong>{season.year}</strong>
- 
-<br />
- 
-Finish: {season.finish}
-</div>
-))
-)}
-</div>
- 
-{/* Notes */}
- 
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginTop: "24px",
-}}
->
-<h2
-style={{
-color: "#22c55e",
-}}
->
-📝 Notes
-</h2>
- 
-<p>{franchise.notes}</p>
-</div>
-</main>
-);
-}
- 
-function StatCard({
-title,
-value,
-}: {
-title: string;
-value: string | number;
-}) {
-return (
-<div
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-}}
->
-<div
-style={{
-color: "#94a3b8",
-}}
->
-{title}
-</div>
- 
-<div
-style={{
-color: "#22c55e",
-fontSize: "32px",
-fontWeight: "bold",
-marginTop: "10px",
-}}
->
-{value}
-</div>
-</div>
-);
-}
+spencer: [
+{ year: 2025, finish: "Runner-Up" },
+{ year: 2024, finish: "1st Place Regular Season" },
+{ year: 2023, finish: "Runner-Up" },
+{ year: 2022, finish: "3rd Place" }
+]
+};
