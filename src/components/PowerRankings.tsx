@@ -20,22 +20,18 @@ marginBottom: "16px",
 📈 Power Rankings
 </h2>
  
-{rankings.map(
-(team, index) => (
+{rankings.map((team, index) => (
 <div
 key={team.team}
 style={{
 display: "flex",
-justifyContent:
-"space-between",
+justifyContent: "space-between",
 padding: "10px 0",
-borderBottom:
-"1px solid #1f2937",
+borderBottom: "1px solid #1f2937",
 }}
 >
 <span>
-#{index + 1}{" "}
-{team.team}
+#{index + 1} {team.team}
 </span>
  
 <strong
@@ -46,8 +42,7 @@ color: "#22c55e",
 {team.rating}
 </strong>
 </div>
-)
-)}
+))}
 </div>
 );
 }
