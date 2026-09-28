@@ -259,8 +259,22 @@ marginBottom:
  
 <br />
  
-🏆 Championship
-Odds:{" "}
-{
-team.championshipOdds
+<br />
+ 
+🎯 Playoff Odds:{" "}
+{team.playoffOdds}%
+ 
+<br />
+ 
+📈 Average Finish:{" "}
+{team.averageFinish}
+ 
+<br />
+ 
+💀 Sacko Odds:{" "}
+{team.sackoOdds}%
+</div>
+))}
+</div>
+);
 }
