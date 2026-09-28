@@ -64,140 +64,134 @@ marginBottom: "24px",
 Franchise Hall of Fame Profile
 </p>
  
-{/* Career Overview */}
- 
 <div
 style={{
-* display: "grid",
-*gridTemplateColumns:
-"*epeat(auto-fit,minmax(250px,1fr))*,
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
 gap: "20px",
-}*
+}}
 >
 <StatCard
-* title="🏆 Championships"
-* value={franchise.championships}
-* />
- 
-<StatCard
-* title="🎯 Playoff Trips"
-* value={franchise.playoffTrips}* />
- 
-<Stat*ard
-* title="📈 Win %"
-* value={`${(
-franchise*winningPct * 100
-).toFix*d(1)}%`}
+title="🏆 Championships"
+value={franchise.championships}
 />
  
-<Stat*ard
-title="📋 Career Rec*rd"
+<StatCard
+title="🎯 Playoff Trips"
+value={franchise.playoffTrips}
+/>
+ 
+<StatCard
+title="📈 Win %"
+value={`${(
+franchise.winningPct * 100
+).toFixed(1)}%`}
+/>
+ 
+<StatCard
+title="📋 Career Record"
 value={franchise.overallRecord}
 />
 </div>
  
-{/* Records */}
- 
 <div
 style={{
-* background: "#111c2d",
-* padding: "20px",
-bo*derRadius: "12px",
-margi*Top: "24px",
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
 }}
 >
-* <h2
+<h2
 style={{
-* color: "#22c55e",
-*}}
->
-* 📊 Franchise Records
-* </*2>
- 
-<RecordRow
-l*bel="Highest Weekly Score"
-* value={franchise.highestScore}
-* />
- 
-<RecordRow
-* label="Highest Playoff Score"
-* value={franchise.highestP*ayoffScore}
-/>
-</div>
- 
-{/* Franchise Summary */}
- 
-<div
-style={{
-* background: "#111c2d",
-* padding: "20px",
-bo*derRadius: "12px",
-margi*Top: "24px",
+color: "#22c55e",
 }}
 >
-* <h2
-style={{
-* color: "#22c55e",
-}*
->
-👤 Franchise *ummary
+📊 Franchise Records
 </h2>
  
-<Rec*rdRow
-label="Years Activ*"
-value*{franchise.yearsActive}
-/>*
-<Record*ow
-label="Best Finish"
-* value={franchise.bestFinis*}
+<RecordRow
+label="Highest Weekly Score"
+value={franchise.highestScore}
 />
  
 <RecordRow
-* label="Career Earnings"
-* value={franchise.moneyWon}
+label="Highest Playoff Score"
+value={franchise.highestPlayoffScore}
 />
 </div>
  
-{/* Timeline */}
- 
 <div
-s*yle={{
-background: "#111*2d",
-padding: "20px",
-* borderRadius: "12px",
-* marginTop: "24px",
-}}
-* >
-<h2
-style*{{
-color: "#22c55e",
-* }}
->
-* 📅 Career Timeline
-* </*2>
- 
-{timeline.length === 0*? (
-<div
-sty*e={{
-background: "#1*2a40",
-padding: "12p*",
-borderRadius: "8p*",
-}}
->
-* Timeline coming soon.
-* </div>
-) : (
-*timeline.map((season) => (
-* <div
-key={season*year}
 style={{
-* background: "#1b2a40",
-* padding: "12px",
-* borderRadius: "8px",
-* marginBottom: "10px"*
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
 }}
 >
-* <strong>{season.year}</*trong>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+👤 Franchise Summary
+</h2>
+ 
+<RecordRow
+label="Years Active"
+value={franchise.yearsActive}
+/>
+ 
+<RecordRow
+label="Best Finish"
+value={franchise.bestFinish}
+/>
+ 
+<RecordRow
+label="Career Earnings"
+value={franchise.moneyWon}
+/>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
+}}
+>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+📅 Career Timeline
+</h2>
+ 
+{timeline.length === 0 ? (
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+}}
+>
+Timeline coming soon.
+</div>
+) : (
+timeline.map((season) => (
+<div
+key={season.year}
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
+<strong>{season.year}</strong>
  
 <br />
  
@@ -207,125 +201,110 @@ Finish: {season.finish}
 )}
 </div>
  
-{/* Trophy Case */}
- 
 <div
 style={{
-* background: "#111c2d",
-* padding: "20px",
-bo*derRadius: "12px",
-margi*Top: "24px",
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
 }}
 >
-* <h2
+<h2
 style={{
-* color: "#22c55e",
-}*
+color: "#22c55e",
+}}
 >
-🏅 Trophy Cas*
+🏅 Trophy Case
 </h2>
  
-<div
-* style={{
-backgroun*: "#1b2a40",
-padding* "12px",
-border*adius: "8px",
-* marginBottom: "10px",
-* }}
->
-* *Championships Won: {franchise.cham*ionships}
-</div>
+<RecordRow
+label="Championships Won"
+value={franchise.championships}
+/>
  
-*div
-style={{
-*background: "#1b2a40",
-*padding: "12px",
-borde*Radius: "8px",
-}}
-* >
-Play*ff Appearances: {franchise.playoff*rips}
-</*iv>
+<RecordRow
+label="Playoff Appearances"
+value={franchise.playoffTrips}
+/>
 </div>
- 
-{/* Notes */}
  
 <div
 style={{
-* background: "#111c2d",
-* padding: "20px",
-bo*derRadius: "12px",
-margi*Top: "24px",
-marginBotto*: "40px",
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "24px",
+marginBottom: "40px",
 }}
 >
-* <h2
+<h2
 style={{
-* color: "#22c55e",
+color: "#22c55e",
 }}
-* >
+>
 📝 Notes
-*</h2>
+</h2>
  
-<p>{franchise.notes*</p>
+<p>{franchise.notes}</p>
 </div>
 </main>
-);*}
+);
+}
  
 function StatCard({
 title,
-*alue,
-}: {
-title: string;
-valu*: string | number;
-}) {
-return (* <div
-style={{
-ba*kground: "#111c2d",
-paddin*: "20px",
-borderRadius: "1*px",
-}}
->
-<div
-* style={{
-color: "#94*3b8",
-}}
->
-{*itle}
-</div>
- 
-<div
-* style={{
-color: "#22*55e",
-fontSize: "32px",
-* fontWeight: "bold",
-* marginTop: "10px",
-}}
-* >
-{value}
-</div*
-</div>
-);
-}
- 
-function Recor*Row({
-label,
 value,
 }: {
-lab*l: string;
-value: string | numbe*;
+title: string;
+value: string | number;
 }) {
 return (
 <div
-s*yle={{
-background: "#1b2a4*",
-padding: "12px",
-* borderRadius: "8px",
-marg*nBottom: "10px",
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
 }}
 >
-* <strong>{label}:</strong>{" "}
-* {value}
+<div
+style={{
+color: "#94a3b8",
+}}
+>
+{title}
+</div>
+ 
+<div
+style={{
+color: "#22c55e",
+fontSize: "32px",
+fontWeight: "bold",
+marginTop: "10px",
+}}
+>
+{value}
+</div>
 </div>
 );
 }
-```*
+ 
+function RecordRow({
+label,
+value,
+}: {
+label: string;
+value: string | number;
+}) {
+return (
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
+<strong>{label}:</strong> {value}
+</div>
+);
+}
