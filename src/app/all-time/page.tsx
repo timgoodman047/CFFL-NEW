@@ -43,8 +43,7 @@ f.playoffTrips * 20 +
 f.winningPct * 100,
 }))
 .sort(
-(a, b) =>
-b.dynastyScore - a.dynastyScore
+(a, b) => b.dynastyScore - a.dynastyScore
 );
  
 return (
@@ -81,9 +80,7 @@ valueRenderer={(f) => f.playoffTrips}
 title="📈 Winning Percentage"
 rows={winningPct}
 valueRenderer={(f) =>
-`${(
-f.winningPct * 100
-).toFixed(1)}%`
+`${(f.winningPct * 100).toFixed(1)}%`
 }
 />
  
@@ -161,9 +158,12 @@ justifyContent: "space-between",
 <div>
 #{index + 1}{" "}
 <Link
-href={`/franchise/${row.slug}`}
-style={{
-color: "#22c55e",
+href={
+{row.owner}
+</Link>
+</div>
+ 
+<div>
 {valueRenderer(row)}
 </div>
 </div>
