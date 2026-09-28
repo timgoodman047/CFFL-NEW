@@ -1,6 +1,24 @@
 import { teamProfiles }
 from "../data/teamProfiles";
  
+function randomNormal() {
+let u = 0;
+let v = 0;
+ 
+while (u === 0) {
+u = Math.random();
+}
+ 
+while (v === 0) {
+v = Math.random();
+}
+ 
+return (
+Math.sqrt(-2 * Math.log(u)) *
+Math.cos(2 * Math.PI * v)
+);
+}
+ 
 export function simulateGame(
 teamA: any,
 teamB: any
@@ -21,37 +39,23 @@ consistency: 75,
 ceiling: 40,
 };
  
-const varianceA =
-(100 - profileA.consistency) *
-Math.random();
+const stdDevA =
+(100 - profileA.consistency) * 1.2;
  
-const varianceB =
-(100 - profileB.consistency) *
-Math.random();
- 
-const ceilingA =
-Math.random() *
-profileA.ceiling;
- 
-const ceilingB =
-Math.random() *
-profileB.ceiling;
+const stdDevB =
+(100 - profileB.consistency) * 1.2;
  
 const scoreA =
 teamA.avgPPG +
-ceilingA -
-varianceA;
+randomNormal() * stdDevA;
  
 const scoreB =
 teamB.avgPPG +
-ceilingB -
-varianceB;
+randomNormal() * stdDevB;
  
 return {
 winner:
-scoreA >= scoreB
-? "A"
-: "B",
+scoreA >= scoreB ? "A" : "B",
  
 scoreA,
 scoreB,
