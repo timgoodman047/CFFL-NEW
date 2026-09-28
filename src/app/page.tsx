@@ -6,6 +6,7 @@ import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
 import PlayoffOdds from "../components/PlayoffOdds";
 import PlayoffSimulator from "../components/PlayoffSimulator";
+import WeeklyScoreDistributions from "../components/WeeklyScoreDistributions";
 import WeeklyAwards from "../components/WeeklyAwards";
 import News from "../components/News";
 import HallOfChampions from "../components/HallOfChampions";
@@ -83,8 +84,9 @@ marginTop: "24px",
 <PlayoffOdds />
  
 <PlayoffSimulator />
-<WeeklyAwards />
+<WeeklyScoreDistributions />
  
+<WeeklyAwards />
 <News />
 </div>
  
@@ -152,7 +154,7 @@ Fully Clickable Franchise Profiles
 </div>
  
 <div style={itemStyle}>
-True Monte Carlo Simulation Engine
+Weekly Matchup Predictor
 </div>
  
 <div style={itemStyle}>
@@ -164,7 +166,7 @@ Franchise Analytics
 </div>
  
 <div style={itemStyle}>
-Historical Season Browser Expansion
+Historical Browser Expansion
 </div>
  
 <div style={itemStyle}>
