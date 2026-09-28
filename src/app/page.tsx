@@ -63,6 +63,8 @@ League HQ • Anti-PPR Coalition
  
 <Hero />
  
+{/* Current Season */}
+ 
 <div
 style={{
 display: "grid",
@@ -85,6 +87,8 @@ marginTop: "24px",
 <News />
 </div>
  
+{/* Historical Section */}
+ 
 <div
 style={{
 display: "grid",
@@ -103,6 +107,8 @@ marginTop: "24px",
 <SeasonBrowser />
 <RivalryTracker />
 </div>
+ 
+{/* League Information */}
  
 <div
 style={{
@@ -153,15 +159,19 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Fully Clickable Franchise Profiles
+Clickable Franchise Profiles
 </div>
  
 <div style={itemStyle}>
-Historical Season Browser V2
+All-Time Leaderboards
 </div>
  
 <div style={itemStyle}>
-Franchise Career Timelines
+Dedicated Season Archive Pages
+</div>
+ 
+<div style={itemStyle}>
+Historical Season Browser V7
 </div>
  
 <div style={itemStyle}>
@@ -170,10 +180,6 @@ Monte Carlo Playoff Simulator
  
 <div style={itemStyle}>
 Championship Odds
-</div>
- 
-<div style={itemStyle}>
-Sacko Probability
 </div>
 </div>
  
@@ -201,6 +207,10 @@ Yahoo Era + Sleeper Era
 <div style={itemStyle}>
 Historical Records Preserved
 </div>
+ 
+/all-time
+View All-Time Records →
+</a>
 </div>
 </div>
 </main>
