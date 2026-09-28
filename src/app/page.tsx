@@ -198,4 +198,3 @@ All-Time Records: /all-time
 </main>
 );
 }
-`
