@@ -18,7 +18,11 @@ sackos: 0,
 totalFinish: 0,
 }));
  
-for (let sim = 0; sim < simulations; sim++) {
+for (
+let sim = 0;
+sim < simulations;
+sim++
+) {
 const simulatedSeason =
 await runSimulation(
 teams,
@@ -63,40 +67,39 @@ const finalResults =
 results.map((team) => ({
 ...team,
  
-playoffOdds:
-Math.round(
+playoffOdds: Number(
 (
-team.playoffs /
-simulations
-) * 100
+(team.playoffs /
+simulations) *
+100
+).toFixed(1)
 ),
  
-championshipOdds:
-Number(
-  (
-    (team.championships / 
-     simulations) * 
-    100
-  ).toFixed(1)
-)
- 
-sackoOdds:
-Math.round(
+championshipOdds: Number(
 (
-team.sackos /
-simulations
-) * 100
+(team.championships /
+simulations) *
+100
+).toFixed(1)
 ),
  
-averageFinish:
+sackoOdds: Number(
 (
+(team.sackos /
+simulations) *
+100
+).toFixed(1)
+),
+ 
+averageFinish: (
 team.totalFinish /
 simulations
 ).toFixed(1),
 }));
  
-const sorted =
-[...finalResults].sort(
+const sorted = [
+...finalResults,
+].sort(
 (a, b) =>
 b.championshipOdds -
 a.championshipOdds
@@ -115,7 +118,7 @@ style={{
 color: "#22c55e",
 }}
 >
-🎲 Monte Carlo Simulator V12
+🎲 Monte Carlo Simulator V13
 </h2>
  
 <div
@@ -124,9 +127,9 @@ color: "#94a3b8",
 marginBottom: "20px",
 }}
 >
-1,000 simulations using live
-Sleeper standings and remaining
-schedule.
+10,000 simulations using
+live Sleeper standings and
+remaining schedule.
 </div>
  
 {sorted.map((team) => (
@@ -145,34 +148,23 @@ marginBottom: "10px",
  
 <br />
  
-🏆 Championship Odds:
-{" "}
-{
-team.championshipOdds
-}
-%
+🏆 Championship Odds:{" "}
+{team.championshipOdds}%
  
 <br />
  
-🎯 Playoff Odds:
-{" "}
-{team.playoffOdds}
-%
+🎯 Playoff Odds:{" "}
+{team.playoffOdds}%
  
 <br />
  
-📈 Average Finish:
-{" "}
-{
-team.averageFinish
-}
+📈 Average Finish:{" "}
+{team.averageFinish}
  
 <br />
  
-💀 Sacko Odds:
-{" "}
-{team.sackoOdds}
-%
+💀 Sacko Odds:{" "}
+{team.sackoOdds}%
 </div>
 ))}
 </div>
