@@ -157,10 +157,12 @@ justifyContent: "space-between",
 >
 <div>
 #{index + 1}{" "}
-{`/franchise/${row.slug}`}
-{row.owner}
-</Link>
-</div>
+<Link
+href={`/franchise/${row.slug}`}
+style={{
+color: "#22c55e",
+textDecoration: "none",
+fontWeight: "bold",
  
 <div>
 {valueRenderer(row)}
