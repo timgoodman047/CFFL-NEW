@@ -31,9 +31,9 @@ padding: "10px 0",
 borderBottom: "1px solid #1f2937",
 }}
 >
-<Link
-href={`/franchise/${team.owner.toLowerCase()}`}
-style= </Link>
+{`/franchise/${team.owner.toLowerCase()}`}
+#{index + 1} {team.owner}
+</Link>
  
 <strong
 style={{
