@@ -4,14 +4,12 @@ export async function runSimulation(
 teams: any[],
 remainingWeeks: any[]
 ) {
-const seasonTeams = teams.map(
-(team) => ({
+const seasonTeams = teams.map((team) => ({
 ...team,
 simWins: team.wins,
 simLosses: team.losses,
 simPF: team.pf,
-})
-);
+}));
  
 const teamMap = new Map(
 seasonTeams.map((team) => [
@@ -42,7 +40,8 @@ matchupGroups
 .push(matchup);
 }
  
-const matchupPairs = Array.from(
+const matchupPairs =
+Array.from(
 matchupGroups.values()
 );
  
@@ -93,7 +92,10 @@ a.simWins
 );
 }
  
-return b.simPF - a.simPF;
+return (
+b.simPF - a.simPF
+);
 }
 );
+}
 }
