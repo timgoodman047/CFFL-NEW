@@ -12,6 +12,7 @@ import DynastyRankings from "../components/DynastyRankings";
 import FranchiseProfiles from "../components/FranchiseProfiles";
 import RecordBook from "../components/RecordBook";
 import SeasonBrowser from "../components/SeasonBrowser";
+import RivalryTracker from "../components/RivalryTracker";
  
 const cardStyle = {
 background: "#111c2d",
@@ -35,8 +36,6 @@ margin: "0 auto",
 padding: "24px",
 }}
 >
-{/* Header */}
- 
 <div
 style={{
 marginBottom: "24px",
@@ -62,11 +61,7 @@ League HQ • Anti-PPR Coalition
 </p>
 </div>
  
-{/* Hero */}
- 
 <Hero />
- 
-{/* Current Season Dashboard */}
  
 <div
 style={{
@@ -90,8 +85,6 @@ marginTop: "24px",
 <News />
 </div>
  
-{/* Historical Section */}
- 
 <div
 style={{
 display: "grid",
@@ -108,9 +101,8 @@ marginTop: "24px",
 <RecordBook />
  
 <SeasonBrowser />
+<RivalryTracker />
 </div>
- 
-{/* League Information */}
  
 <div
 style={{
@@ -121,8 +113,6 @@ gap: "20px",
 marginTop: "24px",
 }}
 >
-{/* Constitution */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -153,8 +143,6 @@ Dress Punishment Active
 </div>
 </div>
  
-{/* Coming Soon */}
- 
 <div style={cardStyle}>
 <h2
 style={{
@@ -165,15 +153,15 @@ color: "#22c55e",
 </h2>
  
 <div style={itemStyle}>
-Clickable Franchise Pages
-</div>
- 
-<div style={itemStyle}>
-Rivalry Tracker
+Fully Clickable Franchise Profiles
 </div>
  
 <div style={itemStyle}>
 Historical Season Browser V2
+</div>
+ 
+<div style={itemStyle}>
+Franchise Career Timelines
 </div>
  
 <div style={itemStyle}>
@@ -188,8 +176,6 @@ Championship Odds
 Sacko Probability
 </div>
 </div>
- 
-{/* League History */}
  
 <div style={cardStyle}>
 <h2
