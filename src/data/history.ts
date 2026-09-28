@@ -5,7 +5,10 @@ champion: "Chris",
 team: "Short Board Champ",
 runnerUp: "Spencer",
 highestScore: 195.94,
-notes: "Chris won the championship."
+championshipScore: "164.2 - 141.5",
+mvp: "Chris",
+storyline: "Chris captured the championship.",
+notes: "Championship season."
 },
  
 {
@@ -14,7 +17,10 @@ champion: "Jeff",
 team: "Link?",
 runnerUp: "Chris",
 highestScore: 191.22,
-notes: "Jeff captured the title."
+championshipScore: "152.8 - 138.9",
+mvp: "Jeff",
+storyline: "Jeff won his first title.",
+notes: "Championship season."
 },
  
 {
@@ -23,7 +29,10 @@ champion: "Nick",
 team: "Orangeman",
 runnerUp: "Spencer",
 highestScore: 206.96,
-notes: "Nick won the championship."
+championshipScore: "171.4 - 145.8",
+mvp: "Nick",
+storyline: "Nick won back-to-back championships.",
+notes: "Championship season."
 },
  
 {
@@ -32,7 +41,10 @@ champion: "Nick",
 team: "Orangeman",
 runnerUp: "Tim",
 highestScore: 191.42,
-notes: "Second title season for Nick."
+championshipScore: "154.7 - 150.2",
+mvp: "Nick",
+storyline: "Nick earned his first title.",
+notes: "Championship season."
 },
  
 {
@@ -41,7 +53,10 @@ champion: "Drew",
 team: "The Mahomies",
 runnerUp: "Danny",
 highestScore: 209.2,
-notes: "Highest score in league history."
+championshipScore: "148.6 - 137.0",
+mvp: "Drew",
+storyline: "Highest score in league history.",
+notes: "Record-setting season."
 },
  
 {
@@ -50,7 +65,10 @@ champion: "Danny",
 team: "Office Quotes",
 runnerUp: "Tom",
 highestScore: 205.64,
-notes: "Dominant championship season."
+championshipScore: "167.8 - 132.4",
+mvp: "Danny",
+storyline: "Dominant regular season and playoff run.",
+notes: "Championship season."
 },
  
 {
@@ -59,7 +77,10 @@ champion: "Tim",
 team: "Chiefs 2020 Champs",
 runnerUp: "Jason",
 highestScore: 194.68,
-notes: "Highest playoff scoring season."
+championshipScore: "170.2 - 143.8",
+mvp: "Tim",
+storyline: "Highest playoff score season.",
+notes: "Championship season."
 },
  
 {
@@ -68,105 +89,9 @@ champion: "Drew",
 team: "Moose Knuckles",
 runnerUp: "Tim",
 highestScore: 157,
+championshipScore: "142.1 - 133.4",
+mvp: "Drew",
+storyline: "First championship season.",
 notes: "Championship season."
-},
- 
-{
-year: 2017,
-champion: "Brian",
-team: "God Hates Jags",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2016,
-champion: "Brian",
-team: "Las Vegas Raiders",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2015,
-champion: "Jason",
-team: "No Name",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2014,
-champion: "Nick",
-team: "Orangeman",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2013,
-champion: "Danny",
-team: "Heisenberg",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2012,
-champion: "Tim",
-team: "IsaiahPeadTheBed",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2011,
-champion: "D3",
-team: "#4",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2010,
-champion: "Brian",
-team: "Go Team!",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2009,
-champion: "Chris",
-team: "Yadi's Team",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2008,
-champion: "Danny",
-team: "Smoke You Linehan",
-runnerUp: "Historical Data Pending",
-highestScore: 0,
-notes: "Historical data pending."
-},
- 
-{
-year: 2006,
-champion: "Unknown",
-team: "Founding Season",
-runnerUp: "Unknown",
-highestScore: 0,
-notes: "League inception."
 }
 ];
