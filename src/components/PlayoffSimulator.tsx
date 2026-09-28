@@ -72,12 +72,13 @@ simulations
 ),
  
 championshipOdds:
-Math.round(
-(
-team.championships /
-simulations
-) * 100
-),
+Number(
+  (
+    (team.championships / 
+     simulations) * 
+    100
+  ).toFixed(1)
+)
  
 sackoOdds:
 Math.round(
