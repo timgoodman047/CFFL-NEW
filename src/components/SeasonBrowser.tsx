@@ -109,40 +109,33 @@ title="📝 Notes"
 value={season.notes}
 />
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginTop: "10px",
-}}
->
-<strong>
-📊 Final Standings
-</strong>
+<SectionCard title="🏆 Championship Matchup">
+{season.championship}
+</SectionCard>
  
-<br />
-<br />
- 
-{season.standings.length === 0 ? (
-<div>
-Historical standings pending.
+<SectionCard title="🏈 Semifinal Results">
+{season.semifinals.map((game) => (
+<div key={game}>
+{game}
 </div>
-) : (
-season.standings.map(
-(team) => (
-<div
-key={team}
-style={{
-marginBottom: "5px",
-}}
->
+))}
+</SectionCard>
+ 
+<SectionCard title="🏅 Season Awards">
+{season.awards.map((award) => (
+<div key={award}>
+{award}
+</div>
+))}
+</SectionCard>
+ 
+<SectionCard title="📊 Final Standings">
+{season.standings.map((team) => (
+<div key={team}>
 {team}
 </div>
-)
-)
-)}
-</div>
+))}
+</SectionCard>
 </div>
 );
 }
@@ -168,6 +161,32 @@ marginBottom: "10px",
 <br />
  
 {value}
+</div>
+);
+}
+ 
+function SectionCard({
+title,
+children,
+}: {
+title: string;
+children: React.ReactNode;
+}) {
+return (
+<div
+style={{
+background: "#1b2a40",
+padding: "12px",
+borderRadius: "8px",
+marginBottom: "10px",
+}}
+>
+<strong>{title}</strong>
+ 
+<br />
+<br />
+ 
+{children}
 </div>
 );
 }
