@@ -1,37 +1,42 @@
 const rivalries = [
 {
-rivals: "Danny vs Tim",
+teamA: "Danny",
+teamB: "Tim",
 record: "19-15",
 playoffRecord: "2-1",
-streak: "Danny (6)"
+longestStreak: "Danny (6)"
 },
  
 {
-rivals: "Tim vs Spencer",
-record: "18-6",
-playoffRecord: "3-0",
-streak: "Tim (8)"
-},
- 
-{
-rivals: "Chris vs Tom",
-record: "13-9",
-playoffRecord: "1-1",
-streak: "Chris (4)"
-},
- 
-{
-rivals: "Brian vs Jason",
+teamA: "Brian",
+teamB: "Jason",
 record: "16-6",
 playoffRecord: "3-0",
-streak: "Brian (7)"
+longestStreak: "Brian (7)"
 },
  
 {
-rivals: "Nick vs Matt",
+teamA: "Nick",
+teamB: "Matt",
 record: "8-5",
 playoffRecord: "1-0",
-streak: "Nick (3)"
+longestStreak: "Nick (3)"
+},
+ 
+{
+teamA: "Chris",
+teamB: "Tom",
+record: "13-9",
+playoffRecord: "1-1",
+longestStreak: "Chris (4)"
+},
+ 
+{
+teamA: "Spencer",
+teamB: "Jeff",
+record: "4-3",
+playoffRecord: "0-0",
+longestStreak: "Jeff (2)"
 }
 ];
  
@@ -54,7 +59,7 @@ color: "#22c55e",
  
 {rivalries.map((rivalry) => (
 <div
-key={rivalry.rivals}
+key={`${rivalry.teamA}-${rivalry.teamB}`}
 style={{
 background: "#1b2a40",
 padding: "12px",
@@ -63,26 +68,20 @@ marginBottom: "10px",
 }}
 >
 <strong>
-{rivalry.rivals}
+{rivalry.teamA} vs {rivalry.teamB}
 </strong>
  
 <br />
  
-All-Time Record:
-{" "}
-{rivalry.record}
+All-Time Record: {rivalry.record}
  
 <br />
  
-Playoff Record:
-{" "}
-{rivalry.playoffRecord}
+Playoff Record: {rivalry.playoffRecord}
  
 <br />
  
-Longest Streak:
-{" "}
-{rivalry.streak}
+Longest Win Streak: {rivalry.longestStreak}
 </div>
 ))}
 </div>
