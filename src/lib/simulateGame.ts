@@ -38,8 +38,8 @@ pf > 0
  
 return (
 50 +
-winPct * 35 +
-(ppg - 100) * 0.75
+winPct * 30 +
+(ppg - 100) * 0.4
 );
 }
  
@@ -81,12 +81,12 @@ Math.pow(
 ));
  
 const baseScoreA =
-95 +
-expectedA * 35;
+100 +
+expectedA * 20;
  
 const baseScoreB =
-95 +
-(1 - expectedA) * 35;
+100 +
+(1 - expectedA) * 20;
  
 const stdDevA =
 Math.max(
