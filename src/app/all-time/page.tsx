@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { franchises } from "../../data/franchises";
  
 export default function AllTimePage() {
@@ -157,13 +156,21 @@ justifyContent: "space-between",
 }}
 >
 <div>
-#{index + 1}{" "}
+#{index + 1} {row.owner}
  
-<Link
-href={`/franchise/${row.slug}`}
+<div
 style={{
-color: "#22c55e",
-Renderer(row)}
+color: "#94a3b8",
+fontSize: "12px",
+marginTop: "4px",
+}}
+>
+/franchise/{row.slug}
+</div>
+</div>
+ 
+<div>
+{valueRenderer(row)}
 </div>
 </div>
 ))}
