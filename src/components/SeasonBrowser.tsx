@@ -1,5 +1,6 @@
 "use client";
  
+import Link from "next/link";
 import { useState } from "react";
 import { history } from "../data/history";
  
@@ -59,79 +60,81 @@ value={season.year}
 ))}
 </select>
  
-<Section title="🏆 Champion">
-{season.champion}
-</Section>
+<Link
+href={`/season/${season.year}` style={{
+background: "#22c55e",
+color: "#111827",
+padding: "12px",
+borderRadius: "8px",
+fontWeight: "bold",
+textAlign: "center",
+marginBottom: "15px",
+cursor: "pointer",
+}}
+>
+Open {season.year} Season Archive →
+</div>
+</Link>
  
-<Section title="🏈 Team Name">
-{season.team}
-</Section>
+<SeasonCard
+title="🏆 Champion"
+value={season.champion}
+/>
  
-<Section title="🥈 Runner-Up">
-{season.runnerUp}
-</Section>
+<SeasonCard
+title="🏈 Team Name"
+value={season.team}
+/>
  
-<Section title="🔥 Highest Weekly Score">
-{season.highestScore}
-</Section>
+<SeasonCard
+title="🥈 Runner-Up"
+value={season.runnerUp}
+/>
  
-<Section title="🏅 MVP">
-{season.mvp}
-</Section>
+<SeasonCard
+title="🔥 Highest Weekly Score"
+value={season.highestScore}
+/>
  
-<Section title="🎯 Most Points For">
-{season.pointsLeader}
-</Section>
+<SeasonCard
+title="🏅 MVP"
+value={season.mvp}
+/>
  
-<Section title="💀 Sacko">
-{season.sacko}
-</Section>
+<SeasonCard
+title="🏆 Championship Score"
+value={season.championshipScore}
+/>
  
-<Section title="🏆 Championship Game">
-{season.championship}
-</Section>
+<SeasonCard
+title="🎯 Most Points For"
+value={season.pointsLeader}
+/>
  
-<Section title="🥉 Third Place Game">
-{season.thirdPlaceGame}
-</Section>
+<SeasonCard
+title="💀 Sacko"
+value={season.sacko}
+/>
  
-<Section title="🏈 Semifinal Results">
-{season.semifinals.map((game) => (
-<div key={game}>{game}</div>
-))}
-</Section>
+<SeasonCard
+title="📖 Biggest Storyline"
+value={season.storyline}
+/>
  
-<Section title="🏅 Season Awards">
-{season.awards.map((award) => (
-<div key={award}>{award}</div>
-))}
-</Section>
- 
-<Section title="📊 Final Standings">
-{season.standings.map((team) => (
-<div key={team}>{team}</div>
-))}
-</Section>
- 
-<Section title="📈 Season Records">
-{season.records.map((record) => (
-<div key={record}>{record}</div>
-))}
-</Section>
- 
-<Section title="📖 Historical Summary">
-{season.notes}
-</Section>
+<SeasonCard
+title="📝 Notes"
+value={season.notes}
+/>
 </div>
 );
 }
  
-function Section({
+function SeasonCard({
 title,
-children,
+value,
 }: {
 title: string;
-children: React.ReactNode;
+value: string | number;
 }) {
 return (
 <div
@@ -145,9 +148,8 @@ marginBottom: "10px",
 <strong>{title}</strong>
  
 <br />
-<br />
  
-{children}
+{value}
 </div>
 );
 }
