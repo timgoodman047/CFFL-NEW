@@ -88,11 +88,13 @@ marginTop: "24px",
 /live
 </div>
  
+/rosters
 <div style={itemStyle}>
 🏈 Rosters
 <br />
 /rosters
 </div>
+</Link>
  
 <div style={itemStyle}>
 📊 Dashboard
