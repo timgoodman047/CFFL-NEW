@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { getTeamSlug } from "../../lib/getTeamSlug";
+
 import {
 getRosters,
 getUsers,
@@ -49,10 +52,12 @@ roster.owner_id
 );
  
 const teamName =
-owner?.metadata
-?.team_name ||
+owner?.metadata?.team_name ||
 owner?.display_name ||
 "Unknown";
+
+const slug =
+getTeamSlug(teamName);
  
 return (
 <div
@@ -67,17 +72,15 @@ borderRadius:
 "12px",
 }}
 >
-<h2
+<Link
+href={`/team/${slug}`}
 style={{
-color:
-"#22c55e",
-marginTop: 0,
-marginBottom:
-"4px",
+textDecoration: "none",
+color: "#22c55e",
 }}
->
 {teamName}
 </h2>
+</Link>
  
 <div
 style={{
