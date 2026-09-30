@@ -8,8 +8,22 @@ import { franchises } from "../../../data/franchises";
  
 export default async function TeamPage({
 params,
-}: any) {
-const slug = params?.slug;
+}: {
+params: Promise<{
+slug: string;
+}>;
+}) {
+const { slug } = await params;
+return (
+<main
+style={{
+padding: "24px",
+}}
+>
+Slug: {slug}
+</main>
+);
+
 const users =
 await getUsers();
  
@@ -18,12 +32,6 @@ await getRosters();
  
 const players =
 await getPlayers();
- 
-const franchise =
-franchises.find(
-(f) =>
-f.slug === slug
-);
  
 if (!franchise) {
 return (
