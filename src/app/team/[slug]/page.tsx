@@ -8,11 +8,8 @@ import { franchises } from "../../../data/franchises";
  
 export default async function TeamPage({
 params,
-}: {
-params: {
-slug: string;
-};
-}) {
+}: any) {
+const slug = params?.slug;
 const users =
 await getUsers();
  
@@ -25,8 +22,7 @@ await getPlayers();
 const franchise =
 franchises.find(
 (f) =>
-f.slug ===
-params.slug
+f.slug === slug
 );
  
 if (!franchise) {
