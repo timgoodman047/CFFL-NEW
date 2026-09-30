@@ -109,6 +109,12 @@ marginTop: "24px",
 </div>
  
 <div style={itemStyle}>
+📋 Transactions
+<br />
+/transactions
+</div>
+ 
+<div style={itemStyle}>
 ⚔️ Team Compare
 <br />
 /team-compare
