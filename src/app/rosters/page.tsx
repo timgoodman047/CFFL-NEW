@@ -72,15 +72,15 @@ borderRadius:
 "12px",
 }}
 >
-<Link
-href={`/team/${slug}`}
+<h2
 style={{
-textDecoration: "none",
 color: "#22c55e",
+marginTop: 0,
+marginBottom: "4px",
 }}
+>
 {teamName}
 </h2>
-</Link>
  
 <div
 style={{
