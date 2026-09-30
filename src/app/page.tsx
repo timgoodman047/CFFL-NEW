@@ -91,30 +91,40 @@ marginTop: "24px",
 📺 Live Center
 <br />
 /live
+/live
+</Link>
 </div>
  
 <div style={itemStyle}>
 🏈 Rosters
 <br />
 /rosters
+/rosters
+</Link>
 </div>
  
 <div style={itemStyle}>
 📊 Dashboard
 <br />
 /dashboard
+/dashboard
+</Link>
 </div>
  
 <div style={itemStyle}>
 📋 Transactions
 <br />
 /transactions
+/transactions
+</Link>
 </div>
  
 <div style={itemStyle}>
 ⚔️ Team Compare
 <br />
 /team-compare
+/team-compare
+</Link>
 </div>
 </div>
  
