@@ -111,17 +111,21 @@ marginTop: "24px",
   </div>
 </Link>
  
-<div style={itemStyle}>
-📋 Transactions
-<br />
-/transactions
-</div>
+<Link href="/transactions">
+  <div style={itemStyle}>
+    📋 Transactions
+    <br />
+    /transactions
+  </div>
+</Link>
  
-<div style={itemStyle}>
-⚔️ Team Compare
-<br />
-/team-compare
-</div>
+<Link href="/team-compare">
+  <div style={itemStyle}>
+    ⚔️ Team Compare
+    <br />
+    /team-compare
+  </div>
+</Link>
 
 </div>
  
