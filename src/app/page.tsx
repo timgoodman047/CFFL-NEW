@@ -178,6 +178,8 @@ $1,100 Champion Prize
 <div style={itemStyle}>
 Lock Of The Week
 </div>
+
+</div>
  
 <div style={cardStyle}>
 <h2 style={{ color: "#22c55e" }}>
