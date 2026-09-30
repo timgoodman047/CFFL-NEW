@@ -27,17 +27,23 @@ borderRadius: "12px",
 };
  
 const itemStyle = {
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "8px",
+  background: "#1b2a40",
+  padding: "12px",
+  borderRadius: "8px",
+  marginBottom: "8px",
 };
 
-style={{
-maxWidth: "1600px",
-margin: "0 auto",
-padding: "24px",
-}}
+export default function Home() {
+  return (
+    <main
+      style={{
+        maxWidth: "1600px",
+        margin: "0 auto",
+        padding: "24px",
+      }}
+    >
+      <NavBar />
+
 >
 <div
 style={{
