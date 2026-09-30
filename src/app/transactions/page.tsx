@@ -2,6 +2,7 @@ import {
 getCurrentWeek,
 getTransactions,
 getUsers,
+getPlayers,
 } from "../../lib/sleeper";
  
 export default async function TransactionsPage() {
@@ -15,6 +16,9 @@ currentWeek
  
 const users =
 await getUsers();
+
+const players =
+await getPlayers();
  
 return (
 <main
@@ -93,22 +97,53 @@ By{" "}
 "Unknown"}
 </div>
  
-<pre
+<div>
+{transaction.adds &&
+Object.keys(
+transaction.adds
+).map((playerId) => {
+const player =
+players[playerId];
+ 
+return (
+<div
+key={playerId}
 style={{
-whiteSpace:
-"pre-wrap",
-overflowX:
-"auto",
-color:
-"#e5e7eb",
+marginBottom: "8px",
 }}
 >
-{JSON.stringify(
-transaction,
-null,
-2
-)}
-</pre>
+🟢 Added{" "}
+<strong>
+{player?.full_name ||
+playerId}
+</strong>
+</div>
+);
+})}
+ 
+{transaction.drops &&
+Object.keys(
+transaction.drops
+).map((playerId) => {
+const player =
+players[playerId];
+ 
+return (
+<div
+key={playerId}
+style={{
+marginBottom: "8px",
+}}
+>
+🔴 Dropped{" "}
+<strong>
+{player?.full_name ||
+playerId}
+</strong>
+</div>
+);
+})}
+</div>
 </div>
 );
 }
