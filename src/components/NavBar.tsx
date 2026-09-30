@@ -26,7 +26,12 @@ alignItems: "center",
 📺 Live
 </Link>
  
-<Link href="/team- ⚔️ Compare
+/team-compare
+⚔️ Compare
+</Link>
+ 
+/all-time
+🏆 All-Time
 </Link>
 </div>
 </nav>
