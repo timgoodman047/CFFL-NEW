@@ -70,11 +70,10 @@ League HQ • Anti-PPR Coalition
  
 <Hero />
  
-<div
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(500px,1fr))",
+"repeat(3, 1fr)",
 gap: "20px",
 marginTop: "24px",
 }}
