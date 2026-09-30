@@ -151,10 +151,6 @@ gap: "20px",
 <DressTracker />
 <Owners />
 </div>
-
-<PlayoffOdds />
-<PlayoffSimulator />
-<ProjectedBracket />
  
 <h2
 style={{
