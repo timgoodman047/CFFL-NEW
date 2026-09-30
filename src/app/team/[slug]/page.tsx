@@ -284,8 +284,16 @@ position
 }
 </h3>
  
-background:
-"#1b2a40",
+{list.map(
+(
+player: any
+) => (
+<div
+key={
+player.player_id
+}
+style={{
+background:"#1b2a40",
 padding: "8px",
 borderRadius:
 "8px",
