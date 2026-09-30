@@ -34,9 +34,24 @@ return (
 <main
 style={{
 padding: "24px",
+color: "white",
 }}
 >
-Team not found.
+<h1>Debug</h1>
+ 
+<p>
+Slug received:
+{" "}
+{String(params.slug)}
+</p>
+ 
+<pre>
+{JSON.stringify(
+params,
+null,
+2
+)}
+</pre>
 </main>
 );
 }
