@@ -72,6 +72,33 @@ game[1].points ?? 0;
 const totalPoints =
 scoreA + scoreB;
  
+const winPctA =
+teamA.wins /
+Math.max(
+teamA.wins +
+teamA.losses,
+1
+);
+ 
+const winPctB =
+teamB.wins /
+Math.max(
+teamB.wins +
+teamB.losses,
+1
+);
+ 
+const strengthA =
+winPctA * 100 +
+teamA.avgPPG * 0.4;
+ 
+const strengthB =
+winPctB * 100 +
+teamB.avgPPG * 0.4;
+ 
+const strengthDiff =
+strengthA - strengthB;
+ 
 const scoreDiff =
 scoreA - scoreB;
  
@@ -80,7 +107,9 @@ Math.max(
 5,
 Math.min(
 95,
-50 + scoreDiff * 2
+50 +
+scoreDiff * 1.5 +
+strengthDiff * 0.4
 )
 );
  
@@ -415,6 +444,61 @@ fontWeight: "bold",
 }}
 >
 Leader: {leader}
+
+<div
+style={{
+marginTop: "12px",
+padding: "12px",
+background: "#1b2a40",
+borderRadius: "8px",
+}}
+>
+<div
+style={{
+marginBottom: "8px",
+fontWeight: "bold",
+}}
+>
+📈 Smart Win Probability
+</div>
+ 
+<div>
+{teamA.team}: {probabilityA.toFixed(0)}%
+</div>
+ 
+<div>
+{teamB.team}: {probabilityB.toFixed(0)}%
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+height: "10px",
+background: "#334155",
+borderRadius: "999px",
+overflow: "hidden",
+}}
+>
+<div
+style={{
+width: `${probabilityA}%`,
+height: "100%",
+background: "#22c55e",
+}}
+/>
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Based on current score, record, and scoring strength.
+</div>
+</div>
+
 </div>
 
 <div
@@ -431,7 +515,7 @@ marginBottom: "8px",
 fontWeight: "bold",
 }}
 >
-📈 Win Probability
+📈 Smart Win Probability
 </div>
  
 <div>
@@ -477,7 +561,7 @@ marginBottom: "8px",
 fontWeight: "bold",
 }}
 >
-📈 Win Probability
+📈 Smart Win Probability
 </div>
  
 <div>
