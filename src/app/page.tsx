@@ -32,16 +32,6 @@ padding: "12px",
 borderRadius: "8px",
 marginBottom: "8px",
 };
- 
-export default function Home() {
-  return (
-    <main
-      <NavBar />
-    
-      {/* existing content */}
-    </main>
-  );
-      }
 
 style={{
 maxWidth: "1600px",
