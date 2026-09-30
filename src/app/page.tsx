@@ -116,14 +116,20 @@ League HQ • Anti-PPR Coalition
 
 </div>
 
-<div
+</div> {/* League Tools card */}
+ 
+</div> {/* League Overview grid */}
+ 
+<h2
 style={{
-display: "grid",
-gridTemplateColumns: "repeat(3, 1fr)",
-gap: "20px",
-marginTop: "24px",
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
 }}
 >
+📈 Analytics
+</h2>
+    
 <Standings />
 <Matchups />
  
