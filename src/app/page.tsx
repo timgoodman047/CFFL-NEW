@@ -69,20 +69,7 @@ League HQ • Anti-PPR Coalition
 </div>
  
 <Hero />
-
-<div      
-style={{
-display: "grid",
-gridTemplateColumns:
-"repeat(3, 1fr)",
-gap: "20px",
-marginTop: "24px",
-}}
->
-<Standings />
-<Matchups />
-
-<div style={cardStyle}>
+  
 <h2 style={{ color: "#22c55e" }}>
 🏈 League Tools
 </h2>
