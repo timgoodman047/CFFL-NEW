@@ -45,7 +45,10 @@ users.find(
 u.display_name ===
 franchise.owner
 );
- 
+
+<p>Owner: {franchise.owner}</p>
+<p>Sleeper Owner: {owner?.display_name}</p>
+
 const roster =
 rosters.find(
 (r: any) =>
