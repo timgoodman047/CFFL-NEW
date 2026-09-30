@@ -20,16 +20,28 @@ team:
 owner?.metadata?.team_name ||
 owner?.display_name,
  
+wins:
+r.settings?.wins || 0,
+ 
+losses:
+r.settings?.losses || 0,
+ 
 pf:
-Number(r.settings?.fpts || 0)
+Number(
+r.settings?.fpts || 0
+)
 };
  
 })
-.sort(
-(a: any, b: any) =>
-a.pf - b.pf
-)
-.slice(0, 3);
+.sort((a: any, b: any) => {
+if (b.wins !== a.wins) {
+return b.wins - a.wins;
+}
+ 
+return b.pf - a.pf;
+})
+.slice(-3)
+.reverse();
  
 return (
 <div
