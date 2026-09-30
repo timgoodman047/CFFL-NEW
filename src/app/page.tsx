@@ -115,10 +115,6 @@ League HQ • Anti-PPR Coalition
 </Link>
 
 </div>
-
-</div> {/* League Tools card */}
- 
-</div> {/* League Overview grid */}
  
 <h2
 style={{
