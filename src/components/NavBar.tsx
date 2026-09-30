@@ -26,7 +26,7 @@ alignItems: "center",
 📺 Live
 </Link>
  
-<Link-compare
+/team-compare
 ⚔️ Compare
 </Link>
 </div>
