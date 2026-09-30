@@ -1,5 +1,3 @@
-import Link from "next/link";
- 
 export default function DashboardPage() {
 return (
 <main
@@ -168,9 +166,15 @@ blowouts and win
 probabilities.
 </p>
  
+<div
+style={{
+marginTop: "12px",
+color: "#22c55e",
+fontWeight: "bold",
+}}
+>
 /live
-Open Live Center →
-</Link>
+</div>
 </div>
  
 <div
@@ -207,9 +211,15 @@ Compare league
 franchises side-by-side.
 </p>
  
+<div
+style={{
+marginTop: "12px",
+color: "#22c55e",
+fontWeight: "bold",
+}}
+>
 /team-compare
-Compare Teams →
-</Link>
+</div>
 </div>
  
 <div
