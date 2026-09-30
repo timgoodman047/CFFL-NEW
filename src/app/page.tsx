@@ -90,26 +90,26 @@ marginTop: "24px",
 🏈 League Tools
 </h2>
  
-<div style={cardStyle}>
-<h2 style={{ color: "#22c55e" }}>
-🏈 League Tools
-</h2>
- 
-<a href="/live" style={{ textDecoration: " Live Center
+/live
+<div style={itemStyle}>
+📺 Live Center
 </div>
 </a>
  
-<a href="/rosters style={itemStyle}>
+/rosters
+<div style={itemStyle}>
 🏈 Rosters
 </div>
 </a>
  
-<a href="/dashboard"style={itemStyle}>
+/dashboard
+<div style={itemStyle}>
 📊 Dashboard
 </div>
 </a>
  
-<a href="/team-compare" style={{ mStyle}>
+/team-compare
+<div style={itemStyle}>
 ⚔️ Team Compare
 </div>
 </a>
