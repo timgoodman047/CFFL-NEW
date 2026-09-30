@@ -32,32 +32,20 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-marginTop: 0,
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 🏆 Championship Favorite
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
 fontWeight: "bold",
 }}
 >
-See Monte Carlo Simulator
+Championship Contenders
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-Current championship
-leader based on
-10,000 simulations.
+<p style={{ color: "#94a3b8" }}>
+View current title odds from
+the Monte Carlo simulator.
 </p>
 </div>
  
@@ -68,31 +56,20 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-marginTop: 0,
-}}
->
-🎯 Playoff Picture
+<h2 style={{ color: "#22c55e" }}>
+📈 Power Rankings
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
 fontWeight: "bold",
 }}
 >
-Bubble Watch
+Live Rankings
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-Review projected seeds
-and playoff odds.
+<p style={{ color: "#94a3b8" }}>
+Generated from current
+Sleeper league data.
 </p>
 </div>
  
@@ -103,15 +80,9 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-marginTop: 0,
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 💀 Sacko Race
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
@@ -120,14 +91,9 @@ fontWeight: "bold",
 >
 Bottom Watch
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-Track teams in danger
-of finishing last.
+<p style={{ color: "#94a3b8" }}>
+Follow teams at risk of last
+place.
 </p>
 </div>
  
@@ -138,15 +104,9 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-marginTop: 0,
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📺 Live Center
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
@@ -155,26 +115,10 @@ fontWeight: "bold",
 >
 Live Matchups
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-View live scores,
-blowouts and win
-probabilities.
+<p style={{ color: "#94a3b8" }}>
+Scores, blowouts and win
+probability.
 </p>
- 
-<div
-style={{
-marginTop: "12px",
-color: "#22c55e",
-fontWeight: "bold",
-}}
->
-/live
-</div>
 </div>
  
 <div
@@ -184,15 +128,57 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
+<h2 style={{ color: "#22c55e" }}>
+🏈 Rosters
+</h2>
+<div
 style={{
-color: "#22c55e",
-marginTop: 0,
+fontSize: "24px",
+fontWeight: "bold",
 }}
 >
+League Rosters
+</div>
+<p style={{ color: "#94a3b8" }}>
+Position-grouped roster
+breakdowns.
+</p>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+}}
+>
+<h2 style={{ color: "#22c55e" }}>
+📋 Transactions
+</h2>
+<div
+style={{
+fontSize: "24px",
+fontWeight: "bold",
+}}
+>
+Activity Feed
+</div>
+<p style={{ color: "#94a3b8" }}>
+Free agents, waivers and
+trades.
+</p>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "20px",
+borderRadius: "12px",
+}}
+>
+<h2 style={{ color: "#22c55e" }}>
 ⚔️ Team Comparison
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
@@ -201,25 +187,9 @@ fontWeight: "bold",
 >
 Franchise Battle
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-Compare league
-franchises side-by-side.
+<p style={{ color: "#94a3b8" }}>
+Compare teams side-by-side.
 </p>
- 
-<div
-style={{
-marginTop: "12px",
-color: "#22c55e",
-fontWeight: "bold",
-}}
->
-/team-compare
-</div>
 </div>
  
 <div
@@ -229,31 +199,20 @@ padding: "20px",
 borderRadius: "12px",
 }}
 >
-<h2
-style={{
-color: "#22c55e",
-marginTop: 0,
-}}
->
+<h2 style={{ color: "#22c55e" }}>
 📚 League History
 </h2>
- 
 <div
 style={{
 fontSize: "24px",
 fontWeight: "bold",
 }}
 >
-Records & History
+Historical Records
 </div>
- 
-<p
-style={{
-color: "#94a3b8",
-}}
->
-Browse champions,
-records and rivalries.
+<p style={{ color: "#94a3b8" }}>
+Records, rivals and
+champions.
 </p>
 </div>
 </div>
