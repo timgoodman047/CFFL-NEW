@@ -34,15 +34,14 @@ const itemStyle = {
 };
 
 export default function Home() {
-  return (
-    <main
-      style={{
-        maxWidth: "1600px",
-        margin: "0 auto",
-        padding: "24px",
-      }}
-    >
-
+return (
+<main
+style={{
+maxWidth: "1600px",
+margin: "0 auto",
+padding: "24px",
+}}
+>
 <div
 style={{
 marginBottom: "24px",
@@ -69,52 +68,8 @@ League HQ • Anti-PPR Coalition
 </div>
  
 <Hero />
-  
-<h2 style={{ color: "#22c55e" }}>
-🏈 League Tools
-</h2>
-
-<Link href="/live">
-  <div style={itemStyle}>
-    📺 Live Center
-    <br />
-    /live
-  </div>
-</Link>
  
-<Link href="/rosters">
-  <div style={itemStyle}>
-    🏈 Rosters
-    <br />
-    /rosters
-  </div>
-</Link>
- 
-<Link href="/dashboard">
-  <div style={itemStyle}>
-    📊 Dashboard
-    <br />
-    /dashboard
-  </div>
-</Link>
- 
-<Link href="/transactions">
-  <div style={itemStyle}>
-    📋 Transactions
-    <br />
-    /transactions
-  </div>
-</Link>
- 
-<Link href="/team-compare">
-  <div style={itemStyle}>
-    ⚔️ Team Compare
-    <br />
-    /team-compare
-  </div>
-</Link>
-
-</div>
+{/* LEAGUE OVERVIEW */}
  
 <h2
 style={{
@@ -123,18 +78,71 @@ marginTop: "32px",
 marginBottom: "16px",
 }}
 >
-📈 Analytics
+📊 League Overview
 </h2>
-    
+ 
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(3, 1fr)",
+gap: "20px",
+}}
+>
 <Standings />
+ 
 <Matchups />
  
 <div style={cardStyle}>
-{/* League Tools */}
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+🏈 League Tools
+</h2>
+ 
+/live
+<div style={itemStyle}>
+📺 Live Center
+</div>
+</Link>
+ 
+/rosters
+<div style={itemStyle}>
+🏈 Rosters
+</div>
+</Link>
+ 
+/dashboard
+<div style={itemStyle}>
+📊 Dashboard
+</div>
+</Link>
+ 
+/transactions
+<div style={itemStyle}>
+📋 Transactions
+</div>
+</Link>
+ 
+/team-compare
+<div style={itemStyle}>
+⚔️ Team Compare
+</div>
+</Link>
 </div>
 </div>
  
-<h2>
+{/* ANALYTICS */}
+ 
+<h2
+style={{
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
+}}
+>
 📈 Analytics
 </h2>
  
@@ -150,6 +158,8 @@ gap: "20px",
 <DressTracker />
 <Owners />
 </div>
+ 
+{/* SIMULATION CENTER */}
  
 <h2
 style={{
@@ -172,11 +182,23 @@ gap: "20px",
 <PlayoffOdds />
 <PlayoffSimulator />
 <ProjectedBracket />
+</div>
  
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(3, 1fr)",
+gap: "20px",
+marginTop: "20px",
+}}
+>
 <ExpectedStandings />
 <ChampionshipContenders />
 <WeeklyScoreDistributions />
 </div>
+ 
+{/* LEAGUE COVERAGE */}
  
 <h2
 style={{
@@ -200,58 +222,77 @@ gap: "20px",
 <News />
 </div>
  
+{/* HISTORY */}
+ 
+<h2
+style={{
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
+}}
+>
+📚 League History
+</h2>
+ 
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
 "repeat(auto-fit,minmax(450px,1fr))",
 gap: "20px",
-marginTop: "24px",
 }}
 >
 <HallOfChampions />
 <DynastyRankings />
- 
 <FranchiseProfiles />
 <RecordBook />
- 
 <SeasonBrowser />
 <RivalryTracker />
 </div>
+ 
+{/* INFO */}
  
 <div
 style={{
 display: "grid",
 gridTemplateColumns:
-"repeat(auto-fit,minmax(350px,1fr))",
+"repeat(3, 1fr)",
 gap: "20px",
 marginTop: "24px",
 }}
 >
 <div style={cardStyle}>
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 📜 Constitution
 </h2>
-
+ 
 <div style={itemStyle}>
 2 Keepers Allowed
 </div>
-
+ 
 <div style={itemStyle}>
 $222 League Buy-In
 </div>
-
+ 
 <div style={itemStyle}>
 $1,100 Champion Prize
 </div>
-
+ 
 <div style={itemStyle}>
 Lock Of The Week
 </div>
 </div>
-
+ 
 <div style={cardStyle}>
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 🚀 Coming Soon
 </h2>
  
@@ -281,7 +322,11 @@ Automated Weekly Recaps
 </div>
  
 <div style={cardStyle}>
-<h2 style={{ color: "#22c55e" }}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
 📚 League History
 </h2>
  
