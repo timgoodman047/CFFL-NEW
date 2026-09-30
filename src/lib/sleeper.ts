@@ -66,11 +66,28 @@ cache: "no-store"
  
 return response.json();
 }
+
+// -------------------------
+// TRANSACTIONS
+// -------------------------
+ 
+export async function getTransactions(
+week: number
+) {
+const response = await fetch(
+`https://api.sleeper.app/v1/league/${LEAGUE_ID}/transactions/${week}`,
+{
+cache: "no-store",
+}
+);
+ 
+return response.json();
+}
  
 // -------------------------
 // NFL PLAYERS DATABASE
 // -------------------------
- 
+
 export async function getPlayers() {
  
 const response = await fetch(
