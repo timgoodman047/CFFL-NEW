@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import Link from "next/link";
 import Standings from "../components/Standings";
 import ExpectedStandings from "../components/ExpectedStandings";
 import Matchups from "../components/Matchups";
@@ -83,7 +84,37 @@ marginTop: "24px",
  
 <PowerRankings />
 <DressTracker />
+
+<div style={cardStyle}>
+<h2 style={{ color: "#22c55e" }}>
+🏈 League Tools
+</h2>
  
+/live
+<div style={itemStyle}>
+📺 Live Center
+</div>
+</Link>
+ 
+/rosters
+<div style={itemStyle}>
+🏈 Rosters
+</div>
+</Link>
+ 
+/dashboard
+<div style={itemStyle}>
+📊 Dashboard
+</div>
+</Link>
+ 
+/team-compare
+<div style={itemStyle}>
+⚔️ Team Compare
+</div>
+</Link>
+</div>
+
 <Owners />
 <PlayoffOdds />
  
@@ -146,41 +177,6 @@ $1,100 Champion Prize
  
 <div style={itemStyle}>
 Lock Of The Week
-</div>
-
-<div style={cardStyle}>
-<h2 style={{ color: "#22c55e" }}>
-🏈 League Tools
-</h2>
- 
-<div style={itemStyle}>
-📺 Live Center
-<br />
-/live
-</div>
- 
-<div style={itemStyle}>
-🏈 Rosters
-<br />
-/rosters
-</div>
- 
-<div style={itemStyle}>
-📊 Dashboard
-<br />
-/dashboard
-</div>
- 
-<div style={itemStyle}>
-⚔️ Team Compare
-<br />
-/team-compare
-</div>
-</div>
-  
-<div style={itemStyle}>
-Dress Punishment Active
-</div>
 </div>
  
 <div style={cardStyle}>
