@@ -1,5 +1,5 @@
-import Hero from "../components/Hero";
 import Link from "next/link";
+import Hero from "../components/Hero";
 import Standings from "../components/Standings";
 import ExpectedStandings from "../components/ExpectedStandings";
 import Matchups from "../components/Matchups";
@@ -113,6 +113,7 @@ marginTop: "24px",
 ⚔️ Team Compare
 </div>
 </Link>
+  
 </div>
 
 <Owners />
