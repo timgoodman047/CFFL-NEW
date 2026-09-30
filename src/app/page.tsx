@@ -120,16 +120,14 @@ marginTop: "24px",
  
 <PowerRankings />
 <DressTracker />
-
 <Owners />
+
 <PlayoffOdds />
- 
 <PlayoffSimulator />
 <ProjectedBracket />
  
 <ExpectedStandings />
 <ChampionshipContenders />
-
 <WeeklyScoreDistributions />
  
 <WeeklyAwards />
