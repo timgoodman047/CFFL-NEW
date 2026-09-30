@@ -47,6 +47,76 @@ matchupGroups
 const games = Array.from(
 matchupGroups.values()
 );
+
+const gameSummaries = games
+.filter(
+(game) => game.length === 2
+)
+.map((game) => {
+const teamA =
+rosterMap.get(
+game[0].roster_id
+) as any;
+ 
+const teamB =
+rosterMap.get(
+game[1].roster_id
+) as any;
+ 
+const scoreA =
+game[0].points ?? 0;
+ 
+const scoreB =
+game[1].points ?? 0;
+ 
+return {
+teamA,
+teamB,
+scoreA,
+scoreB,
+margin: Math.abs(
+scoreA - scoreB
+),
+winner:
+scoreA >= scoreB
+? teamA
+: teamB,
+};
+});
+ 
+const highestScore =
+gameSummaries.reduce(
+(best, game) => {
+const bestScore =
+best.scoreA >
+best.scoreB
+? best.scoreA
+: best.scoreB;
+ 
+const currentScore =
+game.scoreA >
+game.scoreB
+? game.scoreA
+: game.scoreB;
+ 
+return currentScore >
+bestScore
+? game
+: best;
+}
+);
+ 
+const closestMatchup =
+[...gameSummaries].sort(
+(a, b) =>
+a.margin - b.margin
+)[0];
+ 
+const biggestBlowout =
+[...gameSummaries].sort(
+(a, b) =>
+b.margin - a.margin
+)[0];
  
 return (
 <main
@@ -74,6 +144,136 @@ marginBottom: "24px",
 Week {currentWeek} live
 matchup tracker.
 </p>
+
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
+gap: "16px",
+marginBottom: "24px",
+}}
+>
+<div
+style={{
+background: "#111c2d",
+padding: "18px",
+borderRadius: "12px",
+}}
+>
+<div
+style={{
+color: "#22c55e",
+marginBottom: "8px",
+fontWeight: "bold",
+}}
+>
+🔥 Highest Score
+</div>
+ 
+<div>
+{
+highestScore.winner
+.team
+}
+</div>
+ 
+<div
+style={{
+fontSize: "24px",
+fontWeight: "bold",
+}}
+>
+{Math.max(
+highestScore.scoreA,
+highestScore.scoreB
+).toFixed(2)}
+</div>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "18px",
+borderRadius: "12px",
+}}
+>
+<div
+style={{
+color: "#22c55e",
+marginBottom: "8px",
+fontWeight: "bold",
+}}
+>
+⚔️ Closest Matchup
+</div>
+ 
+<div>
+{
+closestMatchup.teamA
+.team
+}
+</div>
+ 
+<div>
+vs
+</div>
+ 
+<div>
+{
+closestMatchup.teamB
+.team
+}
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+}}
+>
+Margin:{" "}
+{closestMatchup.margin.toFixed(
+2
+)}
+</div>
+</div>
+ 
+<div
+style={{
+background: "#111c2d",
+padding: "18px",
+borderRadius: "12px",
+}}
+>
+<div
+style={{
+color: "#22c55e",
+marginBottom: "8px",
+fontWeight: "bold",
+}}
+>
+💥 Biggest Blowout
+</div>
+ 
+<div>
+{
+biggestBlowout.winner
+.team
+}
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+}}
+>
+Margin:{" "}
+{biggestBlowout.margin.toFixed(
+2
+)}
+</div>
+</div>
+</div>
  
 {games.map((game, index) => {
 if (game.length !== 2) {
