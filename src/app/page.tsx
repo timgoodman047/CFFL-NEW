@@ -89,7 +89,7 @@ marginTop: "24px",
 </div>
  
 <Link href="/rosters">
-itemStyle}>
+  <div style={itemStyle}>
     🏈 Rosters
     <br />
     /rosters
