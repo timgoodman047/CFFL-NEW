@@ -2,6 +2,7 @@ export const franchises = [
 {
 slug: "danny",
 owner: "Danny",
+sleeperTeam: "The Locked Room"
 overallRecord: "145-104-4",
 winningPct: 0.581,
 championships: 4,
@@ -18,6 +19,7 @@ notes:
 {
 slug: "tim",
 owner: "Tim",
+sleeperTeam: "Red Kingdom"
 overallRecord: "145-106-2",
 winningPct: 0.577,
 championships: 3,
@@ -34,6 +36,7 @@ notes:
 {
 slug: "brian",
 owner: "Brian",
+sleeperTeam: "WHO DEY"
 overallRecord: "131-121-1",
 winningPct: 0.520,
 championships: 2,
@@ -50,6 +53,7 @@ notes:
 {
 slug: "nick",
 owner: "Nick",
+sleeperTeam: "Orangeman"
 overallRecord: "55-53-1",
 winningPct: 0.509,
 championships: 2,
@@ -66,6 +70,7 @@ notes:
 {
 slug: "chris",
 owner: "Chris",
+sleeperTeam: "Short Board Champ"
 overallRecord: "103-133-3",
 winningPct: 0.437,
 championships: 2,
@@ -82,6 +87,7 @@ notes:
 {
 slug: "jason",
 owner: "Jason",
+sleeperTeam: "Bills Mafia"
 overallRecord: "102-96-2",
 winningPct: 0.515,
 championships: 1,
@@ -98,6 +104,7 @@ notes:
 {
 slug: "jeff",
 owner: "Jeff",
+sleeperTeam: "Dirty Mike"
 overallRecord: "36-34-0",
 winningPct: 0.514,
 championships: 1,
@@ -114,6 +121,7 @@ notes:
 {
 slug: "matt",
 owner: "Matt",
+sleeperTeam: "Fuck You FantasyFootball"
 overallRecord: "113-140-0",
 winningPct: 0.447,
 championships: 0,
@@ -130,6 +138,7 @@ notes:
 {
 slug: "tom",
 owner: "Tom",
+sleeperTeam: "Taka Taka Tires"
 overallRecord: "107-131-1",
 winningPct: 0.450,
 championships: 0,
@@ -146,6 +155,7 @@ notes:
 {
 slug: "spencer",
 owner: "Spencer",
+sleeperTeam: "Scheduled dress year"
 overallRecord: "101-137-1",
 winningPct: 0.425,
 championships: 0,
