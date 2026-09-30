@@ -90,29 +90,29 @@ marginTop: "24px",
 🏈 League Tools
 </h2>
  
-/live
 <div style={itemStyle}>
 📺 Live Center
+<br />
+/live
 </div>
-</a>
  
-/rosters
 <div style={itemStyle}>
 🏈 Rosters
+<br />
+/rosters
 </div>
-</a>
  
-/dashboard
 <div style={itemStyle}>
 📊 Dashboard
+<br />
+/dashboard
 </div>
-</a>
  
-/team-compare
 <div style={itemStyle}>
 ⚔️ Team Compare
+<br />
+/team-compare
 </div>
-</a>
 </div>
 
 <Owners />
