@@ -20,12 +20,14 @@ gamesPlayed > 0
 : 0.5;
  
 const avgPF =
-team.pointsFor / gamesPlayed;
+gamesPlayed > 0
+? team.pointsFor /
+gamesPlayed
+: 120;
  
 const rating =
-50 +
-winPct * 40 +
-(avgPF - 120) * 0.3;
+winPct * 60 +
+avgPF * 0.35;
  
 return Number(
 rating.toFixed(1)
