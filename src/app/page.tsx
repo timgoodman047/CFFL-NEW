@@ -69,7 +69,8 @@ League HQ • Anti-PPR Coalition
 </div>
  
 <Hero />
- 
+
+<div      
 style={{
 display: "grid",
 gridTemplateColumns:
@@ -77,7 +78,7 @@ gridTemplateColumns:
 gap: "20px",
 marginTop: "24px",
 }}
->
+
 <Standings />
 <Matchups />
 
