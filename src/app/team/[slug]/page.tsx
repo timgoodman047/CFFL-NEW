@@ -284,13 +284,27 @@ position
 }
 </h3>
  
-{list.map(
-(
-player: any
-) => (
-<div
-key={
-player.player_id
-}
-style={{
 background:
+"#1b2a40",
+padding: "8px",
+borderRadius:
+"8px",
+marginBottom:
+"6px",
+}}
+>
+{
+player.full_name
+}
+</div>
+)
+)}
+</div>
+);
+}
+)}
+</div>
+</div>
+</main>
+);
+}
