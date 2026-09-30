@@ -42,8 +42,8 @@ Team not found.
 const owner =
 users.find(
 (u: any) =>
-u.display_name ===
-franchise.owner
+u.metadata?.team_name ===
+franchise.sleeperTeam
 );
 
 const roster =
