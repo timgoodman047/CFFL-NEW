@@ -46,14 +46,21 @@ u.display_name ===
 franchise.owner
 );
 
-<p>Owner: {franchise.owner}</p>
-<p>Sleeper Owner: {owner?.display_name}</p>
-
 const roster =
 rosters.find(
 (r: any) =>
 r.owner_id ===
 owner?.user_id
+);
+
+console.log(
+"Franchise Owner:",
+franchise.owner
+);
+ 
+console.log(
+"Matched Sleeper Owner:",
+owner?.display_name
 );
  
 const grouped = {
