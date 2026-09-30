@@ -204,43 +204,7 @@ player.position
 }
 );
 })()}
-  
-style={{
-background:
-"#1b2a40",
-padding:
-"8px",
-borderRadius:
-"6px",
-marginBottom:
-"6px",
-}}
->
-<strong>
-{player?.full_name ||
-playerId}
-</strong>
- 
-<div
-style={{
-color:
-"#94a3b8",
-fontSize:
-"12px",
-}}
->
-{
-player?.position
-}{" "}
-•{" "}
-{
-player?.team
-}
-</div>
-</div>
-);
-}
-)}
+
 </div>
 );
 }
