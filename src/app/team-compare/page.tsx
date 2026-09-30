@@ -1,7 +1,7 @@
 "use client";
  
 import { useState } from "react";
-import { franchises } from "@/data/franchises";
+import { franchises } from "../../data/franchises";
  
 export default function TeamComparePage() {
 const [teamA, setTeamA] = useState(
