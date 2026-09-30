@@ -129,13 +129,23 @@ marginTop: "24px",
 
 </div>
 
- <h2
+<div
 style={{
-color: "#22c55e",
-marginTop: "32px",
-marginBottom: "16px",
+display: "grid",
+gridTemplateColumns: "repeat(3, 1fr)",
+gap: "20px",
+marginTop: "24px",
 }}
 >
+<Standings />
+<Matchups />
+ 
+<div style={cardStyle}>
+{/* League Tools */}
+</div>
+</div>
+ 
+<h2>
 📈 Analytics
 </h2>
  
