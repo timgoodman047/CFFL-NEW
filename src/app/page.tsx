@@ -128,11 +128,52 @@ marginTop: "24px",
 </Link>
 
 </div>
+
+ <h2
+style={{
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
+}}
+>
+📈 Analytics
+</h2>
  
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(3, 1fr)",
+gap: "20px",
+}}
+>
 <PowerRankings />
 <DressTracker />
 <Owners />
+</div>
 
+<PlayoffOdds />
+<PlayoffSimulator />
+<ProjectedBracket />
+ 
+<h2
+style={{
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
+}}
+>
+🎲 Simulation Center
+</h2>
+ 
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(3, 1fr)",
+gap: "20px",
+}}
+>
 <PlayoffOdds />
 <PlayoffSimulator />
 <ProjectedBracket />
@@ -140,7 +181,26 @@ marginTop: "24px",
 <ExpectedStandings />
 <ChampionshipContenders />
 <WeeklyScoreDistributions />
+</div>
  
+<h2
+style={{
+color: "#22c55e",
+marginTop: "32px",
+marginBottom: "16px",
+}}
+>
+📰 League Coverage
+</h2>
+ 
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(3, 1fr)",
+gap: "20px",
+}}
+>
 <WeeklyAwards />
 <News />
 </div>
