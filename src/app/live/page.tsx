@@ -14,11 +14,14 @@ await getLeagueTeams();
 const matchups =
 await getMatchups(currentWeek);
  
-const rosterMap = new Map(
-teams.map((team) => [
-team.rosterId,
-team,
-])
+const rosterMap = new Map<
+  number,
+  any
+>(
+  teams.map((team) => [
+    team.rosterId,
+    team,
+  ])
 );
  
 const matchupGroups =
