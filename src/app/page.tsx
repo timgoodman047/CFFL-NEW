@@ -108,7 +108,7 @@ color: "#22c55e",
     <br />
     /live
   </div>
-</link>
+</Link>
  
 <Link href="/rosters">
   <div style={itemStyle}>
@@ -116,7 +116,7 @@ color: "#22c55e",
     <br />
     /rosters
   </div>
-</link>
+</Link>
  
 <Link href="/dashboard">
   <div style={itemStyle}>
@@ -124,7 +124,7 @@ color: "#22c55e",
     <br />
     /dashboard
   </div>
-</link>
+</Link>
  
 <Link href="/transactions">
   <div style={itemStyle}>
@@ -132,7 +132,7 @@ color: "#22c55e",
     <br />
     /transactions
   </div>
-</link>
+</Link>
  
 <Link href="/team-compare">
   <div style={itemStyle}>
@@ -140,7 +140,7 @@ color: "#22c55e",
     <br />
     /team-compare
   </div>
-</link>
+</Link>
 </div>
 </div>
  
