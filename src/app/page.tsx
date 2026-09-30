@@ -93,14 +93,11 @@ marginTop: "24px",
 /live
 </div>
  
-<Link
-  href="/rosters"
-  style={{
-    textDecoration: "none",
-    color: "inherit",
-  }}
->
-  <div style={itemStyle}>
+<div style={itemStyle}>
+🏈 Rosters
+<br />
+/rosters
+</div>
  
 <div style={itemStyle}>
 📊 Dashboard
