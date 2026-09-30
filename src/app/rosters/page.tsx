@@ -92,23 +92,119 @@ owner?.display_name
 }
 </div>
  
-{(
-roster.players ||
-[]
-).map(
-(
-playerId: string
-) => {
+{(() => {
+const grouped = {
+QB: [] as any[],
+RB: [] as any[],
+WR: [] as any[],
+TE: [] as any[],
+K: [] as any[],
+DEF: [] as any[],
+BENCH: [] as any[],
+};
+ 
+(roster.players || []).forEach(
+(playerId: string) => {
 const player =
-players[
-playerId
-];
+players[playerId];
+ 
+if (!player) {
+return;
+}
+ 
+const position =
+player.position;
+ 
+if (
+position === "QB" ||
+position === "RB" ||
+position === "WR" ||
+position === "TE" ||
+position === "K" ||
+position === "DEF"
+) {
+grouped[position].push(
+player
+);
+} else {
+grouped.BENCH.push(
+player
+);
+}
+}
+);
+ 
+return Object.entries(
+grouped
+).map(
+([position, list]) => {
+if (list.length === 0) {
+return null;
+}
  
 return (
 <div
+key={position}
+style={{
+marginBottom: "16px",
+}}
+>
+<h3
+style={{
+color: "#22c55e",
+marginBottom: "8px",
+}}
+>
+{position}
+</h3>
+ 
+{list.map(
+(
+player: any
+) => (
+<div
 key={
-playerId
+player.player_id
 }
+style={{
+background:
+"#1b2a40",
+padding: "8px",
+borderRadius:
+"6px",
+marginBottom:
+"6px",
+}}
+>
+<strong>
+{
+player.full_name
+}
+</strong>
+ 
+<div
+style={{
+color:
+"#94a3b8",
+fontSize:
+"12px",
+}}
+>
+{
+player.position
+}{" "}
+•{" "}
+{player.team}
+</div>
+</div>
+)
+)}
+</div>
+);
+}
+);
+})()}
+  
 style={{
 background:
 "#1b2a40",
