@@ -87,11 +87,13 @@ marginTop: "24px",
 🏈 League Tools
 </h2>
 
-<div style={itemStyle}>
-📺 Live Center
-<br />
-/live
-</div>
+<Link href="/live">
+  <div style={itemStyle}>
+    📺 Live Center
+    <br />
+    /live
+  </div>
+</Link>
  
 <Link href="/rosters">
   <div style={itemStyle}>
@@ -101,11 +103,13 @@ marginTop: "24px",
   </div>
 </Link>
  
-<div style={itemStyle}>
-📊 Dashboard
-<br />
-/dashboard
-</div>
+<Link href="/dashboard">
+  <div style={itemStyle}>
+    📊 Dashboard
+    <br />
+    /dashboard
+  </div>
+</Link>
  
 <div style={itemStyle}>
 📋 Transactions
