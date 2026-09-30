@@ -68,6 +68,24 @@ game[0].points ?? 0;
  
 const scoreB =
 game[1].points ?? 0;
+
+const totalPoints =
+scoreA + scoreB;
+ 
+const scoreDiff =
+scoreA - scoreB;
+ 
+const probabilityA =
+Math.max(
+5,
+Math.min(
+95,
+50 + scoreDiff * 2
+)
+);
+ 
+const probabilityB =
+100 - probabilityA;
  
 return {
 teamA,
@@ -376,15 +394,58 @@ fontWeight:
  
 <div
 style={{
-marginTop:
-"16px",
-color:
-"#22c55e",
-fontWeight:
-"bold",
+marginTop: "16px",
+color: "#22c55e",
+fontWeight: "bold",
 }}
 >
 Leader: {leader}
+</div>
+ 
+<div
+style={{
+marginTop: "12px",
+padding: "12px",
+background: "#1b2a40",
+borderRadius: "8px",
+}}
+>
+<div
+style={{
+marginBottom: "8px",
+fontWeight: "bold",
+}}
+>
+📈 Win Probability
+</div>
+ 
+<div>
+{teamA.team}:{" "}
+{probabilityA.toFixed(0)}%
+</div>
+ 
+<div>
+{teamB.team}:{" "}
+{probabilityB.toFixed(0)}%
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+height: "10px",
+background: "#334155",
+borderRadius: "999px",
+overflow: "hidden",
+}}
+>
+<div
+style={{
+width: `${probabilityA}%`,
+height: "100%",
+background: "#22c55e",
+}}
+/>
+</div>
 </div>
 </div>
 );
