@@ -15,7 +15,6 @@ style={{
 display: "flex",
 gap: "24px",
 flexWrap: "wrap",
-alignItems: "center",
 }}
 >
 /
@@ -26,16 +25,7 @@ alignItems: "center",
 📺 Live
 </Link>
  
-/team-compare
-⚔️ Compare
-</Link>
- 
-/all-time
-🏆 All-Time
-</Link>
- 
-<Link href="/er
-📚 Seasons
+<Link href="/team- ⚔️ Compare
 </Link>
 </div>
 </nav>
