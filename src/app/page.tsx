@@ -5,7 +5,6 @@ import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
-import NavBar from "../components/NavBar";
 import ChampionshipContenders from "../components/ChampionshipContenders";
 import PlayoffOdds from "../components/PlayoffOdds";
 import ProjectedBracket from "../components/ProjectedBracket";
@@ -42,7 +41,6 @@ export default function Home() {
         padding: "24px",
       }}
     >
-      <NavBar />
 
 <div
 style={{
