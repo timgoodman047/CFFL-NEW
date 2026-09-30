@@ -1,4 +1,26 @@
 export default function HallOfChampions() {
+const champions = [
+{ year: 2025, champion: "Chris" },
+{ year: 2024, champion: "Jeff" },
+{ year: 2023, champion: "Nick" },
+{ year: 2022, champion: "Nick" },
+{ year: 2021, champion: "The Other (Drew)" },
+{ year: 2020, champion: "Danny" },
+{ year: 2019, champion: "Tim" },
+{ year: 2018, champion: "The Other (Drew)" },
+{ year: 2017, champion: "Tim" },
+{ year: 2016, champion: "Brian" },
+{ year: 2015, champion: "Jason" },
+{ year: 2014, champion: "D3" },
+{ year: 2013, champion: "Danny" },
+{ year: 2012, champion: "Tim" },
+{ year: 2011, champion: "D3" },
+{ year: 2010, champion: "Brian" },
+{ year: 2009, champion: "Chris" },
+{ year: 2008, champion: "Danny" },
+{ year: 2006, champion: "Danny" },
+];
+ 
 return (
 <div
 style={{
@@ -15,7 +37,9 @@ color: "#22c55e",
 🏆 Hall Of Champions
 </h2>
  
+{champions.map((season) => (
 <div
+key={season.year}
 style={{
 background: "#1b2a40",
 padding: "12px",
@@ -23,35 +47,15 @@ borderRadius: "8px",
 marginBottom: "10px",
 }}
 >
-<strong>2025</strong>
-<br />
-Champion: Chris
-</div>
+<strong>
+{season.year}
+</strong>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
-}}
->
-<strong>2024</strong>
 <br />
-Champion: Jeff
-</div>
  
-<div
-style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-}}
->
-<strong>2023</strong>
-<br />
-Champion: Spencer
+Champion: {season.champion}
 </div>
+))}
 </div>
 );
 }
