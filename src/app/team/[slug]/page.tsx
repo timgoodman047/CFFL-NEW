@@ -14,14 +14,8 @@ slug: string;
 }>;
 }) {
 const { slug } = await params;
-return (
-<main
-style={{
-padding: "24px",
-}}
->
-Slug: {slug}
-</main>
+const franchise = franchises.find(
+(f) => f.slug === slug
 );
 
 const users =
@@ -38,24 +32,9 @@ return (
 <main
 style={{
 padding: "24px",
-color: "white",
 }}
 >
-<h1>Debug</h1>
- 
-<p>
-Slug received:
-{" "}
-{String(params.slug)}
-</p>
- 
-<pre>
-{JSON.stringify(
-params,
-null,
-2
-)}
-</pre>
+Team not found.
 </main>
 );
 }
