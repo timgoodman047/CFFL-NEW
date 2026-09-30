@@ -15,6 +15,7 @@ style={{
 display: "flex",
 gap: "24px",
 flexWrap: "wrap",
+alignItems: "center",
 }}
 >
 /
@@ -25,7 +26,8 @@ flexWrap: "wrap",
 📺 Live
 </Link>
  
-<Link href="/team- ⚔️ Compare
+/team-compare
+⚔️ Compare
 </Link>
 </div>
 </nav>
