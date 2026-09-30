@@ -118,6 +118,8 @@ marginTop: "24px",
 <br />
 /team-compare
 </div>
+
+</div>
  
 <PowerRankings />
 <DressTracker />
