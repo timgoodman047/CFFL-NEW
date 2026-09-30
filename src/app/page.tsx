@@ -147,7 +147,37 @@ $1,100 Champion Prize
 <div style={itemStyle}>
 Lock Of The Week
 </div>
+
+<div style={cardStyle}>
+<h2 style={{ color: "#22c55e" }}>
+🏈 League Tools
+</h2>
  
+<div style={itemStyle}>
+📺 Live Center
+<br />
+/live
+</div>
+ 
+<div style={itemStyle}>
+🏈 Rosters
+<br />
+/rosters
+</div>
+ 
+<div style={itemStyle}>
+📊 Dashboard
+<br />
+/dashboard
+</div>
+ 
+<div style={itemStyle}>
+⚔️ Team Compare
+<br />
+/team-compare
+</div>
+</div>
+  
 <div style={itemStyle}>
 Dress Punishment Active
 </div>
