@@ -78,7 +78,7 @@ gridTemplateColumns:
 gap: "20px",
 marginTop: "24px",
 }}
-
+>
 <Standings />
 <Matchups />
 
