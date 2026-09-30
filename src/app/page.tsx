@@ -44,7 +44,6 @@ export default function Home() {
     >
       <NavBar />
 
->
 <div
 style={{
 marginBottom: "24px",
