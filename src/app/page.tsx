@@ -102,35 +102,45 @@ color: "#22c55e",
 🏈 League Tools
 </h2>
  
-/live
-<div style={itemStyle}>
+<Link href="/live">
+  <div style={itemStyle}>
 📺 Live Center
-</div>
-</Link>
+    <br />
+    /live
+  </div>
+</link>
  
-/rosters
-<div style={itemStyle}>
+<Link href="/rosters">
+  <div style={itemStyle}>
 🏈 Rosters
-</div>
-</Link>
+    <br />
+    /rosters
+  </div>
+</link>
  
-/dashboard
-<div style={itemStyle}>
+<Link href="/dashboard">
+  <div style={itemStyle}>
 📊 Dashboard
-</div>
-</Link>
+    <br />
+    /dashboard
+  </div>
+</link>
  
-/transactions
-<div style={itemStyle}>
+<Link href="/transactions">
+  <div style={itemStyle}>
 📋 Transactions
-</div>
-</Link>
+    <br />
+    /transactions
+  </div>
+</link>
  
-/team-compare
-<div style={itemStyle}>
+<Link href="/team-compare">
+  <div style={itemStyle}>
 ⚔️ Team Compare
-</div>
-</Link>
+    <br />
+    /team-compare
+  </div>
+</link>
 </div>
 </div>
  
