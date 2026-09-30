@@ -233,25 +233,24 @@ marginTop: "24px",
 <h2 style={{ color: "#22c55e" }}>
 📜 Constitution
 </h2>
- 
+
 <div style={itemStyle}>
 2 Keepers Allowed
 </div>
- 
+
 <div style={itemStyle}>
 $222 League Buy-In
 </div>
- 
+
 <div style={itemStyle}>
 $1,100 Champion Prize
 </div>
- 
+
 <div style={itemStyle}>
 Lock Of The Week
 </div>
-
 </div>
- 
+
 <div style={cardStyle}>
 <h2 style={{ color: "#22c55e" }}>
 🚀 Coming Soon
