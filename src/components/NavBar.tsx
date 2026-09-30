@@ -18,18 +18,26 @@ flexWrap: "wrap",
 alignItems: "center",
 }}
 >
-<Link
-href="/"
-style={{
-color: "#22c55e",
-textDecoration: "none",
-fontWeight: "bold",
-}}
-color: "white",
-textDecoration{
-color: "white",
-textDecoration: "none",
-color: "white",
-style={{
-color: "white",
-textDecoration: "
+/
+🏠 Home
+</Link>
+ 
+/live
+📺 Live
+</Link>
+ 
+/team-compare
+⚔️ Compare
+</Link>
+ 
+/all-time
+🏆 All-Time
+</Link>
+ 
+<Link href="/er
+📚 Seasons
+</Link>
+</div>
+</nav>
+);
+}
