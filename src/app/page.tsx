@@ -5,6 +5,7 @@ import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
+import NavBar from "../components/NavBar";
 import ChampionshipContenders from "../components/ChampionshipContenders";
 import PlayoffOdds from "../components/PlayoffOdds";
 import ProjectedBracket from "../components/ProjectedBracket";
@@ -33,8 +34,15 @@ marginBottom: "8px",
 };
  
 export default function Home() {
-return (
-<main
+  return (
+    <main
+      <NavBar />
+    
+      {/* existing content */}
+    </main>
+  );
+      }
+
 style={{
 maxWidth: "1600px",
 margin: "0 auto",
