@@ -81,9 +81,6 @@ marginTop: "24px",
 >
 <Standings />
 <Matchups />
- 
-<PowerRankings />
-<DressTracker />
 
 <div style={cardStyle}>
 <h2 style={{ color: "#22c55e" }}>
@@ -120,6 +117,9 @@ marginTop: "24px",
 /team-compare
 </div>
 </div>
+ 
+<PowerRankings />
+<DressTracker />
 
 <Owners />
 <PlayoffOdds />
