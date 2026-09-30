@@ -5,6 +5,7 @@ import Matchups from "../components/Matchups";
 import PowerRankings from "../components/PowerRankings";
 import DressTracker from "../components/DressTracker";
 import Owners from "../components/Owners";
+import ChampionshipContenders from "../components/ChampionshipContenders";
 import PlayoffOdds from "../components/PlayoffOdds";
 import ProjectedBracket from "../components/ProjectedBracket";
 import PlayoffSimulator from "../components/PlayoffSimulator";
@@ -89,6 +90,8 @@ marginTop: "24px",
 <ProjectedBracket />
  
 <ExpectedStandings />
+<ChampionshipContenders />
+
 <WeeklyScoreDistributions />
  
 <WeeklyAwards />
