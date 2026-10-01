@@ -85,6 +85,21 @@ console.log(
 "Matched Sleeper Owner:",
 owner?.display_name
 );
+
+console.log(
+"Sleeper Team:",
+franchise.sleeperTeam
+);
+ 
+console.log(
+"Current Wins:",
+currentWins
+);
+ 
+console.log(
+"Current Losses:",
+currentLosses
+);
  
 const grouped = {
 QB: [] as any[],
