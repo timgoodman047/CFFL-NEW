@@ -47,7 +47,11 @@ return (
 {weeks.map((weekData: any) => (
 <div
 key={weekData.week}
-className="rounded-xl border p-4"
+className={`rounded-xl border p-4 ${
+weekData.week === CURRENT_WEEK
+? "border-green-500 bg-green-950/20"
+: ""
+}`}
 >
 <h2 className="mb-4 text-2xl font-bold">
 Week {weekData.week}
