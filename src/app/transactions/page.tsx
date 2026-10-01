@@ -167,7 +167,6 @@ color: "#64748b",
 transaction.created
 ).toLocaleString()}
 </div>
-</div>
  
 <div>
 {transaction.adds &&
