@@ -57,9 +57,17 @@ return (
 <h1 className="text-4xl font-bold">
 📅 2026 Schedule
 </h1>
+
+<div className="flex flex-wrap gap-2">
+{weeks.map((w: any) => (
+<a
+key={w.week}
+href={`#week-${w.week}`}
+className="rounded-md bg-zinc-800 px-3 py-1 text-sm hover:bg-zinc-700"
  
 {weeks.map((weekData: any) => (
 <div
+id={`week-${weekData.week}`}
 key={weekData.week}
 className={`rounded-xl border p-4 ${
 weekData.week === CURRENT_WEEK
