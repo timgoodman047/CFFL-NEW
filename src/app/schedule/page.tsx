@@ -23,6 +23,11 @@ ownerMap.set(
 roster.roster_id,
 owner?.display_name || "Unknown"
 );
+ 
+recordMap.set(
+roster.roster_id,
+`${roster.settings?.wins ?? 0}-${roster.settings?.losses ?? 0}`
+);
 });
  
 const weeks = [];
@@ -95,10 +100,10 @@ fontWeight: team1Won ? "bold" : "normal",
 }}
 >
 
-{ownerMap.get(
-team1.roster_id
-)}{" "}
-({team1.points})
+{ownerMap.get(team1.roster_id)}
+{" "}
+({recordMap.get(team1.roster_id)})
+- ({team1.points})
 </span>
  
 <span>vs</span>
@@ -110,10 +115,10 @@ fontWeight: !team1Won ? "bold" : "normal",
 }}
 >
 
-{ownerMap.get(
-team2.roster_id
-)}{" "}
-({team2.points})
+{ownerMap.get(team2.roster_id)}
+{" "}
+({recordMap.get(team2.roster_id)})
+- ({team2.points})
 </span>
 </div>
 </div>
