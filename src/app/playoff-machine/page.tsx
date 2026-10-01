@@ -77,37 +77,82 @@ color: "#22c55e",
 Current Playoff Seeds
 </h2>
  
-{teams.map(
+<h2
+style={{
+color: "#22c55e",
+marginTop: "0",
+}}
+>
+🟢 Current Playoff Teams
+</h2>
+ 
+{playoffTeams.map(
 (
 team: any,
 index: number
-) => {
-let color = "#94a3b8";
- 
-if (index < 6) {
-color = "#22c55e";
-} else if (index < 8) {
-color = "#facc15";
-} else {
-color = "#ef4444";
-}
- 
-return (
+) => (
 <div
 key={team.owner}
 style={{
 marginBottom: "8px",
-color,
 fontWeight: "bold",
 }}
 >
 {index + 1}. {team.owner}
 {" "}
-({team.wins}-
-{team.losses})
+({team.wins}-{team.losses})
 </div>
-);
-}
+)
+)}
+ 
+<br />
+ 
+<h2
+style={{
+color: "#facc15",
+}}
+>
+🟡 First Teams Out
+</h2>
+ 
+{bubbleTeams.map(
+(team: any) => (
+<div
+key={team.owner}
+style={{
+marginBottom: "8px",
+}}
+>
+{team.owner}
+{" "}
+({team.wins}-{team.losses})
+</div>
+)
+)}
+ 
+<br />
+ 
+<h2
+style={{
+color: "#ef4444",
+}}
+>
+🔴 Long Shots
+</h2>
+ 
+{longShots.map(
+(team: any) => (
+<div
+key={team.owner}
+style={{
+marginBottom: "8px",
+}}
+>
+{team.owner}
+{" "}
+({team.wins}-{team.losses})
+</div>
+)
 )}
 </div>
 </main>
