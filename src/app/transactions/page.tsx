@@ -138,7 +138,8 @@ marginBottom: "12px",
 By{" "}
 {creator?.display_name ??
 "Unknown"}
-<div
+</div>
+ 
 {transaction.type === "trade" && (
 <div
 style={{
