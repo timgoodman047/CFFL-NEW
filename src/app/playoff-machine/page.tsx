@@ -9,8 +9,35 @@ const rosters = await getRosters();
  
 const teams = rosters
 .map((roster: any) => {
+const owner = users.find(
+(u: any) =>
+u.user_id === roster.owner_id
+);
+ 
+return {
+owner:
+owner?.display_name ||
+"Unknown",
+wins:
+roster.settings?.wins || 0,
+losses:
+roster.settings?.losses || 0,
+points:
+Number(
+roster.settings?.fpts || 0
+) +
+Number(
+roster.settings?.fpts_decimal || 0
+) /
+100,
+};
 })
 .sort((a: any, b: any) => {
+if (b.wins !== a.wins) {
+return b.wins - a.wins;
+}
+ 
+return b.points - a.points;
 });
  
 const playoffTeams = teams.slice(0, 6);
