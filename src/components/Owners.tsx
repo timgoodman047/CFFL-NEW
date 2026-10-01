@@ -51,8 +51,7 @@ return (
 key={user.user_id}
 onClick={() => {
 if (slug) {
-window.location.href =
-`/team/${slug}`;
+alert(`/team/${slug}`);
 }
 }}
 style={{
