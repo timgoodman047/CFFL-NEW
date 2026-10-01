@@ -119,9 +119,6 @@ marginTop: 0,
 {transaction.type?.toUpperCase()}
 </h2>
  
-{transaction.type === "trade" && (
-)}
- 
 <div
 style={{
 color: "#94a3b8",
