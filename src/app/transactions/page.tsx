@@ -157,6 +157,26 @@ rosterMap.get(rosterId)
 </div>
 )}
 
+{transaction.type === "trade" &&
+transaction.draft_picks?.length > 0 && (
+<div
+style={{
+marginBottom: "12px",
+color: "#94a3b8",
+}}
+>
+<strong>Draft Picks:</strong>
+ 
+{transaction.draft_picks.map(
+(pick: any, idx: number) => (
+<div key={idx}>
+🏈 {pick.season} Round {pick.round}
+</div>
+)
+)}
+</div>
+)}
+
 <div
 style={{
 fontSize: "12px",
