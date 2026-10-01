@@ -9,10 +9,8 @@ const rosters = await getRosters();
  
 const teams = rosters
 .map((roster: any) => {
-...
 })
 .sort((a: any, b: any) => {
-...
 });
  
 const playoffTeams = teams.slice(0, 6);
