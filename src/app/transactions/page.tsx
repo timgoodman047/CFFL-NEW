@@ -156,6 +156,7 @@ rosterMap.get(rosterId)
 .join(" ↔ ")}
 </div>
 )}
+
 <div
 style={{
 fontSize: "12px",
