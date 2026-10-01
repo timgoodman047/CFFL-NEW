@@ -120,13 +120,6 @@ marginTop: 0,
 </h2>
  
 {transaction.type === "trade" && (
-<pre>
-{JSON.stringify(
-transaction,
-null,
-2
-)}
-</pre>
 )}
  
 <div
