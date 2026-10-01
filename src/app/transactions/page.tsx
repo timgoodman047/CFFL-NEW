@@ -17,6 +17,10 @@ await getTransactions(week);
  
 allTransactions.push(...weeklyTransactions);
 }
+allTransactions.sort(
+(a: any, b: any) =>
+b.created - a.created
+);
  
 const users =
 await getUsers();
@@ -41,7 +45,7 @@ marginBottom: "24px",
 📋 League Transactions
 </h1>
  
-{transactions.length === 0 ? (
+{allTransactions.length === 0 ? (
 <div
 style={{
 background: "#111c2d",
@@ -99,6 +103,16 @@ marginBottom:
 By{" "}
 {creator?.display_name ??
 "Unknown"}
+<div
+style={{
+fontSize: "12px",
+color: "#64748b",
+}}
+>
+{new Date(
+transaction.created
+).toLocaleString()}
+</div>
 </div>
  
 <div>
