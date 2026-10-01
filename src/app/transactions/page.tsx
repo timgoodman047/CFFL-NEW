@@ -138,30 +138,7 @@ color: "#facc15",
 }}
 >
 Trade Between:{" "}
-{transaction.type === "trade" && (
-<div
-style={{
-marginTop: "12px",
-padding: "10px",
-background: "#0f172a",
-borderRadius: "8px",
-}}
->
-<strong>
-{rosterMap.get(
-transaction.roster_ids?.[0]
-)}
-</strong>
- 
-<br />
- 
-<strong>
-{rosterMap.get(
-transaction.roster_ids?.[1]
-)}
-</strong>
-</div>
-)}
+
 {transaction.roster_ids
 ?.map(
 (rosterId: number) =>
