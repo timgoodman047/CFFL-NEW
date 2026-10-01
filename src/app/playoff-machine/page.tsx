@@ -45,32 +45,6 @@ const bubbleTeams = teams.slice(6, 8);
 const longShots = teams.slice(8);
  
 return (
-owner:
-owner?.display_name ||
-"Unknown",
-wins:
-roster.settings?.wins || 0,
-losses:
-roster.settings?.losses || 0,
-points:
-Number(
-roster.settings?.fpts || 0
-) +
-Number(
-roster.settings?.fpts_decimal || 0
-) /
-100,
-};
-})
-.sort((a: any, b: any) => {
-if (b.wins !== a.wins) {
-return b.wins - a.wins;
-}
- 
-return b.points - a.points;
-});
- 
-return (
 <main
 style={{
 maxWidth: "1200px",
