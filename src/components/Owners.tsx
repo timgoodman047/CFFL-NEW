@@ -30,20 +30,20 @@ color:"#22c55e"
  
 {users.map((user:any) => {
 const slugMap: Record<string, string> = {
-TimGoodman: "tim",
-Danny: "danny",
-Brian: "brian",
-Nick: "nick",
-Chris: "chris",
-Jason: "jason",
-Jeff: "jeff",
-Matt: "matt",
-Tom: "tom",
-Spencer: "spencer",
+"Red Kingdom": "tim",
+"WHO DEY": "brian",
+"Orangeman": "nick",
+"Fuck You FantasyFootball": "matt",
+"The Locked Room": "danny",
+"Taka Taka Tires": "tom",
+"Bills Mafia": "jason",
+"Scheduled dress year": "spencer",
+"Short Board Champ": "chris",
+"Dirty Mike": "jeff",
 };
  
 const slug =
-slugMap[user.display_name];
+slugMap[user?.metadata?.team_name];
  
 return (
  
