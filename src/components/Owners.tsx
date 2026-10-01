@@ -64,6 +64,10 @@ cursor:"pointer"
 {user?.metadata?.team_name}
 </strong>
  
+<br />
+ 
+/team/{slug}
+ 
 </div>
 );
 })}
