@@ -156,11 +156,12 @@ rosterMap.get(rosterId)
 .join(" ↔ ")}
 </div>
 )}
+<div
 style={{
 fontSize: "12px",
 color: "#64748b",
 }}
-
+>
 {new Date(
 transaction.created
 ).toLocaleString()}
