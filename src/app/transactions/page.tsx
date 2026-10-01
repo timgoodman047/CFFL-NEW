@@ -173,7 +173,7 @@ transaction.created
 Object.entries(
 transaction.adds
 ).map(
-([playerId, rosterId\]: any) => {
+([playerId, rosterId]) => {
 const player =
 players[playerId];
  
