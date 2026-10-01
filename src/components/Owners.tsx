@@ -45,13 +45,9 @@ slugMap[user?.metadata?.team_name];
  
 return (
  
+{`/team/${slug}`}
 <div
 key={user.user_id}
-onClick={() => {
-if (slug) {
-alert(`/team/${slug}`);
-}
-}}
 style={{
 background:"#1b2a40",
 padding:"10px",
@@ -66,12 +62,11 @@ cursor:"pointer"
 <br />
  
 <strong>
-{user?.metadata
-?.team_name}
+{user?.metadata?.team_name}
 </strong>
  
 </div>
- 
+</a>
 );
 })}
  
