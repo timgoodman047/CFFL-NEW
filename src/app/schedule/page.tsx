@@ -64,7 +64,13 @@ weekData.week === CURRENT_WEEK
 <h2 className="mb-4 text-2xl font-bold">
 Week {weekData.week}
 </h2>
- 
+
+<div className="mb-3 text-sm text-zinc-400">
+{weekData.week < CURRENT_WEEK && "✅ Completed"}
+{weekData.week === CURRENT_WEEK && "🔥 Current Week"}
+{weekData.week > CURRENT_WEEK && "📅 Upcoming"}
+</div>
+
 <div className="grid gap-3">
 {weekData.games.map(
 (game: any, idx: number) => {
