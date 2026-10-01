@@ -94,13 +94,22 @@ marginBottom:
 >
 <h2
 style={{
-color:
-"#22c55e",
+color: "#22c55e",
 marginTop: 0,
 }}
 >
 {transaction.type?.toUpperCase()}
 </h2>
+ 
+{transaction.type === "trade" && (
+<pre>
+{JSON.stringify(
+transaction,
+null,
+2
+)}
+</pre>
+)}
  
 <div
 style={{
