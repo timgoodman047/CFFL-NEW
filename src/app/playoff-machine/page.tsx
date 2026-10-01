@@ -77,20 +77,33 @@ Current Playoff Seeds
 (
 team: any,
 index: number
-) => (
+) => {
+let color = "#94a3b8";
+ 
+if (index < 6) {
+color = "#22c55e";
+} else if (index < 8) {
+color = "#facc15";
+} else {
+color = "#ef4444";
+}
+ 
+return (
 <div
 key={team.owner}
 style={{
 marginBottom: "8px",
+color,
+fontWeight: "bold",
 }}
 >
-{index + 1}.{" "}
-{team.owner}
+{index + 1}. {team.owner}
 {" "}
 ({team.wins}-
 {team.losses})
 </div>
-)
+);
+}
 )}
 </div>
 </main>
