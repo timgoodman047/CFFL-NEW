@@ -222,7 +222,7 @@ Number(rosterId)
 transaction.drops &&
 Object.keys(
 transaction.drops
-).map((playerId) => {
+).map(...)
 const player =
 players[playerId];
  
