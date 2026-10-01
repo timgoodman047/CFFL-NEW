@@ -20,7 +20,23 @@ const users = await getUsers();
 const rosters = await getRosters();
  
 if (!franchise) {
-  return(
+return (
+<main
+style={{
+maxWidth: "1200px",
+margin: "0 auto",
+padding: "24px",
+}}
+>
+<h1
+style={{
+color: "#22c55e",
+}}
+>
+Franchise Not Found
+</h1>
+</main>
+);
 }
   
 const owner = users.find(
@@ -67,24 +83,6 @@ const updatedWinningPct =
 totalGames > 0
 ? totalWins / totalGames
 : 0;
-
-<main
-style={{
-maxWidth: "1200px",
-margin: "0 auto",
-padding: "24px",
-}}
->
-<h1
-style={{
-color: "#22c55e",
-}}
->
-Franchise Not Found
-</h1>
-</main>
-);
-}
  
 const timeline =
 franchiseTimelines[
