@@ -1,5 +1,9 @@
 import { franchises } from "../../../data/franchises";
 import { franchiseTimelines } from "../../../data/franchiseTimelines";
+import { 
+getUsers,
+getRosters,
+} from "../../../lib/sleeper";
  
 export default async function FranchisePage({
 params,
@@ -11,8 +15,55 @@ const resolvedParams = await params;
 const franchise = franchises.find(
 (f) => f.slug === resolvedParams.slug
 );
+
+const users = await getUsers();
+const rosters = await getRosters();
  
 if (!franchise) {
+const owner = users.find(
+(u: any) =>
+u.metadata?.team_name ===
+franchise.sleeperTeam
+);
+ 
+const roster = rosters.find(
+(r: any) =>
+r.owner_id ===
+owner?.user_id
+);
+ 
+const currentWins =
+roster?.settings?.wins || 0;
+ 
+const currentLosses =
+roster?.settings?.losses || 0;
+ 
+const [
+historicalWins,
+historicalLosses,
+historicalTies,
+] = franchise.overallRecord
+.split("-")
+.map(Number);
+ 
+const totalWins =
+historicalWins + currentWins;
+ 
+const totalLosses =
+historicalLosses + currentLosses;
+ 
+const totalTies =
+historicalTies;
+ 
+const totalGames =
+totalWins +
+totalLosses +
+totalTies;
+ 
+const updatedWinningPct =
+totalGames > 0
+? totalWins / totalGames
+: 0;
 return (
 <main
 style={{
@@ -85,13 +136,13 @@ value={franchise.playoffTrips}
 <StatCard
 title="📈 Win %"
 value={`${(
-franchise.winningPct * 100
+updatedWinningPct * 100
 ).toFixed(1)}%`}
 />
  
 <StatCard
 title="📋 Career Record"
-value={franchise.overallRecord}
+value={`${totalWins}-${totalLosses}-${totalTies}`}
 />
 </div>
  
