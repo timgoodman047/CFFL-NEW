@@ -131,16 +131,30 @@ null,
  
 <div
 style={{
-color:
-"#94a3b8",
-marginBottom:
-"12px",
+color: "#94a3b8",
+marginBottom: "12px",
 }}
 >
 By{" "}
 {creator?.display_name ??
 "Unknown"}
 <div
+{transaction.type === "trade" && (
+<div
+style={{
+marginBottom: "12px",
+color: "#facc15",
+}}
+>
+Trade Between:{" "}
+{transaction.roster_ids
+?.map(
+(rosterId: number) =>
+rosterMap.get(rosterId)
+)
+.join(" ↔ ")}
+</div>
+)}
 style={{
 fontSize: "12px",
 color: "#64748b",
