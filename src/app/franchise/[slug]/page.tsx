@@ -20,6 +20,9 @@ const users = await getUsers();
 const rosters = await getRosters();
  
 if (!franchise) {
+  return(
+}
+  
 const owner = users.find(
 (u: any) =>
 u.metadata?.team_name ===
@@ -64,7 +67,7 @@ const updatedWinningPct =
 totalGames > 0
 ? totalWins / totalGames
 : 0;
-return (
+
 <main
 style={{
 maxWidth: "1200px",
