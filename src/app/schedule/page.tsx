@@ -57,7 +57,7 @@ return (
 <h1 className="text-4xl font-bold">
 📅 2026 Schedule
 </h1>
-
+ 
 <div className="flex flex-wrap gap-2 mb-6">
 {weeks.map((w: any) => (
 {`#week-${w.week}`}
@@ -65,7 +65,6 @@ W{w.week}
 </a>
 ))}
 </div>
-  
 {weeks.map((weekData: any) => (
 <div
 id={`week-${weekData.week}`}
