@@ -63,6 +63,7 @@ return (
 <a
 key={w.week}
 href={`#week-${w.week}`}
+class
 className="rounded-md bg-zinc-800 px-3 py-1 text-sm hover:bg-zinc-700"
  
 {weeks.map((weekData: any) => (
