@@ -9,10 +9,14 @@ export default async function TransactionsPage() {
 const currentWeek =
 await getCurrentWeek();
  
-const transactions =
-await getTransactions(
-currentWeek
-);
+const allTransactions = [];
+ 
+for (let week = 1; week <= currentWeek; week++) {
+const weeklyTransactions =
+await getTransactions(week);
+ 
+allTransactions.push(...weeklyTransactions);
+}
  
 const users =
 await getUsers();
@@ -48,7 +52,7 @@ borderRadius: "12px",
 No transactions found.
 </div>
 ) : (
-transactions.map(
+allTransactions.map(
 (
 transaction: any
 ) => {
