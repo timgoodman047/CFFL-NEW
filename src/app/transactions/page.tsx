@@ -170,9 +170,10 @@ transaction.created
  
 <div>
 {transaction.adds &&
-Object.keys(
+Object.entries(
 transaction.adds
-).map((playerId) => {
+).map(
+([playerId, rosterId\]: any) => {
 const player =
 players[playerId];
  
@@ -183,14 +184,19 @@ style={{
 marginBottom: "8px",
 }}
 >
-🟢 Added{" "}
+🟢{" "}
 <strong>
 {player?.full_name ||
 playerId}
 </strong>
+{" → "}
+{rosterMap.get(
+Number(rosterId)
+)}
 </div>
 );
-})}
+}
+)}
  
 {transaction.drops &&
 Object.keys(
