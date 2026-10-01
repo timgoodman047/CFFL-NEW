@@ -9,12 +9,17 @@ const rosters = await getRosters();
  
 const teams = rosters
 .map((roster: any) => {
-const owner = users.find(
-(u: any) =>
-u.user_id === roster.owner_id
-);
+...
+})
+.sort((a: any, b: any) => {
+...
+});
  
-return {
+const playoffTeams = teams.slice(0, 6);
+const bubbleTeams = teams.slice(6, 8);
+const longShots = teams.slice(8);
+ 
+return (
 owner:
 owner?.display_name ||
 "Unknown",
