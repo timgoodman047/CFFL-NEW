@@ -2,6 +2,7 @@ import {
 getCurrentWeek,
 getTransactions,
 getUsers,
+getRosters,
 getPlayers,
 } from "../../lib/sleeper";
  
@@ -24,7 +25,10 @@ b.created - a.created
  
 const users =
 await getUsers();
-
+ 
+const rosters =
+await getRosters();
+ 
 const players =
 await getPlayers();
 
