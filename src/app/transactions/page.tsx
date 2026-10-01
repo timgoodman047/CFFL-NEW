@@ -28,12 +28,6 @@ await getUsers();
 const players =
 await getPlayers();
 
-if (transaction.type === "trade") {
-console.log(
-JSON.stringify(transaction, null, 2)
-);
-}  
-  
 return (
 <main
 style={{
