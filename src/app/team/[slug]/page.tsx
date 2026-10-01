@@ -53,6 +53,29 @@ r.owner_id ===
 owner?.user_id
 );
 
+const currentWins =
+roster?.settings?.wins || 0;
+ 
+const currentLosses =
+roster?.settings?.losses || 0;
+ 
+const [
+historicalWins,
+historicalLosses,
+historicalTies,
+] = franchise.overallRecord
+.split("-")
+.map(Number);
+ 
+const totalWins =
+historicalWins + currentWins;
+ 
+const totalLosses =
+historicalLosses + currentLosses;
+ 
+const totalTies =
+historicalTies;
+
 console.log(
 "Franchise Owner:",
 franchise.owner
@@ -148,9 +171,7 @@ Franchise Profile
  
 <p>
 Record:{" "}
-{
-franchise.overallRecord
-}
+{totalWins}-{totalLosses}-{totalTies}
 </p>
  
 <p>
