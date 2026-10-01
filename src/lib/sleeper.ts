@@ -59,20 +59,10 @@ cache: "no-store"
  
 return response.json();
 }
- 
+
 // -------------------------
 // MATCHUPS
 // -------------------------
- 
-const response = await fetch(
-`https://api.sleeper.app/v1/league/${LEAGUE_ID}/matchups/${week}`,
-{
-cache: "no-store"
-}
-);
- 
-return response.json();
-}
 
 // -------------------------
 // TRANSACTIONS
