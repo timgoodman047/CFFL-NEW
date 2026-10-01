@@ -1,14 +1,96 @@
-const placeholderSeasons = Array.from(
-{ length: 17 },
-(_, i) => ({
-year: 2022 - i,
+const historicalChampions = [
+{
+year: 2022,
+champion: "Nick",
+team: "Orangeman",
+},
+{
+year: 2021,
+champion: "The Other (Drew)",
+team: "The Other",
+},
+{
+year: 2020,
+champion: "Danny",
+team: "Danny",
+},
+{
+year: 2019,
+champion: "Tim",
+team: "Tim",
+},
+{
+year: 2018,
+champion: "The Other (Drew)",
+team: "The Other",
+},
+{
+year: 2017,
+champion: "Tim",
+team: "Tim",
+},
+{
+year: 2016,
+champion: "Brian",
+team: "Brian",
+},
+{
+year: 2015,
+champion: "Jason",
+team: "Jason",
+},
+{
+year: 2014,
+champion: "D3",
+team: "D3",
+},
+{
+year: 2013,
+champion: "Danny",
+team: "Danny",
+},
+{
+year: 2012,
+champion: "Tim",
+team: "Tim",
+},
+{
+year: 2011,
+champion: "D3",
+team: "D3",
+},
+{
+year: 2010,
+champion: "Brian",
+team: "Brian",
+},
+{
+year: 2009,
+champion: "Chris",
+team: "Chris",
+},
+{
+year: 2008,
+champion: "Danny",
+team: "Danny",
+},
+{
+year: 2007,
 champion: "TBD",
 team: "TBD",
+},
+{
+year: 2006,
+champion: "Danny",
+team: "Danny",
+},
+].map((season) => ({
+...season,
 runnerUp: "TBD",
 highestScore: 0,
 championshipScore: "TBD",
-mvp: "TBD",
-storyline: "Historical data pending.",
+mvp: season.champion,
+storyline: `${season.champion} won the CFFL Championship.`,
 pointsLeader: "TBD",
 sacko: "TBD",
 semifinals: [],
@@ -18,11 +100,10 @@ awards: [],
 standings: [],
 records: [],
 notes: "Historical season data pending.",
-})
-);
+}));
 
 export const history = [
-  ...placeholderSeasons,
+  ...historicalChampions,
 {
 year: 2025,
 champion: "Chris",
