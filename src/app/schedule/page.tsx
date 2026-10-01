@@ -13,6 +13,7 @@ const users = await getUsers();
 const rosters = await getRosters();
  
 const ownerMap = new Map();
+const recordMap = new Map();
  
 rosters.forEach((roster: any) => {
 const owner = users.find(
