@@ -109,6 +109,14 @@ color: "#22c55e",
     /live
   </div>
 </Link>
+
+<Link href="/schedule">
+  <div style={itemStyle}>
+📅 Schedule
+    <br />
+    /schedule
+  </div>
+</Link>
  
 <Link href="/rosters">
   <div style={itemStyle}>
