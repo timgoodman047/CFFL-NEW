@@ -76,8 +76,8 @@ team: "Danny",
 },
 {
 year: 2007,
-champion: "TBD",
-team: "TBD",
+champion: "No Season",
+team: "N/A",
 },
 {
 year: 2006,
@@ -103,7 +103,6 @@ notes: "Historical season data pending.",
 }));
 
 export const history = [
-  ...historicalChampions,
 {
 year: 2025,
 champion: "Chris",
@@ -259,5 +258,7 @@ records: [
  
 notes:
 "Nick secured consecutive championships."
-}
-];
+},
+ 
+...historicalChampions,
+].sort((a, b) => b.year - a.year);
