@@ -4,7 +4,18 @@ export const LEAGUE_ID =
 // -------------------------
 // LEAGUE
 // -------------------------
+
+export async function getMatchups(week: number) {
+const response = await fetch(
+`https://api.sleeper.app/v1/league/${LEAGUE_ID}/matchups/${week}`,
+{
+cache: "no-store",
+}
+);
  
+return response.json();
+}
+
 export async function getLeague() {
  
 const response = await fetch(
