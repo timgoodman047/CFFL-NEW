@@ -104,6 +104,8 @@ fontWeight: "bold",
 {index + 1}. {team.owner}
 {" "}
 ({team.wins}-{team.losses})
+{" • "}
+{team.points.toFixed(2)} PF
 </div>
 )
 )}
@@ -129,6 +131,8 @@ marginBottom: "8px",
 {team.owner}
 {" "}
 ({team.wins}-{team.losses})
+{" • "}
+{team.points.toFixed(2)} PF
  
 {" • "}
  
@@ -164,6 +168,8 @@ marginBottom: "8px",
 {team.owner}
 {" "}
 ({team.wins}-{team.losses})
+{" • "}
+{team.points.toFixed(2)} PF
  
 {" • "}
  
