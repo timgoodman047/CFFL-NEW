@@ -43,6 +43,9 @@ return b.points - a.points;
 const playoffTeams = teams.slice(0, 6);
 const bubbleTeams = teams.slice(6, 8);
 const longShots = teams.slice(8);
+
+const sixthPlacePoints =
+playoffTeams[5]?.points || 0;
  
 return (
 <main
@@ -126,6 +129,16 @@ marginBottom: "8px",
 {team.owner}
 {" "}
 ({team.wins}-{team.losses})
+ 
+{" • "}
+ 
+{Math.max(
+0,
+sixthPlacePoints -
+team.points
+).toFixed(2)}
+ 
+{" pts behind 6th"}
 </div>
 )
 )}
@@ -151,6 +164,16 @@ marginBottom: "8px",
 {team.owner}
 {" "}
 ({team.wins}-{team.losses})
+ 
+{" • "}
+ 
+{Math.max(
+0,
+sixthPlacePoints -
+team.points
+).toFixed(2)}
+ 
+{" pts behind 6th"}
 </div>
 )
 )}
