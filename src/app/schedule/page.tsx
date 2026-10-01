@@ -71,13 +71,13 @@ className="rounded-lg bg-zinc-900 p-3"
 >
 <div className="flex justify-between">
 <span>
-{ownerMap.get(team1.roster_id)}
+{ownerMap.get(team1.roster_id)} ({team1.points})
 </span>
  
 <span>vs</span>
  
 <span>
-{ownerMap.get(team2.roster_id)}
+{ownerMap.get(team2.roster_id)} ({team2.points})
 </span>
 </div>
 </div>
