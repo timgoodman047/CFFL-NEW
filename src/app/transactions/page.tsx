@@ -171,8 +171,12 @@ color: "#94a3b8",
 (pick: any, idx: number) => (
 <div key={idx}>
 🏈 {pick.season} Round {pick.round}
-{" → "}
-{rosterMap.get(pick.roster_id)}
+{" | "}
+roster_id={pick.roster_id}
+{" | "}
+owner_id={pick.owner_id}
+{" | "}
+previous_owner_id={pick.previous_owner_id}
 </div>
 )
 )}
