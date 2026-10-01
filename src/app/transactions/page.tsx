@@ -198,7 +198,8 @@ Number(rosterId)
 }
 )}
  
-{transaction.drops &&
+{transaction.type !== "trade" &&
+transaction.drops &&
 Object.keys(
 transaction.drops
 ).map((playerId) => {
