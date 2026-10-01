@@ -20,13 +20,14 @@ color: "#22c55e",
 </h2>
 
 {franchises.map((franchise) => (
-{`/franchise/${franchise.slug}`}
-<div
+
+<Link
+href={`/franchise/${franchise.slug}`}
+key={franchise.slug}
 style={{
-background: "#1b2a40",
-padding: "12px",
-borderRadius: "8px",
-marginBottom: "10px",
+textDecoration: "none",
+color: "inherit",
+displayginBottom: "10px",
 }}
 >
 <strong>{franchise.owner}</strong>
@@ -48,8 +49,10 @@ Playoff Trips: {franchise.playoffTrips}
 URL:
 {" "}
 /franchise/{franchise.slug}
-</div>
-</Link>
+{franchises.map((franchise) => (
+<Link
+href={`/franchise/${franchise.slug}`}
+key={franchise</Link>
 ))}
 </div>
 );
