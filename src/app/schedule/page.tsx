@@ -69,15 +69,32 @@ return (
 key={idx}
 className="rounded-lg bg-zinc-900 p-3"
 >
+
+const team1Won = team1.points > team2.points;
+
 <div className="flex justify-between">
-<span>
-{ownerMap.get(team1.roster_id)} ({team1.points})
+<span
+className={
+team1Won
+? "font-bold text-green-400"
+: ""
+}
+>
+{ownerMap.get(team1.roster_id)}
+({team1.points})
 </span>
  
 <span>vs</span>
  
-<span>
-{ownerMap.get(team2.roster_id)} ({team2.points})
+<span
+className={
+!team1Won
+? "font-bold text-green-400"
+: ""
+}
+>
+{ownerMap.get(team2.roster_id)}
+({team2.points})
 </span>
 </div>
 </div>
