@@ -62,10 +62,6 @@ return (
 <div
 id={`week-${weekData.week}`}
 key={weekData.week}
-  
-<div
-id={`week-${weekData.week}`}
-key={weekData.week}
 className={`rounded-xl border p-4 ${
 weekData.week === CURRENT_WEEK
 ? "border-green-500 bg-green-950/20"
