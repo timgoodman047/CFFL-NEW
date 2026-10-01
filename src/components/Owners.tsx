@@ -68,7 +68,6 @@ cursor:"pointer"
  
 {`/team/${slug}`}
 /team/{slug}
-</a>
  
 </div>
 );
