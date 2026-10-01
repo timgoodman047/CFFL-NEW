@@ -83,12 +83,12 @@ className="rounded-lg bg-zinc-900 p-3"
 >
 <div className="flex justify-between">
 <span
-className={
-team1Won
-? "font-bold text-green-400"
-: ""
-}
+style={{
+color: team1Won ? "#4ade80" : "white",
+fontWeight: team1Won ? "bold" : "normal",
+}}
 >
+
 {ownerMap.get(
 team1.roster_id
 )}{" "}
@@ -98,12 +98,12 @@ team1.roster_id
 <span>vs</span>
  
 <span
-className={
-!team1Won
-? "font-bold text-green-400"
-: ""
-}
+style={{
+color: !team1Won ? "#4ade80" : "white",
+fontWeight: !team1Won ? "bold" : "normal",
+}}
 >
+
 {ownerMap.get(
 team2.roster_id
 )}{" "}
