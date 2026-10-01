@@ -67,6 +67,16 @@ user.user_id ===
 transaction.creator
 );
  
+if (transaction.type === "trade") {
+console.log(
+JSON.stringify(
+transaction,
+null,
+2
+)
+);
+}
+ 
 return (
 <div
 key={
