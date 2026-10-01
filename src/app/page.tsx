@@ -141,14 +141,6 @@ color: "#22c55e",
     /transactions
   </div>
 </Link>
-
-<Link href="/record-book">
-  <div style={itemStyle}>
-🏆 Record Book
-    <br />
-    /record-book
-  </div>
-</Link>
  
 <Link href="/team-compare">
   <div style={itemStyle}>
