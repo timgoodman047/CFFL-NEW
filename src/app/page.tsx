@@ -117,6 +117,14 @@ color: "#22c55e",
     /schedule
   </div>
 </Link>
+
+ <Link href="/playoff-machine">
+  <div style={itemStyle}>
+🧮 Playoff Machine
+    <br />
+    /playoff-machine
+  </div>
+</Link> 
  
 <Link href="/rosters">
   <div style={itemStyle}>
