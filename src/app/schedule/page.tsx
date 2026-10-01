@@ -58,14 +58,14 @@ return (
 📅 2026 Schedule
 </h1>
 
-<div className="flex flex-wrap gap-2">
+<div className="flex flex-wrap gap-2 mb-6">
 {weeks.map((w: any) => (
-<a
-key={w.week}
-href={`#week-${w.week}`}
-class
-className="rounded-md bg-zinc-800 px-3 py-1 text-sm hover:bg-zinc-700"
- 
+{`#week-${w.week}`}
+W{w.week}
+</a>
+))}
+</div>
+  
 {weeks.map((weekData: any) => (
 <div
 id={`week-${weekData.week}`}
