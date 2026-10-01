@@ -1,4 +1,28 @@
+const placeholderSeasons = Array.from(
+{ length: 17 },
+(_, i) => ({
+year: 2022 - i,
+champion: "TBD",
+team: "TBD",
+runnerUp: "TBD",
+highestScore: 0,
+championshipScore: "TBD",
+mvp: "TBD",
+storyline: "Historical data pending.",
+pointsLeader: "TBD",
+sacko: "TBD",
+semifinals: [],
+thirdPlaceGame: "TBD",
+championship: "TBD",
+awards: [],
+standings: [],
+records: [],
+notes: "Historical season data pending.",
+})
+);
+
 export const history = [
+  ...placeholderSeasons,
 {
 year: 2025,
 champion: "Chris",
