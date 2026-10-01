@@ -32,6 +32,20 @@ await getRosters();
 const players =
 await getPlayers();
 
+const rosterMap = new Map();
+
+rosters.forEach((roster: any) => {
+const owner = users.find(
+(u: any) =>
+u.user_id === roster.owner_id
+);
+ 
+rosterMap.set(
+roster.roster_id,
+owner?.display_name || "Unknown"
+);
+});
+
 return (
 <main
 style={{
