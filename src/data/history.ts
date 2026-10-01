@@ -260,23 +260,4 @@ records: [
 notes:
 "Nick secured consecutive championships."
 }
-
-export const history = [
-{
-year: 2025,
-...
-},
- 
-{
-year: 2024,
-...
-},
- 
-{
-year: 2023,
-...
-},
- 
-...historicalChampions,
-].sort((a, b) => b.year - a.year);
 ];
