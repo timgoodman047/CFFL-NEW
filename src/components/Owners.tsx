@@ -1,5 +1,3 @@
-"use client";
-
 import {
 getUsers,
 } from "../lib/sleeper";
