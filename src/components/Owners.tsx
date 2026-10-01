@@ -45,7 +45,6 @@ slugMap[user?.metadata?.team_name];
  
 return (
  
-{`/team/${slug}`}
 <div
 key={user.user_id}
 style={{
@@ -66,7 +65,6 @@ cursor:"pointer"
 </strong>
  
 </div>
-</a>
 );
 })}
  
