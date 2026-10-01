@@ -1,9 +1,14 @@
-import { getMatchups, getUsers, getRosters } from "../../lib/sleeper";
- 
-const CURRENT_WEEK = 5;
-const TOTAL_WEEKS = 14;
+import {
+getMatchups,
+getUsers,
+getRosters,
+getCurrentWeek,
+} from "../../lib/sleeper";
  
 export default async function SchedulePage() {
+const CURRENT_WEEK = await getCurrentWeek();
+const TOTAL_WEEKS = 14;
+ 
 const users = await getUsers();
 const rosters = await getRosters();
  
@@ -14,7 +19,10 @@ const owner = users.find(
 (u: any) => u.user_id === roster.owner_id
 );
  
-ownerMap.set(roster.roster_id, owner?.display_name);
+ownerMap.set(
+roster.roster_id,
+owner?.display_name || "Unknown"
+);
 });
  
 const weeks = [];
@@ -22,7 +30,7 @@ const weeks = [];
 for (let week = 1; week <= TOTAL_WEEKS; week++) {
 const matchups = await getMatchups(week);
  
-const grouped = {};
+const grouped: Record<string, any[]> = {};
  
 matchups.forEach((team: any) => {
 if (!grouped[team.matchup_id]) {
@@ -58,20 +66,21 @@ Week {weekData.week}
 </h2>
  
 <div className="grid gap-3">
-{weekData.games.map((game: any, idx: number) => {
+{weekData.games.map(
+(game: any, idx: number) => {
 if (game.length < 2) return null;
  
 const team1 = game[0];
 const team2 = game[1];
+ 
+const team1Won =
+team1.points > team2.points;
  
 return (
 <div
 key={idx}
 className="rounded-lg bg-zinc-900 p-3"
 >
-
-const team1Won = team1.points > team2.points;
-
 <div className="flex justify-between">
 <span
 className={
@@ -80,7 +89,9 @@ team1Won
 : ""
 }
 >
-{ownerMap.get(team1.roster_id)}
+{ownerMap.get(
+team1.roster_id
+)}{" "}
 ({team1.points})
 </span>
  
@@ -93,13 +104,16 @@ className={
 : ""
 }
 >
-{ownerMap.get(team2.roster_id)}
+{ownerMap.get(
+team2.roster_id
+)}{" "}
 ({team2.points})
 </span>
 </div>
 </div>
 );
-})}
+}
+)}
 </div>
 </div>
 ))}
