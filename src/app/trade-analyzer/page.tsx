@@ -186,7 +186,7 @@ Assets
 {Object.entries(
 receivedAssets
 ).map(
-([owner, assets]: any) => (
+([owner, assets\]: any) => (
 <div
 key={owner}
 style={{
@@ -210,7 +210,11 @@ idx: number
 </div>
 )
 )}
-
+ 
+</div>
+);
+})}
+ 
 </main>
 );
 }
