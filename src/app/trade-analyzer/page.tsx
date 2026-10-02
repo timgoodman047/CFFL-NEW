@@ -138,16 +138,9 @@ Assets
 Object.entries(
 trade.adds
 ).map(
-(
-[
-playerId,
-rosterId,
-\]: any
-) => {
+([playerId, rosterId]) => {
 const player =
-players[
-playerId
-];
+players[playerId];
  
 return (
 <div
