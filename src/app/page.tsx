@@ -33,8 +33,7 @@ const itemStyle = {
   marginBottom: "8px",
 };
 
-const users = await getUsers();
-export default async function Home() {
+export default function Home()
 return (
 <main
 style={{
@@ -183,7 +182,7 @@ gap: "20px",
 >
 <PowerRankings />
 <DressTracker />
-<Owners users={users} />
+<Owners />
   
 </div>
  
