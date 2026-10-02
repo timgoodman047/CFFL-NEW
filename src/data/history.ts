@@ -131,7 +131,6 @@ champion: "Danny",
 team: "Danny",
 },
 ].map((season) => ({
-...season,
 runnerUp: "TBD",
 highestScore: 0,
 championshipScore: "TBD",
@@ -146,6 +145,7 @@ awards: [],
 standings: [],
 records: [],
 notes: "Historical season data pending.",
+...season,
 }));
 
 export const history = [
