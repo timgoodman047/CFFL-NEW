@@ -1,5 +1,3 @@
-"use client";
-
 import {
 getUsers,
 getRosters,
@@ -80,19 +78,6 @@ const standings = [
 ...topFive,
 ...bottomFive
 ];
-  
-const slugMap: Record<string, string> = {
-"Red Kingdom": "tim",
-"WHO DEY": "brian",
-"Orangeman": "nick",
-"Fuck You FantasyFootball": "matt",
-"The Locked Room": "danny",
-"Taka Taka Tires": "tom",
-"Bills Mafia": "jason",
-"Scheduled dress year": "spencer",
-"Short Board Champ": "chris",
-"Dirty Mike": "jeff",
-};
 
 return (
  
@@ -120,16 +105,11 @@ index: number
  
 <div
 key={team.team}
-title={`/team/${slugMap[team.team]}`}
-onClick={() => {
-alert(`/team/${slugMap[team.team]}`);
-}}
 style={{
 background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
 marginBottom: "10px",
-cursor: "pointer",
 }}
 >
  
