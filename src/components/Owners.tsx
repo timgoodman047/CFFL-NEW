@@ -66,8 +66,7 @@ cursor:"pointer"
  
 <br />
  
-{`/team/${slug}`}
-/team/{slug}
+Slug: {slug}
  
 </div>
 );
