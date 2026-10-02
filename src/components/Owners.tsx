@@ -1,13 +1,12 @@
 "use client";
-import {
-getUsers,
-} from "../lib/sleeper";
 
 import { franchises } from "../data/franchises";
  
-export default async function Owners() {
- 
-const users = await getUsers();
+export default function Owners({
+users,
+}: {
+users: any[];
+}) {
  
 return (
  
