@@ -160,6 +160,14 @@ color: "#22c55e",
     /transactions
   </div>
 </Link>
+
+<Link href="/trade-analyzer">
+  <div style={itemStyle}>
+🤝 Trade Analyzer
+    <br />
+    /trade-analyzer
+  </div>
+</Link>
  
 <Link href="/team-compare">
   <div style={itemStyle}>
