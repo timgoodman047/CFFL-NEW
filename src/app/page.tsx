@@ -186,7 +186,7 @@ gap: "20px",
 >
 <PowerRankings />
 <DressTracker />
-<Owners />
+<Owners users={users} />
   
 </div>
  
