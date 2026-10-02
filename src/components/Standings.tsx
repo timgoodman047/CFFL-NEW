@@ -120,7 +120,8 @@ index: number
 key={team.team}
 title={`/team/${slugMap[team.team]}`}
 onClick={() => {
-alert(`/team/${slugMap[team.team]}`);
+window.location.href =
+`/team/${slugMap[team.team]}`;
 }}
 style={{
 background: "#1b2a40",
