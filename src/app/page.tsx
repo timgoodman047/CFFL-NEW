@@ -95,10 +95,7 @@ gridTemplateColumns:
 gap: "20px",
 }}
 >
-<Standings
-users={users}
-rosters={rosters}
-/>
+<Standings />
  
 <Matchups />
  
