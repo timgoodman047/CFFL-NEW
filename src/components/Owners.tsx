@@ -47,7 +47,6 @@ return (
  
 <div
 key={user.user_id}
-title={`/team/${slug}`}
 onClick={() => {
 window.location.href =
 `/team/${slug}`;
@@ -70,8 +69,6 @@ cursor:"pointer"
 </strong>
  
 <br />
- 
-Team Page: /team/{slug}
  
 </div>
 );
