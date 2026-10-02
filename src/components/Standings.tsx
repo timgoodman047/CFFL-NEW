@@ -1,12 +1,12 @@
-import {
-getUsers,
-getRosters,
-} from "../lib/sleeper";
+"use client";
  
-export default async function Standings() {
- 
-const users = await getUsers();
-const rosters = await getRosters();
+export default function Standings({
+users,
+rosters,
+}: {
+users: any[];
+rosters: any[];
+}) {
  
 const teams = rosters.map((r: any) => {
  
