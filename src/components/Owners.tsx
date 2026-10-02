@@ -1,3 +1,4 @@
+"use client";
 import {
 getUsers,
 } from "../lib/sleeper";
@@ -48,6 +49,10 @@ return (
 <div
 key={user.user_id}
 title={`/team/${slug}`}
+onClick={() => {
+window.location.href =
+`/team/${slug}`;
+}}
 style={{
 background:"#1b2a40",
 padding:"10px",
