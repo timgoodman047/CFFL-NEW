@@ -210,9 +210,7 @@ idx: number
 </div>
 )
 )}
-</div>
-)
-)}
+
 </main>
 );
 }
