@@ -182,7 +182,24 @@ gap: "20px",
 >
 <PowerRankings />
 <DressTracker />
-<Owners />
+ 
+<div style={cardStyle}>
+<h2
+style={{
+color: "#22c55e",
+}}
+>
+👤 Owners
+</h2>
+ 
+<div style={itemStyle}>
+TimGoodman
+<br />
+Red Kingdom
+<br />
+/team/tim
+</div>
+</div>
 </div>
  
 {/* SIMULATION CENTER */}
