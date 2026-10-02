@@ -15,19 +15,6 @@ const owner = users.find(
 u.user_id === r.owner_id
 );
 
-const slugMap: Record<string, string> = {
-"Red Kingdom": "tim",
-"WHO DEY": "brian",
-"Orangeman": "nick",
-"Fuck You FantasyFootball": "matt",
-"The Locked Room": "danny",
-"Taka Taka Tires": "tom",
-"Bills Mafia": "jason",
-"Scheduled dress year": "spencer",
-"Short Board Champ": "chris",
-"Dirty Mike": "jeff",
-};
-
 return {
  
 team:
@@ -91,6 +78,19 @@ const standings = [
 ...topFive,
 ...bottomFive
 ];
+
+const slugMap: Record<string, string> = {
+"Red Kingdom": "tim",
+"WHO DEY": "brian",
+"Orangeman": "nick",
+"Fuck You FantasyFootball": "matt",
+"The Locked Room": "danny",
+"Taka Taka Tires": "tom",
+"Bills Mafia": "jason",
+"Scheduled dress year": "spencer",
+"Short Board Champ": "chris",
+"Dirty Mike": "jeff",
+};
 
 return (
  
