@@ -133,55 +133,77 @@ trade.created
 <h3>
 Assets
 </h3>
- 
-{trade.adds &&
+
+const receivedAssets: Record<
+string,
+string[]
+> = {};
+
+if (trade.adds) {
 Object.entries(
 trade.adds
-).map(
-([playerId, rosterId]) => {
+).forEach(
+([playerId, rosterId\]: any) => {
+const owner =
+rosterMap.get(
+Number(rosterId)
+);
+ 
 const player =
 players[playerId];
  
-return (
-<div
-key={
+if (!receivedAssets[owner]) {
+receivedAssets[owner] = [];
+}
+ 
+receivedAssets[owner].push(
+player?.full_name ||
 playerId
-}
->
-🟢{" "}
-{
-player?.full_name
-}
-{" → "}
-{rosterMap.get(
-Number(
-rosterId
-)
-)}
-</div>
 );
 }
-)}
+);
+}
+
+trade.draft_picks?.forEach(
+(pick: any) => {
+const owner =
+rosterMap.get(
+pick.owner_id
+);
  
-{trade.draft_picks?.map(
+if (!receivedAssets[owner]) {
+receivedAssets[owner] = [];
+}
+ 
+receivedAssets[owner].push(
+`${pick.season} Round ${pick.round}`
+);
+}
+);
+ 
+{Object.entries(
+receivedAssets
+).map(
+([owner, assets\]: any) => (
+<div
+key={owner}
+style={{
+marginBottom: "16px",
+}}
+>
+<strong>
+{owner} Received
+</strong>
+ 
+{assets.map(
 (
-pick: any,
+asset: string,
 idx: number
 ) => (
-<div
-key={idx}
->
-🏈{" "}
-{
-pick.season
-}{" "}
-Round{" "}
-{
-pick.round
-}
-{" → "}
-{rosterMap.get(
-pick.owner_id
+<div key={idx}>
+• {asset}
+</div>
+)
 )}
 </div>
 )
