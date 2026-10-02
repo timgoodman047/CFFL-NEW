@@ -56,6 +56,7 @@ background:"#1b2a40",
 padding:"10px",
 borderRadius:"8px",
 marginBottom:"8px",
+transition:"0.2s",
 cursor:"pointer"
 }}
 >
