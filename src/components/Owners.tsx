@@ -50,8 +50,7 @@ return (
 key={user.user_id}
 title={`/team/${slug}`}
 onClick={() => {
-window.location.href =
-`/team/${slug}`;
+alert("Clicked");
 }}
 style={{
 background:"#1b2a40",
