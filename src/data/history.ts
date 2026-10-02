@@ -15,9 +15,56 @@ champion: "Danny",
 team: "Danny",
 },
 {
+{
 year: 2019,
 champion: "Tim",
-team: "Tim",
+team: "Chiefs 2020 Champs",
+runnerUp: "Danny",
+highestScore: 1750.02,
+championshipScore: "TBD",
+mvp: "Tim",
+storyline:
+"Tim captured the 2019 championship with Chiefs 2020 Champs.",
+pointsLeader: "Tim",
+sacko: "Your 2020 Champs",
+ 
+semifinals: [
+"TBD",
+"TBD",
+],
+ 
+thirdPlaceGame:
+"The Mahomies finished 3rd",
+ 
+championship:
+"Chiefs 2020 Champs def. No Name",
+ 
+awards: [
+"Champion: Tim",
+"Runner-Up: Danny",
+"Third Place: Drew",
+],
+ 
+standings: [
+"1. Chiefs 2020 Champs (10-3)",
+"2. No Name (9-4)",
+"3. The Mahomies (6-7)",
+"4. Orangeman (7-5-1)",
+"5. Luck be a Lady (6-7)",
+"6. Lockett Up (6-7)",
+"7. Better Than Nuke (6-7)",
+"8. Your 2020 Champs (3-10)",
+"9. Scoops Ahoy (5-7-1)",
+"10. The Biggest Losers (6-7)",
+],
+ 
+records: [
+"Most Points For: Chiefs 2020 Champs (1750.02)",
+"Best Record: Chiefs 2020 Champs (10-3)",
+],
+ 
+notes:
+"Data imported from Yahoo archive."
 },
 {
 year: 2018,
