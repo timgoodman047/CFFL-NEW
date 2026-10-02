@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getUsers } from "../lib/sleeper";
 import Hero from "../components/Hero";
 import Standings from "../components/Standings";
 import ExpectedStandings from "../components/ExpectedStandings";
@@ -33,7 +34,10 @@ const itemStyle = {
   marginBottom: "8px",
 };
 
-export default function Home() {
+export default async function Home() {
+
+const users = await getUsers();
+
 return (
 <main
 style={{
