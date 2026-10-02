@@ -15,7 +15,6 @@ champion: "Danny",
 team: "Danny",
 },
 {
-{
 year: 2019,
 champion: "Tim",
 team: "Chiefs 2020 Champs",
