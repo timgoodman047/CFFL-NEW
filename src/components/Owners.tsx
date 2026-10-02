@@ -47,6 +47,7 @@ return (
  
 <div
 key={user.user_id}
+title={`/team/${slug}`}
 style={{
 background:"#1b2a40",
 padding:"10px",
