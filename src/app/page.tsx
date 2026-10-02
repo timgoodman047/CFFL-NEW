@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getUsers } from "../lib/sleeper";
 import Hero from "../components/Hero";
+import { getRosters } from "../lib/sleeper";
 import Standings from "../components/Standings";
 import ExpectedStandings from "../components/ExpectedStandings";
 import Matchups from "../components/Matchups";
@@ -37,6 +38,7 @@ const itemStyle = {
 export default async function Home() {
 
 const users = await getUsers();
+const rosters = await getRosters();
 
 return (
 <main
@@ -93,7 +95,10 @@ gridTemplateColumns:
 gap: "20px",
 }}
 >
-<Standings />
+<Standings
+users={users}
+rosters={rosters}
+/>
  
 <Matchups />
  
