@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { getUsers } from "../lib/sleeper";
+import {
+getUsers,
+getRosters,
+} from "../lib/sleeper";
 import Hero from "../components/Hero";
-import { getRosters } from "../lib/sleeper";
 import Standings from "../components/Standings";
 import ExpectedStandings from "../components/ExpectedStandings";
 import Matchups from "../components/Matchups";
@@ -95,7 +97,10 @@ gridTemplateColumns:
 gap: "20px",
 }}
 >
-<Standings />
+<Standings
+users={users}
+rosters={rosters}
+/>
  
 <Matchups />
  
