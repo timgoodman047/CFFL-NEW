@@ -372,10 +372,11 @@ fontWeight: "bold",
 }}
 >
 Grade: {getGrade(result.diff)}
+</span>
 </div>
 </div>
 )}
-)}
+    
 </div>
 );
 })}
