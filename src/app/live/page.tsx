@@ -568,7 +568,7 @@ fontWeight: "bold",
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
 </div>
-
+ 
 <div
 style={{
 marginTop: "12px",
@@ -576,13 +576,12 @@ color: "#38bdf8",
 fontWeight: "bold",
 }}
 >
-Expected Final:
-{" "}
+Expected Final:{" "}
 {projectedA.toFixed(1)}
 {" - "}
 {projectedB.toFixed(1)}
 </div>
-
+ 
 <div
 style={{
 marginTop: "8px",
@@ -611,8 +610,7 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 </div>
-
-</div>
+ 
 </div>
 );
 })}
