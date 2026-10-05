@@ -26,11 +26,6 @@ if (diff >= 75) return "A";
 if (diff >= 50) return "B";
 if (diff >= 25) return "C";
 if (diff >= 0) return "D";
-if (asset.includes("Round 1")) score += 90;
-else if (asset.includes("Round 2")) score += 60;
-else if (asset.includes("Round 3")) score += 30;
-else if (asset.includes("Round 4")) score += 15;
-else score += playerValues[asset] || 10;
 return "F";
 }
 
@@ -54,7 +49,17 @@ Object.entries(receivedAssets).forEach(
 let score = 0;
  
 assets.forEach((asset) => {
+if (asset.includes("Round 1")) {
+score += 90;
+} else if (asset.includes("Round 2")) {
+score += 60;
+} else if (asset.includes("Round 3")) {
+score += 30;
+} else if (asset.includes("Round 4")) {
+score += 15;
+} else {
 score += playerValues[asset] || 10;
+}
 });
  
 totals[owner] = score;
@@ -141,17 +146,6 @@ color: "#22c55e",
 >
 🤝 Trade Analyzer
 </h1>
-
-<pre
-style={{
-color: "yellow",
-fontSize: "12px",
-overflow: "auto",
-maxHeight: "300px",
-}}
->
-
-</pre>
  
 {allTrades.map(
   (trade: any) => {
