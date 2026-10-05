@@ -30,13 +30,6 @@ return "F";
 }
 
 function getVerdict(diff: number) {
-function getTradeTier(diff: number) {
-if (diff >= 100) return "🌟 Legendary Trade";
-if (diff >= 75) return "🔥 Blockbuster";
-if (diff >= 50) return "📈 Major Win";
-if (diff >= 20) return "✅ Solid Win";
-return "🤝 Fair Trade";
-}
 if (diff >= 100) {
 return "🔥 Highway Robbery";
 }
@@ -49,6 +42,14 @@ if (diff >= 20) {
 return "✅ Slight Edge";
 }
  
+return "🤝 Fair Trade";
+}
+ 
+function getTradeTier(diff: number) {
+if (diff >= 100) return "🌟 Legendary Trade";
+if (diff >= 75) return "🔥 Blockbuster";
+if (diff >= 50) return "📈 Major Win";
+if (diff >= 20) return "✅ Solid Win";
 return "🤝 Fair Trade";
 }
 
