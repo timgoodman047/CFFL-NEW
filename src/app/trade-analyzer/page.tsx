@@ -254,7 +254,51 @@ idx: number
 </div>
 )
 )}
+
+{result && (
+<div
+style={{
+marginTop: "16px",
+padding: "12px",
+background: "#0f172a",
+borderRadius: "8px",
+}}
+>
+<div
+style={{
+color: "#22c55e",
+fontWeight: "bold",
+}}
+>
+✅ Winner: {result.winner}
+</div>
  
+<div
+style={{
+color: "#ef4444",
+}}
+>
+❌ Loser: {result.loser}
+</div>
+ 
+<div>
+Winner Score: {result.winnerPoints}
+</div>
+ 
+<div>
+Loser Score: {result.loserPoints}
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+fontWeight: "bold",
+}}
+>
+Grade: {getGrade(result.diff)}
+</div>
+</div>
+)}
 </div>
 );
 })}
