@@ -1,13 +1,3 @@
-const response = await fetch(
-"https://api.sleeper.app/v1/state/nfl",
-{
-cache: "no-store",
-}
-);
- 
-return response.json();
-}
-
 import {
 getUsers,
 getRosters,
