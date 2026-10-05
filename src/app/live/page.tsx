@@ -425,6 +425,8 @@ color: "#94a3b8",
 Proj: {projectedA.toFixed(1)}
 </div>
 </div>
+
+</div>
  
 <div
 style={{
