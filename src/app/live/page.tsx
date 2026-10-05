@@ -478,32 +478,6 @@ color: "#94a3b8",
 Proj: {projectedA.toFixed(1)}
 </div>
 </div>
-
-<pre
-style={{
-color: "yellow",
-fontSize: "10px",
-overflow: "auto",
-maxHeight: "150px",
-}}
->
-{JSON.stringify(game[0].starters, null, 2)}
-</pre>
- 
-<pre
-style={{
-color: "orange",
-fontSize: "10px",
-overflow: "auto",
-maxHeight: "150px",
-}}
->
-{JSON.stringify(
-game[0].starters_points,
-null,
-2
-)}
-</pre>
  
 <div
 style={{
