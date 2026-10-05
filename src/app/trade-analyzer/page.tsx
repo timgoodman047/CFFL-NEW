@@ -70,14 +70,6 @@ await getRosters();
  
 const players =
 await getPlayers();
-
-const nflState = await getNFLState();
-
-<h2 style={{ color: "yellow" }}>
-NFL State: {JSON.stringify(nflState)}
-</h2>
- 
-console.log(nflState);
  
 const rosterMap = new Map();
  
