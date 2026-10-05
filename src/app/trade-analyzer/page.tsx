@@ -206,8 +206,10 @@ key={
 trade.transaction_id
 }
 style={{
-background:
-"#111c2d",
+background: "#13233d",
+border: "1px solid #1e3a5f",
+boxShadow:
+"0 4px 12px rgba(0,0,0,.25)",
 padding: "20px",
 borderRadius:
 "12px",
@@ -215,20 +217,36 @@ marginBottom:
 "20px",
 }}
 >
-<h2>
-Trade Between:
-{" "}
-{trade.roster_ids
-?.map(
-(
-rosterId: number
-) =>
-rosterMap.get(
-rosterId
-)
+<div
+style={{
+display: "flex",
+justifyContent: "space-between",
+alignItems: "center",
+marginBottom: "12px",
+}}
+>
+<h2
+style={{
+margin: 0,
+color: "#f8fafc",
+}}
+>
+🤝 {trade.roster_ids
+?.map((rosterId: number) =>
+rosterMap.get(rosterId)
 )
 .join(" ↔ ")}
 </h2>
+ 
+<div
+style={{
+color: "#94a3b8",
+fontSize: "14px",
+}}
+>
+{new Date(trade.created).toLocaleDateString()}
+</div>
+</div>
  
 <div
 style={{
@@ -257,16 +275,29 @@ style={{
 marginBottom: "16px",
 }}
 >
-<strong>
-{owner} Received
-</strong>
+<div
+style={{
+color: "#38bdf8",
+fontWeight: "bold",
+marginBottom: "8px",
+fontSize: "18px",
+}}
+>
+📥 {owner} Received
+</div>
  
 {assets.map(
 (
 asset: string,
 idx: number
 ) => (
-<div key={idx}>
+<div
+key={idx}
+style={{
+paddingLeft: "12px",
+marginBottom: "4px",
+}}
+>
 • {asset}
 </div>
 )
@@ -278,16 +309,28 @@ idx: number
 {result && (
 <div
 style={{
-marginTop: "16px",
-padding: "12px",
+marginTop: "20px",
+padding: "16px",
 background: "#0f172a",
-borderRadius: "8px",
+borderRadius: "10px",
+border: "1px solid #1e293b",
 }}
 >
 <div
 style={{
+fontSize: "18px",
+fontWeight: "bold",
+marginBottom: "12px",
+}}
+>
+📊 Trade Analysis
+</div>
+ 
+<div
+style={{
 color: "#22c55e",
 fontWeight: "bold",
+marginBottom: "8px",
 }}
 >
 ✅ Winner: {result.winner}
@@ -296,28 +339,42 @@ fontWeight: "bold",
 <div
 style={{
 color: "#ef4444",
+marginBottom: "12px",
 }}
 >
 ❌ Loser: {result.loser}
 </div>
  
 <div>
-Winner Score: {result.winnerPoints}
+Winner Value: {result.winnerPoints}
 </div>
  
 <div>
-Loser Score: {result.loserPoints}
+Loser Value: {result.loserPoints}
 </div>
  
 <div
 style={{
 marginTop: "8px",
+}}
+>
+Net Advantage: +{result.diff}
+</div>
+ 
+<div
+style={{
+marginTop: "12px",
+display: "inline-block",
+padding: "6px 12px",
+borderRadius: "999px",
+background: "#1e293b",
 fontWeight: "bold",
 }}
 >
 Grade: {getGrade(result.diff)}
 </div>
 </div>
+)}
 )}
 </div>
 );
