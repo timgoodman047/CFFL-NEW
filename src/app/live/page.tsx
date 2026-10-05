@@ -364,7 +364,19 @@ Math.min(
  
 const probabilityB =
 100 - probabilityA;
-
+ 
+const averageStarterScore = 12;
+ 
+const projectedA =
+scoreA +
+remainingPlayersA *
+averageStarterScore;
+ 
+const projectedB =
+scoreB +
+remainingPlayersB *
+averageStarterScore;
+ 
 const leader =
 scoreA > scoreB
 ? teamA.team
