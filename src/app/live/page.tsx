@@ -349,7 +349,17 @@ game[0].points ?? 0;
  
 const scoreB =
 game[1].points ?? 0;
-
+ 
+const remainingPlayersA =
+game[0].starters_points.filter(
+(points: number) => points === 0
+).length;
+ 
+const remainingPlayersB =
+game[1].starters_points.filter(
+(points: number) => points === 0
+).length;
+ 
 const scoreDiff =
 scoreA - scoreB;
  
@@ -429,6 +439,15 @@ textAlign: "right",
 <div>
 {scoreA.toFixed(2)}
 </div>
+
+<div
+style={{
+fontSize: "12px",
+color: "#94a3b8",
+}}
+>
+Remaining: {remainingPlayersA}
+</div>
  
 <div
 style={{
@@ -475,6 +494,15 @@ textAlign: "right",
 >
 <div>
 {scoreB.toFixed(2)}
+</div>
+
+<div
+style={{
+fontSize: "12px",
+color: "#94a3b8",
+}}
+>
+Remaining: {remainingPlayersB}
 </div>
  
 <div
