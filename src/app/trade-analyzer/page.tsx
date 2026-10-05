@@ -29,6 +29,22 @@ if (diff >= 0) return "D";
 return "F";
 }
 
+function getVerdict(diff: number) {
+if (diff >= 100) {
+return "🔥 Highway Robbery";
+}
+ 
+if (diff >= 50) {
+return "📈 Clear Win";
+}
+ 
+if (diff >= 20) {
+return "✅ Slight Edge";
+}
+ 
+return "🤝 Fair Trade";
+}
+
 const playerValues: Record<string, number> = {
 "Ja'Marr Chase": 100,
 "Justin Jefferson": 100,
@@ -357,10 +373,12 @@ Loser Value: {result.loserPoints}
  
 <div
 style={{
-marginTop: "8px",
+marginTop: "10px",
+color: "#38bdf8",
+fontWeight: "bold",
 }}
 >
-Net Advantage: +{result.diff}
+{getVerdict(result.diff)}
 </div>
  
 <div
