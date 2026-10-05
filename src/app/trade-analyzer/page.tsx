@@ -8,7 +8,6 @@ cache: "no-store",
  
 return response.json();
 }
-``
 
 import {
 getUsers,
