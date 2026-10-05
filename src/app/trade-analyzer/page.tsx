@@ -1,4 +1,3 @@
-async function getNFLState() {
 const response = await fetch(
 "https://api.sleeper.app/v1/state/nfl",
 {
@@ -154,11 +153,7 @@ overflow: "auto",
 maxHeight: "300px",
 }}
 >
-{JSON.stringify(
-week1Stats,
-null,
-2
-)}
+
 </pre>
  
 {allTrades.map(
