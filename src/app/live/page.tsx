@@ -350,36 +350,6 @@ game[0].points ?? 0;
 const scoreB =
 game[1].points ?? 0;
  
-const completedPointsA =
-game[0].starters_points.reduce(
-(sum: number, p: number) => sum + p,
-0
-);
- 
-const completedPointsB =
-game[1].starters_points.reduce(
-(sum: number, p: number) => sum + p,
-0
-);
- 
-const remainingPlayersA =
-Math.max(
-0,
-10 -
-game[0].starters_points.filter(
-(p: number) => p > 0
-).length
-);
- 
-const remainingPlayersB =
-Math.max(
-0,
-10 -
-game[1].starters_points.filter(
-(p: number) => p > 0
-).length
-);
- 
 const scoreDiff =
 scoreA - scoreB;
  
@@ -394,18 +364,6 @@ Math.min(
  
 const probabilityB =
 100 - probabilityA;
-
-const averageStarterScore = 12;
- 
-const projectedA =
-scoreA +
-remainingPlayersA *
-averageStarterScore;
- 
-const projectedB =
-scoreB +
-remainingPlayersB *
-averageStarterScore;
 
 const leader =
 scoreA > scoreB
@@ -456,7 +414,6 @@ fontSize: "12px",
 color: "#94a3b8",
 }}
 >
-Remaining: {remainingPlayersA}
 </div>
  
 <div
@@ -512,7 +469,6 @@ fontSize: "12px",
 color: "#94a3b8",
 }}
 >
-Remaining: {remainingPlayersB}
 </div>
  
 <div
@@ -567,10 +523,6 @@ color: "#38bdf8",
 fontWeight: "bold",
 }}
 >
-Expected Final:{" "}
-{projectedA.toFixed(1)}
-{" - "}
-{projectedB.toFixed(1)}
 </div>
  
 <div
