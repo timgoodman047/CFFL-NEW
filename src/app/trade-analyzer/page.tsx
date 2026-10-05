@@ -166,18 +166,20 @@ color: "#22c55e",
 🤝 Trade Analyzer
 </h1>
 
-<div
+<pre
 style={{
 color: "yellow",
-marginBottom: "20px",
+fontSize: "12px",
+overflow: "auto",
+maxHeight: "300px",
 }}
 >
-Players Loaded:
-{" "}
-{Object.keys(
-week1Stats || {}
-).length}
-</div>
+{JSON.stringify(
+week1Stats,
+null,
+2
+)}
+</pre>
  
 {allTrades.map(
   (trade: any) => {
