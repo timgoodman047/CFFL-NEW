@@ -145,6 +145,15 @@ color: "#22c55e",
 >
 🤝 Trade Analyzer
 </h1>
+
+<div
+style={{
+color: "yellow",
+marginBottom: "20px",
+}}
+>
+{JSON.stringify(nflState)}
+</div>
  
 {allTrades.map(
   (trade: any) => {
