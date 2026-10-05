@@ -525,17 +525,7 @@ Expected Final:
 {" - "}
 {projectedB.toFixed(1)}
 </div>
- 
-<div
-style={{
-marginTop: "8px",
-height: "10px",
-background: "#334155",
-borderRadius: "999px",
-overflow: "hidden",
-}}
->
- 
+
 <div
 style={{
 marginTop: "8px",
