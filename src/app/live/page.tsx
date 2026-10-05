@@ -425,7 +425,6 @@ color: "#94a3b8",
 Proj: {projectedA.toFixed(1)}
 </div>
 </div>
-</div>
  
 <div
 style={{
@@ -478,7 +477,6 @@ color: "#94a3b8",
 }}
 >
 Proj: {projectedB.toFixed(1)}
-</div>
 </div>
 </div>
  
