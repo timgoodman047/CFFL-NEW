@@ -365,18 +365,6 @@ Math.min(
 const probabilityB =
 100 - probabilityA;
  
-const averageStarterScore = 12;
- 
-const projectedA =
-scoreA +
-remainingPlayersA *
-averageStarterScore;
- 
-const projectedB =
-scoreB +
-remainingPlayersB *
-averageStarterScore;
- 
 const leader =
 scoreA > scoreB
 ? teamA.team
@@ -428,14 +416,6 @@ color: "#94a3b8",
 >
 </div>
  
-<div
-style={{
-fontSize: "12px",
-color: "#94a3b8",
-}}
->
-Proj: {projectedA.toFixed(1)}
-</div>
 </div>
 
 </div>
@@ -484,14 +464,6 @@ color: "#94a3b8",
 >
 </div>
  
-<div
-style={{
-fontSize: "12px",
-color: "#94a3b8",
-}}
->
-Proj: {projectedB.toFixed(1)}
-</div>
 </div>
  
 </div>
