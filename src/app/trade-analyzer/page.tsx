@@ -1,3 +1,15 @@
+async function getNFLState() {
+const response = await fetch(
+"https://api.sleeper.app/v1/state/nfl",
+{
+cache: "no-store",
+}
+);
+ 
+return response.json();
+}
+``
+
 import {
 getUsers,
 getRosters,
@@ -70,6 +82,10 @@ await getRosters();
  
 const players =
 await getPlayers();
+
+const nflState = await getNFLState();
+ 
+console.log(nflState);
  
 const rosterMap = new Map();
  
