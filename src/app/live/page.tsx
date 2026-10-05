@@ -480,6 +480,8 @@ Proj: {projectedB.toFixed(1)}
 </div>
 </div>
  
+</div>
+ 
 <div
 style={{
 marginTop: "16px",
@@ -543,6 +545,9 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 </div>
+
+</div>
+
 );
 })}
 </main>
