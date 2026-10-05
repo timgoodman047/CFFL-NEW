@@ -39,6 +39,15 @@ const playerValues: Record<string, number> = {
 "Cade Otton": 30,
 };
 
+function getAssetValue(asset: string) {
+if (asset.includes("Round 1")) return 90;
+if (asset.includes("Round 2")) return 60;
+if (asset.includes("Round 3")) return 30;
+if (asset.includes("Round 4")) return 15;
+ 
+return playerValues[asset] || 10;
+}
+
 function evaluateTrade(
 receivedAssets: Record<string, string[]>
 ) {
@@ -49,17 +58,7 @@ Object.entries(receivedAssets).forEach(
 let score = 0;
  
 assets.forEach((asset) => {
-if (asset.includes("Round 1")) {
-score += 90;
-} else if (asset.includes("Round 2")) {
-score += 60;
-} else if (asset.includes("Round 3")) {
-score += 30;
-} else if (asset.includes("Round 4")) {
-score += 15;
-} else {
-score += playerValues[asset] || 10;
-}
+score += getAssetValue(asset);
 });
  
 totals[owner] = score;
@@ -291,14 +290,17 @@ fontSize: "18px",
 asset: string,
 idx: number
 ) => (
-<div
-key={idx}
+<div key={idx}>
+• {asset}
+{" "}
+<span
 style={{
-paddingLeft: "12px",
-marginBottom: "4px",
+color: "#94a3b8",
+fontSize: "12px",
 }}
 >
-• {asset}
+({getAssetValue(asset)})
+</span>
 </div>
 )
 )}
