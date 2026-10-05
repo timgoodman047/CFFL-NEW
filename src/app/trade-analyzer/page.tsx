@@ -30,6 +30,13 @@ return "F";
 }
 
 function getVerdict(diff: number) {
+function getTradeTier(diff: number) {
+if (diff >= 100) return "🌟 Legendary Trade";
+if (diff >= 75) return "🔥 Blockbuster";
+if (diff >= 50) return "📈 Major Win";
+if (diff >= 20) return "✅ Solid Win";
+return "🤝 Fair Trade";
+}
 if (diff >= 100) {
 return "🔥 Highway Robbery";
 }
@@ -331,7 +338,12 @@ marginTop: "20px",
 padding: "16px",
 background: "#0f172a",
 borderRadius: "10px",
-border: "1px solid #1e293b",
+border:
+result.diff >= 100
+? "2px solid #22c55e"
+: result.diff >= 50
+? "2px solid #facc15"
+: "1px solid #475569",
 }}
 >
 <div
@@ -379,6 +391,15 @@ fontWeight: "bold",
 }}
 >
 {getVerdict(result.diff)}
+<div
+style={{
+marginTop: "6px",
+color: "#94a3b8",
+fontSize: "14px",
+}}
+>
+{getTradeTier(result.diff)}
+</div>
 </div>
  
 <div
