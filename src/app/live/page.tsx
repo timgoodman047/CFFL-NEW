@@ -350,15 +350,35 @@ game[0].points ?? 0;
 const scoreB =
 game[1].points ?? 0;
  
+const completedPointsA =
+game[0].starters_points.reduce(
+(sum: number, p: number) => sum + p,
+0
+);
+ 
+const completedPointsB =
+game[1].starters_points.reduce(
+(sum: number, p: number) => sum + p,
+0
+);
+ 
 const remainingPlayersA =
+Math.max(
+0,
+10 -
 game[0].starters_points.filter(
-(points: number) => points === 0
-).length;
+(p: number) => p > 0
+).length
+);
  
 const remainingPlayersB =
+Math.max(
+0,
+10 -
 game[1].starters_points.filter(
-(points: number) => points === 0
-).length;
+(p: number) => p > 0
+).length
+);
  
 const scoreDiff =
 scoreA - scoreB;
@@ -375,17 +395,17 @@ Math.min(
 const probabilityB =
 100 - probabilityA;
 
+const averageStarterScore = 12;
+ 
 const projectedA =
-Math.max(
-scoreA,
-scoreA + (teamA.avgPPG - scoreA) * 0.4
-);
+scoreA +
+remainingPlayersA *
+averageStarterScore;
  
 const projectedB =
-Math.max(
-scoreB,
-scoreB + (teamB.avgPPG - scoreB) * 0.4
-);
+scoreB +
+remainingPlayersB *
+averageStarterScore;
 
 const leader =
 scoreA > scoreB
