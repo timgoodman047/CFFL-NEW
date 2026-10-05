@@ -488,7 +488,8 @@ fontWeight: "bold",
 }}
 >
 Leader: {leader}
-
+</div>
+ 
 <div
 style={{
 marginTop: "12px",
@@ -512,15 +513,6 @@ fontWeight: "bold",
  
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
-</div>
- 
-<div
-style={{
-marginTop: "12px",
-color: "#38bdf8",
-fontWeight: "bold",
-}}
->
 </div>
  
 <div
@@ -550,8 +542,6 @@ fontSize: "12px",
 >
 Based on current score, record, and scoring strength.
 </div>
-</div>
- 
 </div>
 );
 })}
