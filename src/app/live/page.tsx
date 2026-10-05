@@ -427,16 +427,6 @@ marginBottom:
 "16px",
 }}
 >
-<pre
-style={{
-color: "yellow",
-fontSize: "10px",
-overflow: "auto",
-maxHeight: "250px",
-}}
->
-{JSON.stringify(game[0], null, 2)}
-</pre>
 
 <div
 style={{
@@ -476,6 +466,7 @@ color: "#94a3b8",
 }}
 >
 Proj: {projectedA.toFixed(1)}
+</div>
 </div>
 </div>
  
