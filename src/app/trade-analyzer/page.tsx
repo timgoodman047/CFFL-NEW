@@ -1,17 +1,3 @@
-async function getWeekStats(
-season: string,
-week: number
-) {
-const response = await fetch(
-`https://api.sleeper.com/stats/nfl/${season}/${week}`,
-{
-cache: "no-store",
-}
-);
- 
-return response.json();
-}
-
 async function getNFLState() {
 const response = await fetch(
 "https://api.sleeper.app/v1/state/nfl",
@@ -97,12 +83,6 @@ const players =
 await getPlayers();
 
 const nflState = await getNFLState();
-
-const week1Stats =
-await getWeekStats(
-"2025",
-1
-);
 
 <h2 style={{ color: "yellow" }}>
 NFL State: {JSON.stringify(nflState)}
