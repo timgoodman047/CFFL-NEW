@@ -26,9 +26,24 @@ if (diff >= 75) return "A";
 if (diff >= 50) return "B";
 if (diff >= 25) return "C";
 if (diff >= 0) return "D";
+if (asset.includes("Round 1")) score += 90;
+else if (asset.includes("Round 2")) score += 60;
+else if (asset.includes("Round 3")) score += 30;
+else if (asset.includes("Round 4")) score += 15;
+else score += playerValues[asset] || 10;
 return "F";
 }
- 
+
+const playerValues: Record<string, number> = {
+"Ja'Marr Chase": 100,
+"Justin Jefferson": 100,
+"CeeDee Lamb": 95,
+"Nico Collins": 80,
+"Puka Nacua": 85,
+"Davante Adams": 55,
+"Cade Otton": 30,
+};
+
 function evaluateTrade(
 receivedAssets: Record<string, string[]>
 ) {
@@ -39,7 +54,7 @@ Object.entries(receivedAssets).forEach(
 let score = 0;
  
 assets.forEach((asset) => {
-score += 10; // temporary placeholder
+score += playerValues[asset] || 10;
 });
  
 totals[owner] = score;
