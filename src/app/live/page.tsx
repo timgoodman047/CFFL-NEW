@@ -397,11 +397,21 @@ marginBottom:
 "16px",
 }}
 >
+<pre
+style={{
+color: "yellow",
+fontSize: "10px",
+overflow: "auto",
+maxHeight: "250px",
+}}
+>
+{JSON.stringify(game[0], null, 2)}
+</pre>
+
 <div
 style={{
 display: "flex",
-justifyContent:
-"space-between",
+justifyContent: "space-between",
 fontSize: "20px",
 fontWeight:
 "bold",
