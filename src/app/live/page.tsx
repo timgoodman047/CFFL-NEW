@@ -365,6 +365,18 @@ Math.min(
 const probabilityB =
 100 - probabilityA;
 
+const projectedA =
+Math.max(
+scoreA,
+scoreA + (teamA.avgPPG - scoreA) * 0.4
+);
+ 
+const projectedB =
+Math.max(
+scoreB,
+scoreB + (teamB.avgPPG - scoreB) * 0.4
+);
+
 const leader =
 scoreA > scoreB
 ? teamA.team
@@ -399,9 +411,24 @@ fontWeight:
 {teamA.team}
 </span>
  
-<span>
+<div
+style={{
+textAlign: "right",
+}}
+>
+<div>
 {scoreA.toFixed(2)}
-</span>
+</div>
+ 
+<div
+style={{
+fontSize: "12px",
+color: "#94a3b8",
+}}
+>
+Proj: {projectedA.toFixed(1)}
+</div>
+</div>
 </div>
  
 <div
@@ -431,9 +458,24 @@ fontWeight:
 {teamB.team}
 </span>
  
-<span>
+<div
+style={{
+textAlign: "right",
+}}
+>
+<div>
 {scoreB.toFixed(2)}
-</span>
+</div>
+ 
+<div
+style={{
+fontSize: "12px",
+color: "#94a3b8",
+}}
+>
+Proj: {projectedB.toFixed(1)}
+</div>
+</div>
 </div>
  
 <div
@@ -469,6 +511,30 @@ fontWeight: "bold",
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
 </div>
+
+<div
+style={{
+marginTop: "12px",
+color: "#38bdf8",
+fontWeight: "bold",
+}}
+>
+Expected Final:
+{" "}
+{projectedA.toFixed(1)}
+{" - "}
+{projectedB.toFixed(1)}
+</div>
+ 
+<div
+style={{
+marginTop: "8px",
+height: "10px",
+background: "#334155",
+borderRadius: "999px",
+overflow: "hidden",
+}}
+>
  
 <div
 style={{
