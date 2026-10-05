@@ -19,6 +19,47 @@ cache: "no-store",
  
 return response.json();
 }
+
+function getGrade(diff: number) {
+if (diff >= 100) return "A+";
+if (diff >= 75) return "A";
+if (diff >= 50) return "B";
+if (diff >= 25) return "C";
+if (diff >= 0) return "D";
+return "F";
+}
+ 
+function evaluateTrade(
+receivedAssets: Record<string, string[]>
+) {
+const totals: Record<string, number> = {};
+ 
+Object.entries(receivedAssets).forEach(
+([owner, assets]) => {
+let score = 0;
+ 
+assets.forEach((asset) => {
+score += 10; // temporary placeholder
+});
+ 
+totals[owner] = score;
+}
+);
+ 
+const ranked = Object.entries(totals).sort(
+(a, b) => b[1] - a[1]
+);
+ 
+if (ranked.length < 2) return null;
+ 
+return {
+winner: ranked[0][0],
+loser: ranked[ranked.length - 1][0],
+winnerPoints: ranked[0][1],
+loserPoints: ranked[ranked.length - 1][1],
+diff: ranked[0][1] - ranked[ranked.length - 1][1],
+};
+}
  
 export default async function TradeAnalyzerPage() {
 const users =
@@ -135,7 +176,10 @@ receivedAssets[owner].push(
 );
 }
 );
- 
+
+const result = evaluateTrade(
+receivedAssets
+);
 return (    
   <div
 key={
