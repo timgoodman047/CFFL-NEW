@@ -385,49 +385,23 @@ borderRadius: "12px",
 marginBottom: "16px",
 }}
 >
-
 <div
 style={{
 display: "flex",
 justifyContent: "space-between",
 fontSize: "20px",
-fontWeight:
-"bold",
+fontWeight: "bold",
 }}
 >
-<span>
-{teamA.team}
-</span>
+<span>{teamA.team}</span>
+<div>{scoreA.toFixed(2)}</div>
+</div>
  
 <div
 style={{
-textAlign: "right",
-}}
->
-<div>
-{scoreA.toFixed(2)}
-</div>
-
-<div
-style={{
-fontSize: "12px",
+textAlign: "center",
+margin: "12px 0",
 color: "#94a3b8",
-}}
->
-</div>
- 
-</div>
-
-</div>
- 
-<div
-style={{
-textAlign:
-"center",
-margin:
-"12px 0",
-color:
-"#94a3b8",
 }}
 >
 VS
@@ -436,36 +410,13 @@ VS
 <div
 style={{
 display: "flex",
-justifyContent:
-"space-between",
+justifyContent: "space-between",
 fontSize: "20px",
-fontWeight:
-"bold",
+fontWeight: "bold",
 }}
 >
-<span>
-{teamB.team}
-</span>
- 
-<div
-style={{
-textAlign: "right",
-}}
->
-<div>
-{scoreB.toFixed(2)}
-</div>
-
-<div
-style={{
-fontSize: "12px",
-color: "#94a3b8",
-}}
->
-</div>
- 
-</div>
- 
+<span>{teamB.team}</span>
+<div>{scoreB.toFixed(2)}</div>
 </div>
  
 <div
@@ -531,13 +482,10 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 </div>
-
 </div>
- 
-</div>
- 
 );
 })}
+
 </main>
 );
 }
