@@ -376,6 +376,12 @@ starterPointsB.filter(
 (p: number) => p > 0
 ).length;
  
+const remainingA =
+startersA.length - playedA;
+ 
+const remainingB =
+startersB.length - playedB;
+ 
 const scoreDiff =
 scoreA - scoreB;
  
