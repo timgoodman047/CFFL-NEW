@@ -508,17 +508,7 @@ fontWeight: "bold",
 }}
 >
 Leader: {leader}
- 
-<pre
-style={{
-marginTop: "10px",
-color: "white",
-fontSize: "10px",
-overflow: "auto",
-}}
->
-{JSON.stringify(game[0], null, 2)}
-</pre>
+
 </div>
 
 <div
