@@ -115,36 +115,41 @@ strengthDiff * 0.4
  
 const probabilityB =
 100 - probabilityA;
+
+const projectedA = teamA.avgPPG;
+const projectedB = teamB.avgPPG;
  
 return {
 teamA,
 teamB,
 scoreA,
 scoreB,
+projectedA,
+projectedB,
 margin: Math.abs(
-scoreA - scoreB
+projectedA - projectedB
 ),
 winner:
-scoreA >= scoreB
+projectedA >= projectedB
 ? teamA
 : teamB,
 };
-});
  
 const highestScore =
 gameSummaries.reduce(
 (best, game) => {
+
 const bestScore =
-best.scoreA >
-best.scoreB
-? best.scoreA
-: best.scoreB;
+Math.max(
+best.projectedA,
+best.projectedB
+);
  
 const currentScore =
-game.scoreA >
-game.scoreB
-? game.scoreA
-: game.scoreB;
+Math.max(
+game.projectedA,
+game.projectedB
+);
  
 return currentScore >
 bestScore
@@ -231,9 +236,9 @@ fontWeight: "bold",
 }}
 >
 {Math.max(
-highestScore.scoreA,
-highestScore.scoreB
-).toFixed(2)}
+highestScore.projectedA,
+highestScore.projectedB
+).toFixed(1)}
 </div>
 </div>
  
