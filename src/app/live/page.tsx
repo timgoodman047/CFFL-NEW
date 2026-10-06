@@ -381,6 +381,11 @@ scoreA + remainingA * avgPlayerA;
  
 const projectedB =
 scoreB + remainingB * avgPlayerB;
+
+const projectedWinner =
+projectedA >= projectedB
+? teamA.team
+: teamB.team;
  
 const projectedDiff =
 projectedA - projectedB;
@@ -495,14 +500,26 @@ Remaining: {remainingA} - {remainingB}
  
 <div
 style={{
-color: "#94a3b8",
-fontSize: "12px",
+marginTop: "8px",
+color: "#22c55e",
+fontSize: "14px",
+fontWeight: "bold",
 }}
 >
 Expected Final:{" "}
 {projectedA.toFixed(1)}
 {" - "}
 {projectedB.toFixed(1)}
+</div>
+
+<div
+style={{
+marginTop: "4px",
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Projected Winner: {projectedWinner}
 </div>
  
 <div
