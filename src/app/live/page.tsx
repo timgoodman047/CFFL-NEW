@@ -382,6 +382,12 @@ startersA.length - playedA;
 const remainingB =
 startersB.length - playedB;
  
+const avgPlayerA =
+teamA.avgPPG / Math.max(startersA.length, 1);
+ 
+const avgPlayerB =
+teamB.avgPPG / Math.max(startersB.length, 1);
+ 
 const scoreDiff =
 scoreA - scoreB;
  
