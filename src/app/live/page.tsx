@@ -369,9 +369,6 @@ game[1].starters_points ?? [];
 const scoreDiff =
 scoreA - scoreB;
  
-const scoreDiff =
-scoreA - scoreB;
- 
 const probabilityA =
 Math.max(
 5,
