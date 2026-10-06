@@ -594,7 +594,6 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 </div>
-</div>
 );
 })}
 
