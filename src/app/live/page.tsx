@@ -201,7 +201,8 @@ marginBottom: "24px",
 }}
 >
 Week {currentWeek} live matchup tracker.
-
+</p>
+  
 <div
 style={{
 display: "grid",
