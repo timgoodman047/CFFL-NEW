@@ -132,6 +132,18 @@ strengthDiff * 0.4
  
 const probabilityB =
 100 - probabilityA;
+
+const projectedA =
+Math.max(
+scoreA,
+scoreA + (teamA.avgPPG - scoreA) * 0.4
+);
+ 
+const projectedB =
+Math.max(
+scoreB,
+scoreB + (teamB.avgPPG - scoreB) * 0.4
+);
  
 return {
 teamA,
@@ -556,6 +568,19 @@ fontWeight: "bold",
  
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
+</div>
+
+<div
+style={{
+marginTop: "8px",
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Expected Final:{" "}
+{projectedA.toFixed(1)}
+{" - "}
+{projectedB.toFixed(1)}
 </div>
  
 <div
