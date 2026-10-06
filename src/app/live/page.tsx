@@ -115,12 +115,6 @@ strengthDiff * 0.4
  
 const probabilityB =
 100 - probabilityA;
-
-const projectedA =
-scoreA + remainingA * avgPlayerA;
- 
-const projectedB =
-scoreB + remainingB * avgPlayerB;
  
 return {
 teamA,
@@ -381,6 +375,12 @@ teamA.avgPPG / Math.max(startersA.length, 1);
  
 const avgPlayerB =
 teamB.avgPPG / Math.max(startersB.length, 1);
+
+const projectedA =
+scoreA + remainingA * avgPlayerA;
+ 
+const projectedB =
+scoreB + remainingB * avgPlayerB;
  
 const scoreDiff =
 scoreA - scoreB;
