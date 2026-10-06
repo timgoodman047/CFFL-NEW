@@ -382,6 +382,14 @@ scoreA + remainingA * avgPlayerA;
 const projectedB =
 scoreB + remainingB * avgPlayerB;
 
+const strengthA =
+(teamA.avgPPG * 0.7) +
+(teamA.wins * 10);
+ 
+const strengthB =
+(teamB.avgPPG * 0.7) +
+(teamB.wins * 10);
+
 const projectedWinner =
 projectedA >= projectedB
 ? teamA.team
@@ -389,12 +397,18 @@ projectedA >= projectedB
 
 const projectedMargin =
 Math.abs(projectedA - projectedB);
+
+const upsetAlert =
+(projectedWinner === teamA.team &&
+strengthA < strengthB) ||
+(projectedWinner === teamB.team &&
+strengthB < strengthA);
  
 const projectedDiff =
 projectedA - projectedB;
  
 const strengthDiff =
-teamA.avgPPG - teamB.avgPPG;
+strengthA - strengthB;
  
 const probabilityA =
 Math.max(
@@ -535,6 +549,16 @@ fontSize: "12px",
 }}
 >
 Projected Margin: {projectedMargin.toFixed(1)}
+{upsetAlert && (
+<div
+style={{
+marginTop: "6px",
+color: "#f59e0b",
+fontWeight: "bold",
+}}
+>
+🚨 Upset Alert
+</div>
 </div>
 </div>
  
