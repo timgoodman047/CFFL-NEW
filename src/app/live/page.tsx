@@ -559,8 +559,7 @@ fontWeight: "bold",
 >
 🚨 Upset Alert
 </div>
-</div>
-</div>
+)}
  
 <div
 style={{
