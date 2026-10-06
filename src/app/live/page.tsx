@@ -68,6 +68,13 @@ game[0].points ?? 0;
  
 const scoreB =
 game[1].points ?? 0;
+ 
+console.log("MATCHUP");
+console.log("TEAM A:", teamA.team);
+console.log("RAW A:", game[0]);
+ 
+console.log("TEAM B:", teamB.team);
+console.log("RAW B:", game[1]);
 
 const totalPoints =
 scoreA + scoreB;
