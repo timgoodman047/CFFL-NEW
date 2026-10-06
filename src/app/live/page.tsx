@@ -508,16 +508,19 @@ fontWeight: "bold",
 }}
 >
 Leader: {leader}
-</div>
  
-<div
+<pre
 style={{
-marginTop: "12px",
-padding: "12px",
-background: "#1b2a40",
-borderRadius: "8px",
+marginTop: "10px",
+color: "white",
+fontSize: "10px",
+overflow: "auto",
 }}
 >
+{JSON.stringify(game[0], null, 2)}
+</pre>
+</div>
+
 <div
 style={{
 marginBottom: "8px",
