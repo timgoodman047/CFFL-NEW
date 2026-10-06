@@ -338,19 +338,12 @@ return null;
 }
  
 const teamA =
-rosterMap.get(
-game[0].roster_id
-);
+rosterMap.get(game[0].roster_id);
  
 const teamB =
-rosterMap.get(
-game[1].roster_id
-);
+rosterMap.get(game[1].roster_id);
  
-if (
-!teamA ||
-!teamB
-) {
+if (!teamA || !teamB) {
 return null;
 }
  
@@ -398,13 +391,10 @@ return (
 <div
 key={index}
 style={{
-background:
-"#111c2d",
+background: "#111c2d",
 padding: "20px",
-borderRadius:
-"12px",
-marginBottom:
-"16px",
+borderRadius: "12px",
+marginBottom: "16px",
 }}
 >
 
