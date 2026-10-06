@@ -393,12 +393,17 @@ Math.abs(projectedA - projectedB);
 const projectedDiff =
 projectedA - projectedB;
  
+const strengthDiff =
+teamA.avgPPG - teamB.avgPPG;
+ 
 const probabilityA =
 Math.max(
 5,
 Math.min(
 95,
-50 + projectedDiff * 1.5
+50 +
+projectedDiff * 1.2 +
+strengthDiff * 0.3
 )
 );
  
