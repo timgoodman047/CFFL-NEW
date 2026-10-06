@@ -566,7 +566,7 @@ fontWeight: "bold",
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
 </div>
-
+ 
 <div
 style={{
 marginTop: "8px",
@@ -608,9 +608,9 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 </div>
-
+ 
 </div>
-
+ 
 );
 })}
 </main>
