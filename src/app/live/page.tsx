@@ -209,6 +209,17 @@ Week {currentWeek} live
 matchup tracker.
 </p>
 
+<pre
+style={{
+color: "white",
+fontSize: "10px",
+overflow: "auto",
+maxHeight: "300px",
+}}
+>
+{JSON.stringify(matchups.slice(0, 2), null, 2)}
+</pre>
+
 <div
 style={{
 display: "grid",
