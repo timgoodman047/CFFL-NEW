@@ -124,7 +124,7 @@ Math.max(
 5,
 Math.min(
 95,
-50 +
+50 + 
 scoreDiff * 1.5 +
 strengthDiff * 0.4
 )
@@ -431,6 +431,18 @@ Math.min(
  
 const probabilityB =
 100 - probabilityA;
+ 
+const projectedA =
+Math.max(
+scoreA,
+scoreA + (teamA.avgPPG - scoreA) * 0.4
+);
+ 
+const projectedB =
+Math.max(
+scoreB,
+scoreB + (teamB.avgPPG - scoreB) * 0.4
+);
  
 const leader =
 scoreA > scoreB
