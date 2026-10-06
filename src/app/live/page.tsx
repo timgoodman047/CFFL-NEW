@@ -14,16 +14,6 @@ await getLeagueTeams();
 const matchups =
 await getMatchups(currentWeek);
  
-console.log(
-"CURRENT WEEK:",
-currentWeek
-);
- 
-console.log(
-"MATCHUPS:",
-JSON.stringify(matchups.slice(0, 2), null, 2)
-);
- 
 const rosterMap = new Map<
   number,
   any
@@ -370,40 +360,8 @@ game[0].points ?? 0;
 const scoreB =
 game[1].points ?? 0;
  
-const startersA =
-game[0].starters ?? [];
- 
-const startersB =
-game[1].starters ?? [];
- 
-const starterPointsA =
-game[0].starters_points ?? [];
- 
-const starterPointsB =
-game[1].starters_points ?? [];
- 
 const scoreDiff =
 scoreA - scoreB;
- 
-console.log(
-"TEAM A:",
-teamA.team
-);
- 
-console.log(
-"RAW A:",
-game[0]
-);
- 
-console.log(
-"TEAM B:",
-teamB.team
-);
- 
-console.log(
-"RAW B:",
-game[1]
-);
  
 const probabilityA =
 Math.max(
