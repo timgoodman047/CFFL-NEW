@@ -404,6 +404,12 @@ projectedA >= projectedB
 const projectedMargin =
 Math.abs(projectedA - projectedB);
 
+const gameOfWeek =
+projectedMargin <= 5;
+ 
+const blowoutWatch =
+projectedMargin >= 20;
+
 const upsetAlert =
 (projectedWinner === teamA.team &&
 strengthA < strengthB) ||
@@ -488,6 +494,30 @@ color: "#22c55e",
 fontWeight: "bold",
 }}
 >
+{gameOfWeek && (
+<div
+style={{
+color: "#f59e0b",
+fontWeight: "bold",
+marginBottom: "8px",
+}}
+>
+🔥 GAME OF THE WEEK
+</div>
+)}
+ 
+{blowoutWatch && (
+<div
+style={{
+color: "#ef4444",
+fontWeight: "bold",
+marginBottom: "8px",
+}}
+>
+💥 BLOWOUT WATCH
+</div>
+)}
+
 Leader: {leader}
 </div>
  
