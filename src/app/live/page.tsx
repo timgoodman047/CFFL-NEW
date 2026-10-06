@@ -354,6 +354,21 @@ game[0].points ?? 0;
 const scoreB =
 game[1].points ?? 0;
  
+const startersA =
+game[0].starters ?? [];
+ 
+const startersB =
+game[1].starters ?? [];
+ 
+const starterPointsA =
+game[0].starters_points ?? [];
+ 
+const starterPointsB =
+game[1].starters_points ?? [];
+ 
+const scoreDiff =
+scoreA - scoreB;
+ 
 const scoreDiff =
 scoreA - scoreB;
  
