@@ -117,16 +117,10 @@ const probabilityB =
 100 - probabilityA;
 
 const projectedA =
-Math.max(
-scoreA,
-scoreA + (teamA.avgPPG - scoreA) * 0.4
-);
+scoreA + remainingA * avgPlayerA;
  
 const projectedB =
-Math.max(
-scoreB,
-scoreB + (teamB.avgPPG - scoreB) * 0.4
-);
+scoreB + remainingB * avgPlayerB;
  
 return {
 teamA,
