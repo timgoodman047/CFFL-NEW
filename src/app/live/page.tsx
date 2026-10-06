@@ -365,6 +365,16 @@ game[0].starters_points ?? [];
  
 const starterPointsB =
 game[1].starters_points ?? [];
+
+const playedA =
+starterPointsA.filter(
+(p: number) => p > 0
+).length;
+ 
+const playedB =
+starterPointsB.filter(
+(p: number) => p > 0
+).length;
  
 const scoreDiff =
 scoreA - scoreB;
