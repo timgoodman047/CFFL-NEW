@@ -508,9 +508,16 @@ fontWeight: "bold",
 }}
 >
 Leader: {leader}
-
 </div>
-
+ 
+<div
+style={{
+marginTop: "12px",
+padding: "12px",
+background: "#1b2a40",
+borderRadius: "8px",
+}}
+>
 <div
 style={{
 marginBottom: "8px",
