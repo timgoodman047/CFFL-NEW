@@ -386,6 +386,9 @@ const projectedWinner =
 projectedA >= projectedB
 ? teamA.team
 : teamB.team;
+
+const projectedMargin =
+Math.abs(projectedA - projectedB);
  
 const projectedDiff =
 projectedA - projectedB;
@@ -520,6 +523,14 @@ fontSize: "12px",
 }}
 >
 Projected Winner: {projectedWinner}
+<div
+style={{
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Projected Margin: {projectedMargin.toFixed(1)}
+</div>
 </div>
  
 <div
