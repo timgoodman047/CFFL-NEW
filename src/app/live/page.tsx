@@ -382,15 +382,15 @@ scoreA + remainingA * avgPlayerA;
 const projectedB =
 scoreB + remainingB * avgPlayerB;
  
-const scoreDiff =
-scoreA - scoreB;
+const projectedDiff =
+projectedA - projectedB;
  
 const probabilityA =
 Math.max(
 5,
 Math.min(
 95,
-50 + scoreDiff * 2
+50 + projectedDiff * 1.5
 )
 );
  
@@ -481,6 +481,28 @@ fontWeight: "bold",
  
 <div>
 {teamB.team}: {probabilityB.toFixed(0)}%
+</div>
+
+<div
+style={{
+marginTop: "8px",
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Remaining: {remainingA} - {remainingB}
+</div>
+ 
+<div
+style={{
+color: "#94a3b8",
+fontSize: "12px",
+}}
+>
+Expected Final:{" "}
+{projectedA.toFixed(1)}
+{" - "}
+{projectedB.toFixed(1)}
 </div>
  
 <div
