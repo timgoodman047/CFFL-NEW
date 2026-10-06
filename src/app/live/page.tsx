@@ -134,6 +134,7 @@ projectedA >= projectedB
 ? teamA
 : teamB,
 };
+});
  
 const highestScore =
 gameSummaries.reduce(
