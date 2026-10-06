@@ -1,10 +1,3 @@
-console.log("MATCHUP");
-console.log("TEAM A:", teamA.team);
-console.log("RAW A:", game[0]);
- 
-console.log("TEAM B:", teamB.team);
-console.log("RAW B:", game[1]);
-
 import {
 getCurrentWeek,
 getMatchups,
@@ -363,6 +356,31 @@ game[0].points ?? 0;
  
 const scoreB =
 game[1].points ?? 0;
+ 
+console.log(
+"MATCHUP KEYS:",
+Object.keys(game[0])
+);
+ 
+console.log(
+"TEAM A:",
+teamA.team
+);
+ 
+console.log(
+"RAW A:",
+game[0]
+);
+ 
+console.log(
+"TEAM B:",
+teamB.team
+);
+ 
+console.log(
+"RAW B:",
+game[1]
+);
  
 const scoreDiff =
 scoreA - scoreB;
