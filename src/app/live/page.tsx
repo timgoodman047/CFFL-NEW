@@ -14,6 +14,16 @@ await getLeagueTeams();
 const matchups =
 await getMatchups(currentWeek);
  
+console.log(
+"CURRENT WEEK:",
+currentWeek
+);
+ 
+console.log(
+"MATCHUPS:",
+JSON.stringify(matchups.slice(0, 2), null, 2)
+);
+ 
 const rosterMap = new Map<
   number,
   any
