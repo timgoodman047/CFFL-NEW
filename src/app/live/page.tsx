@@ -549,6 +549,8 @@ fontSize: "12px",
 }}
 >
 Projected Margin: {projectedMargin.toFixed(1)}
+</div>
+ 
 {upsetAlert && (
 <div
 style={{
@@ -560,6 +562,9 @@ fontWeight: "bold",
 🚨 Upset Alert
 </div>
 )}
+ 
+</div>
+</div>
  
 <div
 style={{
