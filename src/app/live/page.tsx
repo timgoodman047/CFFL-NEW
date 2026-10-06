@@ -205,8 +205,10 @@ color: "#94a3b8",
 marginBottom: "24px",
 }}
 >
-Week {currentWeek} live
-matchup tracker.
+Week {currentWeek} live matchup tracker.
+<pre>
+Current Week: {currentWeek}
+</pre>
 </p>
 
 <pre
