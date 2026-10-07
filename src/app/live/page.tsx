@@ -452,11 +452,17 @@ scoreA > scoreB
 return (
 <div
 key={index}
+onClick={() =>
+setExpandedMatchup(
+expandedMatchup === index ? null : index
+)
+}
 style={{
 background: "#111c2d",
 padding: "20px",
 borderRadius: "12px",
 marginBottom: "16px",
+cursor: "pointer",
 }}
 >
 <div
