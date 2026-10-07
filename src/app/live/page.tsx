@@ -611,20 +611,6 @@ fontWeight: "bold",
 </div>
 )}
  
-{expandedMatchup === index && (
-<div
-style={{
-marginTop: "16px",
-padding: "12px",
-background: "#1a2940",
-borderRadius: "8px",
-}}
->
-Matchup details will go here.
-</div>
-)}
- 
-</div>
 </div>
  
 <div
@@ -654,6 +640,20 @@ fontSize: "12px",
 >
 Based on current score, record, and scoring strength.
 </div>
+ 
+{expandedMatchup === index && (
+<div
+style={{
+marginTop: "16px",
+padding: "12px",
+background: "#1a2940",
+borderRadius: "8px",
+}}
+>
+{/* starter lists go here */}
+</div>
+)}
+ 
 </div>
 );
 })}
