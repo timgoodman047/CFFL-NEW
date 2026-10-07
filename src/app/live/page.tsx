@@ -10,6 +10,8 @@ getLeagueTeams,
  
 export default async function LivePage() {
 const [expandedMatchup, setExpandedMatchup] = useState<number | null>(null);
+console.log("LivePage rendered");
+console.log("expandedMatchup =", expandedMatchup);
   
 const currentWeek =
 await getCurrentWeek();
