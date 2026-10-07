@@ -164,15 +164,17 @@ return currentScore > bestScore
 });
  
 const closestMatchup =
-[...gameSummaries].sort(
-(a, b) =>
-a.margin - b.margin
+gameSummaries.length === 0
+? null
+: [...gameSummaries].sort(
+(a, b) => a.margin - b.margin
 )[0];
  
 const biggestBlowout =
-[...gameSummaries].sort(
-(a, b) =>
-b.margin - a.margin
+gameSummaries.length === 0
+? null
+: [...gameSummaries].sort(
+(a, b) => b.margin - a.margin
 )[0];
  
 return (
