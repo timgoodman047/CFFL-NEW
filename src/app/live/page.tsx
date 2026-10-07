@@ -452,12 +452,6 @@ scoreA > scoreB
 return (
 <div
 key={index}
-onClick={() => {
-alert(`clicked ${index}`);
-setExpandedMatchup(
-expandedMatchup === index ? null : index
-);
-}}
 style={{
 background: "#111c2d",
 padding: "20px",
@@ -466,6 +460,16 @@ marginBottom: "16px",
 cursor: "pointer",
 }}
 >
+<button
+onClick={() => {
+alert(`clicked ${index}`);
+setExpandedMatchup(
+expandedMatchup === index ? null : index
+);
+}}
+>
+TEST CLICK
+</button>
 <div
 style={{
 display: "flex",
