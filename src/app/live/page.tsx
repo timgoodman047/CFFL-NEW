@@ -146,8 +146,15 @@ projectedA >= projectedB
 
 console.log("gameSummaries", gameSummaries);
 const highestScore =
-gameSummaries.reduce(
+gameSummaries.length === 0
+? null
+: gameSummaries.reduce(
 (best, game) => {
+return game.score > best.score
+? game
+: best;
+}
+);
 
 const bestScore =
 Math.max(
