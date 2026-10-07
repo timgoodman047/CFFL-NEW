@@ -611,6 +611,19 @@ fontWeight: "bold",
 </div>
 )}
  
+{expandedMatchup === index && (
+<div
+style={{
+marginTop: "16px",
+padding: "12px",
+background: "#1a2940",
+borderRadius: "8px",
+}}
+>
+Matchup details will go here.
+</div>
+)}
+ 
 </div>
 </div>
  
