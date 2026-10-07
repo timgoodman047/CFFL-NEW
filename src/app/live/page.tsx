@@ -144,7 +144,6 @@ projectedA >= projectedB
 };
 });
 
-console.log("gameSummaries", gameSummaries);
 const highestScore =
 gameSummaries.length === 0
 ? null
