@@ -230,10 +230,7 @@ fontWeight: "bold",
 </div>
  
 <div>
-{
-highestScore.winner
-.team
-}
+{highestScore?.winner?.team ?? "N/A"}
 </div>
  
 <div
@@ -242,10 +239,12 @@ fontSize: "24px",
 fontWeight: "bold",
 }}
 >
-{Math.max(
-highestScore.projectedA,
-highestScore.projectedB
-).toFixed(1)}
+{highestScore
+? Math.max(
+highestScore?.projectedA,
+highestScore?.projectedB
+).toFixed(1)
+: "0.0"}
 </div>
 </div>
  
@@ -268,7 +267,7 @@ fontWeight: "bold",
  
 <div>
 {
-closestMatchup.teamA
+closestMatchup?.teamA
 .team
 }
 </div>
@@ -279,7 +278,7 @@ vs
  
 <div>
 {
-closestMatchup.teamB
+closestMatchup?.teamB
 .team
 }
 </div>
@@ -290,7 +289,7 @@ marginTop: "8px",
 }}
 >
 Margin:{" "}
-{closestMatchup.margin.toFixed(
+{closestMatchup?.margin.toFixed(
 2
 )}
 </div>
@@ -315,7 +314,7 @@ fontWeight: "bold",
  
 <div>
 {
-biggestBlowout.winner
+biggestBlowout?.winner
 .team
 }
 </div>
@@ -326,7 +325,7 @@ marginTop: "8px",
 }}
 >
 Margin:{" "}
-{biggestBlowout.margin.toFixed(
+{biggestBlowout?.margin.toFixed(
 2
 )}
 </div>
