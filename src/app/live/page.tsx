@@ -143,7 +143,8 @@ projectedA >= projectedB
 : teamB,
 };
 });
- 
+
+console.log("gameSummaries", gameSummaries);
 const highestScore =
 gameSummaries.reduce(
 (best, game) => {
