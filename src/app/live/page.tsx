@@ -1,3 +1,7 @@
+"use client";
+ 
+import { useEffect, useState } from "react";
+
 import {
 getCurrentWeek,
 getMatchups,
@@ -5,6 +9,8 @@ getLeagueTeams,
 } from "../../lib/sleeper";
  
 export default async function LivePage() {
+const [expandedMatchup, setExpandedMatchup] = useState<number | null>(null);
+  
 const currentWeek =
 await getCurrentWeek();
  
