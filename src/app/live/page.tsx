@@ -147,32 +147,21 @@ projectedA >= projectedB
 const highestScore =
 gameSummaries.length === 0
 ? null
-: gameSummaries.reduce(
-(best, game) => {
-return game.score > best.score
-? game
-: best;
-}
-);
-
-const bestScore =
-Math.max(
+: gameSummaries.reduce((best, game) => {
+const bestScore = Math.max(
 best.projectedA,
 best.projectedB
 );
  
-const currentScore =
-Math.max(
+const currentScore = Math.max(
 game.projectedA,
 game.projectedB
 );
  
-return currentScore >
-bestScore
+return currentScore > bestScore
 ? game
 : best;
-}
-);
+});
  
 const closestMatchup =
 [...gameSummaries].sort(
