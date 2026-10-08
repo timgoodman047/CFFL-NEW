@@ -447,6 +447,10 @@ scoreA > scoreB
 : scoreB > scoreA
 ? teamB.team
 : "Tied";
+
+console.log("matchups", matchups);
+console.log("teams", teams);
+console.log("gameSummaries", gameSummaries);
  
 return (
 <div
