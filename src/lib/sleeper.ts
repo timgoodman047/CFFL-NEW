@@ -13,7 +13,12 @@ cache: "no-store",
 }
 );
  
-return response.json();
+const data = await response.json();
+ 
+console.log("MATCHUPS:", data.length);
+console.log(data);
+ 
+return data;
 }
 
 export async function getLeague() {
@@ -33,15 +38,18 @@ return response.json();
 // -------------------------
  
 export async function getUsers() {
- 
 const response = await fetch(
 `https://api.sleeper.app/v1/league/${LEAGUE_ID}/users`,
 {
-cache: "no-store"
+cache: "no-store",
 }
 );
  
-return response.json();
+const data = await response.json();
+ 
+console.log("USERS:", data.length);
+ 
+return data;
 }
  
 // -------------------------
@@ -49,15 +57,18 @@ return response.json();
 // -------------------------
  
 export async function getRosters() {
- 
 const response = await fetch(
 `https://api.sleeper.app/v1/league/${LEAGUE_ID}/rosters`,
 {
-cache: "no-store"
+cache: "no-store",
 }
 );
  
-return response.json();
+const data = await response.json();
+ 
+console.log("ROSTERS:", data.length);
+ 
+return data;
 }
 
 // -------------------------
