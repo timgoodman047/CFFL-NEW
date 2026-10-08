@@ -695,11 +695,25 @@ Based on current score, record, and scoring strength.
           {teamA.team}
         </div>
 
-        {startersA.map((playerId, idx) => (
-  <div key={playerId}>
-    {players[playerId]?.full_name || playerId}
-    {" - "}
-    {starterPointsA[idx] ?? 0}
+       {startersA.map((playerId, idx) => (
+  <div
+    key={playerId}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "6px 0",
+      borderBottom: "1px solid #243447",
+      fontSize: "14px",
+    }}
+  >
+    <span>
+      {players[playerId]?.position || "?"}{" "}
+      {players[playerId]?.full_name || playerId}
+    </span>
+
+    <span style={{ fontWeight: "bold" }}>
+      {(starterPointsA[idx] ?? 0).toFixed(2)}
+    </span>
   </div>
 ))}
       </div>
@@ -715,11 +729,25 @@ Based on current score, record, and scoring strength.
           {teamB.team}
         </div>
 
-        {startersB.map((playerId, idx) => (
-  <div key={playerId}>
-    {players[playerId]?.full_name || playerId}
-    {" - "}
-    {starterPointsB[idx] ?? 0}
+       {startersB.map((playerId, idx) => (
+  <div
+    key={playerId}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "6px 0",
+      borderBottom: "1px solid #243447",
+      fontSize: "14px",
+    }}
+  >
+    <span>
+      {players[playerId]?.position || "?"}{" "}
+      {players[playerId]?.full_name || playerId}
+    </span>
+
+    <span style={{ fontWeight: "bold" }}>
+      {(starterPointsB[idx] ?? 0).toFixed(2)}
+    </span>
   </div>
 ))}
       </div>
