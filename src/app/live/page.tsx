@@ -674,7 +674,13 @@ background: "#1a2940",
 borderRadius: "8px",
 }}
 >
-{/* starter lists go here */}
+<div style={{ color: "white" }}>
+  Matchup Details Loaded
+  <br />
+  Team A Starters: {startersA.length}
+  <br />
+  Team B Starters: {startersB.length}
+</div>
 </div>
 )}
  
