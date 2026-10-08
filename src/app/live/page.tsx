@@ -193,6 +193,15 @@ marginBottom: "8px",
 >
 📺 Live Game Center
 </h1>
+
+<pre style={{ color: "white" }}>
+{JSON.stringify({
+currentWeek,
+matchupCount: matchups?.length,
+teamCount: teams?.length,
+gameSummaryCount: gameSummaries?.length,
+}, null, 2)}
+</pre>
  
 <p
 style={{
