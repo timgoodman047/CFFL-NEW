@@ -498,9 +498,16 @@ fontWeight: "bold",
 }}
 >
 <span>{teamA.team}</span>
-  
-<div style={{ color: "yellow", fontSize: "12px" }}>
+
+<div
+  style={{
+    color: "yellow",
+    fontSize: "12px",
+  }}
+>
+  Expanded: {String(expandedMatchup)}
 </div>
+
 <div>{scoreA.toFixed(2)}</div>
 </div>
  
