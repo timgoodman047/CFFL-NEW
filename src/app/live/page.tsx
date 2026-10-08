@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 
 import {
-getCurrentWeek,
-getMatchups,
-getLeagueTeams,
+  getCurrentWeek,
+  getMatchups,
+  getLeagueTeams,
+  getPlayers,
 } from "../../lib/sleeper";
  
 export default function LivePage() {
