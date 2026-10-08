@@ -707,9 +707,18 @@ Based on current score, record, and scoring strength.
     }}
   >
     <span>
-      {players[playerId]?.position || "?"}{" "}
-      {players[playerId]?.full_name || playerId}
-    </span>
+  {players[playerId]?.position || "?"}{" "}
+  {players[playerId]?.full_name || playerId}
+  <span
+    style={{
+      color: "#94a3b8",
+      fontSize: "12px",
+      marginLeft: "6px",
+    }}
+  >
+    {players[playerId]?.team || ""}
+  </span>
+</span>
 
     <span style={{ fontWeight: "bold" }}>
       {(starterPointsA[idx] ?? 0).toFixed(2)}
