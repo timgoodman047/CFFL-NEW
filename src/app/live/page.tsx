@@ -13,14 +13,11 @@ const [expandedMatchup, setExpandedMatchup] = useState<number | null>(null);
 console.log("LivePage rendered");
 console.log("expandedMatchup =", expandedMatchup);
   
-const currentWeek = 5;
-await getCurrentWeek();
- 
-const teams = [];
-await getLeagueTeams();
- 
-const matchups = [];
-await getMatchups(currentWeek);
+const currentWeek = await getCurrentWeek();
+
+const teams = await getLeagueTeams();
+
+const matchups = await getMatchups(currentWeek);
  
 const rosterMap = new Map<
   number,
