@@ -106,18 +106,6 @@ return response.json();
 // -------------------------
 // NFL PLAYERS DATABASE
 // -------------------------
-
-export async function getPlayers() {
- 
-const response = await fetch(
-"https://api.sleeper.app/v1/players/nfl",
-{
-cache: "force-cache"
-}
-);
- 
-return response.json();
-}
  
 // -------------------------
 // CURRENT NFL STATE
