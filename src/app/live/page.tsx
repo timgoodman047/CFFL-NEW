@@ -707,7 +707,22 @@ Based on current score, record, and scoring strength.
   {" | "}
   Remaining: {(projectedA - scoreA).toFixed(1)}
 </div>
-
+        
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    color: "#94a3b8",
+    fontSize: "12px",
+    fontWeight: "bold",
+    paddingBottom: "6px",
+    borderBottom: "1px solid #334155",
+    marginBottom: "6px",
+  }}
+>
+  <span>PLAYER</span>
+  <span>PTS</span>
+</div>
        {startersA.map((playerId, idx) => (
   <div
     key={playerId}
@@ -780,97 +795,114 @@ Based on current score, record, and scoring strength.
 ))}
       </div>
 
-      <div>
-        <div
-          style={{
-            fontWeight: "bold",
-            color: "#22c55e",
-            marginBottom: "8px",
-          }}
-        >
-          {teamB.team}
-        </div>
-<div
-  style={{
-    fontSize: "12px",
-    color: "#94a3b8",
-    marginBottom: "12px",
-  }}
->
-  Current: {scoreB.toFixed(1)}
-  {" | "}
-  Projected: {projectedB.toFixed(1)}
-  {" | "}
-  Remaining: {(projectedB - scoreB).toFixed(1)}
-</div>
-
-       {startersB.map((playerId, idx) => (
+     <div>
   <div
-    key={playerId}
+    style={{
+      fontWeight: "bold",
+      color: "#22c55e",
+      marginBottom: "8px",
+    }}
+  >
+    {teamB.team}
+  </div>
+
+  <div
+    style={{
+      fontSize: "12px",
+      color: "#94a3b8",
+      marginBottom: "12px",
+    }}
+  >
+    Current: {scoreB.toFixed(1)}
+    {" | "}
+    Projected: {projectedB.toFixed(1)}
+    {" | "}
+    Remaining: {(projectedB - scoreB).toFixed(1)}
+  </div>
+
+  <div
     style={{
       display: "flex",
       justifyContent: "space-between",
-      padding: "6px 0",
-      borderBottom: "1px solid #243447",
-      fontSize: "14px",
+      color: "#94a3b8",
+      fontSize: "12px",
+      fontWeight: "bold",
+      paddingBottom: "6px",
+      borderBottom: "1px solid #334155",
+      marginBottom: "6px",
     }}
   >
+    <span>PLAYER</span>
+    <span>PTS</span>
+  </div>
+
+  {startersB.map((playerId, idx) => (
     <div
+      key={playerId}
       style={{
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
-        width: "100%",
+        padding: "6px 0",
+        borderBottom: "1px solid #243447",
+        fontSize: "14px",
       }}
     >
-      <div>
-        <span>
-          {players[playerId]?.position || "?"}
-        </span>
-        {" "}
-
-        <span>
-          {players[playerId]?.full_name || playerId}
-        </span>
-
-        <span
-          style={{
-            color: "#94a3b8",
-            fontSize: "12px",
-            marginLeft: "6px",
-          }}
-        >
-          {players[playerId]?.team || ""}
-        </span>
-
-        {players[playerId]?.status &&
-          !["Active", "ACT"].includes(
-            players[playerId]?.status
-          ) && (
-            <span
-              style={{
-                marginLeft: "8px",
-                color: "#f59e0b",
-                fontSize: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              {players[playerId]?.status}
-            </span>
-          )}
-      </div>
-
       <div
         style={{
-          fontWeight: "bold",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
         }}
       >
-        {(starterPointsB[idx] ?? 0).toFixed(2)}
+        <div>
+          <span>
+            {players[playerId]?.position || "?"}
+          </span>
+          {" "}
+
+          <span>
+            {players[playerId]?.full_name || playerId}
+          </span>
+
+          <span
+            style={{
+              color: "#94a3b8",
+              fontSize: "12px",
+              marginLeft: "6px",
+            }}
+          >
+            {players[playerId]?.team || ""}
+          </span>
+
+          {players[playerId]?.status &&
+            !["Active", "ACT"].includes(
+              players[playerId]?.status
+            ) && (
+              <span
+                style={{
+                  marginLeft: "8px",
+                  color: "#f59e0b",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                }}
+              >
+                {players[playerId]?.status}
+              </span>
+            )}
+        </div>
+
+        <div
+          style={{
+            fontWeight: "bold",
+          }}
+        >
+          {(starterPointsB[idx] ?? 0).toFixed(2)}
+        </div>
       </div>
     </div>
-  </div>
-))}
-      </div>
+  ))}
+</div>
     </div>
   </div>
 )}
