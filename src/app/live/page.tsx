@@ -379,6 +379,17 @@ game[0].starters ?? [];
  
 const startersB =
 game[1].starters ?? [];
+
+const playersA = game[0].players ?? [];
+const playersB = game[1].players ?? [];
+
+const benchA = playersA.filter(
+  (playerId) => !startersA.includes(playerId)
+);
+
+const benchB = playersB.filter(
+  (playerId) => !startersB.includes(playerId)
+);
  
 const starterPointsA =
 game[0].starters_points ?? [];
@@ -724,6 +735,30 @@ Based on current score, record, and scoring strength.
   <span>PTS</span>
 </div>
        {startersA.map((playerId, idx) => (
+<div
+  style={{
+    marginTop: "12px",
+    fontWeight: "bold",
+    color: "#94a3b8",
+  }}
+>
+  BENCH
+</div>
+
+{benchA.map((playerId) => (
+  <div
+    key={playerId}
+    style={{
+      padding: "4px 0",
+      color: "#94a3b8",
+      fontSize: "13px",
+    }}
+  >
+    {players[playerId]?.position || "?"}
+    {" "}
+    {players[playerId]?.full_name || playerId}
+  </div>
+))}
   <div
     key={playerId}
     style={{
@@ -837,6 +872,30 @@ Based on current score, record, and scoring strength.
   </div>
 
   {startersB.map((playerId, idx) => (
+      <div
+  style={{
+    marginTop: "12px",
+    fontWeight: "bold",
+    color: "#94a3b8",
+  }}
+>
+  BENCH
+</div>
+
+{benchB.map((playerId) => (
+  <div
+    key={playerId}
+    style={{
+      padding: "4px 0",
+      color: "#94a3b8",
+      fontSize: "13px",
+    }}
+  >
+    {players[playerId]?.position || "?"}
+    {" "}
+    {players[playerId]?.full_name || playerId}
+  </div>
+))}
     <div
       key={playerId}
       style={{
