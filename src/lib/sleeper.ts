@@ -21,6 +21,17 @@ console.log(data);
 return data;
 }
 
+export async function getPlayers() {
+  const response = await fetch(
+    "https://api.sleeper.app/v1/players/nfl",
+    {
+      cache: "force-cache",
+    }
+  );
+
+  return response.json();
+}
+
 export async function getLeague() {
  
 const response = await fetch(
