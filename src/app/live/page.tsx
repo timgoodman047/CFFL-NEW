@@ -720,7 +720,8 @@ Based on current score, record, and scoring strength.
     {players[playerId]?.team || ""}
   </span>
 
-  {players[playerId]?.status && (
+ {players[playerId]?.status &&
+ players[playerId]?.status !== "Active" && (
     <span
       style={{
         marginLeft: "8px",
