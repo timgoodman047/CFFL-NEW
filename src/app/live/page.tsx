@@ -734,7 +734,7 @@ Based on current score, record, and scoring strength.
   <span>PLAYER</span>
   <span>PTS</span>
 </div>
-     {startersA.map((playerId, idx) => (
+    {startersA.map((playerId, idx) => (
   <div
     key={playerId}
     style={{
@@ -745,7 +745,58 @@ Based on current score, record, and scoring strength.
       fontSize: "14px",
     }}
   >
-    {/* your existing starter row code */}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
+      <div>
+        <span>
+          {players[playerId]?.position || "?"}
+        </span>
+        {" "}
+        <span>
+          {players[playerId]?.full_name || playerId}
+        </span>
+
+        <span
+          style={{
+            color: "#94a3b8",
+            fontSize: "12px",
+            marginLeft: "6px",
+          }}
+        >
+          {players[playerId]?.team || ""}
+        </span>
+
+        {players[playerId]?.status &&
+          !["Active", "ACT"].includes(
+            players[playerId]?.status
+          ) && (
+            <span
+              style={{
+                marginLeft: "8px",
+                color: "#f59e0b",
+                fontSize: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              {players[playerId]?.status}
+            </span>
+          )}
+      </div>
+
+      <div
+        style={{
+          fontWeight: "bold",
+        }}
+      >
+        {(starterPointsA[idx] ?? 0).toFixed(2)}
+      </div>
+    </div>
   </div>
 ))}
 
@@ -772,7 +823,7 @@ Based on current score, record, and scoring strength.
     {players[playerId]?.full_name || playerId}
   </div>
 ))}
-`` 
+
   <div
     key={playerId}
     style={{
