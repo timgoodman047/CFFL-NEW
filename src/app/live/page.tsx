@@ -470,30 +470,21 @@ console.log("teams", teams);
 console.log("gameSummaries", gameSummaries);
  
 return (
-<div
-key={index}
-style={{
-background: "#111c2d",
-padding: "20px",
-borderRadius: "12px",
-marginBottom: "16px",
-cursor: "pointer",
-}}
->
-<div
-  onClick={() => {
-    setExpandedMatchup(
-      expandedMatchup === index ? null : index
-    );
-  }}
-  style={{
-    background: "#111c2d",
-    padding: "20px",
-    borderRadius: "12px",
-    marginBottom: "16px",
-    cursor: "pointer",
-  }}
->
+  <div
+    key={index}
+    onClick={() => {
+      setExpandedMatchup(
+        expandedMatchup === index ? null : index
+      );
+    }}
+    style={{
+      background: "#111c2d",
+      padding: "20px",
+      borderRadius: "12px",
+      marginBottom: "16px",
+      cursor: "pointer",
+    }}
+  >
 <div
 style={{
 display: "flex",
@@ -689,7 +680,7 @@ borderRadius: "8px",
  
 </div>
 </div>
- 
+
 );
 })}
 
