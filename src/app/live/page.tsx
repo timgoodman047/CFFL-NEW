@@ -706,39 +706,59 @@ Based on current score, record, and scoring strength.
       fontSize: "14px",
     }}
   >
+    <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  }}
+>
+  <div>
     <span>
-  {players[playerId]?.position || "?"}{" "}
-  {players[playerId]?.full_name || playerId}
+      {players[playerId]?.position || "?"}
+    </span>
+    {" "}
 
-  <span
-    style={{
-      color: "#94a3b8",
-      fontSize: "12px",
-      marginLeft: "6px",
-    }}
-  >
-    {players[playerId]?.team || ""}
-  </span>
+    <span>
+      {players[playerId]?.full_name || playerId}
+    </span>
 
- {players[playerId]?.status &&
- players[playerId]?.status !== "Active" && (
     <span
       style={{
-        marginLeft: "8px",
-        color:
-          players[playerId]?.status === "Questionable"
-            ? "#f59e0b"
-            : players[playerId]?.status === "Out"
-            ? "#ef4444"
-            : "#94a3b8",
+        color: "#94a3b8",
         fontSize: "12px",
-        fontWeight: "bold",
+        marginLeft: "6px",
       }}
     >
-      {players[playerId]?.status}
+      {players[playerId]?.team || ""}
     </span>
-  )}
-</span>
+
+    {players[playerId]?.status &&
+      !["Active", "ACT"].includes(
+        players[playerId]?.status
+      ) && (
+        <span
+          style={{
+            marginLeft: "8px",
+            color: "#f59e0b",
+            fontSize: "12px",
+            fontWeight: "bold",
+          }}
+        >
+          {players[playerId]?.status}
+        </span>
+      )}
+  </div>
+
+  <div
+    style={{
+      fontWeight: "bold",
+    }}
+  >
+    {(starterPointsA[idx] ?? 0).toFixed(2)}
+  </div>
+</div>
 
     <span style={{ fontWeight: "bold" }}>
       {(starterPointsA[idx] ?? 0).toFixed(2)}
@@ -769,14 +789,59 @@ Based on current score, record, and scoring strength.
       fontSize: "14px",
     }}
   >
-    <span>
-      {players[playerId]?.position || "?"}{" "}
-      {players[playerId]?.full_name || playerId}
-    </span>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
+      <div>
+        <span>
+          {players[playerId]?.position || "?"}
+        </span>
+        {" "}
 
-    <span style={{ fontWeight: "bold" }}>
-      {(starterPointsB[idx] ?? 0).toFixed(2)}
-    </span>
+        <span>
+          {players[playerId]?.full_name || playerId}
+        </span>
+
+        <span
+          style={{
+            color: "#94a3b8",
+            fontSize: "12px",
+            marginLeft: "6px",
+          }}
+        >
+          {players[playerId]?.team || ""}
+        </span>
+
+        {players[playerId]?.status &&
+          !["Active", "ACT"].includes(
+            players[playerId]?.status
+          ) && (
+            <span
+              style={{
+                marginLeft: "8px",
+                color: "#f59e0b",
+                fontSize: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              {players[playerId]?.status}
+            </span>
+          )}
+      </div>
+
+      <div
+        style={{
+          fontWeight: "bold",
+        }}
+      >
+        {(starterPointsB[idx] ?? 0).toFixed(2)}
+      </div>
+    </div>
   </div>
 ))}
       </div>
