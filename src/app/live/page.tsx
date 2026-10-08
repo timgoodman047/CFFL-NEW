@@ -16,16 +16,19 @@ export default function LivePage() {
   const [currentWeek, setCurrentWeek] = useState(0);
   const [teams, setTeams] = useState<any[]>([]);
   const [matchups, setMatchups] = useState<any[]>([]);
+  const [players, setPlayers] = useState<any>({});
 
   useEffect(() => {
     async function loadData() {
       const week = await getCurrentWeek();
       const leagueTeams = await getLeagueTeams();
       const leagueMatchups = await getMatchups(week);
+      const playerData = await getPlayers();
 
       setCurrentWeek(week);
       setTeams(leagueTeams);
       setMatchups(leagueMatchups);
+      setPlayers(playerData);
     }
 
     loadData();
@@ -693,10 +696,12 @@ Based on current score, record, and scoring strength.
         </div>
 
         {startersA.map((playerId, idx) => (
-          <div key={playerId}>
-            {playerId}: {starterPointsA[idx] ?? 0}
-          </div>
-        ))}
+  <div key={playerId}>
+    {players[playerId]?.full_name || playerId}
+    {" - "}
+    {starterPointsA[idx] ?? 0}
+  </div>
+))}
       </div>
 
       <div>
@@ -711,10 +716,12 @@ Based on current score, record, and scoring strength.
         </div>
 
         {startersB.map((playerId, idx) => (
-          <div key={playerId}>
-            {playerId}: {starterPointsB[idx] ?? 0}
-          </div>
-        ))}
+  <div key={playerId}>
+    {players[playerId]?.full_name || playerId}
+    {" - "}
+    {starterPointsB[idx] ?? 0}
+  </div>
+))}
       </div>
     </div>
   </div>
