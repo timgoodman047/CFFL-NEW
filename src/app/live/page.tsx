@@ -694,6 +694,19 @@ Based on current score, record, and scoring strength.
         >
           {teamA.team}
         </div>
+<div
+  style={{
+    fontSize: "12px",
+    color: "#94a3b8",
+    marginBottom: "12px",
+  }}
+>
+  Current: {scoreA.toFixed(1)}
+  {" | "}
+  Projected: {projectedA.toFixed(1)}
+  {" | "}
+  Remaining: {(projectedA - scoreA).toFixed(1)}
+</div>
 
        {startersA.map((playerId, idx) => (
   <div
@@ -777,6 +790,19 @@ Based on current score, record, and scoring strength.
         >
           {teamB.team}
         </div>
+<div
+  style={{
+    fontSize: "12px",
+    color: "#94a3b8",
+    marginBottom: "12px",
+  }}
+>
+  Current: {scoreB.toFixed(1)}
+  {" | "}
+  Projected: {projectedB.toFixed(1)}
+  {" | "}
+  Remaining: {(projectedB - scoreB).toFixed(1)}
+</div>
 
        {startersB.map((playerId, idx) => (
   <div
