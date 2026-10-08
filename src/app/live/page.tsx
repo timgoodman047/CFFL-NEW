@@ -480,16 +480,20 @@ marginBottom: "16px",
 cursor: "pointer",
 }}
 >
-<button
-onClick={() => {
-alert(`clicked ${index}`);
-setExpandedMatchup(
-expandedMatchup === index ? null : index
-);
-}}
+<div
+  onClick={() => {
+    setExpandedMatchup(
+      expandedMatchup === index ? null : index
+    );
+  }}
+  style={{
+    background: "#111c2d",
+    padding: "20px",
+    borderRadius: "12px",
+    marginBottom: "16px",
+    cursor: "pointer",
+  }}
 >
-TEST CLICK
-</button>
 <div
 style={{
 display: "flex",
