@@ -8,26 +8,37 @@ getMatchups,
 getLeagueTeams,
 } from "../../lib/sleeper";
  
-export default async function LivePage() {
-const [expandedMatchup, setExpandedMatchup] = useState<number | null>(null);
-console.log("LivePage rendered");
-console.log("expandedMatchup =", expandedMatchup);
-  
-const currentWeek = await getCurrentWeek();
+export default function LivePage() {
+  const [expandedMatchup, setExpandedMatchup] =
+    useState<number | null>(null);
 
-const teams = await getLeagueTeams();
+  const [currentWeek, setCurrentWeek] = useState(0);
+  const [teams, setTeams] = useState<any[]>([]);
+  const [matchups, setMatchups] = useState<any[]>([]);
 
-const matchups = await getMatchups(currentWeek);
- 
-const rosterMap = new Map<
-  number,
-  any
->(
-  teams.map((team) => [
-    team.rosterId,
-    team,
-  ])
-);
+  useEffect(() => {
+    async function loadData() {
+      const week = await getCurrentWeek();
+      const leagueTeams = await getLeagueTeams();
+      const leagueMatchups = await getMatchups(week);
+
+      setCurrentWeek(week);
+      setTeams(leagueTeams);
+      setMatchups(leagueMatchups);
+    }
+
+    loadData();
+  }, []);
+
+  console.log("LivePage rendered");
+  console.log("expandedMatchup =", expandedMatchup);
+
+  const rosterMap = new Map<number, any>(
+    teams.map((team) => [
+      team.rosterId,
+      team,
+    ])
+  );
  
 const matchupGroups =
 new Map<number, any[]>();
