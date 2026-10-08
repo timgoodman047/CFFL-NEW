@@ -674,6 +674,20 @@ fontSize: "12px",
 >
 Based on current score, record, and scoring strength.
 </div>
+
+{expandedMatchup === index && (
+  <div
+    style={{
+      marginTop: "16px",
+      padding: "12px",
+      background: "#1a2940",
+      borderRadius: "8px",
+      color: "white",
+    }}
+  >
+    EXPANDED PANEL WORKING
+  </div>
+)}
  
 </div>
 </div>
