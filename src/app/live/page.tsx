@@ -709,6 +709,7 @@ Based on current score, record, and scoring strength.
     <span>
   {players[playerId]?.position || "?"}{" "}
   {players[playerId]?.full_name || playerId}
+
   <span
     style={{
       color: "#94a3b8",
@@ -718,6 +719,24 @@ Based on current score, record, and scoring strength.
   >
     {players[playerId]?.team || ""}
   </span>
+
+  {players[playerId]?.status && (
+    <span
+      style={{
+        marginLeft: "8px",
+        color:
+          players[playerId]?.status === "Questionable"
+            ? "#f59e0b"
+            : players[playerId]?.status === "Out"
+            ? "#ef4444"
+            : "#94a3b8",
+        fontSize: "12px",
+        fontWeight: "bold",
+      }}
+    >
+      {players[playerId]?.status}
+    </span>
+  )}
 </span>
 
     <span style={{ fontWeight: "bold" }}>
