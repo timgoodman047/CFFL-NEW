@@ -714,6 +714,23 @@ Based on current score, record, and scoring strength.
   Projected: {projectedA.toFixed(1)}
 </div>
 
+ <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "40px 1fr 50px 60px",
+    color: "#94a3b8",
+    fontSize: "11px",
+    fontWeight: "bold",
+    marginBottom: "8px",
+    borderBottom: "1px solid #334155",
+    paddingBottom: "4px",
+  }}
+>
+  <div>POS</div>
+  <div>PLAYER</div>
+  <div>NFL</div>
+  <div>PTS</div>
+</div>       
 {startersA.map((playerId, idx) => (
   <div
     key={playerId}
@@ -768,6 +785,23 @@ Based on current score, record, and scoring strength.
           {" | "}
           Projected: {projectedB.toFixed(1)}
         </div>
+  <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "40px 1fr 50px 60px",
+    color: "#94a3b8",
+    fontSize: "11px",
+    fontWeight: "bold",
+    marginBottom: "8px",
+    borderBottom: "1px solid #334155",
+    paddingBottom: "4px",
+  }}
+>
+  <div>POS</div>
+  <div>PLAYER</div>
+  <div>NFL</div>
+  <div>PTS</div>
+</div>
         {startersB.map((playerId, idx) => (
   <div
     key={playerId}
