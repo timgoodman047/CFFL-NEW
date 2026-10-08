@@ -734,7 +734,21 @@ Based on current score, record, and scoring strength.
   <span>PLAYER</span>
   <span>PTS</span>
 </div>
-       {startersA.map((playerId, idx) => (
+     {startersA.map((playerId, idx) => (
+  <div
+    key={playerId}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "6px 0",
+      borderBottom: "1px solid #243447",
+      fontSize: "14px",
+    }}
+  >
+    {/* your existing starter row code */}
+  </div>
+))}
+
 <div
   style={{
     marginTop: "12px",
@@ -746,6 +760,19 @@ Based on current score, record, and scoring strength.
 </div>
 
 {benchA.map((playerId) => (
+  <div
+    key={playerId}
+    style={{
+      padding: "4px 0",
+      color: "#94a3b8",
+      fontSize: "13px",
+    }}
+  >
+    {players[playerId]?.position || "?"}{" "}
+    {players[playerId]?.full_name || playerId}
+  </div>
+))}
+`` 
   <div
     key={playerId}
     style={{
@@ -830,7 +857,7 @@ Based on current score, record, and scoring strength.
 ))}
       </div>
 
-     <div>
+<div>
   <div
     style={{
       fontWeight: "bold",
@@ -872,30 +899,96 @@ Based on current score, record, and scoring strength.
   </div>
 
   {startersB.map((playerId, idx) => (
+    <div
+      key={playerId}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "6px 0",
+        borderBottom: "1px solid #243447",
+        fontSize: "14px",
+      }}
+    >
       <div
-  style={{
-    marginTop: "12px",
-    fontWeight: "bold",
-    color: "#94a3b8",
-  }}
->
-  BENCH
-</div>
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <div>
+          <span>
+            {players[playerId]?.position || "?"}
+          </span>
+          {" "}
+          <span>
+            {players[playerId]?.full_name || playerId}
+          </span>
 
-{benchB.map((playerId) => (
+          <span
+            style={{
+              color: "#94a3b8",
+              fontSize: "12px",
+              marginLeft: "6px",
+            }}
+          >
+            {players[playerId]?.team || ""}
+          </span>
+
+          {players[playerId]?.status &&
+            !["Active", "ACT"].includes(
+              players[playerId]?.status
+            ) && (
+              <span
+                style={{
+                  marginLeft: "8px",
+                  color: "#f59e0b",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                }}
+              >
+                {players[playerId]?.status}
+              </span>
+            )}
+        </div>
+
+        <div
+          style={{
+            fontWeight: "bold",
+          }}
+        >
+          {(starterPointsB[idx] ?? 0).toFixed(2)}
+        </div>
+      </div>
+    </div>
+  ))}
+
   <div
-    key={playerId}
     style={{
-      padding: "4px 0",
+      marginTop: "12px",
+      fontWeight: "bold",
       color: "#94a3b8",
-      fontSize: "13px",
     }}
   >
-    {players[playerId]?.position || "?"}
-    {" "}
-    {players[playerId]?.full_name || playerId}
+    BENCH
   </div>
-))}
+
+  {benchB.map((playerId) => (
+    <div
+      key={playerId}
+      style={{
+        padding: "4px 0",
+        color: "#94a3b8",
+        fontSize: "13px",
+      }}
+    >
+      {players[playerId]?.position || "?"}
+      {" "}
+      {players[playerId]?.full_name || playerId}
+    </div>
+  ))}
+</div>
     <div
       key={playerId}
       style={{
