@@ -682,10 +682,63 @@ Based on current score, record, and scoring strength.
       padding: "12px",
       background: "#1a2940",
       borderRadius: "8px",
-      color: "white",
     }}
   >
-    EXPANDED PANEL WORKING
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "20px",
+      }}
+    >
+      <div>
+        <div
+          style={{
+            fontWeight: "bold",
+            color: "#22c55e",
+            marginBottom: "8px",
+          }}
+        >
+          {teamA.team}
+        </div>
+
+        <div
+          style={{
+            fontSize: "12px",
+            color: "#94a3b8",
+            marginBottom: "12px",
+          }}
+        >
+          Current: {scoreA.toFixed(1)}
+          {" | "}
+          Projected: {projectedA.toFixed(1)}
+        </div>
+      </div>
+
+      <div>
+        <div
+          style={{
+            fontWeight: "bold",
+            color: "#22c55e",
+            marginBottom: "8px",
+          }}
+        >
+          {teamB.team}
+        </div>
+
+        <div
+          style={{
+            fontSize: "12px",
+            color: "#94a3b8",
+            marginBottom: "12px",
+          }}
+        >
+          Current: {scoreB.toFixed(1)}
+          {" | "}
+          Projected: {projectedB.toFixed(1)}
+        </div>
+      </div>
+    </div>
   </div>
 )}
  
