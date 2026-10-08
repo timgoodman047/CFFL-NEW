@@ -768,6 +768,36 @@ Based on current score, record, and scoring strength.
           {" | "}
           Projected: {projectedB.toFixed(1)}
         </div>
+        {startersB.map((playerId, idx) => (
+  <div
+    key={playerId}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "4px 0",
+      fontSize: "13px",
+    }}
+  >
+    <span>
+      {players[playerId]?.position || "?"}
+      {" "}
+      {players[playerId]?.full_name || playerId}
+      {" "}
+      <span
+        style={{
+          color: "#94a3b8",
+          fontSize: "11px",
+        }}
+      >
+        {players[playerId]?.team || ""}
+      </span>
+    </span>
+
+    <span>
+      {(starterPointsB[idx] ?? 0).toFixed(2)}
+    </span>
+  </div>
+))}
       </div>
     </div>
   </div>
