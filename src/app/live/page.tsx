@@ -665,22 +665,58 @@ Based on current score, record, and scoring strength.
 </div>
  
 {expandedMatchup === index && (
-<div
-style={{
-marginTop: "16px",
-padding: "12px",
-background: "#1a2940",
-borderRadius: "8px",
-}}
->
-<div style={{ color: "white" }}>
-  Matchup Details Loaded
-  <br />
-  Team A Starters: {startersA.length}
-  <br />
-  Team B Starters: {startersB.length}
-</div>
-</div>
+  <div
+    style={{
+      marginTop: "16px",
+      padding: "12px",
+      background: "#1a2940",
+      borderRadius: "8px",
+    }}
+  >
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "20px",
+      }}
+    >
+      <div>
+        <div
+          style={{
+            fontWeight: "bold",
+            color: "#22c55e",
+            marginBottom: "8px",
+          }}
+        >
+          {teamA.team}
+        </div>
+
+        {startersA.map((playerId, idx) => (
+          <div key={playerId}>
+            {playerId}: {starterPointsA[idx] ?? 0}
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <div
+          style={{
+            fontWeight: "bold",
+            color: "#22c55e",
+            marginBottom: "8px",
+          }}
+        >
+          {teamB.team}
+        </div>
+
+        {startersB.map((playerId, idx) => (
+          <div key={playerId}>
+            {playerId}: {starterPointsB[idx] ?? 0}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 )}
  
 </div>
