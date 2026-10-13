@@ -737,33 +737,30 @@ Based on current score, record, and scoring strength.
 
         {startersA.map((playerId, idx) => (
           <div
-            key={playerId}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "4px 0",
-              fontSize: "13px",
-            }}
-          >
-            <span>
-              {players[playerId]?.position || "?"}{" "}
-              {players[playerId]?.full_name || playerId}{" "}
-              <span
-                style={{
-                  color: "#94a3b8",
-                  fontSize: "11px",
-                }}
-              >
-                {players[playerId]?.team || ""}
-              </span>
-            </span>
+  key={playerId}
+  style={{
+    display: "grid",
+    gridTemplateColumns: "40px 1fr 50px 60px",
+    padding: "4px 0",
+    fontSize: "13px",
+  }}
+>
+  <div>
+    {players[playerId]?.position || "?"}
+  </div>
 
-            <span>
-  {(starterPointsA[idx] ?? 0).toFixed(2)}
-  {" / "}
-  {starterProjectionsA[idx].toFixed(1)}
-</span>
-          </div>
+  <div>
+    {players[playerId]?.full_name || playerId}
+  </div>
+
+  <div>
+    {players[playerId]?.team || ""}
+  </div>
+
+  <div>
+    {(starterPointsA[idx] ?? 0).toFixed(2)}
+  </div>
+</div>
         ))}
 
         <div
@@ -780,30 +777,29 @@ Based on current score, record, and scoring strength.
 
         {benchA.map((playerId) => (
           <div
-            key={playerId}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "4px 0",
-              fontSize: "13px",
-              color: "#94a3b8",
-            }}
-          >
-            <span>
-              {players[playerId]?.position || "?"}{" "}
-              {players[playerId]?.full_name || playerId}{" "}
-              <span
-                style={{
-                  color: "#64748b",
-                  fontSize: "11px",
-                }}
-              >
-                {players[playerId]?.team || ""}
-              </span>
-            </span>
+  key={playerId}
+  style={{
+    display: "grid",
+    gridTemplateColumns: "40px 1fr 50px 60px",
+    padding: "4px 0",
+    fontSize: "13px",
+    color: "#94a3b8",
+  }}
+>
+  <div>
+    {players[playerId]?.position || "?"}
+  </div>
 
-            <span>BEN</span>
-          </div>
+  <div>
+    {players[playerId]?.full_name || playerId}
+  </div>
+
+  <div>
+    {players[playerId]?.team || ""}
+  </div>
+
+  <div>BEN</div>
+</div>
         ))}
       </div>
 
@@ -831,36 +827,33 @@ Based on current score, record, and scoring strength.
           Projected: {projectedB.toFixed(1)}
         </div>
 
-        {startersB.map((playerId, idx) => (
-          <div
-            key={playerId}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "4px 0",
-              fontSize: "13px",
-            }}
-          >
-            <span>
-              {players[playerId]?.position || "?"}{" "}
-              {players[playerId]?.full_name || playerId}{" "}
-              <span
-                style={{
-                  color: "#94a3b8",
-                  fontSize: "11px",
-                }}
-              >
-                {players[playerId]?.team || ""}
-              </span>
-            </span>
+    {startersB.map((playerId, idx) => (
+  <div
+    key={playerId}
+    style={{
+      display: "grid",
+      gridTemplateColumns: "40px 1fr 50px 60px",
+      padding: "4px 0",
+      fontSize: "13px",
+    }}
+  >
+    <div>
+      {players[playerId]?.position || "?"}
+    </div>
 
-            <span>
-  {(starterPointsB[idx] ?? 0).toFixed(2)}
-  {" / "}
-  {starterProjectionsB[idx].toFixed(1)}
-</span>
-          </div>
-        ))}
+    <div>
+      {players[playerId]?.full_name || playerId}
+    </div>
+
+    <div>
+      {players[playerId]?.team || ""}
+    </div>
+
+    <div>
+      {(starterPointsB[idx] ?? 0).toFixed(2)}
+    </div>
+  </div>
+))}
 
         <div
           style={{
@@ -874,33 +867,32 @@ Based on current score, record, and scoring strength.
           BENCH
         </div>
 
-        {benchB.map((playerId) => (
-          <div
-            key={playerId}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "4px 0",
-              fontSize: "13px",
-              color: "#94a3b8",
-            }}
-          >
-            <span>
-              {players[playerId]?.position || "?"}{" "}
-              {players[playerId]?.full_name || playerId}{" "}
-              <span
-                style={{
-                  color: "#64748b",
-                  fontSize: "11px",
-                }}
-              >
-                {players[playerId]?.team || ""}
-              </span>
-            </span>
+     {benchB.map((playerId) => (
+  <div
+    key={playerId}
+    style={{
+      display: "grid",
+      gridTemplateColumns: "40px 1fr 50px 60px",
+      padding: "4px 0",
+      fontSize: "13px",
+      color: "#94a3b8",
+    }}
+  >
+    <div>
+      {players[playerId]?.position || "?"}
+    </div>
 
-            <span>BEN</span>
-          </div>
-        ))}
+    <div>
+      {players[playerId]?.full_name || playerId}
+    </div>
+
+    <div>
+      {players[playerId]?.team || ""}
+    </div>
+
+    <div>BEN</div>
+  </div>
+))}   
       </div>
     </div>
   </div>
