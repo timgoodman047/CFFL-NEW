@@ -724,16 +724,29 @@ Based on current score, record, and scoring strength.
         </div>
 
         <div
-          style={{
-            fontSize: "12px",
-            color: "#94a3b8",
-            marginBottom: "12px",
-          }}
-        >
-          Current: {scoreA.toFixed(1)}
-          {" | "}
-          Projected: {projectedA.toFixed(1)}
-        </div>
+  style={{
+    fontSize: "12px",
+    color: "#94a3b8",
+    marginBottom: "12px",
+    lineHeight: "1.6",
+  }}
+>
+  <div>
+    Current: {scoreA.toFixed(1)}
+  </div>
+
+  <div>
+    Remaining Projection: {(projectedA - scoreA).toFixed(1)}
+  </div>
+
+  <div>
+    Projected Final: {projectedA.toFixed(1)}
+  </div>
+
+  <div>
+    Players Remaining: {remainingA}
+  </div>
+</div>
 
         {startersA.map((playerId, idx) => (
           <div
@@ -816,16 +829,29 @@ Based on current score, record, and scoring strength.
         </div>
 
         <div
-          style={{
-            fontSize: "12px",
-            color: "#94a3b8",
-            marginBottom: "12px",
-          }}
-        >
-          Current: {scoreB.toFixed(1)}
-          {" | "}
-          Projected: {projectedB.toFixed(1)}
-        </div>
+  style={{
+    fontSize: "12px",
+    color: "#94a3b8",
+    marginBottom: "12px",
+    lineHeight: "1.6",
+  }}
+>
+  <div>
+    Current: {scoreB.toFixed(1)}
+  </div>
+
+  <div>
+    Remaining Projection: {(projectedB - scoreB).toFixed(1)}
+  </div>
+
+  <div>
+    Projected Final: {projectedB.toFixed(1)}
+  </div>
+
+  <div>
+    Players Remaining: {remainingB}
+  </div>
+</div>
 
     {startersB.map((playerId, idx) => (
   <div
