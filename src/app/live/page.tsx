@@ -354,6 +354,9 @@ rosterMap.get(game[0].roster_id);
  
 const teamB =
 rosterMap.get(game[1].roster_id);
+
+console.log("TEAM A", teamA);
+console.log("TEAM B", teamB);
  
 if (!teamA || !teamB) {
 return null;
@@ -379,7 +382,6 @@ const benchB = (teamB.players ?? []).filter(
   (id) => !startersB.includes(id)
 );
 
- 
 const starterPointsA =
 game[0].starters_points ?? [];
  
