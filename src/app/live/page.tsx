@@ -370,6 +370,15 @@ game[0].starters ?? [];
  
 const startersB =
 game[1].starters ?? [];
+
+const benchA = (teamA.players ?? []).filter(
+  (id) => !startersA.includes(id)
+);
+
+const benchB = (teamB.players ?? []).filter(
+  (id) => !startersB.includes(id)
+);
+
  
 const starterPointsA =
 game[0].starters_points ?? [];
@@ -743,10 +752,53 @@ Based on current score, record, and scoring strength.
     </span>
   </div>
 ))}
-      </div>
 
-      <div>
-        <div
+<div
+  style={{
+    marginTop: "16px",
+    fontWeight: "bold",
+    color: "#94a3b8",
+    borderTop: "1px solid #334155",
+    paddingTop: "8px",
+  }}
+>
+  BENCH
+</div>
+
+{benchA.map((playerId) => (
+  <div
+    key={playerId}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "4px 0",
+      fontSize: "13px",
+      color: "#94a3b8",
+    }}
+  >
+    <span>
+      {players[playerId]?.position || "?"}
+      {" "}
+      {players[playerId]?.full_name || playerId}
+      {" "}
+      <span
+        style={{
+          color: "#64748b",
+          fontSize: "11px",
+        }}
+      >
+        {players[playerId]?.team || ""}
+      </span>
+    </span>
+
+    <span>BEN</span>
+  </div>
+))}
+        
+</div>
+
+<div>
+ <div
           style={{
             fontWeight: "bold",
             color: "#22c55e",
