@@ -471,6 +471,11 @@ scoreA > scoreB
 console.log("GAME 0", game[0]);
 console.log("GAME 1", game[1]);
 
+console.log(
+  "PLAYER TEST",
+  players[startersA[0]]
+);
+
 console.log("matchups", matchups);
 console.log("teams", teams);
 console.log("gameSummaries", gameSummaries);
