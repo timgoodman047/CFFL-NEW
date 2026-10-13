@@ -471,6 +471,26 @@ scoreA > scoreB
 console.log("matchups", matchups);
 console.log("teams", teams);
 console.log("gameSummaries", gameSummaries);
+
+const starterProjectionsA = startersA.map((playerId) => {
+  const pts = starterPointsA[startersA.indexOf(playerId)] ?? 0;
+
+  if (pts > 0) {
+    return pts;
+  }
+
+  return avgPlayerA;
+});
+
+const starterProjectionsB = startersB.map((playerId) => {
+  const pts = starterPointsB[startersB.indexOf(playerId)] ?? 0;
+
+  if (pts > 0) {
+    return pts;
+  }
+
+  return avgPlayerB;
+});
  
 return (
   <div
@@ -731,8 +751,10 @@ Based on current score, record, and scoring strength.
             </span>
 
             <span>
-              {(starterPointsA[idx] ?? 0).toFixed(2)}
-            </span>
+  {(starterPointsA[idx] ?? 0).toFixed(2)}
+  {" / "}
+  {starterProjectionsA[idx].toFixed(1)}
+</span>
           </div>
         ))}
 
@@ -825,8 +847,10 @@ Based on current score, record, and scoring strength.
             </span>
 
             <span>
-              {(starterPointsB[idx] ?? 0).toFixed(2)}
-            </span>
+  {(starterPointsB[idx] ?? 0).toFixed(2)}
+  {" / "}
+  {starterProjectionsB[idx].toFixed(1)}
+</span>
           </div>
         ))}
 
