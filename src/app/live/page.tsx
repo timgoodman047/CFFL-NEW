@@ -794,18 +794,6 @@ Based on current score, record, and scoring strength.
   </div>
 ))}
 
-<div
-  style={{
-    marginTop: "16px",
-    fontWeight: "bold",
-    color: "#94a3b8",
-    borderTop: "1px solid #334155",
-    paddingTop: "8px",
-  }}
->
-  BENCH
-</div>
-
 <div>
  <div
           style={{
