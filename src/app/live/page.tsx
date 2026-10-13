@@ -354,9 +354,6 @@ rosterMap.get(game[0].roster_id);
  
 const teamB =
 rosterMap.get(game[1].roster_id);
-
-console.log("TEAM A", teamA);
-console.log("TEAM B", teamB);
  
 if (!teamA || !teamB) {
 return null;
@@ -374,11 +371,11 @@ game[0].starters ?? [];
 const startersB =
 game[1].starters ?? [];
 
-const benchA = (teamA.players ?? []).filter(
+const benchA = (game[0].players ?? []).filter(
   (id) => !startersA.includes(id)
 );
 
-const benchB = (teamB.players ?? []).filter(
+const benchB = (game[1].players ?? []).filter(
   (id) => !startersB.includes(id)
 );
 
