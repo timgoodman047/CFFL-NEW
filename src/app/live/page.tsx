@@ -665,6 +665,8 @@ fontSize: "12px",
 Based on current score, record, and scoring strength.
 </div>
 
+</div>
+
 {expandedMatchup === index && (
   <div
     style={{
