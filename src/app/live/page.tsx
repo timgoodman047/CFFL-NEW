@@ -922,9 +922,6 @@ Based on current score, record, and scoring strength.
     </div>
   </div>
 )}
- 
-</div>
-</div>
 
 );
 })}
