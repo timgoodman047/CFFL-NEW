@@ -214,13 +214,10 @@ export default function StandingsPage() {
           {index === 0 ? "🏆" : index + 1}
         </td>
 
-        <td className="p-3 font-semibold">
+<td className="p-3 font-semibold">
   <Link
     href={`/team/${team.slug}`}
-    classLink>
-
-  {index < 5 ? (
-    <span className="ml-2 text-green-400">
+    className="text-blue-400 hover:text-blue-300Name="ml-2 text-green-400">
       👑
     </span>
   ) : (
