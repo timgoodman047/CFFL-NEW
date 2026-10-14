@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-const LEAGUE_ID = process.env.NEXT_PUBLIC_SLEEPER_LEAGUE_ID!;
+const LEAGUE_ID = "1352723400459563008";
 
 type SortField =
   | "wins"
