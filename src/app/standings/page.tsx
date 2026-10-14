@@ -7,7 +7,6 @@ import {
   useState,
 } from "react";
 
-
 const LEAGUE_ID = "1352723400459563008";
 
 type SortField =
@@ -181,43 +180,65 @@ export default function StandingsPage() {
           </thead>
 
           <tbody>
-            {standings.map((team, index) => (
-              <tr
-                key={team.rosterId}
-               className={`border-t border-gray-700 hover:bg-gray-900 ${
-  index < 6 ? "bg-green-950/30" : ""
-}`}
-              >
-                <td className="p-3">
-                  {index + 1}
-                </td>
+  {standings.map((team, index) => (
+    <Fragment key={team.rosterId}>
+      {index === 5 && (
+        <tr>
+          <td
+            colSpan={7}
+            className="bg-blue-900 text-center font-bold py-2"
+          >
+            POINTS FOR QUALIFIERS
+          </td>
+        </tr>
+      )}
 
-                <td className="p-3 font-semibold">
-                  {team.teamName}
-                </td>
+      <tr
+        className={`border-t border-gray-700 hover:bg-gray-900 ${
+          index < 5 ? "bg-green-950/30" : ""
+        }`}
+      >
+        <td className="p-3">
+          {index === 0 ? "🏆" : index + 1}
+        </td>
 
-                <td className="p-3">
-                  {team.wins}
-                </td>
+        <td className="p-3 font-semibold">
+          {team.teamName}
 
-                <td className="p-3">
-                  {team.losses}
-                </td>
+          {index < 5 ? (
+            <span className="ml-2 text-green-400">
+              👑
+            </span>
+          ) : (
+            <span className="ml-2 text-blue-400">
+              ⭐
+            </span>
+          )}
+        </td>
 
-                <td className="p-3">
-                  {team.ties}
-                </td>
+        <td className="p-3">
+          {team.wins}
+        </td>
 
-                <td className="p-3">
-                  {team.fpts.toFixed(2)}
-                </td>
+        <td className="p-3">
+          {team.losses}
+        </td>
 
-                <td className="p-3">
-  {team.fptsAgainst.toFixed(2)}
-</td>
-              </tr>
-            ))}
-          </tbody>
+        <td className="p-3">
+          {team.ties}
+        </td>
+
+        <td className="p-3">
+          {team.fpts.toFixed(2)}
+        </td>
+
+        <td className="p-3">
+          {team.fptsAgainst.toFixed(2)}
+        </td>
+      </tr>
+    </Fragment>
+  ))}
+</tbody>
         </table>
       </div>
     </div>
