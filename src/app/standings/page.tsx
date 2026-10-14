@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 
 const LEAGUE_ID = "1352723400459563008";
 
@@ -48,38 +54,67 @@ export default function StandingsPage() {
   }, []);
 
   const standings = useMemo(() => {
-    const rows = rosters.map((roster) => {
-      const owner = users.find(
-        (u) => u.user_id === roster.owner_id
-      );
+  const teams = rosters.map((roster) => {
+    const owner = users.find(
+      (u) => u.user_id === roster.owner_id
+    );
 
-      return {
-        rosterId: roster.roster_id,
-        teamName:
-          owner?.metadata?.team_name ||
-          owner?.display_name ||
-          `Team ${roster.roster_id}`,
-        wins: roster.settings?.wins ?? 0,
-        losses: roster.settings?.losses ?? 0,
-        ties: roster.settings?.ties ?? 0,
-        fpts: Number(roster.settings?.fpts ?? 0),
-        fpts_against: Number(
+    return {
+      rosterId: roster.roster_id,
+
+      teamName:
+        owner?.metadata?.team_name ||
+        owner?.display_name ||
+        `Team ${roster.roster_id}`,
+
+      wins: roster.settings?.wins ?? 0,
+
+      losses: roster.settings?.losses ?? 0,
+
+      ties: roster.settings?.ties ?? 0,
+
+      fpts:
+        Number(roster.settings?.fpts ?? 0) +
+        Number(
+          roster.settings?.fpts_decimal ?? 0
+        ) /
+          100,
+
+      fptsAgainst:
+        Number(
           roster.settings?.fpts_against ?? 0
-        ),
-      };
-    });
+        ) +
+        Number(
+          roster.settings?.fpts_against_decimal ??
+            0
+        ) /
+          100,
+    };
+  });
 
-    rows.sort((a, b) => {
-      const dir = sortAsc ? 1 : -1;
+  // TOP 5 BY RECORD
+  const topFive = [...teams]
+    .sort((a, b) => {
+      if (b.wins !== a.wins) {
+        return b.wins - a.wins;
+      }
 
-      return (
-        ((a[sortField] as number) -
-          (b[sortField] as number)) * dir
-      );
-    });
+      return b.fpts - a.fpts;
+    })
+    .slice(0, 5);
 
-    return rows;
-  }, [rosters, users, sortField, sortAsc]);
+  // REMAINING TEAMS BY PF
+  const bottomFive = [...teams]
+    .filter(
+      (team) =>
+        !topFive.some(
+          (t) => t.rosterId === team.rosterId
+        )
+    )
+    .sort((a, b) => b.fpts - a.fpts);
+
+  return [...topFive, ...bottomFive];
+}, [rosters, users]);
 
   function handleSort(field: SortField) {
     if (field === sortField) {
