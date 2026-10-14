@@ -14,7 +14,7 @@ type SortField =
   | "wins"
   | "losses"
   | "fpts"
-  | "fpts_against";
+  | "fptsagainst";
 
 export default function StandingsPage() {
   const [rosters, setRosters] = useState<any[]>([]);
@@ -82,10 +82,10 @@ export default function StandingsPage() {
 
       fptsAgainst:
         Number(
-          roster.settings?.fpts_against ?? 0
+          roster.settings?.fptsagainst ?? 0
         ) +
         Number(
-          roster.settings?.fpts_against_decimal ??
+          roster.settings?.fptsagainst_decimal ??
             0
         ) /
           100,
@@ -172,7 +172,7 @@ export default function StandingsPage() {
               <th
                 className="p-3 cursor-pointer"
                 onClick={() =>
-                  handleSort("fpts_against")
+                  handleSort("fptsagainst")
                 }
               >
                 PA
@@ -213,8 +213,8 @@ export default function StandingsPage() {
                 </td>
 
                 <td className="p-3">
-                  {team.fpts_against.toFixed(2)}
-                </td>
+  {team.fptsAgainst.toFixed(2)}
+</td>
               </tr>
             ))}
           </tbody>
