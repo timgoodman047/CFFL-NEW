@@ -61,36 +61,44 @@ export default function StandingsPage() {
     );
 
     return {
-      rosterId: roster.roster_id,
+  rosterId: roster.roster_id,
 
-      teamName:
-        owner?.metadata?.team_name ||
-        owner?.display_name ||
-        `Team ${roster.roster_id}`,
+  teamName:
+    owner?.metadata?.team_name ||
+    owner?.display_name ||
+    `Team ${roster.roster_id}`,
 
-      wins: roster.settings?.wins ?? 0,
+  slug:
+    franchises.find(
+      (f) =>
+        f.sleeperTeam ===
+        (owner?.metadata?.team_name ||
+          owner?.display_name)
+    )?.slug || "",
 
-      losses: roster.settings?.losses ?? 0,
+  wins: roster.settings?.wins ?? 0,
 
-      ties: roster.settings?.ties ?? 0,
+  losses: roster.settings?.losses ?? 0,
 
-      fpts:
-        Number(roster.settings?.fpts ?? 0) +
-        Number(
-          roster.settings?.fpts_decimal ?? 0
-        ) /
-          100,
+  ties: roster.settings?.ties ?? 0,
 
-      fptsAgainst:
-        Number(
-          roster.settings?.fptsagainst ?? 0
-        ) +
-        Number(
-          roster.settings?.fptsagainst_decimal ??
-            0
-        ) /
-          100,
-    };
+  fpts:
+    Number(roster.settings?.fpts ?? 0) +
+    Number(
+      roster.settings?.fpts_decimal ?? 0
+    ) /
+      100,
+
+  fptsAgainst:
+    Number(
+      roster.settings?.fptsagainst ?? 0
+    ) +
+    Number(
+      roster.settings?.fptsagainst_decimal ??
+        0
+    ) /
+      100,
+};
   });
 
   // TOP 5 BY RECORD
@@ -205,9 +213,9 @@ export default function StandingsPage() {
         </td>
 
         <td className="p-3 font-semibold">
-  {`/team/${team.rosterId}`}
-    {team.teamName}
-  </Link>
+<Link
+href={`/team/${team.slug}`}
+classLink>
 </td>
 
           {index < 5 ? (
