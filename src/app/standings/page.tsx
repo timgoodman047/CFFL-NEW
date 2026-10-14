@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   Fragment,
   useEffect,
@@ -203,7 +205,10 @@ export default function StandingsPage() {
         </td>
 
         <td className="p-3 font-semibold">
-          {team.teamName}
+  {`/team/${team.rosterId}`}
+    {team.teamName}
+  </Link>
+</td>
 
           {index < 5 ? (
             <span className="ml-2 text-green-400">
