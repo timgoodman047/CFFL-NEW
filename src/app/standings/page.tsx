@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { franchises } from "../../data/franchises";
+
 import {
   Fragment,
   useEffect,
@@ -203,45 +205,51 @@ export default function StandingsPage() {
         </tr>
       )}
 
-      <tr
-        className={`border-t border-gray-700 hover:bg-gray-900 ${
-          index < 5 ? "bg-green-950/30" : ""
-        }`}
-      >
-        <td className="p-3 font-semibold">
-  <Link
-    href={`/team/${team.slug}`}
-    className="text-blue < 5 ? (
-    <span className="ml-2 text-green-400">
-      👑
-    </span>
-  ) : (
-    <span className="ml-2 text-yellow-400">
-      ⭐
-    </span>
-  )}
-</td>
+     <tr
+  className={`border-t border-gray-700 hover:bg-gray-900 ${
+    index < 5 ? "bg-green-950/30" : ""
+  }`}
+>
+  <td className="p-3">
+    {index === 0 ? "🏆" : index + 1}
+  </td>
 
-        <td className="p-3">
-          {team.wins}
-        </td>
+  <td className="p-3 font-semibold">
+    <Link
+      href={`/team/${teameam.teamName}
+    </Link>
 
-        <td className="p-3">
-          {team.losses}
-        </td>
+    {index < 5 ? (
+      <span className="ml-2 text-green-400">
+        👑
+      </span>
+    ) : (
+      <span className="ml-2 text-yellow-400">
+        ⭐
+      </span>
+    )}
+  </td>
 
-        <td className="p-3">
-          {team.ties}
-        </td>
+  <td className="p-3">
+    {team.wins}
+  </td>
 
-        <td className="p-3">
-          {team.fpts.toFixed(2)}
-        </td>
+  <td className="p-3">
+    {team.losses}
+  </td>
 
-        <td className="p-3">
-          {team.fptsAgainst.toFixed(2)}
-        </td>
-      </tr>
+  <td className="p-3">
+    {team.ties}
+  </td>
+
+  <td className="p-3">
+    {team.fpts.toFixed(2)}
+  </td>
+
+  <td className="p-3">
+    {team.fptsAgainst.toFixed(2)}
+  </td>
+</tr>
     </Fragment>
   ))}
 </tbody>
