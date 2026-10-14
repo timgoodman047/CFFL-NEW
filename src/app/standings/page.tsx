@@ -149,7 +149,9 @@ export default function StandingsPage() {
             {standings.map((team, index) => (
               <tr
                 key={team.rosterId}
-                className="border-t border-gray-700 hover:bg-gray-900"
+               className={`border-t border-gray-700 hover:bg-gray-900 ${
+  index < 6 ? "bg-green-950/30" : ""
+}`}
               >
                 <td className="p-3">
                   {index + 1}
