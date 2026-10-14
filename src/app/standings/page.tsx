@@ -213,21 +213,20 @@ export default function StandingsPage() {
         </td>
 
         <td className="p-3 font-semibold">
-<Link
-href={`/team/${team.slug}`}
-classLink>
-</td>
+  {`/team/${team.slug}`}
+    {team.teamName}
+  </Link>
 
-          {index < 5 ? (
-            <span className="ml-2 text-green-400">
-              👑
-            </span>
-          ) : (
-            <span className="ml-2 text-blue-400">
-              ⭐
-            </span>
-          )}
-        </td>
+  {index < 5 ? (
+    <span className="ml-2 text-green-400">
+      👑
+    </span>
+  ) : (
+    <span className="ml-2 text-yellow-400">
+      ⭐
+    </span>
+  )}
+</td>
 
         <td className="p-3">
           {team.wins}
