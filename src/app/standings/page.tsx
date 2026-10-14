@@ -211,13 +211,13 @@ export default function StandingsPage() {
         }`}
       >
         <td className="p-3">
-          {index === 0 ? "🏆" : index + 1}
-        </td>
+  {index === 0 ? "🏆" : index + 1}
+</td>
 
 <td className="p-3 font-semibold">
   <Link
-    href={`/team/${team.slug}`mName}
-  </Link>
+    href={`/team/${team.slug}`}
+    className>
 
   {index < 5 ? (
     <span className="ml-2 text-green-400">
@@ -230,9 +230,9 @@ export default function StandingsPage() {
   )}
 </td>
 
-        <td className="p-3">
-          {team.wins}
-        </td>
+<td className="p-3">
+  {team.wins}
+</td>
 
         <td className="p-3">
           {team.losses}
