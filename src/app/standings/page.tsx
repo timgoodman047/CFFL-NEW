@@ -213,9 +213,8 @@ export default function StandingsPage() {
         </td>
 
         <td className="p-3 font-semibold">
-          <link
-  {`/team/${team.slug}`}
-    {team.teamName}
+  <Link
+    href={`/team/${team.slugeamName}
   </Link>
 
   {index < 5 ? (
