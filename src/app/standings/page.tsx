@@ -215,9 +215,9 @@ export default function StandingsPage() {
 </td>
 
 <td className="p-3 font-semibold">
-  <Link
-    href={`/team/${team.slug}`}
-    className>
+  {`/team/${team.slug}`}
+    {team.teamName}
+  </Link>
 
   {index < 5 ? (
     <span className="ml-2 text-green-400">
