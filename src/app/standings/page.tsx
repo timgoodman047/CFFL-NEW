@@ -195,14 +195,6 @@ export default function StandingsPage() {
   {standings.map((team, index) => (
     <Fragment key={team.rosterId}>
       {index === 5 && (
-        <tr>
-          <td
-            colSpan={7}
-            className="bg-blue-900 text-center font-bold py-2"
-          >
-            POINTS FOR QUALIFIERS
-          </td>
-        </tr>
       )}
 
       <tr
