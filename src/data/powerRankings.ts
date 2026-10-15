@@ -4,13 +4,26 @@ export const powerRankings = {
 
   rankings: [
     {
-      rank: 1,
-      previousRank: 2,
-      team: "Short Board Champ",
-      summary: `
-The Champ is back on top and its not even close. They’ve defeated teams that have scored over 130pts against them three times and never batted an eye. Nabbed most points this week and was 2nd in points scored the two before. Made a great decision at QB this week which has been a struggle. They only own one WR in the top 30, but Puka puts up enough points for their whole core, and McBride is essentially a wideout. 
-      `,
-    },
+  rank: 1,
+  previousRank: 2,
+  team: "Short Board Champ",
+
+  pfRank: 1,
+  allPlayRank: 2,
+  threeWeekRank: 1,
+
+  top10QB: 1,
+  top10RB: 2,
+  top10WR: 2,
+
+  top3TE: 1,
+
+  wins125: 3,
+
+  precision: 1.2,
+
+  summary: `The Champ is back on top and its not even close. They’ve defeated teams that have scored over 130pts against them three times and never batted an eye. Nabbed most points this week and was 2nd in points scored the two before. Made a great decision at QB this week which has been a struggle. They only own one WR in the top 30, but Puka puts up enough points for their whole core, and McBride is essentially a wideout. `
+}
 
     {
       rank: 4,
