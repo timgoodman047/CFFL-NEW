@@ -8,6 +8,15 @@ import {
 export default async function PowerRankingsPage() {
 
 const seasonStats = await getSeasonStats();
+  return (
+  <pre style={{ color: "white" }}>
+    {JSON.stringify(
+      Object.entries(seasonStats)[0],
+      null,
+      2
+    )}
+  </pre>
+);
 
 console.log(
   "SEASON STATS SAMPLE",
