@@ -23,7 +23,7 @@ export const powerRankings = {
   precision: 1.2,
 
   summary: `The Champ is back on top and its not even close. They’ve defeated teams that have scored over 130pts against them three times and never batted an eye. Nabbed most points this week and was 2nd in points scored the two before. Made a great decision at QB this week which has been a struggle. They only own one WR in the top 30, but Puka puts up enough points for their whole core, and McBride is essentially a wideout. `
-}
+},
 
     {
       rank: 4,
