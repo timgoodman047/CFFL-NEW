@@ -31,7 +31,9 @@ cache: "no-store",
 const matchupData =
 await matchupResponse.json();
 
-console.log(matchupData[0]);
+console.log(
+  JSON.stringify(matchupData[0], null, 2)
+);
  
 const teams = rosters.map((roster: any) => {
  
