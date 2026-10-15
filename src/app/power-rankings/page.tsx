@@ -17,17 +17,6 @@ const seasonStats = await getSeasonStats();
     )}
   </pre>
 );
-
-const joshAllen = Object.entries(seasonStats).find(
-  ([_, stat]: any) =>
-    stat.player?.first_name === "Josh" &&
-    stat.player?.last_name === "Allen"
-);
-
-console.log(
-  "JOSH ALLEN",
-  JSON.stringify(joshAllen, null, 2)
-);
   
   const leagueTeams = await getLeagueTeams();
   const rankings = powerRankings.rankings
