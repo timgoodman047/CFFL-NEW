@@ -26,13 +26,28 @@ export const powerRankings = {
 },
 
     {
-      rank: 4,
-      previousRank: 1,
-      team: "The Locked Room",
-      summary: `
+  rank: 4,
+  previousRank: 1,
+  team: "The Locked Room",
+
+  pfRank: 4,
+  allPlayRank: 4,
+  threeWeekRank: 4,
+
+  top10QB: 0,
+  top10RB: 0,
+  top10WR: 0,
+
+  top3TE: 0,
+
+  wins125: 0,
+
+  precision: 0,
+
+  summary: `
 Third time this year finishing 4th in points scored, so this seems like a pretty good spot for them. Will have a breakout game every once in a while when an RB over produces, but we don’t see them holding onto the #2 spot in the standings for long. They’ve had the easiest schedule so far but have a threatening matchup this week.
-      `,
-    },
+  `,
+},
 
     {
       rank: 2,
