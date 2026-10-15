@@ -1,5 +1,6 @@
 export const powerRankings = {
   week: 6,
+  published: "October 15, 2026",
 
   rankings: [
     {
