@@ -19,8 +19,14 @@ const players =
   const rankings = powerRankings.rankings
   .map((ranking) => {
     const leagueTeam = leagueTeams.find(
-      (team) => team.team === ranking.team
-    );
+  (team) =>
+    team.team
+      .toLowerCase()
+      .replace(/\s+/g, "") ===
+    ranking.team
+      .toLowerCase()
+      .replace(/\s+/g, "")
+);
 
     const bonuses =
   calculatePlayerBonuses(
