@@ -30,16 +30,6 @@ cache: "no-store",
  
 const matchupData =
 await matchupResponse.json();
-
-return (
-  <pre style={{ color: "white" }}>
-    {JSON.stringify(matchupData[0], null, 2)}
-  </pre>
-);
-
-console.log(
-  JSON.stringify(matchupData[0], null, 2)
-);
  
 const teams = rosters.map((roster: any) => {
  
