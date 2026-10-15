@@ -1,6 +1,9 @@
 import { powerRankings } from "../../data/powerRankings";
 import { calculatePowerScore } from "../../lib/powerRankings";
-import { getLeagueTeams } from "../../lib/sleeper";
+import {
+  getLeagueTeams,
+  getSeasonStats,
+} from "../../lib/sleeper";
 
 export default async function PowerRankingsPage() {
 
