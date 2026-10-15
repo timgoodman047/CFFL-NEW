@@ -1,16 +1,6 @@
 import { powerRankings } from "../../data/powerRankings";
 
 export default function PowerRankingsPage() {
-  const movementIcon = (movement: string) => {
-    switch (movement) {
-      case "up":
-        return "📈";
-      case "down":
-        return "📉";
-      default:
-        return "➡️";
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
@@ -54,13 +44,9 @@ export default function PowerRankingsPage() {
   </div>
 </div>
 
-            <div className="text-sm text-green-400 mb-3">
-              {team.tier}
-            </div>
-
-            <p className="text-gray-300">
-              {team.blurb}
-            </p>
+<div className="text-gray-300 whitespace-pre-line">
+  {team.summary}
+</div>
           </div>
         ))}
       </div>
