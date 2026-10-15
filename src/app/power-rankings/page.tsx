@@ -19,8 +19,8 @@ export default function PowerRankingsPage() {
       </h1>
 
       <p className="text-gray-400 mb-8">
-        Week {powerRankings.week}
-      </p>
+  Week {powerRankings.week} • Published {powerRankings.published}
+</p>
 
       <div className="space-y-4">
         {powerRankings.rankings.map((team) => (
