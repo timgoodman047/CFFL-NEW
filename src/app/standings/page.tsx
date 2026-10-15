@@ -194,29 +194,27 @@ export default function StandingsPage() {
 <tbody>
   {standings.map((team, index) => (
     <Fragment key={team.rosterId}>
-  <tr>
+  <tr
+    className={`border-t border-gray-700 hover:bg-gray-900 ${
+      index < 5 ? "bg-green-950/30" : ""
+    }`}
+  >
+    <td className="p-3">
+      {index === 0 ? "🏆" : index + 1}
+    </td>
 
-      <tr
-        className={`border-t border-gray-700 hover:bg-gray-900 ${
-          index < 5 ? "bg-green-950/30" : ""
-        }`}
-      >
-        <td className="p-3">
-  {index === 0 ? "🏆" : index + 1}
-</td>
-
-<td className="p-3 font-semibold">
-  {team.teamName}
-
-  {index < 5 ? (
-    <span className="ml-2 text-green-400">
-      👑
-    </span>
-  ) : (
-    <span className="ml-2 text-yellow-400">
-      ⭐
-    </span>
-  )}
+    <td className="p-3 font-semibold">
+      {team.teamName}
+      {index < 5 ? (
+        <span className="ml-2 text-green-400">
+          👑
+        </span>
+      ) : (
+        <span className="ml-2 text-yellow-400">
+          ⭐
+        </span>
+      )}
+    </td>
 </td>
 
 <td className="p-3">
