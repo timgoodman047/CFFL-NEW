@@ -19,7 +19,7 @@ const seasonStats = await getSeasonStats();
 );
 
 const joshAllen = Object.entries(seasonStats).find(
-  ([_, stat\]: any) =>
+  ([_, stat]: any) =>
     stat.player?.first_name === "Josh" &&
     stat.player?.last_name === "Allen"
 );
