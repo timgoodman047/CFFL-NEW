@@ -169,6 +169,8 @@ const standings = useMemo(() => {
     );
   }
 
+ const playoffCutoff = standings[5];
+
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-4xl font-bold mb-6">
@@ -266,7 +268,7 @@ const standings = useMemo(() => {
 <td className="p-3">
   {index >= 6
     ? (
-        standings[5].fpts - team.fpts
+        playoffCutoff.fpts - team.fpts
       ).toFixed(2)
     : "-"}
 </td>
