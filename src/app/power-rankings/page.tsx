@@ -3,28 +3,16 @@ import { calculatePowerScore } from "../../lib/powerRankings";
 import {
   getLeagueTeams,
   getSeasonStats,
+  getPlayers,
 } from "../../lib/sleeper";
 
-import { getPlayers } from "../../lib/sleeper";
-import { getSeasonStats } from "../../lib/sleeper";
 import { calculatePlayerBonuses } from "../../lib/playerBonuses";
 
 export default async function PowerRankingsPage() {
 
 const seasonStats = await getSeasonStats();
-  return (
-  <pre style={{ color: "white" }}>
-    {JSON.stringify(
-      Object.entries(seasonStats)[0],
-      null,
-      2
-    )}
-  </pre>
-);
   
-  const leagueTeams = await getLeagueTeams();
-  const seasonStats =
-  await getSeasonStats();
+const leagueTeams = await getLeagueTeams();
 
 const players =
   await getPlayers();
