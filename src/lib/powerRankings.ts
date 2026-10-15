@@ -6,7 +6,6 @@ export function calculatePowerScore(team: {
   top10QB: number;
   top10RB: number;
   top10WR: number;
-
   top3TE: number;
 
   wins125: number;
