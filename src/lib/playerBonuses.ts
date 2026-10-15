@@ -4,7 +4,7 @@ export function calculatePlayerBonuses(
   stats: any
 ) {
   const allPlayers = Object.entries(stats).map(
-    ([playerId, playerStats\]: any) => {
+    ([playerId, playerStats]: any) => {
       const player = players[playerId];
 
       return {
