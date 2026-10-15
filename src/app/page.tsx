@@ -106,7 +106,7 @@ gap: "20px",
     🏈 League Tools
   </h2>
 
-  /live
+  <Link
     <div style={itemStyle}>
       📺 Live Center
       <br />
@@ -114,7 +114,7 @@ gap: "20px",
     </div>
   </Link>
 
-  <Link href="/  <div style={itemStyle}>
+  <Link href="/standv style={itemStyle}>
       🏆 Standings
       <br />
       /standings
@@ -169,15 +169,13 @@ gap: "20px",
     </div>
   </Link>
 
-  /team-compare
-    <div style={itemStyle}>
+  <Link href="/team-<div style={itemStyle}>
       ⚔️ Team Compare
       <br />
       /team-compare
     </div>
   </Link>
 </div>
-
 <Matchups />
 
 <Standings
