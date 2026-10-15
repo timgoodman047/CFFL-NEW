@@ -29,14 +29,30 @@ export default function PowerRankingsPage() {
             className="bg-gray-900 rounded-xl p-5 border border-gray-800"
           >
             <div className="flex justify-between items-center mb-2">
-              <h2 className="text-2xl font-bold">
-                #{team.rank} {team.team}
-              </h2>
+  <h2 className="text-2xl font-bold">
+    #{team.rank} {team.team}
+  </h2>
 
-              <span className="text-xl">
-                {movementIcon(team.movement)}
-              </span>
-            </div>
+  <div>
+    {team.previousRank > team.rank && (
+      <span className="text-green-400 font-bold">
+        ↑ {team.previousRank - team.rank}
+      </span>
+    )}
+
+    {team.previousRank < team.rank && (
+      <span className="text-red-400 font-bold">
+        ↓ {team.rank - team.previousRank}
+      </span>
+    )}
+
+    {team.previousRank === team.rank && (
+      <span className="text-gray-400 font-bold">
+        →
+      </span>
+    )}
+  </div>
+</div>
 
             <div className="text-sm text-green-400 mb-3">
               {team.tier}
