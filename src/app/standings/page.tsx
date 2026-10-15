@@ -204,17 +204,16 @@ export default function StandingsPage() {
     </td>
 
     <td className="p-3 font-semibold">
-      {team.teamName}
-      {index < 5 ? (
-        <span className="ml-2 text-green-400">
-          👑
-        </span>
-      ) : (
-        <span className="ml-2 text-yellow-400">
-          ⭐
-        </span>
-      )}
-    </td>
+  {team.teamName}
+  {index < 5 ? (
+    <span className="ml-2 text-green-400">
+      👑
+    </span>
+  ) : (
+    <span className="ml-2 text-yellow-400">
+      ⭐
+    </span>
+  )}
 </td>
 
 <td className="p-3">
