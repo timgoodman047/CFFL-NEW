@@ -106,7 +106,7 @@ gap: "20px",
     🏈 League Tools
   </h2>
 
-  <Link
+  /live
     <div style={itemStyle}>
       📺 Live Center
       <br />
@@ -114,7 +114,8 @@ gap: "20px",
     </div>
   </Link>
 
-  <Link href="/standv style={itemStyle}>
+  /standings
+    <div style={itemStyle}>
       🏆 Standings
       <br />
       /standings
@@ -129,8 +130,7 @@ gap: "20px",
     </div>
   </Link>
 
-  /playoff-machine
-    <div style={itemStyle}>
+  <Link href="/playoff <div style={itemStyle}>
       🧮 Playoff Machine
       <br />
       /playoff-machine
@@ -153,7 +153,7 @@ gap: "20px",
     </div>
   </Link>
 
-  /transactions
+  <Link hrefons
     <div style={itemStyle}>
       📋 Transactions
       <br />
@@ -169,13 +169,15 @@ gap: "20px",
     </div>
   </Link>
 
-  <Link href="/team-<div style={itemStyle}>
+  /team-compare
+    <div style={itemStyle}>
       ⚔️ Team Compare
       <br />
       /team-compare
     </div>
   </Link>
 </div>
+  
 <Matchups />
 
 <Standings
