@@ -194,8 +194,7 @@ export default function StandingsPage() {
 <tbody>
   {standings.map((team, index) => (
     <Fragment key={team.rosterId}>
-      {index === 5 && (
-      )}
+  <tr>
 
       <tr
         className={`border-t border-gray-700 hover:bg-gray-900 ${
