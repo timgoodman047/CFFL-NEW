@@ -17,7 +17,7 @@ type SortField =
   | "wins"
   | "losses"
   | "fpts"
-  | "fptsagainst";
+  | "fptsAgainst";
 
 export default function StandingsPage() {
   const [rosters, setRosters] = useState<any[]>([]);
@@ -56,7 +56,19 @@ export default function StandingsPage() {
     loadData();
   }, []);
 
-  const standings = useMemo(() => {
+  type SortField =
+  | "wins"
+  | "losses"
+  | "fpts"
+  | "fptsAgainst";
+
+const [sortField, setSortField] =
+  useState<SortField>("wins");
+
+const [sortAsc, setSortAsc] =
+  useState(false);
+
+const standings = useMemo(() => {
   const teams = rosters.map((roster) => {
     const owner = users.find(
       (u) => u.user_id === roster.owner_id
@@ -93,10 +105,10 @@ export default function StandingsPage() {
 
   fptsAgainst:
     Number(
-      roster.settings?.fptsagainst ?? 0
+      roster.settings?.fptsAgainst ?? 0
     ) +
     Number(
-      roster.settings?.fptsagainst_decimal ??
+      roster.settings?.fptsAgainst_decimal ??
         0
     ) /
       100,
@@ -183,7 +195,7 @@ export default function StandingsPage() {
               <th
                 className="p-3 cursor-pointer"
                 onClick={() =>
-                  handleSort("fptsagainst")
+                  handleSort("fptsAgainst")
                 }
               >
                 PA
