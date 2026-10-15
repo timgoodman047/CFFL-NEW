@@ -1,3 +1,5 @@
+import { calculatePowerScore } from "../../lib/powerRankings";
+
 import { powerRankings } from "../../data/powerRankings";
 
 export default function PowerRankingsPage() {
@@ -22,6 +24,11 @@ export default function PowerRankingsPage() {
   <h2 className="text-2xl font-bold">
     #{team.rank} {team.team}
   </h2>
+
+  <div className="text-green-400 font-semibold">
+  Power Score:{" "}
+  {calculatePowerScore(team).toFixed(2)}
+</div>
 
   <div>
     {team.previousRank > team.rank && (
