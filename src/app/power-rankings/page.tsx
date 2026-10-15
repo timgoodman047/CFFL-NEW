@@ -126,6 +126,16 @@ return {
   Precision: {team.precision}
 </div>
 
+<div className="text-yellow-400 text-sm mb-2">
+  QB Bonus: {team.qbBonus}
+  {" | "}
+  RB Bonus: {team.rbBonus}
+  {" | "}
+  WR Bonus: {team.wrBonus}
+  {" | "}
+  TE Bonus: {team.teBonus}
+</div>
+
 <div className="text-gray-300 whitespace-pre-line">
   {team.summary}
 </div>
