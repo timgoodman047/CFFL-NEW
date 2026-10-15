@@ -131,6 +131,14 @@ color: "#22c55e",
   </div>
 </Link>
 
+<Link href="/power-rankings">
+  <div style={itemStyle}>
+    📈 Power Rankings
+    <br />
+    /power-rankings
+  </div>
+</Link>
+
 <Link href="/schedule">
   <div style={itemStyle}>
 📅 Schedule
