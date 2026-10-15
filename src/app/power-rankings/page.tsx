@@ -5,6 +5,10 @@ import {
   getSeasonStats,
 } from "../../lib/sleeper";
 
+import { getPlayers } from "../../lib/sleeper";
+import { getSeasonStats } from "../../lib/sleeper";
+import { calculatePlayerBonuses } from "../../lib/playerBonuses";
+
 export default async function PowerRankingsPage() {
 
 const seasonStats = await getSeasonStats();
@@ -19,18 +23,34 @@ const seasonStats = await getSeasonStats();
 );
   
   const leagueTeams = await getLeagueTeams();
+  const seasonStats =
+  await getSeasonStats();
+
+const players =
+  await getPlayers();
   const rankings = powerRankings.rankings
   .map((ranking) => {
     const leagueTeam = leagueTeams.find(
       (team) => team.team === ranking.team
     );
 
-    return {
+    const bonuses =
+  calculatePlayerBonuses(
+    leagueTeam?.players ?? [],
+    seasonStats
+  );
+
+return {
+  ...ranking,
+  leagueTeam,
+  ...bonuses,
+
+  powerScore:
+    calculatePowerScore({
       ...ranking,
-      leagueTeam,
-      powerScore:
-        calculatePowerScore(ranking),
-    };
+      ...bonuses,
+    }),
+};
   })
   .sort(
     (a, b) =>
