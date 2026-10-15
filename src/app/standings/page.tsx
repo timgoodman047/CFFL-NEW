@@ -56,12 +56,6 @@ export default function StandingsPage() {
     loadData();
   }, []);
 
-const [sortField, setSortField] =
-  useState<SortField>("wins");
-
-const [sortAsc, setSortAsc] =
-  useState(false);
-
 const standings = useMemo(() => {
   const teams = rosters.map((roster) => {
     const owner = users.find(
