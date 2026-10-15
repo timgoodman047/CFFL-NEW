@@ -21,6 +21,19 @@ console.log(data);
 return data;
 }
 
+export async function getSeasonStats() {
+  const season = new Date().getFullYear();
+
+  const response = await fetch(
+    `https://api.sleeper.com/stats/nfl/${season}?season_type=regular`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  return response.json();
+}
+
 export async function getPlayers() {
   const response = await fetch(
     "https://api.sleeper.app/v1/players/nfl",
