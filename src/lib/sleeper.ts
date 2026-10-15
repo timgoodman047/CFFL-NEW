@@ -183,29 +183,27 @@ const avgPPG =
 pf / gamesPlayed;
  
 return {
- 
-rosterId:
-roster.roster_id,
- 
-ownerId:
-roster.owner_id,
- 
-owner:
-owner?.display_name ||
-"Unknown",
- 
-team:
-owner?.metadata?.team_name ||
-owner?.display_name ||
-"Unknown",
- 
-wins,
-losses,
- 
-pf,
- 
-avgPPG
- 
+  rosterId: roster.roster_id,
+
+  ownerId: roster.owner_id,
+
+  owner:
+    owner?.display_name ||
+    "Unknown",
+
+  team:
+    owner?.metadata?.team_name ||
+    owner?.display_name ||
+    "Unknown",
+
+  wins,
+  losses,
+
+  pf,
+
+  avgPPG,
+
+  players: roster.players || [],
 };
  
 }
