@@ -4,6 +4,13 @@ import { getLeagueTeams } from "../../lib/sleeper";
 
 export default async function PowerRankingsPage() {
 
+const seasonStats = await getSeasonStats();
+
+console.log(
+  "SEASON STATS SAMPLE",
+  Object.entries(seasonStats)[0]
+);
+  
   const leagueTeams = await getLeagueTeams();
   const rankings = powerRankings.rankings
   .map((ranking) => {
