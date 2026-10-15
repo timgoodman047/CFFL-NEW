@@ -125,7 +125,7 @@ const standings = useMemo(() => {
     .sort((a, b) => b.fpts - a.fpts);
 
   return [...topFive, ...bottomFive];
-}, [rosters, users]);
+}, [rosters, users, sortField, sortAsc]);
 
   function handleSort(field: SortField) {
     if (field === sortField) {
