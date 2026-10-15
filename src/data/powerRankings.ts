@@ -12,11 +12,6 @@ export const powerRankings = {
     allPlayRank: 2,
     threeWeekRank: 1,
 
-    top10QB: 1,
-    top10RB: 2,
-    top10WR: 2,
-    top3TE: 1,
-
     wins125: 3,
     precision: 1.2,
 
@@ -31,12 +26,7 @@ export const powerRankings = {
     pfRank: 2,
     allPlayRank: 3,
     threeWeekRank: 2,
-
-    top10QB: 1,
-    top10RB: 1,
-    top10WR: 2,
-    top3TE: 0,
-
+    
     wins125: 2,
     precision: 1.0,
 
@@ -51,11 +41,6 @@ export const powerRankings = {
     pfRank: 3,
     allPlayRank: 4,
     threeWeekRank: 3,
-
-    top10QB: 1,
-    top10RB: 1,
-    top10WR: 1,
-    top3TE: 0,
 
     wins125: 2,
     precision: 0.8,
@@ -72,11 +57,6 @@ export const powerRankings = {
     allPlayRank: 4,
     threeWeekRank: 4,
 
-    top10QB: 0,
-    top10RB: 1,
-    top10WR: 1,
-    top3TE: 0,
-
     wins125: 1,
     precision: 0.7,
 
@@ -91,11 +71,6 @@ export const powerRankings = {
     pfRank: 5,
     allPlayRank: 5,
     threeWeekRank: 5,
-
-    top10QB: 0,
-    top10RB: 1,
-    top10WR: 1,
-    top3TE: 0,
 
     wins125: 1,
     precision: 0.5,
@@ -112,11 +87,6 @@ export const powerRankings = {
     allPlayRank: 6,
     threeWeekRank: 6,
 
-    top10QB: 0,
-    top10RB: 0,
-    top10WR: 1,
-    top3TE: 0,
-
     wins125: 1,
     precision: 0.4,
 
@@ -131,11 +101,6 @@ export const powerRankings = {
     pfRank: 7,
     allPlayRank: 7,
     threeWeekRank: 7,
-
-    top10QB: 0,
-    top10RB: 1,
-    top10WR: 0,
-    top3TE: 0,
 
     wins125: 0,
     precision: 0.3,
@@ -152,11 +117,6 @@ export const powerRankings = {
     allPlayRank: 8,
     threeWeekRank: 8,
 
-    top10QB: 0,
-    top10RB: 0,
-    top10WR: 0,
-    top3TE: 0,
-
     wins125: 0,
     precision: 0.2,
 
@@ -172,11 +132,6 @@ export const powerRankings = {
     allPlayRank: 9,
     threeWeekRank: 9,
 
-    top10QB: 0,
-    top10RB: 0,
-    top10WR: 0,
-    top3TE: 0,
-
     wins125: 0,
     precision: 0.1,
 
@@ -191,11 +146,6 @@ export const powerRankings = {
     pfRank: 10,
     allPlayRank: 10,
     threeWeekRank: 10,
-
-    top10QB: 0,
-    top10RB: 0,
-    top10WR: 0,
-    top3TE: 0,
 
     wins125: 0,
     precision: 0,
