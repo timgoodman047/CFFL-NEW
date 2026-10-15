@@ -206,13 +206,15 @@ const standings = useMemo(() => {
               </th>
 
               <th
-                className="p-3 cursor-pointer"
-                onClick={() =>
-                  handleSort("fptsAgainst")
-                }
-              >
-                PA
-              </th>
+  className="p-3 cursor-pointer"
+  onClick={() => handleSort("fptsAgainst")}
+>
+  PA
+</th>
+
+<th className="p-3">
+  Back
+</th>
             </tr>
           </thead>
 
@@ -258,8 +260,16 @@ const standings = useMemo(() => {
         </td>
 
         <td className="p-3">
-          {team.fptsAgainst.toFixed(2)}
-        </td>
+  {team.fptsAgainst.toFixed(2)}
+</td>
+
+<td className="p-3">
+  {index >= 6
+    ? (
+        standings[5].fpts - team.fpts
+      ).toFixed(2)
+    : "-"}
+</td>
       </tr>
     </Fragment>
   ))}
