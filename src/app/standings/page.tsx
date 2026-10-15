@@ -124,7 +124,33 @@ const standings = useMemo(() => {
     )
     .sort((a, b) => b.fpts - a.fpts);
 
-  return [...topFive, ...bottomFive];
+  const sortedStandings = [...topFive, ...bottomFive];
+
+  sortedStandings.sort((a, b) => {
+    let comparison = 0;
+
+    switch (sortField) {
+      case "wins":
+        comparison = a.wins - b.wins;
+        break;
+
+      case "losses":
+        comparison = a.losses - b.losses;
+        break;
+
+      case "fpts":
+        comparison = a.fpts - b.fpts;
+        break;
+
+      case "fptsAgainst":
+        comparison = a.fptsAgainst - b.fptsAgainst;
+        break;
+    }
+
+    return sortAsc ? comparison : -comparison;
+  });
+
+  return sortedStandings;
 }, [rosters, users, sortField, sortAsc]);
 
   function handleSort(field: SortField) {
