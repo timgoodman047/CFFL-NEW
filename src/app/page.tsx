@@ -97,13 +97,7 @@ gridTemplateColumns:
 gap: "20px",
 }}
 >
-<Standings
-users={users}
-rosters={rosters}
-/>
- 
-<Matchups />
- 
+
 <div style={cardStyle}>
 <h2
 style={{
@@ -185,6 +179,14 @@ color: "#22c55e",
   </div>
 </Link>
 </div>
+ 
+<Matchups />
+
+<Standings
+users={users}
+rosters={rosters}
+/>
+ 
 </div>
  
 {/* ANALYTICS */}
