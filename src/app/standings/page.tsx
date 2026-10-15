@@ -92,14 +92,13 @@ const standings = useMemo(() => {
       100,
 
   fptsAgainst:
-    Number(
-      roster.settings?.fptsAgainst ?? 0
-    ) +
-    Number(
-      roster.settings?.fptsAgainst_decimal ??
-        0
-    ) /
-      100,
+  Number(
+    roster.settings?.fpts_against ?? 0
+  ) +
+  Number(
+    roster.settings?.fpts_against_decimal ?? 0
+  ) /
+    100,
 };
   });
 
