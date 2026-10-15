@@ -102,10 +102,10 @@ return {
   PF Rank: {team.pfRank} •
   All-Play: {team.allPlayRank} •
   3W Avg: {team.threeWeekRank} •
-  QB: {team.top10QB} •
-  RB: {team.top10RB} •
-  WR: {team.top10WR} •
-  Elite TE: {team.top3TE} •
+  QB Bonus: {team.qbBonus ?? 0} •
+  RB Bonus: {team.rbBonus ?? 0} •
+  WR Bonus: {team.wrBonus ?? 0} •
+  TE Bonus: {team.teBonus ?? 0} •
   125+ Wins: {team.wins125} •
   Precision: {team.precision}
 </div>
