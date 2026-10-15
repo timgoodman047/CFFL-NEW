@@ -56,12 +56,6 @@ export default function StandingsPage() {
     loadData();
   }, []);
 
-  type SortField =
-  | "wins"
-  | "losses"
-  | "fpts"
-  | "fptsAgainst";
-
 const [sortField, setSortField] =
   useState<SortField>("wins");
 
