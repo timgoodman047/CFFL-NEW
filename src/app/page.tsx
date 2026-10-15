@@ -121,6 +121,14 @@ color: "#22c55e",
   </div>
 </Link>
 
+<Link href="/standings">
+   <div style={itemStyle}>
+    🏆 Standings
+    <br />
+    /standings
+  </div>
+</Link>
+
 <Link href="/schedule">
   <div style={itemStyle}>
 📅 Schedule
