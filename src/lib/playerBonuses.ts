@@ -11,9 +11,9 @@ export function calculatePlayerBonuses(
     (entry: any) => {
       if (
         !entry?.player_id ||
-        !rosterPlayers.includes(
-          entry.player_id
-        )
+        !rosterPlayers
+          .map(String)
+          .includes(String(entry.player_id))
       ) {
         return;
       }
