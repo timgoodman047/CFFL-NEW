@@ -1,9 +1,14 @@
-import { calculatePowerScore } from "../../lib/powerRankings";
-
 import { powerRankings } from "../../data/powerRankings";
+import { calculatePowerScore } from "../../lib/powerRankings";
 
 export default function PowerRankingsPage() {
 
+  const rankings = [...powerRankings.rankings].sort(
+  (a, b) =>
+    calculatePowerScore(a) -
+    calculatePowerScore(b)
+);
+  
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-4xl font-bold mb-2">
@@ -15,7 +20,7 @@ export default function PowerRankingsPage() {
 </p>
 
       <div className="space-y-4">
-        {powerRankings.rankings.map((team) => (
+        {rankings.map((team) => (
           <div
             key={team.rank}
             className="bg-gray-900 rounded-xl p-5 border border-gray-800"
@@ -49,6 +54,22 @@ export default function PowerRankingsPage() {
       </span>
     )}
   </div>
+</div>
+
+<div className="text-green-400 font-semibold mb-3">
+  Power Score: {calculatePowerScore(team).toFixed(2)}
+</div>
+
+<div className="text-sm text-gray-500 mb-4">
+  PF Rank: {team.pfRank} •
+  All-Play: {team.allPlayRank} •
+  3W Avg: {team.threeWeekRank} •
+  QB: {team.top10QB} •
+  RB: {team.top10RB} •
+  WR: {team.top10WR} •
+  Elite TE: {team.top3TE} •
+  125+ Wins: {team.wins125} •
+  Precision: {team.precision}
 </div>
 
 <div className="text-gray-300 whitespace-pre-line">
