@@ -1,4 +1,4 @@
-import { powerRankings } from "@/data/powerRankings";
+import { powerRankings } from "../../data/powerRankings";
 
 export default function PowerRankingsPage() {
   const movementIcon = (movement: string) => {
