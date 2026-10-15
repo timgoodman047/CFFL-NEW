@@ -27,6 +27,22 @@ const players =
     leagueTeam?.players ?? [],
     seasonStats
   );
+    if (ranking.team === "Fuck You FantasyFootball") {
+  console.log(
+    "FUFF ROSTER SIZE",
+    leagueTeam?.players?.length
+  );
+
+  console.log(
+    "FUFF BONUSES",
+    bonuses
+  );
+
+  console.log(
+    "FUFF SAMPLE PLAYERS",
+    leagueTeam?.players?.slice(0, 10)
+  );
+}
 
 return {
   ...ranking,
