@@ -97,92 +97,93 @@ gridTemplateColumns:
 gap: "20px",
 }}
 >
-<Standings
-users={users}
-rosters={rosters}
-/>
- 
-<Matchups />
- 
 <div style={cardStyle}>
-<h2
-style={{
-color: "#22c55e",
-}}
->
-🏈 League Tools
-</h2>
- 
-<Link href="/live">
-  <div style={itemStyle}>
-📺 Live Center
-    <br />
-    /live
-  </div>
-</Link>
+  <h2
+    style={{
+      color: "#22c55e",
+    }}
+  >
+    🏈 League Tools
+  </h2>
 
-<Link href="/standings">
-   <div style={itemStyle}>
-    🏆 Standings
-    <br />
-    /standings
-  </div>
-</Link>
+  /live
+    <div style={itemStyle}>
+      📺 Live Center
+      <br />
+      /live
+    </div>
+  </Link>
 
-<Link href="/schedule">
-  <div style={itemStyle}>
-📅 Schedule
-    <br />
-    /schedule
-  </div>
-</Link>
+  <Link href="/  <div style={itemStyle}>
+      🏆 Standings
+      <br />
+      /standings
+    </div>
+  </Link>
 
- <Link href="/playoff-machine">
-  <div style={itemStyle}>
-🧮 Playoff Machine
-    <br />
-    /playoff-machine
-  </div>
-</Link> 
- 
-<Link href="/rosters">
-  <div style={itemStyle}>
-🏈 Rosters
-    <br />
-    /rosters
-  </div>
-</Link>
- 
-<Link href="/dashboard">
-  <div style={itemStyle}>
-📊 Dashboard
-    <br />
-    /dashboard
-  </div>
-</Link>
- 
-<Link href="/transactions">
-  <div style={itemStyle}>
-📋 Transactions
-    <br />
-    /transactions
-  </div>
-</Link>
+  /schedule
+    <div style={itemStyle}>
+      📅 Schedule
+      <br />
+      /schedule
+    </div>
+  </Link>
 
-<Link href="/trade-analyzer">
-  <div style={itemStyle}>
-🤝 Trade Analyzer
-    <br />
-    /trade-analyzer
-  </div>
-</Link>
- 
-<Link href="/team-compare">
-  <div style={itemStyle}>
-⚔️ Team Compare
-    <br />
-    /team-compare
-  </div>
+  /playoff-machine
+    <div style={itemStyle}>
+      🧮 Playoff Machine
+      <br />
+      /playoff-machine
+    </div>
+  </Link>
+
+  /rosters
+    <div style={itemStyle}>
+      🏈 Rosters
+      <br />
+      /rosters
+    </div>
+  </Link>
+
+  /dashboard
+    <div style={itemStyle}>
+      📊 Dashboard
+      <br />
+      /dashboard
+    </div>
+  </Link>
+
+  /transactions
+    <div style={itemStyle}>
+      📋 Transactions
+      <br />
+      /transactions
+    </div>
+  </Link>
+
+  /trade-analyzer
+    <div style={itemStyle}>
+      🤝 Trade Analyzer
+      <br />
+      /trade-analyzer
+    </div>
+  </Link>
+
+  /team-compare
+    <div style={itemStyle}>
+      ⚔️ Team Compare
+      <br />
+      /team-compare
+    </div>
+  </Link>
+</div>
+
+<Matchups />
+
+<Standings
+  users={users}
+  rosters={rosters}
+/>
 </Link>
 </div>
 </div>
