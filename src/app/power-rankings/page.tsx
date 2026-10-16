@@ -26,6 +26,14 @@ const allPlayMap = Object.fromEntries(
     team.rank,
   ])
 );  
+const pfRankMap = Object.fromEntries(
+  [...leagueTeams]
+    .sort((a, b) => (b.pf ?? 0) - (a.pf ?? 0))
+    .map((team, index) => [
+      team.team,
+      index + 1,
+    ])
+);
 const rankings = powerRankings.rankings
   .map((ranking) => {
     const leagueTeam = leagueTeams.find(
@@ -51,6 +59,11 @@ const rankings = powerRankings.rankings
 
     return {
       ...ranking,
+
+      pfRank:
+    pfRankMap[leagueTeam?.team ?? ""] ??
+    ranking.pfRank,
+      
       allPlayRank,
       leagueTeam,
 
