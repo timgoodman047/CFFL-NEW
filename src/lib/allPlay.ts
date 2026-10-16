@@ -104,3 +104,32 @@ export async function getThreeWeekRanks() {
       rank: index + 1,
     }));
 }
+
+export async function get125Wins() {
+  const currentWeek = await getCurrentWeek();
+
+  const totals = new Map<number, number>();
+
+  for (let week = 1; week < currentWeek; week++) {
+    const matchups = await getMatchups(week);
+
+    matchups.forEach((team: any) => {
+      const current =
+        totals.get(team.roster_id) ?? 0;
+
+      if ((team.points ?? 0) >= 125) {
+        totals.set(
+          team.roster_id,
+          current + 1
+        );
+      } else {
+        totals.set(
+          team.roster_id,
+          current
+        );
+      }
+    });
+  }
+
+  return totals;
+}
