@@ -72,14 +72,15 @@ return {
   wrBonus: bonuses.wrBonus,
   teBonus: bonuses.teBonus,
 
-  powerScore:
-    calculatePowerScore(...)
+  powerScore: calculatePowerScore({
+    ...ranking,
+    allPlayRank,
+    qbBonus: bonuses.qbBonus,
+    rbBonus: bonuses.rbBonus,
+    wrBonus: bonuses.wrBonus,
+    teBonus: bonuses.teBonus,
+  }),
 };
-  })
-  .sort(
-    (a, b) =>
-      a.powerScore - b.powerScore
-  );
   
   return (
     <div className="min-h-screen bg-black text-white p-6">
