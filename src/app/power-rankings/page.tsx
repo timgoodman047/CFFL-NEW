@@ -79,8 +79,12 @@ return {
     rbBonus: bonuses.rbBonus,
     wrBonus: bonuses.wrBonus,
     teBonus: bonuses.teBonus,
-  }),
-};
+  };
+})
+.sort(
+    (a, b) =>
+      a.powerScore - b.powerScore
+  );
   
   return (
     <div className="min-h-screen bg-black text-white p-6">
