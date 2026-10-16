@@ -8,7 +8,6 @@ export const powerRankings = {
     previousRank: 2,
     team: "Short Board Champ",
 
-    pfRank: 99,
     threeWeekRank: 1,
 
     wins125: 3,
@@ -22,7 +21,6 @@ export const powerRankings = {
     previousRank: 3,
     team: "Fuck You FantasyFootball",
 
-    pfRank: 2,
     threeWeekRank: 2,
     
     wins125: 2,
@@ -36,7 +34,6 @@ export const powerRankings = {
     previousRank: 3,
     team: "Dirty Mike",
 
-    pfRank: 3,
     threeWeekRank: 3,
 
     wins125: 2,
@@ -50,7 +47,6 @@ export const powerRankings = {
     previousRank: 1,
     team: "The Locked Room",
 
-    pfRank: 4,
     threeWeekRank: 4,
 
     wins125: 1,
@@ -64,7 +60,6 @@ export const powerRankings = {
     previousRank: 6,
     team: "Bills Mafia",
 
-    pfRank: 5,
     threeWeekRank: 5,
 
     wins125: 1,
@@ -78,7 +73,6 @@ export const powerRankings = {
     previousRank: 5,
     team: "Red Kingdom",
 
-    pfRank: 6,
     threeWeekRank: 6,
 
     wins125: 1,
@@ -92,7 +86,6 @@ export const powerRankings = {
     previousRank: 7,
     team: "Taka Taka Tires",
 
-    pfRank: 7,
     threeWeekRank: 7,
 
     wins125: 0,
@@ -106,7 +99,6 @@ export const powerRankings = {
     previousRank: 8,
     team: "WHO DEY",
 
-    pfRank: 8,
     threeWeekRank: 8,
 
     wins125: 0,
@@ -120,7 +112,6 @@ export const powerRankings = {
     previousRank: 9,
     team: "Scheduled Dress Year",
 
-    pfRank: 9,
     threeWeekRank: 9,
 
     wins125: 0,
@@ -134,7 +125,6 @@ export const powerRankings = {
     previousRank: 10,
     team: "Orangeman",
 
-    pfRank: 10,
     threeWeekRank: 10,
 
     wins125: 0,
