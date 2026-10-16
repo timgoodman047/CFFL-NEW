@@ -74,6 +74,11 @@ const rankings = powerRankings.rankings
 
       powerScore: calculatePowerScore({
         ...ranking,
+        
+        pfRank:
+    pfRankMap[leagueTeam?.team ?? ""] ??
+    ranking.pfRank,
+        
         allPlayRank,
         qbBonus: bonuses.qbBonus,
         rbBonus: bonuses.rbBonus,
