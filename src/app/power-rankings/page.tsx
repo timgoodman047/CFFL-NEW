@@ -62,7 +62,7 @@ const rankings = powerRankings.rankings
 
       pfRank:
     pfRankMap[leagueTeam?.team ?? ""] ??
-    ranking.pfRank,
+    pfRank,
       
       allPlayRank,
       leagueTeam,
@@ -77,7 +77,7 @@ const rankings = powerRankings.rankings
         
         pfRank:
     pfRankMap[leagueTeam?.team ?? ""] ??
-    ranking.pfRank,
+    pfRank,
         
         allPlayRank,
         qbBonus: bonuses.qbBonus,
