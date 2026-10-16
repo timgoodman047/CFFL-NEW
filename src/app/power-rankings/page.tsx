@@ -9,6 +9,7 @@ import {
 import { 
   getAllPlayRanks,
   getThreeWeekRanks,
+  get125Wins,
 } from "../../lib/allPlay";
 
 import { calculatePlayerBonuses } from "../../lib/playerBonuses";
@@ -25,6 +26,8 @@ const allPlayRanks = await getAllPlayRanks();
 
 const threeWeekRanks = await getThreeWeekRanks();
 
+const wins125Data = await get125Wins();
+
 const allPlayMap =
   Object.fromEntries(
     allPlayRanks.map((team) => [
@@ -39,6 +42,13 @@ const threeWeekMap =
       team.rosterId,
       team.rank,
     ])
+  );
+
+  const wins125Map =
+  Object.fromEntries(
+    Array.from(
+      wins125Data.entries()
+    )
   );
   
 const pfRankMap = Object.fromEntries(
@@ -78,6 +88,12 @@ const rankings = powerRankings.rankings
         leagueTeam?.rosterId
       ] ?? 10;
 
+    const wins125 =
+  wins125Map[
+    leagueTeam?.roster_id ??
+    leagueTeam?.rosterId
+  ] ?? 0;
+
     const bonuses = calculatePlayerBonuses(
       leagueTeam?.players ?? [],
       seasonStats
@@ -91,6 +107,8 @@ const rankings = powerRankings.rankings
     pfRank,
       
       allPlayRank,
+
+      wins125,
       
       threeWeekRank,
       
@@ -105,6 +123,7 @@ const rankings = powerRankings.rankings
   ...ranking,
   pfRank,
   allPlayRank,
+  win125,
   threeWeekRank,
   qbBonus: bonuses.qbBonus,
   rbBonus: bonuses.rbBonus,
