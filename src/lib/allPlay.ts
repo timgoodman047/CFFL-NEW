@@ -45,3 +45,14 @@ export async function getAllPlayRecords() {
 
   return totals;
 }
+
+export async function getAllPlayRanks() {
+  const records = await getAllPlayRecords();
+
+  return [...records.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([rosterId], index) => ({
+      rosterId,
+      rank: index + 1,
+    }));
+}
