@@ -52,6 +52,11 @@ const rankings = powerRankings.rankings
         leagueTeam?.rosterId
       ] ?? 10;
 
+    const pfRank =
+  pfRankMap[
+    leagueTeam?.team ?? ""
+  ] ?? 10;
+
     const bonuses = calculatePlayerBonuses(
       leagueTeam?.players ?? [],
       seasonStats
