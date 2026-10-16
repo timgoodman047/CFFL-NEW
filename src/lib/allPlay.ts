@@ -49,7 +49,9 @@ export async function getAllPlayRecords() {
 export async function getAllPlayRanks() {
   const records = await getAllPlayRecords();
 
-  return [...records.entries()]
+  const entries = Array.from(records.entries());
+
+  return entries
     .sort((a, b) => b[1] - a[1])
     .map(([rosterId], index) => ({
       rosterId,
