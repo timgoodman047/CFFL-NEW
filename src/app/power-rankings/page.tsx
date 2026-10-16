@@ -6,6 +6,8 @@ import {
   getPlayers,
 } from "../../lib/sleeper";
 
+import { getAllPlayRanks } from "@/lib/allPlay";
+
 import { calculatePlayerBonuses } from "../../lib/playerBonuses";
 
 export default async function PowerRankingsPage() {
@@ -16,6 +18,14 @@ const leagueTeams = await getLeagueTeams();
 
 const players =
   await getPlayers();
+const allPlayRanks = await getAllPlayRanks();
+
+const allPlayMap = Object.fromEntries(
+  allPlayRanks.map((team) => [
+    team.rosterId,
+    team.rank,
+  ])
+);  
   const rankings = powerRankings.rankings
   .map((ranking) => {
     const leagueTeam = leagueTeams.find(
@@ -52,14 +62,18 @@ const players =
 
 return {
   ...ranking,
+
+  allPlayRank,
+
   leagueTeam,
-  ...bonuses,
+
+  qbBonus: bonuses.qbBonus,
+  rbBonus: bonuses.rbBonus,
+  wrBonus: bonuses.wrBonus,
+  teBonus: bonuses.teBonus,
 
   powerScore:
-    calculatePowerScore({
-      ...ranking,
-      ...bonuses,
-    }),
+    calculatePowerScore(...)
 };
   })
   .sort(
