@@ -6,7 +6,7 @@ import {
   getPlayers,
 } from "../../lib/sleeper";
 
-import { getAllPlayRanks } from "@/lib/allPlay";
+import { getAllPlayRanks } from "../../lib/allPlay";
 
 import { calculatePlayerBonuses } from "../../lib/playerBonuses";
 
