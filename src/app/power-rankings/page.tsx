@@ -14,13 +14,7 @@ export default async function PowerRankingsPage() {
 
 const seasonStats = await getSeasonStats();
   
-const leagueTeams = await getLeagueTeams();
-
-const allPlayRank =
-  allPlayMap[
-    leagueTeam?.roster_id ??
-    leagueTeam?.rosterId
-  ] ?? 10;  
+const leagueTeams = await getLeagueTeams();  
   
 const players =
   await getPlayers();
