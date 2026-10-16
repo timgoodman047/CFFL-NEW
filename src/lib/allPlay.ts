@@ -58,3 +58,49 @@ export async function getAllPlayRanks() {
       rank: index + 1,
     }));
 }
+
+export async function getThreeWeekRanks() {
+  const currentWeek = await getCurrentWeek();
+
+  const scores = new Map<number, number[]>();
+
+  for (let week = 1; week < currentWeek; week++) {
+    const matchups = await getMatchups(week);
+
+    matchups.forEach((team: any) => {
+      const existing =
+        scores.get(team.roster_id) ?? [];
+
+      existing.push(team.points ?? 0);
+
+      scores.set(
+        team.roster_id,
+        existing
+      );
+    });
+  }
+
+  const averages = Array.from(
+    scores.entries()
+  ).map(([rosterId, weeks]) => {
+    const last3 = weeks.slice(-3);
+
+    const avg =
+      last3.reduce(
+        (sum, score) => sum + score,
+        0
+      ) / last3.length;
+
+    return {
+      rosterId,
+      avg,
+    };
+  });
+
+  return averages
+    .sort((a, b) => b.avg - a.avg)
+    .map((team, index) => ({
+      rosterId: team.rosterId,
+      rank: index + 1,
+    }));
+}
