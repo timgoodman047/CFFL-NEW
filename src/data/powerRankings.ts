@@ -9,7 +9,7 @@ export const powerRankings = {
     team: "Short Board Champ",
 
     pfRank: 1,
-    allPlayRank: 2,
+    allPlayRank: 99,
     threeWeekRank: 1,
 
     wins125: 3,
