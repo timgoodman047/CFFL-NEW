@@ -8,9 +8,7 @@ export const powerRankings = {
     previousRank: 2,
     team: "Short Board Champ",
 
-    threeWeekRank: 99,
-
-    wins125: 3,
+    wins125: 99,
     precision: 1.2,
 
     summary: `The Champ is back on top and its not even close. They’ve defeated teams that have scored over 130pts against them three times and never batted an eye. Nabbed most points this week and was 2nd in points scored the two before. Made a great decision at QB this week which has been a struggle. They only own one WR in the top 30, but Puka puts up enough points for their whole core, and McBride is essentially a wideout. `,
@@ -20,8 +18,6 @@ export const powerRankings = {
     rank: 2,
     previousRank: 3,
     team: "Fuck You FantasyFootball",
-
-    threeWeekRank: 2,
     
     wins125: 2,
     precision: 1.0,
@@ -34,8 +30,6 @@ export const powerRankings = {
     previousRank: 3,
     team: "Dirty Mike",
 
-    threeWeekRank: 3,
-
     wins125: 2,
     precision: 0.8,
 
@@ -46,8 +40,6 @@ export const powerRankings = {
     rank: 4,
     previousRank: 1,
     team: "The Locked Room",
-
-    threeWeekRank: 4,
 
     wins125: 1,
     precision: 0.7,
@@ -60,8 +52,6 @@ export const powerRankings = {
     previousRank: 6,
     team: "Bills Mafia",
 
-    threeWeekRank: 5,
-
     wins125: 1,
     precision: 0.5,
 
@@ -72,8 +62,6 @@ export const powerRankings = {
     rank: 6,
     previousRank: 5,
     team: "Red Kingdom",
-
-    threeWeekRank: 6,
 
     wins125: 1,
     precision: 0.4,
@@ -86,8 +74,6 @@ export const powerRankings = {
     previousRank: 7,
     team: "Taka Taka Tires",
 
-    threeWeekRank: 7,
-
     wins125: 0,
     precision: 0.3,
 
@@ -98,8 +84,6 @@ export const powerRankings = {
     rank: 8,
     previousRank: 8,
     team: "WHO DEY",
-
-    threeWeekRank: 8,
 
     wins125: 0,
     precision: 0.2,
@@ -112,8 +96,6 @@ export const powerRankings = {
     previousRank: 9,
     team: "Scheduled Dress Year",
 
-    threeWeekRank: 9,
-
     wins125: 0,
     precision: 0.1,
 
@@ -124,8 +106,6 @@ export const powerRankings = {
     rank: 10,
     previousRank: 10,
     team: "Orangeman",
-
-    threeWeekRank: 10,
 
     wins125: 0,
     precision: 0,
