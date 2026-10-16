@@ -72,6 +72,12 @@ const rankings = powerRankings.rankings
     leagueTeam?.team ?? ""
   ] ?? 10;
 
+    const threeWeekRank =
+      threeWeekMap[
+        leagueTeam?.roster_id ??
+        leagueTeam?.rosterId
+      ] ?? 10;
+
     const bonuses = calculatePlayerBonuses(
       leagueTeam?.players ?? [],
       seasonStats
@@ -85,6 +91,9 @@ const rankings = powerRankings.rankings
     pfRank,
       
       allPlayRank,
+      
+      threeWeekRank,
+      
       leagueTeam,
 
       qbBonus: bonuses.qbBonus,
@@ -93,18 +102,15 @@ const rankings = powerRankings.rankings
       teBonus: bonuses.teBonus,
 
       powerScore: calculatePowerScore({
-        ...ranking,
-        
-        pfRank:
-    pfRankMap[leagueTeam?.team ?? ""] ??
-    pfRank,
-        
-        allPlayRank,
-        qbBonus: bonuses.qbBonus,
-        rbBonus: bonuses.rbBonus,
-        wrBonus: bonuses.wrBonus,
-        teBonus: bonuses.teBonus,
-      }),
+  ...ranking,
+  pfRank,
+  allPlayRank,
+  threeWeekRank,
+  qbBonus: bonuses.qbBonus,
+  rbBonus: bonuses.rbBonus,
+  wrBonus: bonuses.wrBonus,
+  teBonus: bonuses.teBonus,
+}),
     };
   })
   .sort(
