@@ -19,16 +19,28 @@ const seasonStats = await getSeasonStats();
   
 const leagueTeams = await getLeagueTeams();  
   
-const players =
-  await getPlayers();
+const players = await getPlayers();
+
 const allPlayRanks = await getAllPlayRanks();
 
-const allPlayMap = Object.fromEntries(
-  allPlayRanks.map((team) => [
-    team.rosterId,
-    team.rank,
-  ])
-);  
+const threeWeekRanks = await getThreeWeekRanks();
+
+const allPlayMap =
+  Object.fromEntries(
+    allPlayRanks.map((team) => [
+      team.rosterId,
+      team.rank,
+    ])
+  );
+
+const threeWeekMap =
+  Object.fromEntries(
+    threeWeekRanks.map((team) => [
+      team.rosterId,
+      team.rank,
+    ])
+  );
+  
 const pfRankMap = Object.fromEntries(
   [...leagueTeams]
     .sort((a, b) => (b.pf ?? 0) - (a.pf ?? 0))
