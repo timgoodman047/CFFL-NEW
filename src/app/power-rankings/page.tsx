@@ -16,6 +16,12 @@ const seasonStats = await getSeasonStats();
   
 const leagueTeams = await getLeagueTeams();
 
+const allPlayRank =
+  allPlayMap[
+    leagueTeam?.roster_id ??
+    leagueTeam?.rosterId
+  ] ?? 10;  
+  
 const players =
   await getPlayers();
 const allPlayRanks = await getAllPlayRanks();
@@ -26,62 +32,50 @@ const allPlayMap = Object.fromEntries(
     team.rank,
   ])
 );  
-  const rankings = powerRankings.rankings
+const rankings = powerRankings.rankings
   .map((ranking) => {
     const leagueTeam = leagueTeams.find(
-  (team) =>
-    team.team
-      .toLowerCase()
-      .replace(/\s+/g, "") ===
-    ranking.team
-      .toLowerCase()
-      .replace(/\s+/g, "")
-);
+      (team) =>
+        team.team
+          .toLowerCase()
+          .replace(/\s+/g, "") ===
+        ranking.team
+          .toLowerCase()
+          .replace(/\s+/g, "")
+    );
 
-    const bonuses =
-  calculatePlayerBonuses(
-    leagueTeam?.players ?? [],
-    seasonStats
-  );
-    if (ranking.team === "Fuck You FantasyFootball") {
-  console.log(
-    "FUFF ROSTER SIZE",
-    leagueTeam?.players?.length
-  );
+    const allPlayRank =
+      allPlayMap[
+        leagueTeam?.roster_id ??
+        leagueTeam?.rosterId
+      ] ?? 10;
 
-  console.log(
-    "FUFF BONUSES",
-    bonuses
-  );
+    const bonuses = calculatePlayerBonuses(
+      leagueTeam?.players ?? [],
+      seasonStats
+    );
 
-  console.log(
-    "FUFF SAMPLE PLAYERS",
-    leagueTeam?.players?.slice(0, 10)
-  );
-}
+    return {
+      ...ranking,
+      allPlayRank,
+      leagueTeam,
 
-return {
-  ...ranking,
+      qbBonus: bonuses.qbBonus,
+      rbBonus: bonuses.rbBonus,
+      wrBonus: bonuses.wrBonus,
+      teBonus: bonuses.teBonus,
 
-  allPlayRank,
-
-  leagueTeam,
-
-  qbBonus: bonuses.qbBonus,
-  rbBonus: bonuses.rbBonus,
-  wrBonus: bonuses.wrBonus,
-  teBonus: bonuses.teBonus,
-
-  powerScore: calculatePowerScore({
-    ...ranking,
-    allPlayRank,
-    qbBonus: bonuses.qbBonus,
-    rbBonus: bonuses.rbBonus,
-    wrBonus: bonuses.wrBonus,
-    teBonus: bonuses.teBonus,
-  };
-})
-.sort(
+      powerScore: calculatePowerScore({
+        ...ranking,
+        allPlayRank,
+        qbBonus: bonuses.qbBonus,
+        rbBonus: bonuses.rbBonus,
+        wrBonus: bonuses.wrBonus,
+        teBonus: bonuses.teBonus,
+      }),
+    };
+  })
+  .sort(
     (a, b) =>
       a.powerScore - b.powerScore
   );
