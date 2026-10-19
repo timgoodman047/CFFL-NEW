@@ -393,7 +393,7 @@ allPlayWins:
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-4xl font-bold mb-6">
-        CFFL Standings
+        Valley Forge Auto Standings
       </h1>
 
       <div className="overflow-x-auto">
