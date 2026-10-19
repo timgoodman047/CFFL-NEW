@@ -300,25 +300,24 @@ sosRank:
   sosRanks[roster.roster_id] ?? 0,
 
 allPlayWins:
-  allPlayData[
-    roster.roster_id
-  ]?.wins ?? 0,
+    allPlayData[
+      roster.roster_id
+    ]?.wins ?? 0,
 
-allPlayLosses:
-  allPlayData[
-    roster.roster_id
-  ]?.losses ?? 0,
+  allPlayLosses:
+    allPlayData[
+      roster.roster_id
+    ]?.losses ?? 0,
 
-luck:
-  (roster.settings?.wins ?? 0) -
-  (
+  luck:
+    (roster.settings?.wins ?? 0) -
     (
-      allPlayData[
-        roster.roster_id
-      ]?.wins ?? 0
-    ) / 9
-  ),
-};
+      (
+        allPlayData[
+          roster.roster_id
+        ]?.wins ?? 0
+      ) / 9
+    ),
   });
 
   // TOP 5 BY RECORD
@@ -441,12 +440,20 @@ luck:
     </th>
 
     <th className="p-3 border border-gray-500">
-      SOS
-    </th>
+  SOS
+</th>
 
-    <th className="p-3 border border-gray-500">
-      Back
-    </th>
+<th className="p-3 border border-gray-500">
+  All-Play
+</th>
+
+<th className="p-3 border border-gray-500">
+  Luck
+</th>
+
+<th className="p-3 border border-gray-500">
+  Back
+</th>
   </tr>
 </thead>
 
@@ -500,13 +507,27 @@ luck:
         </td>
 
         <td className="p-3 border border-gray-500">
-          {index >= 6
-            ? (
-                playoffCutoff.fpts -
-                team.fpts
-              ).toFixed(2)
-            : "-"}
-        </td>
+  {team.sosRank}
+</td>
+
+<td className="p-3 border border-gray-500">
+  {team.allPlayWins}-
+  {team.allPlayLosses}
+</td>
+
+<td className="p-3 border border-gray-500">
+  {team.luck > 0 ? "+" : ""}
+  {team.luck.toFixed(1)}
+</td>
+
+<td className="p-3 border border-gray-500">
+  {index >= 6
+    ? (
+        playoffCutoff.fpts -
+        team.fpts
+      ).toFixed(2)
+    : "-"}
+</td>
       </tr>
     </Fragment>
   ))}
