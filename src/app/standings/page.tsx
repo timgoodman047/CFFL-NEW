@@ -349,10 +349,6 @@ sosRank:
 </th>
 
 <th className="p-3">
-  ROS SOS
-</th>
-
-<th className="p-3">
   Back
 </th>
             </tr>
