@@ -364,63 +364,60 @@ sosRank:
 <tbody>
   {standings.map((team, index) => (
     <Fragment key={team.rosterId}>
-  <tr
-  className={`hover:bg-gray-900 ${
-    index < 5 ? "bg-green-950/30" : ""
-  }`}
->
-    ="p-3 border border-gray-500">
-      {index === 0 ? "🏆" : index + 1}
-    </td>
+      <tr
+        className={`hover:bg-gray-900 ${
+          index < 5 ? "bg-green-950/30" : ""
+        }`}
+      >
+        <td className="p-3 border border-gray-500">
+          {index === 0 ? "🏆" : index + 1}
+        </td>
 
-    ="p-3 font-semibold">
-  {team.teamName}
-  {index < 5 ? (
-    <span className="ml-2 text-green-400">
-      👑
-    </span>
-  ) : (
-    <span className="ml-2 text-yellow-400">
-      ⭐
-    </span>
-  )}
-</td>
+        <td className="p-3 border border-gray-500 font-semibold">
+          {team.teamName}
+          {index < 5 ? (
+            <span className="ml-2 text-green-400">
+              👑
+            </span>
+          ) : (
+            <span className="ml-2 text-yellow-400">
+              ⭐
+            </span>
+          )}
+        </td>
 
-<td style={{
-  backgroundColor: "gray",
-  border: "4px solid yellow",
-  color: "white"
-}}>
-  TEST TEST TEST
-</td>
+        <td className="p-3 border border-gray-500">
+          {team.wins}
+        </td>
 
         <td className="p-3 border border-gray-500">
           {team.losses}
         </td>
 
-        ="p-3 border border-gray-500">
+        <td className="p-3 border border-gray-500">
           {team.ties}
         </td>
 
-       ="p-3 border border-gray-500">
+        <td className="p-3 border border-gray-500">
           {team.fpts.toFixed(2)}
         </td>
 
-       ="p-3 border border-gray-500">
-  {team.fptsAgainst.toFixed(2)}
-</td>
+        <td className="p-3 border border-gray-500">
+          {team.fptsAgainst.toFixed(2)}
+        </td>
 
-    ="p-3 border border-gray-500">
-  {team.sosRank}
-</td>
+        <td className="p-3 border border-gray-500">
+          {team.sosRank}
+        </td>
 
-="p-3 border border-gray-500">
-  {index >= 6
-    ? (
-        playoffCutoff.fpts - team.fpts
-      ).toFixed(2)
-    : "-"}
-</td>
+        <td className="p-3 border border-gray-500">
+          {index >= 6
+            ? (
+                playoffCutoff.fpts -
+                team.fpts
+              ).toFixed(2)
+            : "-"}
+        </td>
       </tr>
     </Fragment>
   ))}
