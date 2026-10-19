@@ -75,5 +75,9 @@ export async function getStrengthOfSchedule() {
       (a, b) =>
         b.averageOpponentPF -
         a.averageOpponentPF
-    );
+    )
+    .map((team, index) => ({
+      ...team,
+      sosRank: index + 1,
+    }));
 }
