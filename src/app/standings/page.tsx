@@ -310,15 +310,16 @@ allPlayWins:
     ]?.losses ?? 0,
 
   luck:
-    (roster.settings?.wins ?? 0) -
+  (roster.settings?.wins ?? 0) -
+  (
     (
-      (
-        allPlayData[
-          roster.roster_id
-        ]?.wins ?? 0
-      ) / 9
-    ),
-  });
+      allPlayData[
+        roster.roster_id
+      ]?.wins ?? 0
+    ) / 9
+  ),
+};
+});
 
   // TOP 5 BY RECORD
   const topFive = [...teams]
@@ -505,10 +506,6 @@ allPlayWins:
         <td className="p-3 border border-gray-500">
           {team.sosRank}
         </td>
-
-        <td className="p-3 border border-gray-500">
-  {team.sosRank}
-</td>
 
 <td className="p-3 border border-gray-500">
   {team.allPlayWins}-
