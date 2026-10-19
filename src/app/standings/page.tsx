@@ -27,6 +27,9 @@ export default function StandingsPage() {
   const [sosRanks, setSosRanks] =
     useState<Record<number, number>>({});
 
+  const [allPlayData, setAllPlayData] =
+  useState<Record<number, any>>({});
+
   const [sortField, setSortField] =
     useState<SortField>("wins");
 
@@ -72,6 +75,70 @@ for (
 
 const matchupWeeks =
   await Promise.all(matchupRequests);
+
+const allPlayWins =
+  new Map<number, number>();
+
+const allPlayLosses =
+  new Map<number, number>();
+
+matchupWeeks.forEach(
+  (matchups: any[]) => {
+    matchups.forEach((teamA) => {
+      let wins = 0;
+      let losses = 0;
+
+      matchups.forEach((teamB) => {
+        if (
+          teamA.roster_id ===
+          teamB.roster_id
+        ) {
+          return;
+        }
+
+        if (teamA.points > teamB.points) {
+          wins++;
+        } else if (
+          teamA.points < teamB.points
+        ) {
+          losses++;
+        }
+      });
+
+      allPlayWins.set(
+        teamA.roster_id,
+        (allPlayWins.get(
+          teamA.roster_id
+        ) ?? 0) + wins
+      );
+
+      allPlayLosses.set(
+        teamA.roster_id,
+        (allPlayLosses.get(
+          teamA.roster_id
+        ) ?? 0) + losses
+      );
+    });
+  }
+);
+
+const allPlayMap =
+  Object.fromEntries(
+    rostersData.map((roster: any) => [
+      roster.roster_id,
+      {
+        wins:
+          allPlayWins.get(
+            roster.roster_id
+          ) ?? 0,
+
+        losses:
+          allPlayLosses.get(
+            roster.roster_id
+          ) ?? 0,
+      },
+    ])
+  );
 
 const pfMap = Object.fromEntries(
   rostersData.map((roster: any) => [
