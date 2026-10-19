@@ -1,4 +1,4 @@
-import { week5Ranks } from "../../data/history/week5";
+import { previousWeekRanks } from "../../data/history";
 import { powerRankings } from "../../data/powerRankings";
 import { calculatePowerScore } from "../../lib/powerRankings";
 import {
@@ -73,7 +73,7 @@ const rankings = powerRankings.rankings
     );
 
     const previousRank =
-  week5Ranks[ranking.team] ??
+  previousWeekRanks[ranking.team] ??
   ranking.rank;
 
     const allPlayRank =
