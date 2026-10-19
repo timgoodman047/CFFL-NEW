@@ -15,12 +15,12 @@ export function calculatePowerScore(team: {
   return (
     team.pfRank +
     team.allPlayRank +
-    team.threeWeekRank / 2 +
-    team.qbBonus +
-    team.rbBonus +
-    team.wrBonus +
-    team.teBonus +
-    team.wins125 +
+    team.threeWeekRank / 2 -
+    team.qbBonus -
+    team.rbBonus -
+    team.wrBonus -
+    team.teBonus -
+    team.wins125 -
     team.precision
   );
 }
