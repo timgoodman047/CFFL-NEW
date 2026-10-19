@@ -308,21 +308,20 @@ sosRank:
       </h1>
 
       <div className="overflow-x-auto">
-        <table className="w-full border border-gray-700">
+        <table className="w-full border border-gray-600">
           <thead className="bg-gray-900">
             <tr>
-              <th className="p-3 text-left">Rank</th>
-              <th className="p-3 text-left">Team</th>
+              <th className="p-3 text-left border border-gray-600">Rank</th>
+              <th className="p-3 text-left border border-gray-600">Team</th>
 
-              <th
-                className="p-3 cursor-pointer"
+              <th className="p-3 cursor-pointer border border-gray-600">
                 onClick={() => handleSort("wins")}
               >
                 W
               </th>
 
               <th
-                className="p-3 cursor-pointer"
+                <th className="p-3 cursor-pointer border border-gray-600">
                 onClick={() => handleSort("losses")}
               >
                 L
@@ -331,14 +330,14 @@ sosRank:
               <th className="p-3">T</th>
 
               <th
-                className="p-3 cursor-pointer"
+                <th className="p-3 cursor-pointer border border-gray-600">
                 onClick={() => handleSort("fpts")}
               >
                 PF
               </th>
 
               <th
-  className="p-3 cursor-pointer"
+  <th className="p-3 cursor-pointer border border-gray-600">
   onClick={() => handleSort("fptsAgainst")}
 >
   PA
@@ -358,10 +357,10 @@ sosRank:
   {standings.map((team, index) => (
     <Fragment key={team.rosterId}>
   <tr
-    className={`border-t border-gray-700 hover:bg-gray-900 ${
-      index < 5 ? "bg-green-950/30" : ""
-    }`}
-  >
+  className={`hover:bg-gray-900 ${
+    index < 5 ? "bg-green-950/30" : ""
+  }`}
+>
     <td className="p-3">
       {index === 0 ? "🏆" : index + 1}
     </td>
