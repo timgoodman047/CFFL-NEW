@@ -379,10 +379,8 @@ sosRank:
   )}
 </td>
 
-<td
-  className="p-3 border-4 border-red-500 bg-red-500"
->
-  {team.wins}
+<td>
+  TEST TEST TEST
 </td>
 
         <td className="p-3 border border-white/30">
