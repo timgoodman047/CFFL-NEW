@@ -238,6 +238,8 @@ const sosRanks = Object.fromEntries(
 );
 
         setSosRanks(sosRanks);
+
+        setAllPlayData(allPlayMap);
         
         setRosters(rostersData);
         setUsers(usersData);
@@ -296,6 +298,26 @@ const standings = useMemo(() => {
 
 sosRank:
   sosRanks[roster.roster_id] ?? 0,
+
+allPlayWins:
+  allPlayData[
+    roster.roster_id
+  ]?.wins ?? 0,
+
+allPlayLosses:
+  allPlayData[
+    roster.roster_id
+  ]?.losses ?? 0,
+
+luck:
+  (roster.settings?.wins ?? 0) -
+  (
+    (
+      allPlayData[
+        roster.roster_id
+      ]?.wins ?? 0
+    ) / 9
+  ),
 };
   });
 
