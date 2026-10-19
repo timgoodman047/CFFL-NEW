@@ -27,9 +27,6 @@ export default function StandingsPage() {
   const [sosRanks, setSosRanks] =
     useState<Record<number, number>>({});
 
-  const [remainingSOSRanks, setRemainingSOSRanks] =
-    useState<Record<number, number>>({});
-
   const [sortField, setSortField] =
     useState<SortField>("wins");
 
@@ -232,11 +229,6 @@ const standings = useMemo(() => {
 
 sosRank:
   sosRanks[roster.roster_id] ?? 0,
-
-remainingSOSRank:
-  remainingSOSRanks[
-    roster.roster_id
-  ] ?? 0,
 };
   });
 
@@ -413,10 +405,6 @@ remainingSOSRank:
 
     <td className="p-3">
   {team.sosRank}
-</td>
-
-<td className="p-3">
-  {team.remainingSOSRank}
 </td>
 
 <td className="p-3">
