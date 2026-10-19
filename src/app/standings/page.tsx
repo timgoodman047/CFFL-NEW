@@ -379,7 +379,11 @@ sosRank:
   )}
 </td>
 
-<td>
+<td style={{
+  backgroundColor: "red",
+  border: "4px solid yellow",
+  color: "white"
+}}>
   TEST TEST TEST
 </td>
 
