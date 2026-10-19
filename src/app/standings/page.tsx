@@ -232,6 +232,11 @@ const standings = useMemo(() => {
 
 sosRank:
   sosRanks[roster.roster_id] ?? 0,
+
+remainingSOSRank:
+  remainingSOSRanks[
+    roster.roster_id
+  ] ?? 0,
 };
   });
 
