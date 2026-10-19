@@ -314,30 +314,31 @@ sosRank:
               <th className="p-3 text-left border border-gray-600">Rank</th>
               <th className="p-3 text-left border border-gray-600">Team</th>
 
-              <th className="p-3 cursor-pointer border border-gray-600">
-                onClick={() => handleSort("wins")}
-              >
-                W
-              </th>
+              <th
+  className="p-3 cursor-pointer border border-gray-600"
+  onClick={() => handleSort("wins")}
+>
+  W
+</th>
 
               <th
-                <th className="p-3 cursor-pointer border border-gray-600">
-                onClick={() => handleSort("losses")}
-              >
-                L
-              </th>
+  className="p-3 cursor-pointer border border-gray-600"
+  onClick={() => handleSort("losses")}
+>
+  L
+</th>
 
               <th className="p-3">T</th>
 
               <th
-                <th className="p-3 cursor-pointer border border-gray-600">
-                onClick={() => handleSort("fpts")}
-              >
-                PF
-              </th>
+  className="p-3 cursor-pointer border border-gray-600"
+  onClick={() => handleSort("fpts")}
+>
+  PF
+</th>
 
               <th
-  <th className="p-3 cursor-pointer border border-gray-600">
+  className="p-3 cursor-pointer border border-gray-600"
   onClick={() => handleSort("fptsAgainst")}
 >
   PA
@@ -361,7 +362,7 @@ sosRank:
     index < 5 ? "bg-green-950/30" : ""
   }`}
 >
-    <td className="p-3">
+    <td className="p-3 border border-gray-600">
       {index === 0 ? "🏆" : index + 1}
     </td>
 
@@ -378,31 +379,31 @@ sosRank:
   )}
 </td>
 
-<td className="p-3">
+<td className="p-3 border border-gray-600">
   {team.wins}
 </td>
 
-        <td className="p-3">
+        <td className="p-3 border border-gray-600">
           {team.losses}
         </td>
 
-        <td className="p-3">
+        <td className="p-3 border border-gray-600">
           {team.ties}
         </td>
 
-        <td className="p-3">
+        <td className="p-3 border border-gray-600">
           {team.fpts.toFixed(2)}
         </td>
 
-        <td className="p-3">
+       <td className="p-3 border border-gray-600">
   {team.fptsAgainst.toFixed(2)}
 </td>
 
-    <td className="p-3">
+    <td className="p-3 border border-gray-600">
   {team.sosRank}
 </td>
 
-<td className="p-3">
+<td className="p-3 border border-gray-600">
   {index >= 6
     ? (
         playoffCutoff.fpts - team.fpts
