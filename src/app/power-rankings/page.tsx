@@ -123,7 +123,7 @@ const rankings = powerRankings.rankings
   ...ranking,
   pfRank,
   allPlayRank,
-  wins125,
+  win125: wins125,
   threeWeekRank,
   qbBonus: bonuses.qbBonus,
   rbBonus: bonuses.rbBonus,
