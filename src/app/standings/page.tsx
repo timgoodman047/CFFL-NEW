@@ -27,6 +27,9 @@ export default function StandingsPage() {
   const [sosRanks, setSosRanks] =
     useState<Record<number, number>>({});
 
+  const [remainingSOSRanks, setRemainingSOSRanks] =
+    useState<Record<number, number>>({});
+
   const [sortField, setSortField] =
     useState<SortField>("wins");
 
@@ -349,6 +352,10 @@ sosRank:
 </th>
 
 <th className="p-3">
+  ROS SOS
+</th>
+
+<th className="p-3">
   Back
 </th>
             </tr>
@@ -401,6 +408,10 @@ sosRank:
 
     <td className="p-3">
   {team.sosRank}
+</td>
+
+<td className="p-3">
+  {team.remainingSOSRank}
 </td>
 
 <td className="p-3">
