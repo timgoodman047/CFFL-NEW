@@ -1,3 +1,4 @@
+import { week5Ranks } from "../../data/history/week5";
 import { powerRankings } from "../../data/powerRankings";
 import { calculatePowerScore } from "../../lib/powerRankings";
 import {
@@ -71,6 +72,10 @@ const rankings = powerRankings.rankings
           .replace(/\s+/g, "")
     );
 
+    const previousRank =
+  week5Ranks[ranking.team] ??
+  ranking.rank;
+
     const allPlayRank =
       allPlayMap[
         leagueTeam?.roster_id ??
@@ -121,6 +126,7 @@ const rankings = powerRankings.rankings
 
       powerScore: calculatePowerScore({
   ...ranking,
+  previousRank,
   pfRank,
   allPlayRank,
   wins125,
