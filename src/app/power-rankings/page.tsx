@@ -1,4 +1,4 @@
-import { previousWeekRanks } from "../../data/history";
+import { previousWeekRanks } from "../../data/history/index";
 import { powerRankings } from "../../data/powerRankings";
 import { calculatePowerScore } from "../../lib/powerRankings";
 import {
