@@ -308,47 +308,47 @@ sosRank:
       </h1>
 
       <div className="overflow-x-auto">
-        <table className="w-full border border-white/30">
+        <table className="w-full border-collapse border border-gray-500">
           <thead className="bg-gray-900">
             <tr>
-              <th className="p-3 text-left border border-white/30">Rank</th>
-              <th className="p-3 text-left border border-white/30">Team</th>
+              <th className="p-3 border border-gray-500">
+              <th className="p-3 border border-gray-500">
 
               <th
-  className="p-3 cursor-pointer border border-white/30"
+  className="p-3 cursor-pointer border border-gray-500"
   onClick={() => handleSort("wins")}
 >
   W
 </th>
 
               <th
-  className="p-3 cursor-pointer border border-white/30"
+  className="p-3 cursor-pointer border border-gray-500"
   onClick={() => handleSort("losses")}
 >
   L
 </th>
 
-              <th className="p-3">T</th>
+              <th className="p-3 border border-gray-500">
 
               <th
-  className="p-3 cursor-pointer border border-white/30"
+  className="p-3 cursor-pointer border border-gray-500"
   onClick={() => handleSort("fpts")}
 >
   PF
 </th>
 
               <th
-  className="p-3 cursor-pointer border border-white/30"
+  className="p-3 cursor-pointer border border-gray-500"
   onClick={() => handleSort("fptsAgainst")}
 >
   PA
 </th>
 
-<th className="p-3">
+<th className="p-3 border border-gray-500">
   SOS
 </th>
 
-<th className="p-3">
+<th className="p-3 border border-gray-500">
   Back
 </th>
             </tr>
@@ -362,11 +362,11 @@ sosRank:
     index < 5 ? "bg-green-950/30" : ""
   }`}
 >
-    <td className="p-3 border border-white/30">
+    ="p-3 border border-gray-500">
       {index === 0 ? "🏆" : index + 1}
     </td>
 
-    <td className="p-3 font-semibold">
+    ="p-3 font-semibold">
   {team.teamName}
   {index < 5 ? (
     <span className="ml-2 text-green-400">
@@ -387,27 +387,27 @@ sosRank:
   TEST TEST TEST
 </td>
 
-        <td className="p-3 border border-white/30">
+        <td className="p-3 border border-gray-500">
           {team.losses}
         </td>
 
-        <td className="p-3 border border-white/30">
+        ="p-3 border border-gray-500">
           {team.ties}
         </td>
 
-        <td className="p-3 border border-white/30">
+       ="p-3 border border-gray-500">
           {team.fpts.toFixed(2)}
         </td>
 
-       <td className="p-3 border border-white/30">
+       ="p-3 border border-gray-500">
   {team.fptsAgainst.toFixed(2)}
 </td>
 
-    <td className="p-3 border border-white/30">
+    ="p-3 border border-gray-500">
   {team.sosRank}
 </td>
 
-<td className="p-3 border border-white/30">
+="p-3 border border-gray-500">
   {index >= 6
     ? (
         playoffCutoff.fpts - team.fpts
