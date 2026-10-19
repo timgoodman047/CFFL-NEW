@@ -24,6 +24,9 @@ export default function StandingsPage() {
   const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const [sosRanks, setSosRanks] =
+    useState<Record<number, number>>({});
+
   const [sortField, setSortField] =
     useState<SortField>("wins");
 
@@ -32,18 +35,143 @@ export default function StandingsPage() {
   useEffect(() => {
     async function loadData() {
       try {
-        const [rostersRes, usersRes] = await Promise.all([
-          fetch(
-            `https://api.sleeper.app/v1/league/${LEAGUE_ID}/rosters`
-          ),
-          fetch(
-            `https://api.sleeper.app/v1/league/${LEAGUE_ID}/users`
-          ),
-        ]);
+        const [rostersRes, usersRes, stateRes] =
+  await Promise.all([
+    fetch(
+      `https://api.sleeper.app/v1/league/${LEAGUE_ID}/rosters`
+    ),
+    fetch(
+      `https://api.sleeper.app/v1/league/${LEAGUE_ID}/users`
+    ),
+    fetch(
+      "https://api.sleeper.app/v1/state/nfl"
+    ),
+  ]);
 
         const rostersData = await rostersRes.json();
         const usersData = await usersRes.json();
 
+        const stateData = await stateRes.json();
+
+const currentWeek =
+  stateData.week;
+
+const matchupRequests = [];
+
+for (
+  let week = 1;
+  week < currentWeek;
+  week++
+) {
+  matchupRequests.push(
+    fetch(
+      `https://api.sleeper.app/v1/league/${LEAGUE_ID}/matchups/${week}`
+    ).then((r) => r.json())
+  );
+}
+
+const matchupWeeks =
+  await Promise.all(matchupRequests);
+
+const pfMap = Object.fromEntries(
+  rostersData.map((roster: any) => [
+    roster.roster_id,
+    Number(roster.settings?.fpts ?? 0) +
+      Number(
+        roster.settings?.fpts_decimal ?? 0
+      ) /
+        100,
+  ])
+);
+
+const opponentTotals =
+  new Map<number, number>();
+
+const gamesPlayed =
+  new Map<number, number>();
+
+matchupWeeks.forEach(
+  (matchups: any[]) => {
+    const games =
+      new Map<number, any[]>();
+
+    matchups.forEach((team) => {
+      const game =
+        games.get(team.matchup_id) ?? [];
+
+      game.push(team);
+
+      games.set(
+        team.matchup_id,
+        game
+      );
+    });
+
+    games.forEach((game) => {
+      if (game.length !== 2) return;
+
+      const [teamA, teamB] = game;
+
+      opponentTotals.set(
+        teamA.roster_id,
+        (opponentTotals.get(
+          teamA.roster_id
+        ) ?? 0) +
+          (pfMap[teamB.roster_id] ?? 0)
+      );
+
+      opponentTotals.set(
+        teamB.roster_id,
+        (opponentTotals.get(
+          teamB.roster_id
+        ) ?? 0) +
+          (pfMap[teamA.roster_id] ?? 0)
+      );
+
+      gamesPlayed.set(
+        teamA.roster_id,
+        (gamesPlayed.get(
+          teamA.roster_id
+        ) ?? 0) + 1
+      );
+
+      gamesPlayed.set(
+        teamB.roster_id,
+        (gamesPlayed.get(
+          teamB.roster_id
+        ) ?? 0) + 1
+      );
+    });
+  }
+);
+
+const sosRanks = Object.fromEntries(
+  Array.from(
+    opponentTotals.entries()
+  )
+    .map(
+      ([rosterId, totalOpponentPF]) => ({
+        rosterId,
+        averageOpponentPF:
+          totalOpponentPF /
+          (gamesPlayed.get(
+            rosterId
+          ) ?? 1),
+      })
+    )
+    .sort(
+      (a, b) =>
+        b.averageOpponentPF -
+        a.averageOpponentPF
+    )
+    .map((team, index) => [
+      team.rosterId,
+      index + 1,
+    ])
+);
+
+        setSosRanks(sosRanks);
+        
         setRosters(rostersData);
         setUsers(usersData);
       } catch (err) {
@@ -97,8 +225,10 @@ const standings = useMemo(() => {
   ) +
   Number(
     roster.settings?.fpts_against_decimal ?? 0
-  ) /
-    100,
+  ) / 100,
+
+sosRank:
+  sosRanks[roster.roster_id] ?? 0,
 };
   });
 
@@ -215,6 +345,10 @@ const standings = useMemo(() => {
 </th>
 
 <th className="p-3">
+  SOS
+</th>
+
+<th className="p-3">
   Back
 </th>
             </tr>
@@ -263,6 +397,10 @@ const standings = useMemo(() => {
 
         <td className="p-3">
   {team.fptsAgainst.toFixed(2)}
+</td>
+
+    <td className="p-3">
+  {team.sosRank}
 </td>
 
 <td className="p-3">
