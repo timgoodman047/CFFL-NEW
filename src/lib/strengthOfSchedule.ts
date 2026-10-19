@@ -81,3 +81,85 @@ export async function getStrengthOfSchedule() {
       sosRank: index + 1,
     }));
 }
+
+export async function getRemainingSOS() {
+  const currentWeek = await getCurrentWeek();
+  const leagueTeams = await getLeagueTeams();
+
+  const pfMap = Object.fromEntries(
+    leagueTeams.map((team) => [
+      team.roster_id,
+      team.pf ?? 0,
+    ])
+  );
+
+  const totals = new Map<number, number>();
+  const gamesRemaining = new Map<number, number>();
+
+  for (
+    let week = currentWeek;
+    week <= 14;
+    week++
+  ) {
+    const matchups = await getMatchups(week);
+
+    const matchupGroups = new Map<number, any[]>();
+
+    matchups.forEach((team: any) => {
+      const game =
+        matchupGroups.get(team.matchup_id) ?? [];
+
+      game.push(team);
+
+      matchupGroups.set(
+        team.matchup_id,
+        game
+      );
+    });
+
+    matchupGroups.forEach((game) => {
+      if (game.length !== 2) return;
+
+      const [teamA, teamB] = game;
+
+      totals.set(
+        teamA.roster_id,
+        (totals.get(teamA.roster_id) ?? 0) +
+          (pfMap[teamB.roster_id] ?? 0)
+      );
+
+      totals.set(
+        teamB.roster_id,
+        (totals.get(teamB.roster_id) ?? 0) +
+          (pfMap[teamA.roster_id] ?? 0)
+      );
+
+      gamesRemaining.set(
+        teamA.roster_id,
+        (gamesRemaining.get(teamA.roster_id) ?? 0) + 1
+      );
+
+      gamesRemaining.set(
+        teamB.roster_id,
+        (gamesRemaining.get(teamB.roster_id) ?? 0) + 1
+      );
+    });
+  }
+
+  return Array.from(totals.entries())
+    .map(([rosterId, totalPF]) => ({
+      rosterId,
+      averageOpponentPF:
+        totalPF /
+        (gamesRemaining.get(rosterId) ?? 1),
+    }))
+    .sort(
+      (a, b) =>
+        b.averageOpponentPF -
+        a.averageOpponentPF
+    )
+    .map((team, index) => ({
+      ...team,
+      remainingSOSRank: index + 1,
+    }));
+}
