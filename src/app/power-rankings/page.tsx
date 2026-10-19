@@ -107,6 +107,8 @@ const rankings = powerRankings.rankings
     return {
       ...ranking,
 
+      previousRank,
+
       pfRank:
     pfRankMap[leagueTeam?.team ?? ""] ??
     pfRank,
@@ -126,7 +128,6 @@ const rankings = powerRankings.rankings
 
       powerScore: calculatePowerScore({
   ...ranking,
-  previousRank,
   pfRank,
   allPlayRank,
   wins125,
