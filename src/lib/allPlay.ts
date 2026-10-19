@@ -113,20 +113,39 @@ export async function get125Wins() {
   for (let week = 1; week < currentWeek; week++) {
     const matchups = await getMatchups(week);
 
-    matchups.forEach((team: any) => {
-      const current =
-        totals.get(team.roster_id) ?? 0;
+    const matchupGroups = new Map<number, any[]>();
 
-      if ((team.points ?? 0) >= 125) {
-        totals.set(
-          team.roster_id,
-          current + 1
-        );
-      } else {
-        totals.set(
-          team.roster_id,
-          current
-        );
+    matchups.forEach((team: any) => {
+      const game =
+        matchupGroups.get(team.matchup_id) ?? [];
+
+      game.push(team);
+
+      matchupGroups.set(
+        team.matchup_id,
+        game
+      );
+    });
+
+    matchupGroups.forEach((game) => {
+      if (game.length !== 2) return;
+
+      const [teamA, teamB] = game;
+
+      if (teamA.points > teamB.points) {
+        if (teamB.points >= 125) {
+          totals.set(
+            teamA.roster_id,
+            (totals.get(teamA.roster_id) ?? 0) + 1
+          );
+        }
+      } else if (teamB.points > teamA.points) {
+        if (teamA.points >= 125) {
+          totals.set(
+            teamB.roster_id,
+            (totals.get(teamB.roster_id) ?? 0) + 1
+          );
+        }
       }
     });
   }
