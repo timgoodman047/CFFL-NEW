@@ -310,49 +310,56 @@ sosRank:
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-500">
           <thead className="bg-gray-900">
-            <tr>
-              <th className="p-3 border border-gray-500">
-              <th className="p-3 border border-gray-500">
+  <tr>
+    <th className="p-3 border border-gray-500 text-left">
+      Rank
+    </th>
 
-              <th
-  className="p-3 cursor-pointer border border-gray-500"
-  onClick={() => handleSort("wins")}
->
-  W
-</th>
+    <th className="p-3 border border-gray-500 text-left">
+      Team
+    </th>
 
-              <th
-  className="p-3 cursor-pointer border border-gray-500"
-  onClick={() => handleSort("losses")}
->
-  L
-</th>
+    <th
+      className="p-3 cursor-pointer border border-gray-500"
+      onClick={() => handleSort("wins")}
+    >
+      W
+    </th>
 
-              <th className="p-3 border border-gray-500">
+    <th
+      className="p-3 cursor-pointer border border-gray-500"
+      onClick={() => handleSort("losses")}
+    >
+      L
+    </th>
 
-              <th
-  className="p-3 cursor-pointer border border-gray-500"
-  onClick={() => handleSort("fpts")}
->
-  PF
-</th>
+    <th className="p-3 border border-gray-500">
+      T
+    </th>
 
-              <th
-  className="p-3 cursor-pointer border border-gray-500"
-  onClick={() => handleSort("fptsAgainst")}
->
-  PA
-</th>
+    <th
+      className="p-3 cursor-pointer border border-gray-500"
+      onClick={() => handleSort("fpts")}
+    >
+      PF
+    </th>
 
-<th className="p-3 border border-gray-500">
-  SOS
-</th>
+    <th
+      className="p-3 cursor-pointer border border-gray-500"
+      onClick={() => handleSort("fptsAgainst")}
+    >
+      PA
+    </th>
 
-<th className="p-3 border border-gray-500">
-  Back
-</th>
-            </tr>
-          </thead>
+    <th className="p-3 border border-gray-500">
+      SOS
+    </th>
+
+    <th className="p-3 border border-gray-500">
+      Back
+    </th>
+  </tr>
+</thead>
 
 <tbody>
   {standings.map((team, index) => (
@@ -380,7 +387,7 @@ sosRank:
 </td>
 
 <td style={{
-  backgroundColor: "red",
+  backgroundColor: "gray",
   border: "4px solid yellow",
   color: "white"
 }}>
