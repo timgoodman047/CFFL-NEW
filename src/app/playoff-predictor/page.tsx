@@ -81,17 +81,21 @@ const formattedMatchups = Object.values(
       key={matchup.matchupId}
       className="border border-gray-700 rounded p-4 mb-2"
     >
-      <div>
-        {matchup.team1.team}
-      </div>
+<button
+  className="w-full text-left p-2 rounded bg-gray-800 hover:bg-gray-700"
+>
+  {matchup.team1.team}
+</button>
 
-      <div className="text-gray-500 my-1">
-        vs
-      </div>
+<div className="text-gray-500 my-2 text-center">
+  vs
+</div>
 
-      <div>
-        {matchup.team2.team}
-      </div>
+<button
+  className="w-full text-left p-2 rounded bg-gray-800 hover:bg-gray-700"
+>
+  {matchup.team2.team}
+</button>      
     </div>
   )
 )}
