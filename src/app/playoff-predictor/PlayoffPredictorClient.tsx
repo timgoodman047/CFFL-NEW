@@ -65,16 +65,37 @@ console.log("PICKS", picks);
                   {matchup.team1.team}
                 </button>
 
-                <div className="text-xs text-yellow-500">
-  Match:
-  {String(
-    Number(
-      picks[
-        `${weekData.week}-${matchup.matchupId}`
-      ]
-    ) === Number(matchup.team2.rosterId)
+<div className="text-xs text-yellow-500">
+  Pick:
+  {JSON.stringify(
+    picks[
+      `${weekData.week}-${matchup.matchupId}`
+    ]
   )}
 </div>
+
+<div className="text-xs text-cyan-500">
+  Team1:
+  {JSON.stringify(
+    matchup.team1.rosterId
+  )}
+</div>
+
+<div className="text-xs text-green-500">
+  Team2:
+  {JSON.stringify(
+    matchup.team2.rosterId
+  )}
+</div>
+
+<div className="text-xs text-red-500">
+  Equal:
+  {String(
+    picks[
+      `${weekData.week}-${matchup.matchupId}`
+    ] == matchup.team2.rosterId
+  )}
+</div>                
 
 <div className="text-xs text-blue-500">
   Team1:
