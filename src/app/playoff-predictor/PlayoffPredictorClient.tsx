@@ -46,12 +46,14 @@ console.log("PICKS", picks);
               >
                 <button
                   className={`w-full text-left p-2 rounded ${
-                    picks[
-                      `${weekData.week}-${matchup.matchupId}`
-                    ] === matchup.team1.rosterId
-                      ? "bg-green-700"
-                      : "bg-gray-800 hover:bg-gray-700"
-                  }`}
+  Number(
+    picks[
+      `${weekData.week}-${matchup.matchupId}`
+    ]
+  ) === Number(matchup.team1.rosterId)
+    ? "bg-green-700"
+    : "bg-gray-800 hover:bg-gray-700"
+}`}
                   onClick={() =>
                     selectWinner(
                       weekData.week,
@@ -69,12 +71,14 @@ console.log("PICKS", picks);
 
                 <button
                   className={`w-full text-left p-2 rounded ${
-                    picks[
-                      `${weekData.week}-${matchup.matchupId}`
-                    ] === matchup.team2.rosterId
-                      ? "bg-green-700"
-                      : "bg-gray-800 hover:bg-gray-700"
-                  }`}
+  Number(
+    picks[
+      `${weekData.week}-${matchup.matchupId}`
+    ]
+  ) === Number(matchup.team2.rosterId)
+    ? "bg-green-700"
+    : "bg-gray-800 hover:bg-gray-700"
+}`}
                   onClick={() =>
                     selectWinner(
                       weekData.week,
