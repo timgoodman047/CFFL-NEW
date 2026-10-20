@@ -216,6 +216,7 @@ if (loserTeam) {
   loserTeam.projectedLosses++;
   loserTeam.projectedPF += loserTeam.avgPPG;
 }
+  }
   );
 });
 
