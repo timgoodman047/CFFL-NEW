@@ -62,7 +62,7 @@ console.log("PICKS", picks);
                     )
                   }
                 >
-                  {matchup.team1.team}
+                  {matchup.team1.team} ({JSON.stringify(matchup.team1.rosterId)})
                 </button>
 
 <div className="text-xs text-yellow-500">
@@ -129,7 +129,7 @@ console.log("PICKS", picks);
                     )
                   }
                 >
-                  {matchup.team2.team}
+                  {matchup.team2.team} ({JSON.stringify(matchup.team2.rosterId)})
                 </button>
               </div>
             )
