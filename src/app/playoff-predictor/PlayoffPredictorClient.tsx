@@ -1,10 +1,27 @@
 "use client";
 
+import { useState } from "react";
+
 export default function PlayoffPredictorClient({
   schedule,
 }: {
   schedule: any[];
 }) {
+  const [picks, setPicks] = useState<
+    Record<string, number>
+  >({});
+
+  function selectWinner(
+    week: number,
+    matchupId: number,
+    rosterId: number
+  ) {
+    setPicks((prev) => ({
+      ...prev,
+      [`${week}-${matchupId}`]: rosterId,
+    }));
+  }
+
   return (
     <div>
       {schedule.map((weekData) => (
@@ -22,7 +39,22 @@ export default function PlayoffPredictorClient({
                 key={matchup.matchupId}
                 className="border border-gray-700 rounded p-4 mb-2"
               >
-                <button className="w-full text-left p-2 rounded bg-gray-800 hover:bg-gray-700">
+                <button
+                  className={`w-full text-left p-2 rounded ${
+                    picks[
+                      `${weekData.week}-${matchup.matchupId}`
+                    ] === matchup.team1.rosterId
+                      ? "bg-green-700"
+                      : "bg-gray-800 hover:bg-gray-700"
+                  }`}
+                  onClick={() =>
+                    selectWinner(
+                      weekData.week,
+                      matchup.matchupId,
+                      matchup.team1.rosterId
+                    )
+                  }
+                >
                   {matchup.team1.team}
                 </button>
 
@@ -30,7 +62,22 @@ export default function PlayoffPredictorClient({
                   vs
                 </div>
 
-                <button className="w-full text-left p-2 rounded bg-gray-800 hover:bg-gray-700">
+                <button
+                  className={`w-full text-left p-2 rounded ${
+                    picks[
+                      `${weekData.week}-${matchup.matchupId}`
+                    ] === matchup.team2.rosterId
+                      ? "bg-green-700"
+                      : "bg-gray-800 hover:bg-gray-700"
+                  }`}
+                  onClick={() =>
+                    selectWinner(
+                      weekData.week,
+                      matchup.matchupId,
+                      matchup.team2.rosterId
+                    )
+                  }
+                >
                   {matchup.team2.team}
                 </button>
               </div>
