@@ -33,6 +33,7 @@ export default function PlayoffPredictorClient({
     ...team,
     projectedWins: team.wins,
     projectedLosses: team.losses,
+    projectedPF: team.pf,
   })
 );
 
@@ -206,13 +207,15 @@ schedule.forEach((weekData) => {
         );
 
 
-      if (winnerTeam)
-        winnerTeam.projectedWins++;
+      if (winnerTeam) {
+  winnerTeam.projectedWins++;
+  winnerTeam.projectedPF += winnerTeam.avgPPG;
+}
 
-
-      if (loserTeam)
-        loserTeam.projectedLosses++;
-    }
+if (loserTeam) {
+  loserTeam.projectedLosses++;
+  loserTeam.projectedPF += loserTeam.avgPPG;
+}
   );
 });
 
@@ -228,7 +231,7 @@ projectedStandings.sort(
       );
     }
 
-    return b.pf - a.pf;
+    return b.projectedPF - a.projectedPF;
   }
 );
 
@@ -238,7 +241,9 @@ const topFive = [...projectedStandings]
 const wildcard = projectedStandings
   .slice(5)
   .sort(
-    (a, b) => b.pf - a.pf
+    (a, b) =>
+      b.projectedPF -
+      a.projectedPF
   )[0];
 
 const projectedPlayoffTeams = [
@@ -368,8 +373,13 @@ const projectedPlayoffTeams = [
                 key={team.rosterId}
                 className="border border-gray-700 rounded p-2"
               >
-               {index + 1}. {team.team} (
-{team.projectedWins}-{team.projectedLosses})
+               {index + 1}. {team.team}
+({" "}
+{team.projectedWins}-
+{team.projectedLosses}
+{" • PF "}
+{team.projectedPF.toFixed(1)}
+)
               </div>
             )
           )}
