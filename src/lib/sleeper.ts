@@ -223,3 +223,20 @@ return {
 );
  
 }
+
+export async function getRemainingSchedule() {
+  const currentWeek = await getCurrentWeek();
+
+  const weeks = [];
+
+  for (let week = currentWeek; week <= 14; week++) {
+    const matchups = await getMatchups(week);
+
+    weeks.push({
+      week,
+      matchups,
+    });
+  }
+
+  return weeks;
+}
