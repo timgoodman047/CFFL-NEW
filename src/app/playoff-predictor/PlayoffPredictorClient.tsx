@@ -1,5 +1,39 @@
 "use client";
 
+function getAverage(scores: number[]) {
+  return (
+    scores.reduce(
+      (sum, score) => sum + score,
+      0
+    ) / scores.length
+  );
+}
+
+console.log(
+  standings.map((team) => ({
+    team: team.team,
+    avg: getAverage(
+      scoringHistory[team.rosterId]
+    ).toFixed(1),
+    stdDev: getStdDev(
+      scoringHistory[team.rosterId]
+    ).toFixed(1),
+  }))
+);
+
+function getStdDev(scores: number[]) {
+  const avg = getAverage(scores);
+
+  const variance =
+    scores.reduce(
+      (sum, score) =>
+        sum +
+        Math.pow(score - avg, 2),
+      0
+    ) / scores.length;
+
+  return Math.sqrt(variance);
+}
 
 import { useState } from "react";
 
