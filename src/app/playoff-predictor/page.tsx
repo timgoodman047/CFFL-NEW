@@ -12,6 +12,9 @@ export default async function PlayoffPredictorPage() {
   const teams =
     await getLeagueTeams();
 
+  const standings =
+  await getLeagueTeams();
+
   const getTeamName = (
     rosterId: number
   ) =>
@@ -80,8 +83,9 @@ export default async function PlayoffPredictorPage() {
       </h1>
 
       <PlayoffPredictorClient
-        schedule={predictorData}
-      />
+  schedule={predictorData}
+  standings={standings}
+/>
     </div>
   );
 }
