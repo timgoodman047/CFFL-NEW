@@ -27,7 +27,62 @@ export default function PlayoffPredictorClient({
   const projectedStandings = standings.map(
   (team) => ({
     ...team,
+    projectedWins: team.wins,
+    projectedLosses: team.losses,
   })
+);
+
+schedule.forEach((weekData) => {
+  weekData.matchups.forEach(
+    (matchup: any) => {
+      const winner =
+        picks[
+          `${weekData.week}-${matchup.matchupId}`
+        ];
+
+      if (!winner) return;
+
+      const loser =
+        winner ===
+        matchup.team1.rosterId
+          ? matchup.team2.rosterId
+          : matchup.team1.rosterId;
+
+      const winnerTeam =
+        projectedStandings.find(
+          (t) =>
+            t.rosterId === winner
+        );
+
+      const loserTeam =
+        projectedStandings.find(
+          (t) =>
+            t.rosterId === loser
+        );
+
+      if (winnerTeam)
+        winnerTeam.projectedWins++;
+
+      if (loserTeam)
+        loserTeam.projectedLosses++;
+    }
+  );
+});
+
+projectedStandings.sort(
+  (a, b) => {
+    if (
+      b.projectedWins !==
+      a.projectedWins
+    ) {
+      return (
+        b.projectedWins -
+        a.projectedWins
+      );
+    }
+
+    return b.pf - a.pf;
+  }
 );
   
   return (
@@ -117,7 +172,7 @@ export default function PlayoffPredictorClient({
                 className="border border-gray-700 rounded p-2"
               >
                 {index + 1}. {team.team} (
-                {team.wins}-{team.losses})
+                {team.projectedWins}-{team.projectedLosses}
               </div>
             )
           )}
