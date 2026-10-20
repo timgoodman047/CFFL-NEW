@@ -22,8 +22,13 @@ export default function PlayoffPredictorClient({
     }));
   }
 
+console.log("PICKS", picks);
+  
   return (
     <div>
+      <pre className="mb-4 text-xs">
+  {JSON.stringify(picks, null, 2)}
+</pre>
       {schedule.map((weekData) => (
         <div
           key={weekData.week}
