@@ -65,12 +65,14 @@ console.log("PICKS", picks);
                   {matchup.team1.team}
                 </button>
 
-                <div className="text-xs text-red-500">
-  Pick:
+                <div className="text-xs text-yellow-500">
+  Match:
   {String(
-    picks[
-      `${weekData.week}-${matchup.matchupId}`
-    ]
+    Number(
+      picks[
+        `${weekData.week}-${matchup.matchupId}`
+      ]
+    ) === Number(matchup.team2.rosterId)
   )}
 </div>
 
