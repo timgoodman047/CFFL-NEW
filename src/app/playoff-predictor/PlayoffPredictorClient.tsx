@@ -7,9 +7,11 @@ import { useState } from "react";
 export default function PlayoffPredictorClient({
   schedule,
   standings,
+  scoringHistory,
 }: {
   schedule: any[];
   standings: any[];
+  scoringHistory: Record<number, number[]>;
 }) {
   const [picks, setPicks] = useState<
     Record<string, number>
