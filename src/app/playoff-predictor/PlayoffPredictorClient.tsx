@@ -9,18 +9,6 @@ function getAverage(scores: number[]) {
   );
 }
 
-console.log(
-  standings.map((team) => ({
-    team: team.team,
-    avg: getAverage(
-      scoringHistory[team.rosterId]
-    ).toFixed(1),
-    stdDev: getStdDev(
-      scoringHistory[team.rosterId]
-    ).toFixed(1),
-  }))
-);
-
 function getStdDev(scores: number[]) {
   const avg = getAverage(scores);
 
@@ -47,13 +35,21 @@ export default function PlayoffPredictorClient({
   standings: any[];
   scoringHistory: Record<number, number[]>;
 }) {
-
-  console.log("SCORING HISTORY", scoringHistory);
   
   const [picks, setPicks] = useState<
     Record<string, number>
   >({});
-
+console.log(
+  standings.map((team) => ({
+    team: team.team,
+    avg: getAverage(
+      scoringHistory[team.rosterId]
+    ).toFixed(1),
+    stdDev: getStdDev(
+      scoringHistory[team.rosterId]
+    ).toFixed(1),
+  }))
+);
 
   function selectWinner(
     week: number,
