@@ -45,15 +45,7 @@ console.log("PICKS", picks);
                 className="border border-gray-700 rounded p-4 mb-2"
               >
                 <button
-                  className={`w-full text-left p-2 rounded ${
-  String(
-    picks[
-      `${weekData.week}-${matchup.matchupId}`
-    ]
-  ) === String(matchup.team1.rosterId)
-    ? "bg-red-500"
-    : "bg-gray-800"
-}`}
+                  className="w-full text-left p-2 rounded bg-red-500"
                   onClick={() =>
                     selectWinner(
                       weekData.week,
@@ -89,15 +81,7 @@ console.log("PICKS", picks);
 </div>
 
                 <button
-                  className={`w-full text-left p-2 rounded ${
-  String(
-    picks[
-      `${weekData.week}-${matchup.matchupId}`
-    ]
-  ) === String(matchup.team2.rosterId)
-    ? "bg-red-500"
-    : "bg-gray-800"
-}`}
+                  className="w-full text-left p-2 rounded bg-red-500"
                   onClick={() =>
                     selectWinner(
                       weekData.week,
