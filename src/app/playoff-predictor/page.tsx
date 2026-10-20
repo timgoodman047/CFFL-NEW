@@ -3,6 +3,7 @@ import PlayoffPredictorClient from "./PlayoffPredictorClient";
 import {
   getRemainingSchedule,
   getLeagueTeams,
+  getTeamScoringHistory,
 } from "../../lib/sleeper";
 
 export default async function PlayoffPredictorPage() {
@@ -13,7 +14,10 @@ export default async function PlayoffPredictorPage() {
     await getLeagueTeams();
 
   const standings =
-  await getLeagueTeams();
+    await getLeagueTeams();
+
+  const scoringHistory =
+    await getTeamScoringHistory();
 
   const getTeamName = (
     rosterId: number
@@ -85,6 +89,7 @@ export default async function PlayoffPredictorPage() {
       <PlayoffPredictorClient
   schedule={predictorData}
   standings={standings}
+  scoringHistory={scoringHistory}
 />
     </div>
   );
