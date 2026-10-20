@@ -32,6 +32,46 @@ export default function PlayoffPredictorClient({
   })
 );
 
+function autoPickByRecord() {
+  const newPicks: Record<
+    string,
+    number
+  > = {};
+
+  schedule.forEach((weekData) => {
+    weekData.matchups.forEach(
+      (matchup: any) => {
+        const team1 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team1.rosterId
+          );
+
+        const team2 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team2.rosterId
+          );
+
+        if (!team1 || !team2) return;
+
+        const winner =
+          team1.wins >= team2.wins
+            ? matchup.team1.rosterId
+            : matchup.team2.rosterId;
+
+        newPicks[
+          `${weekData.week}-${matchup.matchupId}`
+        ] = winner;
+      }
+    );
+  });
+
+  setPicks(newPicks);
+}
+
 schedule.forEach((weekData) => {
   weekData.matchups.forEach(
     (matchup: any) => {
@@ -86,7 +126,22 @@ projectedStandings.sort(
 );
   
   return (
-    <div>
+  <div>
+    <div className="mb-6 flex gap-3">
+  <button
+    onClick={() => setPicks({})}
+    className="px-4 py-2 rounded bg-red-600 text-white"
+  >
+    Reset Scenario
+  </button>
+
+  <button
+    onClick={autoPickByRecord}
+    className="px-4 py-2 rounded bg-blue-600 text-white"
+  >
+    Auto Pick By Record
+  </button>
+</div>
       
       {schedule.map((weekData) => (
         <div
