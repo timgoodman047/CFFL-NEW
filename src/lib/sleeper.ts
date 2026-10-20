@@ -238,14 +238,15 @@ export async function getTeamScoringHistory() {
       const matchups = await getMatchups(week);
 
       matchups.forEach((matchup: any) => {
-        if (
-          matchup.roster_id &&
-          typeof matchup.points === "number"
-        ) {
-          scoresByTeam[
-            matchup.roster_id
-          ]?.push(matchup.points);
-        }
+     if (
+  matchup.roster_id &&
+  typeof matchup.points === "number" &&
+  matchup.points > 0
+) {
+  scoresByTeam[
+    matchup.roster_id
+  ]?.push(matchup.points);
+}   
       });
     } catch {
       break;
