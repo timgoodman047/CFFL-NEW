@@ -139,6 +139,14 @@ color: "#22c55e",
   </div>
 </Link>
 
+<Link href="/playoff-predictor">
+  <div style={itemStyle}>
+Playoff Predictor
+    <br />
+    /playoff-predictor
+  </div>
+</Link>
+
 <Link href="/schedule">
   <div style={itemStyle}>
 📅 Schedule
