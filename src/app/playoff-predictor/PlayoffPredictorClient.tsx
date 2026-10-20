@@ -72,6 +72,94 @@ function autoPickByRecord() {
   setPicks(newPicks);
 }
 
+function autoPickByPF() {
+  const newPicks: Record<
+    string,
+    number
+  > = {};
+
+  schedule.forEach((weekData) => {
+    weekData.matchups.forEach(
+      (matchup: any) => {
+        const team1 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team1.rosterId
+          );
+
+        const team2 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team2.rosterId
+          );
+
+        if (!team1 || !team2) return;
+
+        const winner =
+          team1.pf >= team2.pf
+            ? matchup.team1.rosterId
+            : matchup.team2.rosterId;
+
+        newPicks[
+          `${weekData.week}-${matchup.matchupId}`
+        ] = winner;
+      }
+    );
+  });
+
+  setPicks(newPicks);
+}
+
+function autoPickProjectedWinner() {
+  const newPicks: Record<
+    string,
+    number
+  > = {};
+
+  schedule.forEach((weekData) => {
+    weekData.matchups.forEach(
+      (matchup: any) => {
+        const team1 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team1.rosterId
+          );
+
+        const team2 =
+          standings.find(
+            (t) =>
+              t.rosterId ===
+              matchup.team2.rosterId
+          );
+
+        if (!team1 || !team2) return;
+
+        const team1Score =
+          team1.wins * 2 +
+          team1.pf / 100;
+
+        const team2Score =
+          team2.wins * 2 +
+          team2.pf / 100;
+
+        const winner =
+          team1Score >= team2Score
+            ? matchup.team1.rosterId
+            : matchup.team2.rosterId;
+
+        newPicks[
+          `${weekData.week}-${matchup.matchupId}`
+        ] = winner;
+      }
+    );
+  });
+
+  setPicks(newPicks);
+}
+
 schedule.forEach((weekData) => {
   weekData.matchups.forEach(
     (matchup: any) => {
@@ -127,7 +215,7 @@ projectedStandings.sort(
   
   return (
   <div>
-    <div className="mb-6 flex gap-3">
+    <div className="mb-6 flex gap-3 flex-wrap">
   <button
     onClick={() => setPicks({})}
     className="px-4 py-2 rounded bg-red-600 text-white"
@@ -140,6 +228,20 @@ projectedStandings.sort(
     className="px-4 py-2 rounded bg-blue-600 text-white"
   >
     Auto Pick By Record
+  </button>
+
+  <button
+    onClick={autoPickByPF}
+    className="px-4 py-2 rounded bg-green-600 text-white"
+  >
+    Auto Pick By PF
+  </button>
+
+  <button
+    onClick={autoPickProjectedWinner}
+    className="px-4 py-2 rounded bg-purple-600 text-white"
+  >
+    Auto Pick Projected Winner
   </button>
 </div>
       
