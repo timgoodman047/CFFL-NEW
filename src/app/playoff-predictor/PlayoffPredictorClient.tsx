@@ -4,8 +4,10 @@ import { useState } from "react";
 
 export default function PlayoffPredictorClient({
   schedule,
+  standings,
 }: {
   schedule: any[];
+  standings: any[];
 }) {
   const [picks, setPicks] = useState<
     Record<string, number>
@@ -21,6 +23,12 @@ export default function PlayoffPredictorClient({
       [`${week}-${matchupId}`]: rosterId,
     }));
   }
+
+  const projectedStandings = standings.map(
+  (team) => ({
+    ...team,
+  })
+);
   
   return (
     <div>
@@ -96,6 +104,25 @@ export default function PlayoffPredictorClient({
           )}
         </div>
       ))}
+<div className="mt-10">
+        <h2 className="text-2xl font-bold mb-4">
+          Projected Standings
+        </h2>
+
+        <div className="space-y-2">
+          {projectedStandings.map(
+            (team, index) => (
+              <div
+                key={team.rosterId}
+                className="border border-gray-700 rounded p-2"
+              >
+                {index + 1}. {team.team} (
+                {team.wins}-{team.losses})
+              </div>
+            )
+          )}
+        </div>
+      </div>
     </div>
   );
 }
