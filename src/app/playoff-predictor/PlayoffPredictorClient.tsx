@@ -45,17 +45,13 @@ console.log("PICKS", picks);
                 className="border border-gray-700 rounded p-4 mb-2"
               >
                 <button
-                  className="w-full text-left p-2 rounded bg-red-500"
-                  onClick={() =>
-                    selectWinner(
-                      weekData.week,
-                      matchup.matchupId,
-                      matchup.team1.rosterId
-                    )
-                  }
-                >
-                  {matchup.team1.team} ({JSON.stringify(matchup.team1.rosterId)})
-                </button>
+  style={{
+    backgroundColor: "red",
+    color: "white",
+  }}
+>
+  {matchup.team1.team}
+</button>
 
 <div className="text-xs text-yellow-500">
   Selected:
@@ -81,17 +77,13 @@ console.log("PICKS", picks);
 </div>
 
                 <button
-                  className="w-full text-left p-2 rounded bg-red-500"
-                  onClick={() =>
-                    selectWinner(
-                      weekData.week,
-                      matchup.matchupId,
-                      matchup.team2.rosterId
-                    )
-                  }
-                >
-                  {matchup.team2.team} ({JSON.stringify(matchup.team2.rosterId)})
-                </button>
+  style={{
+    backgroundColor: "red",
+    color: "white",
+  }}
+>
+  {matchup.team2.team}
+</button>
               </div>
             )
           )}
