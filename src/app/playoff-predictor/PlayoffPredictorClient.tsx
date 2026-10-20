@@ -47,6 +47,39 @@ function autoPickByRecord() {
               t.rosterId ===
               matchup.team1.rosterId
           );
+        
+  const topFive = [...projectedStandings]
+  .sort((a, b) => {
+    if (
+      b.projectedWins !==
+      a.projectedWins
+    ) {
+      return (
+        b.projectedWins -
+        a.projectedWins
+      );
+    }
+
+    return b.pf - a.pf;
+  })
+  .slice(0, 5);
+
+  const wildcard = projectedStandings
+  .filter(
+    (team) =>
+      !topFive.some(
+        (t) =>
+          t.rosterId === team.rosterId
+      )
+  )
+  .sort(
+    (a, b) => b.pf - a.pf
+  )[0];    
+
+  const projectedPlayoffTeams = [
+  ...topFive,
+  wildcard,
+].filter(Boolean);
 
         const team2 =
           standings.find(
@@ -196,22 +229,6 @@ schedule.forEach((weekData) => {
     }
   );
 });
-
-projectedStandings.sort(
-  (a, b) => {
-    if (
-      b.projectedWins !==
-      a.projectedWins
-    ) {
-      return (
-        b.projectedWins -
-        a.projectedWins
-      );
-    }
-
-    return b.pf - a.pf;
-  }
-);
   
   return (
   <div>
@@ -335,6 +352,28 @@ projectedStandings.sort(
           )}
         </div>
       </div>
+<div className="mt-10">
+  <h2 className="text-2xl font-bold mb-4">
+    Projected Playoff Teams
+  </h2>
+
+  {projectedPlayoffTeams.map(
+    (team, index) => (
+      <div
+        key={team.rosterId}
+        className="border border-gray-700 rounded p-3 mb-2"
+      >
+        {index < 5
+          ? `#${index + 1}`
+          : "⭐ Wildcard"}{" "}
+        {team.team}
+        {" "}
+        ({team.projectedWins}-
+        {team.projectedLosses})
+      </div>
+    )
+  )}
+</div>    
     </div>
   );
 }
