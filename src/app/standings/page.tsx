@@ -13,12 +13,6 @@ import {
 
 const LEAGUE_ID = "1352723400459563008";
 
-type SortField =
-  | "wins"
-  | "losses"
-  | "fpts"
-  | "fptsAgainst";
-
 export default function StandingsPage() {
   const [rosters, setRosters] = useState<any[]>([]);
   const [users, setUsers] = useState<any[]>([]);
@@ -29,11 +23,6 @@ export default function StandingsPage() {
 
   const [allPlayData, setAllPlayData] =
   useState<Record<number, any>>({});
-
-  const [sortField, setSortField] =
-    useState<SortField>("wins");
-
-  const [sortAsc, setSortAsc] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -321,64 +310,29 @@ allPlayWins:
 };
 });
 
-  // TOP 5 BY RECORD
-  const topFive = [...teams]
-    .sort((a, b) => {
-      if (b.wins !== a.wins) {
-        return b.wins - a.wins;
-      }
-
-      return b.fpts - a.fpts;
-    })
-    .slice(0, 5);
-
-  // REMAINING TEAMS BY PF
-  const bottomFive = [...teams]
-    .filter(
-      (team) =>
-        !topFive.some(
-          (t) => t.rosterId === team.rosterId
-        )
-    )
-    .sort((a, b) => b.fpts - a.fpts);
-
-  const sortedStandings = [...topFive, ...bottomFive];
-
-  sortedStandings.sort((a, b) => {
-    let comparison = 0;
-
-    switch (sortField) {
-      case "wins":
-        comparison = a.wins - b.wins;
-        break;
-
-      case "losses":
-        comparison = a.losses - b.losses;
-        break;
-
-      case "fpts":
-        comparison = a.fpts - b.fpts;
-        break;
-
-      case "fptsAgainst":
-        comparison = a.fptsAgainst - b.fptsAgainst;
-        break;
+// TOP 5 BY RECORD
+const topFive = [...teams]
+  .sort((a, b) => {
+    if (b.wins !== a.wins) {
+      return b.wins - a.wins;
     }
 
-    return sortAsc ? comparison : -comparison;
-  });
+    return b.fpts - a.fpts;
+  })
+  .slice(0, 5);
 
-  return sortedStandings;
-}, [rosters, users, sortField, sortAsc]);
+// REMAINING TEAMS BY PF
+const bottomFive = teams
+  .filter(
+    (team) =>
+      !topFive.some(
+        (t) => t.rosterId === team.rosterId
+      )
+  )
+  .sort((a, b) => b.fpts - a.fpts);
 
-  function handleSort(field: SortField) {
-    if (field === sortField) {
-      setSortAsc(!sortAsc);
-    } else {
-      setSortField(field);
-      setSortAsc(false);
-    }
-  }
+return [...topFive, ...bottomFive];
+}, [rosters, users, sosRanks, allPlayData]);
 
   if (loading) {
     return (
@@ -408,37 +362,25 @@ allPlayWins:
       Team
     </th>
 
-    <th
-      className="p-3 cursor-pointer border border-gray-500"
-      onClick={() => handleSort("wins")}
-    >
-      W
-    </th>
+    <th className="p-3 border border-gray-500">
+W
+</th>
 
-    <th
-      className="p-3 cursor-pointer border border-gray-500"
-      onClick={() => handleSort("losses")}
-    >
-      L
-    </th>
+    <th className="p-3 border border-gray-500">
+  L
+</th>
 
     <th className="p-3 border border-gray-500">
       T
     </th>
 
-    <th
-      className="p-3 cursor-pointer border border-gray-500"
-      onClick={() => handleSort("fpts")}
-    >
-      PF
-    </th>
+    <th className="p-3 border border-gray-500">
+  PF
+</th>
 
-    <th
-      className="p-3 cursor-pointer border border-gray-500"
-      onClick={() => handleSort("fptsAgainst")}
-    >
-      PA
-    </th>
+    <th className="p-3 border border-gray-500">
+  PA
+</th>
 
     <th className="p-3 border border-gray-500">
   SOS
