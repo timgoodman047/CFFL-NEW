@@ -26,9 +26,7 @@ console.log("PICKS", picks);
   
   return (
     <div>
-      <pre className="mb-4 text-xs">
-  {JSON.stringify(picks, null, 2)}
-</pre>
+      
       {schedule.map((weekData) => (
         <div
           key={weekData.week}
@@ -46,41 +44,52 @@ console.log("PICKS", picks);
               >
                 <button
   style={{
-    backgroundColor: "red",
+    backgroundColor:
+      String(
+        picks[
+          `${weekData.week}-${matchup.matchupId}`
+        ]
+      ) === String(matchup.team1.rosterId)
+        ? "green"
+        : "#1f2937",
     color: "white",
   }}
+  className="w-full text-left p-2 rounded"
+  onClick={() =>
+    selectWinner(
+      weekData.week,
+      matchup.matchupId,
+      matchup.team1.rosterId
+    )
+  }
 >
   {matchup.team1.team}
-</button>
-
-<div className="text-xs text-yellow-500">
-  Selected:
-  {JSON.stringify(
-    picks[
-      `${weekData.week}-${matchup.matchupId}`
-    ]
-  )}
-</div>               
-
-<div className="text-xs text-blue-500">
-  Team1:
-  {String(matchup.team1.rosterId)}
-</div>
-
-<div className="text-xs text-green-500">
-  Team2:
-  {String(matchup.team2.rosterId)}
-</div>
+</button>   
 
 <div className="text-gray-500 my-2 text-center">
   vs
 </div>
 
-                <button
+<button
   style={{
-    backgroundColor: "red",
+    backgroundColor:
+      String(
+        picks[
+          `${weekData.week}-${matchup.matchupId}`
+        ]
+      ) === String(matchup.team2.rosterId)
+        ? "green"
+        : "#1f2937",
     color: "white",
   }}
+  className="w-full text-left p-2 rounded"
+  onClick={() =>
+    selectWinner(
+      weekData.week,
+      matchup.matchupId,
+      matchup.team2.rosterId
+    )
+  }
 >
   {matchup.team2.team}
 </button>
