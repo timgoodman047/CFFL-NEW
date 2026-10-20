@@ -1,6 +1,8 @@
 "use client";
 
+
 import { useState } from "react";
+
 
 export default function PlayoffPredictorClient({
   schedule,
@@ -13,6 +15,7 @@ export default function PlayoffPredictorClient({
     Record<string, number>
   >({});
 
+
   function selectWinner(
     week: number,
     matchupId: number,
@@ -23,6 +26,7 @@ export default function PlayoffPredictorClient({
       [`${week}-${matchupId}`]: rosterId,
     }));
   }
+
 
   const projectedStandings = standings.map(
   (team) => ({
@@ -47,39 +51,6 @@ function autoPickByRecord() {
               t.rosterId ===
               matchup.team1.rosterId
           );
-        
-  const topFive = [...projectedStandings]
-  .sort((a, b) => {
-    if (
-      b.projectedWins !==
-      a.projectedWins
-    ) {
-      return (
-        b.projectedWins -
-        a.projectedWins
-      );
-    }
-
-    return b.pf - a.pf;
-  })
-  .slice(0, 5);
-
-  const wildcard = projectedStandings
-  .filter(
-    (team) =>
-      !topFive.some(
-        (t) =>
-          t.rosterId === team.rosterId
-      )
-  )
-  .sort(
-    (a, b) => b.pf - a.pf
-  )[0];    
-
-  const projectedPlayoffTeams = [
-  ...topFive,
-  wildcard,
-].filter(Boolean);
 
         const team2 =
           standings.find(
@@ -104,7 +75,7 @@ function autoPickByRecord() {
 
   setPicks(newPicks);
 }
-
+  
 function autoPickByPF() {
   const newPicks: Record<
     string,
@@ -145,11 +116,13 @@ function autoPickByPF() {
   setPicks(newPicks);
 }
 
+
 function autoPickProjectedWinner() {
   const newPicks: Record<
     string,
     number
   > = {};
+
 
   schedule.forEach((weekData) => {
     weekData.matchups.forEach(
@@ -161,6 +134,7 @@ function autoPickProjectedWinner() {
               matchup.team1.rosterId
           );
 
+
         const team2 =
           standings.find(
             (t) =>
@@ -168,20 +142,25 @@ function autoPickProjectedWinner() {
               matchup.team2.rosterId
           );
 
+
         if (!team1 || !team2) return;
+
 
         const team1Score =
           team1.wins * 2 +
           team1.pf / 100;
 
+
         const team2Score =
           team2.wins * 2 +
           team2.pf / 100;
+
 
         const winner =
           team1Score >= team2Score
             ? matchup.team1.rosterId
             : matchup.team2.rosterId;
+
 
         newPicks[
           `${weekData.week}-${matchup.matchupId}`
@@ -189,9 +168,10 @@ function autoPickProjectedWinner() {
       }
     );
   });
-
+  
   setPicks(newPicks);
 }
+
 
 schedule.forEach((weekData) => {
   weekData.matchups.forEach(
@@ -201,7 +181,9 @@ schedule.forEach((weekData) => {
           `${weekData.week}-${matchup.matchupId}`
         ];
 
+
       if (!winner) return;
+
 
       const loser =
         winner ===
@@ -209,11 +191,13 @@ schedule.forEach((weekData) => {
           ? matchup.team2.rosterId
           : matchup.team1.rosterId;
 
+
       const winnerTeam =
         projectedStandings.find(
           (t) =>
             t.rosterId === winner
         );
+
 
       const loserTeam =
         projectedStandings.find(
@@ -221,14 +205,46 @@ schedule.forEach((weekData) => {
             t.rosterId === loser
         );
 
+
       if (winnerTeam)
         winnerTeam.projectedWins++;
+
 
       if (loserTeam)
         loserTeam.projectedLosses++;
     }
   );
 });
+
+projectedStandings.sort(
+  (a, b) => {
+    if (
+      b.projectedWins !==
+      a.projectedWins
+    ) {
+      return (
+        b.projectedWins -
+        a.projectedWins
+      );
+    }
+
+    return b.pf - a.pf;
+  }
+);
+
+const topFive = [...projectedStandings]
+  .slice(0, 5);
+
+const wildcard = projectedStandings
+  .slice(5)
+  .sort(
+    (a, b) => b.pf - a.pf
+  )[0];
+
+const projectedPlayoffTeams = [
+  ...topFive,
+  wildcard,
+].filter(Boolean);
   
   return (
   <div>
@@ -240,6 +256,7 @@ schedule.forEach((weekData) => {
     Reset Scenario
   </button>
 
+
   <button
     onClick={autoPickByRecord}
     className="px-4 py-2 rounded bg-blue-600 text-white"
@@ -247,12 +264,14 @@ schedule.forEach((weekData) => {
     Auto Pick By Record
   </button>
 
+
   <button
     onClick={autoPickByPF}
     className="px-4 py-2 rounded bg-green-600 text-white"
   >
     Auto Pick By PF
   </button>
+
 
   <button
     onClick={autoPickProjectedWinner}
@@ -270,6 +289,7 @@ schedule.forEach((weekData) => {
           <h2 className="text-2xl font-bold mb-4">
             Week {weekData.week}
           </h2>
+
 
           {weekData.matchups.map(
             (matchup: any) => (
@@ -301,9 +321,11 @@ schedule.forEach((weekData) => {
   {matchup.team1.team}
 </button>   
 
+
 <div className="text-gray-500 my-2 text-center">
   vs
 </div>
+
 
 <button
   style={{
@@ -338,6 +360,7 @@ schedule.forEach((weekData) => {
           Projected Standings
         </h2>
 
+
         <div className="space-y-2">
           {projectedStandings.map(
             (team, index) => (
@@ -345,8 +368,8 @@ schedule.forEach((weekData) => {
                 key={team.rosterId}
                 className="border border-gray-700 rounded p-2"
               >
-                {index + 1}. {team.team} (
-                {team.projectedWins}-{team.projectedLosses}
+               {index + 1}. {team.team} (
+{team.projectedWins}-{team.projectedLosses})
               </div>
             )
           )}
@@ -356,6 +379,7 @@ schedule.forEach((weekData) => {
   <h2 className="text-2xl font-bold mb-4">
     Projected Playoff Teams
   </h2>
+
 
   {projectedPlayoffTeams.map(
     (team, index) => (
