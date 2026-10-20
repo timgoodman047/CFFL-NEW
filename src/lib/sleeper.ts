@@ -224,6 +224,37 @@ return {
  
 }
 
+export async function getTeamScoringHistory() {
+  const teams = await getLeagueTeams();
+
+  const scoresByTeam: Record<number, number[]> = {};
+
+  teams.forEach((team) => {
+    scoresByTeam[team.rosterId] = [];
+  });
+
+  for (let week = 1; week <= 14; week++) {
+    try {
+      const matchups = await getMatchups(week);
+
+      matchups.forEach((matchup: any) => {
+        if (
+          matchup.roster_id &&
+          typeof matchup.points === "number"
+        ) {
+          scoresByTeam[
+            matchup.roster_id
+          ]?.push(matchup.points);
+        }
+      });
+    } catch {
+      break;
+    }
+  }
+
+  return scoresByTeam;
+}
+
 export async function getRemainingSchedule() {
   const currentWeek = await getCurrentWeek();
 
