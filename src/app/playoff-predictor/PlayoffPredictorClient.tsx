@@ -65,9 +65,28 @@ console.log("PICKS", picks);
                   {matchup.team1.team}
                 </button>
 
-                <div className="text-gray-500 my-2 text-center">
-                  vs
-                </div>
+                <div className="text-xs text-red-500">
+  Pick:
+  {String(
+    picks[
+      `${weekData.week}-${matchup.matchupId}`
+    ]
+  )}
+</div>
+
+<div className="text-xs text-blue-500">
+  Team1:
+  {String(matchup.team1.rosterId)}
+</div>
+
+<div className="text-xs text-green-500">
+  Team2:
+  {String(matchup.team2.rosterId)}
+</div>
+
+<div className="text-gray-500 my-2 text-center">
+  vs
+</div>
 
                 <button
                   className={`w-full text-left p-2 rounded ${
