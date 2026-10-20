@@ -26,17 +26,45 @@ export default async function PlayoffPredictorPage() {
       {schedule.map((weekData) => {
         const matchups = {};
 
-        weekData.matchups.forEach(
-          (team: any) => {
-            const id = team.matchup_id;
+weekData.matchups.forEach(
+  (team: any) => {
+    const id = team.matchup_id;
 
-            if (!matchups[id]) {
-              matchups[id] = [];
-            }
+    if (!matchups[id]) {
+      matchups[id] = [];
+    }
 
-            matchups[id].push(team);
-          }
-        );
+    matchups[id].push(team);
+  }
+);
+
+const formattedMatchups = Object.values(
+  matchups
+)
+  .filter(
+    (matchup: any) =>
+      matchup.length === 2
+  )
+  .map((matchup: any) => ({
+    matchupId:
+      matchup[0].matchup_id,
+
+    team1: {
+      rosterId:
+        matchup[0].roster_id,
+      team: getTeamName(
+        matchup[0].roster_id
+      ),
+    },
+
+    team2: {
+      rosterId:
+        matchup[1].roster_id,
+      team: getTeamName(
+        matchup[1].roster_id
+      ),
+    },
+  }));
 
         return (
           <div
@@ -47,42 +75,26 @@ export default async function PlayoffPredictorPage() {
               Week {weekData.week}
             </h2>
 
-            {Object.values(matchups).map(
-              (
-                matchup: any,
-                index
-              ) => {
-                if (
-                  matchup.length !== 2
-                )
-                  return null;
+{formattedMatchups.map(
+  (matchup: any) => (
+    <div
+      key={matchup.matchupId}
+      className="border border-gray-700 rounded p-4 mb-2"
+    >
+      <div>
+        {matchup.team1.team}
+      </div>
 
-                return (
-                  <div
-                    key={index}
-                    className="border border-gray-700 rounded p-4 mb-2"
-                  >
-                    <div>
-                      {getTeamName(
-                        matchup[0]
-                          .roster_id
-                      )}
-                    </div>
+      <div className="text-gray-500 my-1">
+        vs
+      </div>
 
-                    <div className="text-gray-500 my-1">
-                      vs
-                    </div>
-
-                    <div>
-                      {getTeamName(
-                        matchup[1]
-                          .roster_id
-                      )}
-                    </div>
-                  </div>
-                );
-              }
-            )}
+      <div>
+        {matchup.team2.team}
+      </div>
+    </div>
+  )
+)}
           </div>
         );
       })}
