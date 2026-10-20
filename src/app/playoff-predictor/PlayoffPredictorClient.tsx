@@ -21,8 +21,6 @@ export default function PlayoffPredictorClient({
       [`${week}-${matchupId}`]: rosterId,
     }));
   }
-
-console.log("PICKS", picks);
   
   return (
     <div>
