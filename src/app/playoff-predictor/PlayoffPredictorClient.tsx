@@ -13,6 +13,9 @@ export default function PlayoffPredictorClient({
   standings: any[];
   scoringHistory: Record<number, number[]>;
 }) {
+
+  console.log("SCORING HISTORY", scoringHistory);
+  
   const [picks, setPicks] = useState<
     Record<string, number>
   >({});
