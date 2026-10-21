@@ -67,16 +67,6 @@ const [projectedScores, setProjectedScores] =
       }
     >
   >({});  
-  standings.map((team) => ({
-    team: team.team,
-    avg: getAverage(
-      scoringHistory[team.rosterId]
-    ).toFixed(1),
-    stdDev: getStdDev(
-      scoringHistory[team.rosterId]
-    ).toFixed(1),
-  }))
-);
 
   function selectWinner(
     week: number,
