@@ -197,21 +197,44 @@ function autoPickProjectedWinner() {
         if (!team1 || !team2) return;
 
 
-        const team1Score =
-          team1.wins * 2 +
-          team1.pf / 100;
+        const team1Scores =
+  scoringHistory[team1.rosterId] || [];
 
+const team2Scores =
+  scoringHistory[team2.rosterId] || [];
 
-        const team2Score =
-          team2.wins * 2 +
-          team2.pf / 100;
+const team1Avg =
+  team1Scores.length > 0
+    ? getAverage(team1Scores)
+    : 0;
 
+const team2Avg =
+  team2Scores.length > 0
+    ? getAverage(team2Scores)
+    : 0;
+
+const team1Std =
+  team1Scores.length > 0
+    ? getStdDev(team1Scores)
+    : 0;
+
+const team2Std =
+  team2Scores.length > 0
+    ? getStdDev(team2Scores)
+    : 0;
+
+const team1Score =
+  team1Avg +
+  team1Std * 0.25;
+
+const team2Score =
+  team2Avg +
+  team2Std * 0.25;
 
         const winner =
           team1Score >= team2Score
             ? matchup.team1.rosterId
             : matchup.team2.rosterId;
-
 
         newPicks[
           `${weekData.week}-${matchup.matchupId}`
@@ -223,7 +246,6 @@ function autoPickProjectedWinner() {
   setPicks(newPicks);
 }
 
-
 schedule.forEach((weekData) => {
   weekData.matchups.forEach(
     (matchup: any) => {
@@ -231,7 +253,6 @@ schedule.forEach((weekData) => {
         picks[
           `${weekData.week}-${matchup.matchupId}`
         ];
-
 
       if (!winner) return;
 
