@@ -142,23 +142,14 @@ const newProjectedScores: Record<
             ? matchup.team1.rosterId
             : matchup.team2.rosterId;
 
-        const matchupKey =
-  `${weekData.week}-${matchup.matchupId}`;
-
-newPicks[matchupKey] = winner;
-
-newProjectedScores[matchupKey] = {
-  team1: team1Score,
-  team2: team2Score,
-};
+newPicks[
+  `${weekData.week}-${matchup.matchupId}`
+] = winner;        
       }
     );
   });
 
   setPicks(newPicks);
-setProjectedScores(
-  newProjectedScores
-);
 }
   
 function autoPickByPF() {
