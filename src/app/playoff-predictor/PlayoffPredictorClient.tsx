@@ -225,11 +225,11 @@ const team2Std =
 
 const team1Score =
   team1Avg +
-  team1Std * 0.25;
+  team1Std * 0.5;
 
 const team2Score =
   team2Avg +
-  team2Std * 0.25;
+  team2Std * 0.5;
 
         const winner =
           team1Score >= team2Score
@@ -282,8 +282,8 @@ schedule.forEach((weekData) => {
   winnerTeam.projectedWins++;
 
   const winnerProjection =
-    winnerTeam.avgPPG +
-    winnerTeam.stdDev * 0.25;
+  winnerTeam.avgPPG +
+  winnerTeam.stdDev * 0.5;
 
   winnerTeam.projectedPF += winnerProjection;
 }
@@ -292,8 +292,8 @@ if (loserTeam) {
   loserTeam.projectedLosses++;
 
   const loserProjection =
-    loserTeam.avgPPG -
-    loserTeam.stdDev * 0.25;
+  loserTeam.avgPPG -
+  loserTeam.stdDev * 0.5;
 
   loserTeam.projectedPF += loserProjection;
 }
