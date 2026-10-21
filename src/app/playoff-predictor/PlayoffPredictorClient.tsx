@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 function getAverage(scores: number[]) {
   return (
     scores.reduce(
@@ -40,8 +42,6 @@ function randomNormal() {
     Math.cos(2 * Math.PI * v)
   );
 }
-
-import { useState } from "react";
 
 export default function PlayoffPredictorClient({
   schedule,
