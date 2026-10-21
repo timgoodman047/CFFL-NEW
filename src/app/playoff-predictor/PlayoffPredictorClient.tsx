@@ -259,12 +259,22 @@ schedule.forEach((weekData) => {
 
       if (winnerTeam) {
   winnerTeam.projectedWins++;
-  winnerTeam.projectedPF += winnerTeam.avgPPG;
+
+  const winnerProjection =
+    winnerTeam.avgPPG +
+    winnerTeam.stdDev * 0.25;
+
+  winnerTeam.projectedPF += winnerProjection;
 }
 
 if (loserTeam) {
   loserTeam.projectedLosses++;
-  loserTeam.projectedPF += loserTeam.avgPPG;
+
+  const loserProjection =
+    loserTeam.avgPPG -
+    loserTeam.stdDev * 0.25;
+
+  loserTeam.projectedPF += loserProjection;
 }
   }
   );
