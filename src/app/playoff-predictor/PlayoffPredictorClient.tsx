@@ -166,6 +166,9 @@ newProjectedScores[matchupKey] = {
   });
 
   setPicks(newPicks);
+setProjectedScores(
+  newProjectedScores
+);
 }
   
 function autoPickByPF() {
@@ -452,8 +455,27 @@ const projectedPlayoffTeams = [
 
 <div className="text-gray-500 my-2 text-center">
   vs
-</div>
 
+  {projectedScores[
+    `${weekData.week}-${matchup.matchupId}`
+  ] && (
+    <div className="text-sm mt-2">
+      {
+        projectedScores[
+          `${weekData.week}-${matchup.matchupId}`
+        ].team1
+          .toFixed(1)
+      }
+      {" - "}
+      {
+        projectedScores[
+          `${weekData.week}-${matchup.matchupId}`
+        ].team2
+          .toFixed(1)
+      }
+    </div>
+  )}
+</div>
 
 <button
   style={{
