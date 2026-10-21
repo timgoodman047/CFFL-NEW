@@ -116,9 +116,17 @@ const [projectedScores, setProjectedScores] =
 
 function autoPickByRecord() {
   const newPicks: Record<
-    string,
-    number
-  > = {};
+  string,
+  number
+> = {};
+
+const newProjectedScores: Record<
+  string,
+  {
+    team1: number;
+    team2: number;
+  }
+> = {};
 
   schedule.forEach((weekData) => {
     weekData.matchups.forEach(
@@ -144,9 +152,15 @@ function autoPickByRecord() {
             ? matchup.team1.rosterId
             : matchup.team2.rosterId;
 
-        newPicks[
-          `${weekData.week}-${matchup.matchupId}`
-        ] = winner;
+        const matchupKey =
+  `${weekData.week}-${matchup.matchupId}`;
+
+newPicks[matchupKey] = winner;
+
+newProjectedScores[matchupKey] = {
+  team1: team1Score,
+  team2: team2Score,
+};
       }
     );
   });
@@ -252,11 +266,11 @@ const team2Std =
 
 const team1Score =
   team1Avg +
-  team1Std * 0.5;
+  randomNormal() * team1Std;
 
 const team2Score =
   team2Avg +
-  team2Std * 0.5;
+  randomNormal() * team2Std;
 
         const winner =
           team1Score >= team2Score
