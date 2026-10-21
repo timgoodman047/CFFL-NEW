@@ -64,12 +64,27 @@ console.log(
 
 
   const projectedStandings = standings.map(
-  (team) => ({
-    ...team,
-    projectedWins: team.wins,
-    projectedLosses: team.losses,
-    projectedPF: team.pf,
-  })
+  (team) => {
+    const scores =
+      scoringHistory[team.rosterId] || [];
+
+    return {
+      ...team,
+      projectedWins: team.wins,
+      projectedLosses: team.losses,
+      projectedPF: team.pf,
+
+      avgPPG:
+        scores.length > 0
+          ? getAverage(scores)
+          : 0,
+
+      stdDev:
+        scores.length > 0
+          ? getStdDev(scores)
+          : 0,
+    };
+  }
 );
 
 function autoPickByRecord() {
