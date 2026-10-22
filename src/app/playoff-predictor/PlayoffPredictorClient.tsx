@@ -202,9 +202,26 @@ const currentPlayoffTeams = standings
   .map((team) => team.rosterId);
 
 const projectedPlayoffRosterIds =
-  projectedPlayoffTeams.map(
-    (team) => team.rosterId
-  );
+  projectedStandings
+    .slice()
+    .sort((a, b) => {
+      if (
+        b.projectedWins !==
+        a.projectedWins
+      ) {
+        return (
+          b.projectedWins -
+          a.projectedWins
+        );
+      }
+
+      return (
+        b.projectedPF -
+        a.projectedPF
+      );
+    })
+    .slice(0, 6)
+    .map((team) => team.rosterId);
 
 const teamsEnteringPlayoffs =
   projectedStandings.filter(
