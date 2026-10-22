@@ -201,28 +201,6 @@ const currentPlayoffTeams = standings
   .slice(0, 6)
   .map((team) => team.rosterId);
 
-const teamsEnteringPlayoffs =
-  projectedStandings.filter(
-    (team) =>
-      projectedPlayoffRosterIds.includes(
-  team.rosterId
-      ) &&
-      !currentPlayoffTeams.includes(
-        team.rosterId
-      )
-  );
-
-const teamsLeavingPlayoffs =
-  projectedStandings.filter(
-    (team) =>
-      !projectedPlayoffRosterIds.includes(
-  team.rosterId
-      ) &&
-      currentPlayoffTeams.includes(
-        team.rosterId
-      )
-  );
-
 function autoPickByRecord() {
   const newPicks: Record<
     string,
@@ -600,6 +578,28 @@ const projectedPlayoffTeams = [
 const projectedPlayoffRosterIds =
   projectedPlayoffTeams.map(
     (team) => team.rosterId
+  );
+
+  const teamsEnteringPlayoffs =
+  projectedStandings.filter(
+    (team) =>
+      projectedPlayoffRosterIds.includes(
+        team.rosterId
+      ) &&
+      !currentPlayoffTeams.includes(
+        team.rosterId
+      )
+  );
+
+const teamsLeavingPlayoffs =
+  projectedStandings.filter(
+    (team) =>
+      !projectedPlayoffRosterIds.includes(
+        team.rosterId
+      ) &&
+      currentPlayoffTeams.includes(
+        team.rosterId
+      )
   );
   
   return (
