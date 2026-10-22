@@ -201,32 +201,33 @@ const currentPlayoffTeams = standings
   .slice(0, 6)
   .map((team) => team.rosterId);
 
-const projectedPlayoffTeams = projectedStandings
-  .slice()
-  .sort((a, b) => {
-    if (
-      b.projectedWins !==
-      a.projectedWins
-    ) {
-      return (
-        b.projectedWins -
+const projectedPlayoffRosterIds =
+  projectedStandings
+    .slice()
+    .sort((a, b) => {
+      if (
+        b.projectedWins !==
         a.projectedWins
-      );
-    }
+      ) {
+        return (
+          b.projectedWins -
+          a.projectedWins
+        );
+      }
 
-    return (
-      b.projectedPF -
-      a.projectedPF
-    );
-  })
-  .slice(0, 6)
-  .map((team) => team.rosterId);
+      return (
+        b.projectedPF -
+        a.projectedPF
+      );
+    })
+    .slice(0, 6)
+    .map((team) => team.rosterId);
 
 const teamsEnteringPlayoffs =
   projectedStandings.filter(
     (team) =>
-      projectedPlayoffTeams.includes(
-        team.rosterId
+      projectedPlayoffRosterIds.includes(
+  team.rosterId
       ) &&
       !currentPlayoffTeams.includes(
         team.rosterId
@@ -236,8 +237,8 @@ const teamsEnteringPlayoffs =
 const teamsLeavingPlayoffs =
   projectedStandings.filter(
     (team) =>
-      !projectedPlayoffTeams.includes(
-        team.rosterId
+      !projectedPlayoffRosterIds.includes(
+  team.rosterId
       ) &&
       currentPlayoffTeams.includes(
         team.rosterId
