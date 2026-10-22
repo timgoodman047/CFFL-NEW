@@ -201,28 +201,6 @@ const currentPlayoffTeams = standings
   .slice(0, 6)
   .map((team) => team.rosterId);
 
-const projectedPlayoffRosterIds =
-  projectedStandings
-    .slice()
-    .sort((a, b) => {
-      if (
-        b.projectedWins !==
-        a.projectedWins
-      ) {
-        return (
-          b.projectedWins -
-          a.projectedWins
-        );
-      }
-
-      return (
-        b.projectedPF -
-        a.projectedPF
-      );
-    })
-    .slice(0, 6)
-    .map((team) => team.rosterId);
-
 const teamsEnteringPlayoffs =
   projectedStandings.filter(
     (team) =>
@@ -618,6 +596,11 @@ const projectedPlayoffTeams = [
   ...topFive,
   wildcard,
 ].filter(Boolean);
+
+const projectedPlayoffRosterIds =
+  projectedPlayoffTeams.map(
+    (team) => team.rosterId
+  );
   
   return (
   <div>
@@ -793,31 +776,6 @@ className="border border-gray-700 rounded p-3 mb-2"
 <h2 className="mb-3 text-xl font-bold">
 Scenario Summary
 </h2>
-
-<div>
-  Entering: {teamsEnteringPlayoffs.length}
-</div>
-
-<div>
-  Leaving: {teamsLeavingPlayoffs.length}
-</div>
-
-<div>
-  Current:
-  {currentPlayoffTeams.join(", ")}
-</div>
-
-<div>
-  Projected:
-  {projectedPlayoffRosterIds.join(", ")}
-</div>
-
-<div>
-  Playoff Teams:
-  {projectedPlayoffTeams
-    .map((team) => team.rosterId)
-    .join(", ")}
-</div>
  
 <div className="mb-4">
 <h3 className="font-semibold text-green-600">
