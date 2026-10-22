@@ -66,96 +66,100 @@ const [projectedScores, setProjectedScores] =
         team2: number;
       }
     >
-  >({});
+  >({})
 
-useEffect(() => {
-  const generated: Record<
-    string,
-    {
-      team1: number;
-      team2: number;
-    }
-  > = {};
-
-  schedule.forEach((weekData) => {
-    weekData.matchups.forEach(
-      (matchup: any) => {
-        const team1 =
-          standings.find(
-            (t) =>
-              t.rosterId ===
-              matchup.team1.rosterId
-          );
-
-        const team2 =
-          standings.find(
-            (t) =>
-              t.rosterId ===
-              matchup.team2.rosterId
-          );
-
-        if (!team1 || !team2) return;
-
-        const team1Scores =
-          scoringHistory[
-            team1.rosterId
-          ] || [];
-
-        const team2Scores =
-          scoringHistory[
-            team2.rosterId
-          ] || [];
-
-        const team1Avg =
-          team1Scores.length > 0
-            ? getAverage(team1Scores)
-            : 0;
-
-        const team2Avg =
-          team2Scores.length > 0
-            ? getAverage(team2Scores)
-            : 0;
-
-        const team1Std =
-          team1Scores.length > 0
-            ? getStdDev(team1Scores)
-            : 0;
-
-        const team2Std =
-          team2Scores.length > 0
-            ? getStdDev(team2Scores)
-            : 0;
-
-        generated[
-          `${weekData.week}-${matchup.matchupId}`
-        ] = {
-          team1:
-            team1Avg +
-            randomNormal() *
-              team1Std,
-          team2:
-            team2Avg +
-            randomNormal() *
-              team2Std,
-        };
-      }
+ function selectWinner(
+  week: number,
+  matchupId: number,
+  rosterId: number
+) {
+  const matchup = schedule
+    .find((w) => w.week === week)
+    ?.matchups.find(
+      (m: any) =>
+        m.matchupId === matchupId
     );
-  });
 
-  setProjectedScores(generated);
-}, [schedule, standings, scoringHistory]);  
+  if (!matchup) return;
 
-  function selectWinner(
-    week: number,
-    matchupId: number,
-    rosterId: number
+  const team1 = standings.find(
+    (t) =>
+      t.rosterId ===
+      matchup.team1.rosterId
+  );
+
+  const team2 = standings.find(
+    (t) =>
+      t.rosterId ===
+      matchup.team2.rosterId
+  );
+
+  if (!team1 || !team2) return;
+
+  const team1Scores =
+    scoringHistory[
+      team1.rosterId
+    ] || [];
+
+  const team2Scores =
+    scoringHistory[
+      team2.rosterId
+    ] || [];
+
+  const team1Avg =
+    team1Scores.length > 0
+      ? getAverage(team1Scores)
+      : 0;
+
+  const team2Avg =
+    team2Scores.length > 0
+      ? getAverage(team2Scores)
+      : 0;
+
+  const team1Std =
+    team1Scores.length > 0
+      ? getStdDev(team1Scores)
+      : 0;
+
+  const team2Std =
+    team2Scores.length > 0
+      ? getStdDev(team2Scores)
+      : 0;
+
+  let team1Score =
+    team1Avg +
+    randomNormal() * team1Std;
+
+  let team2Score =
+    team2Avg +
+    randomNormal() * team2Std;
+
+  if (
+    rosterId ===
+    matchup.team1.rosterId
   ) {
-    setPicks((prev) => ({
-      ...prev,
-      [`${week}-${matchupId}`]: rosterId,
-    }));
+    if (team1Score <= team2Score) {
+      team1Score = team2Score + 1;
+    }
+  } else {
+    if (team2Score <= team1Score) {
+      team2Score = team1Score + 1;
+    }
   }
 
+  setProjectedScores((prev) => ({
+    ...prev,
+    [`${week}-${matchupId}`]: {
+      team1: team1Score,
+      team2: team2Score,
+    },
+  }));
+
+  setPicks((prev) => ({
+    ...prev,
+    [`${week}-${matchupId}`]: rosterId,
+  }));
+}
 
   const projectedStandings = standings.map(
   (team) => {
