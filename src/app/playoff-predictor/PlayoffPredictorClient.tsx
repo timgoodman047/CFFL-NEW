@@ -811,6 +811,13 @@ Scenario Summary
   Projected:
   {projectedPlayoffRosterIds.join(", ")}
 </div>
+
+<div>
+  Playoff Teams:
+  {projectedPlayoffTeams
+    .map((team) => team.rosterId)
+    .join(", ")}
+</div>
  
 <div className="mb-4">
 <h3 className="font-semibold text-green-600">
