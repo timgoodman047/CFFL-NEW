@@ -191,9 +191,17 @@ const [projectedScores, setProjectedScores] =
 
 function autoPickByRecord() {
   const newPicks: Record<
-  string,
-  number
-> = {};
+    string,
+    number
+  > = {};
+
+  const newProjectedScores: Record<
+    string,
+    {
+      team1: number;
+      team2: number;
+    }
+  > = {};
 
 const newProjectedScores: Record<
   string,
@@ -222,25 +230,81 @@ const newProjectedScores: Record<
 
         if (!team1 || !team2) return;
 
-        const winner =
-          team1.wins >= team2.wins
-            ? matchup.team1.rosterId
-            : matchup.team2.rosterId;
+const winner =
+  team1.wins >= team2.wins
+    ? matchup.team1.rosterId
+    : matchup.team2.rosterId;
+
+const team1Scores =
+  scoringHistory[team1.rosterId] || [];
+
+const team2Scores =
+  scoringHistory[team2.rosterId] || [];
+
+let team1Score =
+  (team1Scores.length > 0
+    ? getAverage(team1Scores)
+    : 0) +
+  randomNormal() *
+    (team1Scores.length > 0
+      ? getStdDev(team1Scores)
+      : 0);
+
+let team2Score =
+  (team2Scores.length > 0
+    ? getAverage(team2Scores)
+    : 0) +
+  randomNormal() *
+    (team2Scores.length > 0
+      ? getStdDev(team2Scores)
+      : 0);
+
+if (winner === matchup.team1.rosterId) {
+  if (team1Score < team2Score) {
+    const temp = team1Score;
+    team1Score = team2Score;
+    team2Score = temp;
+  }
+} else {
+  if (team2Score < team1Score) {
+    const temp = team2Score;
+    team2Score = team1Score;
+    team1Score = temp;
+  }
+}
+
+newProjectedScores[
+  `${weekData.week}-${matchup.matchupId}`
+] = {
+  team1: team1Score,
+  team2: team2Score,
+};
 
 newPicks[
   `${weekData.week}-${matchup.matchupId}`
-] = winner;        
+] = winner;                
       }
     );
   });
 
   setPicks(newPicks);
+setProjectedScores(
+  newProjectedScores
+);
 }
   
 function autoPickByPF() {
   const newPicks: Record<
     string,
     number
+  > = {};
+
+  const newProjectedScores: Record<
+    string,
+    {
+      team1: number;
+      team2: number;
+    }
   > = {};
 
   schedule.forEach((weekData) => {
@@ -262,19 +326,67 @@ function autoPickByPF() {
 
         if (!team1 || !team2) return;
 
-        const winner =
-          team1.pf >= team2.pf
-            ? matchup.team1.rosterId
-            : matchup.team2.rosterId;
+  const winner =
+  team1.pf >= team2.pf
+    ? matchup.team1.rosterId
+    : matchup.team2.rosterId;
 
-        newPicks[
-          `${weekData.week}-${matchup.matchupId}`
-        ] = winner;
+const team1Scores =
+  scoringHistory[team1.rosterId] || [];
+
+const team2Scores =
+  scoringHistory[team2.rosterId] || [];
+
+let team1Score =
+  (team1Scores.length > 0
+    ? getAverage(team1Scores)
+    : 0) +
+  randomNormal() *
+    (team1Scores.length > 0
+      ? getStdDev(team1Scores)
+      : 0);
+
+let team2Score =
+  (team2Scores.length > 0
+    ? getAverage(team2Scores)
+    : 0) +
+  randomNormal() *
+    (team2Scores.length > 0
+      ? getStdDev(team2Scores)
+      : 0);
+
+if (winner === matchup.team1.rosterId) {
+  if (team1Score < team2Score) {
+    const temp = team1Score;
+    team1Score = team2Score;
+    team2Score = temp;
+  }
+} else {
+  if (team2Score < team1Score) {
+    const temp = team2Score;
+    team2Score = team1Score;
+    team1Score = temp;
+  }
+}
+
+newProjectedScores[
+  `${weekData.week}-${matchup.matchupId}`
+] = {
+  team1: team1Score,
+  team2: team2Score,
+};
+
+newPicks[
+  `${weekData.week}-${matchup.matchupId}`
+] = winner;      
       }
     );
   });
 
   setPicks(newPicks);
+setProjectedScores(
+  newProjectedScores
+);
 }
 
 function autoPickProjectedWinner() {
