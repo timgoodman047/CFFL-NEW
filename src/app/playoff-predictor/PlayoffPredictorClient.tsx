@@ -189,6 +189,61 @@ const [projectedScores, setProjectedScores] =
   }
 );
 
+const currentPlayoffTeams = standings
+  .slice()
+  .sort((a, b) => {
+    if (b.wins !== a.wins) {
+      return b.wins - a.wins;
+    }
+
+    return b.pf - a.pf;
+  })
+  .slice(0, 6)
+  .map((team) => team.rosterId);
+
+const projectedPlayoffTeams = projectedStandings
+  .slice()
+  .sort((a, b) => {
+    if (
+      b.projectedWins !==
+      a.projectedWins
+    ) {
+      return (
+        b.projectedWins -
+        a.projectedWins
+      );
+    }
+
+    return (
+      b.projectedPF -
+      a.projectedPF
+    );
+  })
+  .slice(0, 6)
+  .map((team) => team.rosterId);
+
+const teamsEnteringPlayoffs =
+  projectedStandings.filter(
+    (team) =>
+      projectedPlayoffTeams.includes(
+        team.rosterId
+      ) &&
+      !currentPlayoffTeams.includes(
+        team.rosterId
+      )
+  );
+
+const teamsLeavingPlayoffs =
+  projectedStandings.filter(
+    (team) =>
+      !projectedPlayoffTeams.includes(
+        team.rosterId
+      ) &&
+      currentPlayoffTeams.includes(
+        team.rosterId
+      )
+  );
+
 function autoPickByRecord() {
   const newPicks: Record<
     string,
@@ -712,28 +767,69 @@ const projectedPlayoffTeams = [
         </div>
       </div>
 <div className="mt-10">
-  <h2 className="text-2xl font-bold mb-4">
-    Projected Playoff Teams
-  </h2>
-
-
-  {projectedPlayoffTeams.map(
-    (team, index) => (
-      <div
-        key={team.rosterId}
-        className="border border-gray-700 rounded p-3 mb-2"
-      >
-        {index < 5
-          ? `#${index + 1}`
-          : "⭐ Wildcard"}{" "}
-        {team.team}
-        {" "}
-        ({team.projectedWins}-
-        {team.projectedLosses})
-      </div>
-    )
-  )}
-</div>    
-    </div>
-  );
+<h2 className="text-2xl font-bold mb-4">
+Projected Playoff Teams
+</h2>
+ 
+{projectedPlayoffTeams.map(
+(team, index) => (
+<div
+key={team.rosterId}
+className="border border-gray-700 rounded p-3 mb-2"
+>
+{index < 5
+? `#${index + 1}`
+: "⭐ Wildcard"}{" "}
+{team.team}{" "}
+({team.projectedWins}-
+{team.projectedLosses})
+</div>
+)
+)}
+</div>
+ 
+<div className="mt-6 rounded border p-4">
+<h2 className="mb-3 text-xl font-bold">
+Scenario Summary
+</h2>
+ 
+<div className="mb-4">
+<h3 className="font-semibold text-green-600">
+IN
+</h3>
+ 
+{teamsEnteringPlayoffs.length === 0 ? (
+<div>No changes</div>
+) : (
+teamsEnteringPlayoffs.map(
+(team) => (
+<div key={team.rosterId}>
+✅ {team.team}
+</div>
+)
+)
+)}
+</div>
+ 
+<div>
+<h3 className="font-semibold text-red-600">
+OUT
+</h3>
+ 
+{teamsLeavingPlayoffs.length === 0 ? (
+<div>No changes</div>
+) : (
+teamsLeavingPlayoffs.map(
+(team) => (
+<div key={team.rosterId}>
+❌ {team.team}
+</div>
+)
+)
+)}
+</div>
+</div>
+ 
+</div>
+);
 }
