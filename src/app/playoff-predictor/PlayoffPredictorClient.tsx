@@ -793,6 +793,14 @@ className="border border-gray-700 rounded p-3 mb-2"
 <h2 className="mb-3 text-xl font-bold">
 Scenario Summary
 </h2>
+
+<div>
+  Entering: {teamsEnteringPlayoffs.length}
+</div>
+
+<div>
+  Leaving: {teamsLeavingPlayoffs.length}
+</div>
  
 <div className="mb-4">
 <h3 className="font-semibold text-green-600">
