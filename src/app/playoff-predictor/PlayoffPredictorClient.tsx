@@ -192,13 +192,19 @@ function autoPickByPF() {
   setPicks(newPicks);
 }
 
-
 function autoPickProjectedWinner() {
   const newPicks: Record<
     string,
     number
   > = {};
 
+  const newProjectedScores: Record<
+    string,
+    {
+      team1: number;
+      team2: number;
+    }
+  > = {};
 
   schedule.forEach((weekData) => {
     weekData.matchups.forEach(
@@ -256,6 +262,13 @@ const team2Score =
   team2Avg +
   randomNormal() * team2Std;
 
+newProjectedScores[
+  `${weekData.week}-${matchup.matchupId}`
+] = {
+  team1: team1Score,
+  team2: team2Score,
+};
+
         const winner =
           team1Score >= team2Score
             ? matchup.team1.rosterId
@@ -269,6 +282,9 @@ const team2Score =
   });
   
   setPicks(newPicks);
+setProjectedScores(
+  newProjectedScores
+);
 }
 
 schedule.forEach((weekData) => {
