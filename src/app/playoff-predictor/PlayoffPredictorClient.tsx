@@ -801,6 +801,16 @@ Scenario Summary
 <div>
   Leaving: {teamsLeavingPlayoffs.length}
 </div>
+
+<div>
+  Current:
+  {currentPlayoffTeams.join(", ")}
+</div>
+
+<div>
+  Projected:
+  {projectedPlayoffRosterIds.join(", ")}
+</div>
  
 <div className="mb-4">
 <h3 className="font-semibold text-green-600">
