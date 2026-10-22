@@ -195,14 +195,6 @@ function autoPickByRecord() {
     number
   > = {};
 
-  const newProjectedScores: Record<
-    string,
-    {
-      team1: number;
-      team2: number;
-    }
-  > = {};
-
 const newProjectedScores: Record<
   string,
   {
