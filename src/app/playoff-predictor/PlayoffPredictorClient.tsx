@@ -459,12 +459,14 @@ const projectedPlayoffTeams = [
   <div>
     <div className="mb-6 flex gap-3 flex-wrap">
   <button
-    onClick={() => setPicks({})}
-    className="px-4 py-2 rounded bg-red-600 text-white"
-  >
-    Reset Scenario
-  </button>
-
+  onClick={() => {
+    setPicks({});
+    setProjectedScores({});
+  }}
+  className="px-4 py-2 rounded bg-red-600 text-white"
+>
+  Reset Scenario
+</button>
 
   <button
     onClick={autoPickByRecord}
@@ -534,23 +536,19 @@ const projectedPlayoffTeams = [
 <div className="text-gray-500 my-2 text-center">
   vs
 
-  {projectedScores[
+  {
+  projectedScores[
     `${weekData.week}-${matchup.matchupId}`
-  ] && (
-    <div className="text-sm mt-2">
-      {
-        projectedScores[
-          `${weekData.week}-${matchup.matchupId}`
-        ].team1
-          .toFixed(1)
-      }
-      {" - "}
-      {
-        projectedScores[
-          `${weekData.week}-${matchup.matchupId}`
-        ].team2
-          .toFixed(1)
-      }
+  ].team1
+    .toFixed(2)
+}
+{" - "}
+{
+  projectedScores[
+    `${weekData.week}-${matchup.matchupId}`
+  ].team2
+    .toFixed(2)
+}
     </div>
   )}
 </div>
