@@ -532,23 +532,20 @@ const projectedPlayoffTeams = [
   {matchup.team1.team}
 </button>   
 
-
 <div className="text-gray-500 my-2 text-center">
   vs
 
-  {
-  projectedScores[
+  {projectedScores[
     `${weekData.week}-${matchup.matchupId}`
-  ].team1
-    .toFixed(2)
-}
-{" - "}
-{
-  projectedScores[
-    `${weekData.week}-${matchup.matchupId}`
-  ].team2
-    .toFixed(2)
-}
+  ] && (
+    <div className="text-sm mt-2">
+      {projectedScores[
+        `${weekData.week}-${matchup.matchupId}`
+      ].team1.toFixed(2)}
+      {" - "}
+      {projectedScores[
+        `${weekData.week}-${matchup.matchupId}`
+      ].team2.toFixed(2)}
     </div>
   )}
 </div>
