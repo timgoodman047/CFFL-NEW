@@ -135,17 +135,21 @@ const [projectedScores, setProjectedScores] =
     randomNormal() * team2Std;
 
   if (
-    rosterId ===
-    matchup.team1.rosterId
-  ) {
-    if (team1Score <= team2Score) {
-      team1Score = team2Score + 1;
-    }
-  } else {
-    if (team2Score <= team1Score) {
-      team2Score = team1Score + 1;
-    }
+  rosterId ===
+  matchup.team1.rosterId
+) {
+  if (team1Score < team2Score) {
+    const temp = team1Score;
+    team1Score = team2Score;
+    team2Score = temp;
   }
+} else {
+  if (team2Score < team1Score) {
+    const temp = team2Score;
+    team2Score = team1Score;
+    team1Score = temp;
+  }
+}
 
   setProjectedScores((prev) => ({
     ...prev,
