@@ -677,7 +677,9 @@ const teamsLeavingPlayoffs =
   }
 >
   {matchup.team1.team}
-</button>   
+</button>
+
+<div className="my-4" />
 
 <div className="text-gray-500 my-2 text-center">
   vs
@@ -696,6 +698,8 @@ const teamsLeavingPlayoffs =
     </div>
   )}
 </div>
+
+<div className="my-4" />
 
 <button
   style={{
