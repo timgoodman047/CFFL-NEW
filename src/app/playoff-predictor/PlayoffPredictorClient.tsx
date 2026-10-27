@@ -652,7 +652,8 @@ const teamsLeavingPlayoffs =
           {weekData.matchups.map(
   (matchup: any) => (
       <div
-        className="border border-gray-700 rounded p-10"
+        key={matchup.matchupId}
+        className="border border-gray-700 rounded p-10 mb-6"
               >
                 <button
   style={{
@@ -722,6 +723,10 @@ const teamsLeavingPlayoffs =
     </div>
   )
 )}
+
+  </div>
+))}
+    
 <div className="mt-10">
         <h2 className="text-2xl font-bold mb-4">
           Projected Standings
