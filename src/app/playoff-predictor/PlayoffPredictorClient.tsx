@@ -653,7 +653,7 @@ const teamsLeavingPlayoffs =
             (matchup: any) => (
               <div
                 key={matchup.matchupId}
-                className="border border-gray-700 rounded p-4 mb-2"
+                className="border border-gray-700 rounded p-4 mb-6"
               >
                 <button
   style={{
