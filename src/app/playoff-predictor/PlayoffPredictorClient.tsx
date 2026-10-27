@@ -720,11 +720,13 @@ const teamsLeavingPlayoffs =
 >
   {matchup.team2.team}
 </button>
-              </div>
-            )
-          )}
-        </div>
-      ))}
+
+      </div>
+
+      <div className="h-6" />
+    </div>
+  )
+)}
 <div className="mt-10">
         <h2 className="text-2xl font-bold mb-4">
           Projected Standings
@@ -746,9 +748,6 @@ const teamsLeavingPlayoffs =
 {team.projectedPF.toFixed(1)}
 )
               </div>
-
-              <div className="h-6" />
-              </div> 
             )
           )}
         </div>
