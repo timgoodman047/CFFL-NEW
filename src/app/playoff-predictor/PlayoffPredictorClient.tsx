@@ -650,10 +650,10 @@ const teamsLeavingPlayoffs =
 
 
           {weekData.matchups.map(
-            (matchup: any) => (
-              <div
-                key={matchup.matchupId}
-                className="border border-gray-700 rounded p-4 mb-10 bg-gray-900"
+  (matchup: any) => (
+    <div key={matchup.matchupId}>
+      <div
+        className="border border-gray-700 rounded p-10"
               >
                 <button
   style={{
@@ -746,6 +746,9 @@ const teamsLeavingPlayoffs =
 {team.projectedPF.toFixed(1)}
 )
               </div>
+
+              <div className="h-6" />
+              </div> 
             )
           )}
         </div>
