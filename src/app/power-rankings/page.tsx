@@ -197,7 +197,7 @@ const rankings = powerRankings.rankings
   Power Score: {team.powerScore.toFixed(2)}
 </div>
 
-<div className="text-sm text-gray-500 mb-4">
+<div className="text-sm text-gray-500 mb-6">
   PF Rank: {team.pfRank} •
   All-Play: {team.allPlayRank} •
   3W Avg: {team.threeWeekRank} •
@@ -207,16 +207,6 @@ const rankings = powerRankings.rankings
   TE Bonus: {team.teBonus ?? 0} •
   125+ Wins: {team.wins125} •
   Precision: {team.precision}
-</div>
-
-<div className="text-yellow-400 text-sm mb-2">
-  QB Bonus: {team.qbBonus}
-  {" | "}
-  RB Bonus: {team.rbBonus}
-  {" | "}
-  WR Bonus: {team.wrBonus}
-  {" | "}
-  TE Bonus: {team.teBonus}
 </div>
 
 <div className="text-gray-300 whitespace-pre-line">
