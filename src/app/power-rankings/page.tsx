@@ -216,9 +216,19 @@ const rankings = powerRankings.rankings
   }}
 />
 
+<div style={{ height: "24px" }} />
+
 <div className="text-gray-300 whitespace-pre-line">
   {team.summary}
 </div>
+
+<hr
+  style={{
+    borderColor: "#374151",
+    marginTop: "20px",
+    marginBottom: "8px",
+  }}
+/>
           </div>
         ))}
       </div>
