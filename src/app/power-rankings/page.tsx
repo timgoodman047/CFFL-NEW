@@ -208,6 +208,13 @@ const rankings = powerRankings.rankings
   125+ Wins: {team.wins125} •
   Precision: {team.precision}
 </div>
+            
+<hr
+  style={{
+    borderColor: "#374151",
+    margin: "16px 0",
+  }}
+/>
 
 <div className="text-gray-300 whitespace-pre-line">
   {team.summary}
