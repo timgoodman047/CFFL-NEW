@@ -652,11 +652,12 @@ const teamsLeavingPlayoffs =
           {weekData.matchups.map(
   (matchup: any) => (
       <div
+  key={matchup.matchupId}
   style={{
-    border: "5px solid red",
-    marginBottom: "50px",
-    padding: "40px",
-    background: "#222",
+    border: "1px solid #374151",
+    borderRadius: "8px",
+    padding: "16px",
+    marginBottom: "16px",
   }}
 >
                 <button
