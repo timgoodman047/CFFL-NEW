@@ -651,7 +651,6 @@ const teamsLeavingPlayoffs =
 
           {weekData.matchups.map(
   (matchup: any) => (
-    <div key={matchup.matchupId}>
       <div
         className="border border-gray-700 rounded p-10"
               >
@@ -718,12 +717,8 @@ const teamsLeavingPlayoffs =
     )
   }
 >
-  {matchup.team2.team}
-</button>
-
-      </div>
-
-      <div className="h-6" />
+        {matchup.team2.team}
+      </button>
     </div>
   )
 )}
