@@ -28,7 +28,7 @@ export const powerRankings = {
     previousRank: 3,
     team: "Dirty Mike",
 
-    precision: 1.5,
+    precision: 2.6,
 
     summary: `Four weeks in a row now they’ve outscored half the league and own the longest winning streak of the league so far. They had to face two of the top teams in that run also, so not an easy schedule. On Allen’s bye week they scored the 3rd most points which is a very promising sign. If they can clean up their DEF and FLEX a they should be able to hang on to the 1st round bye.`,
   },
