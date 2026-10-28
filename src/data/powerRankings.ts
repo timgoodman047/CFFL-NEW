@@ -38,7 +38,7 @@ export const powerRankings = {
     previousRank: 1,
     team: "The Locked Room",
 
-    precision: 0.8,
+    precision: 0.1,
 
     summary: `2nd horrendous outcome out of the last four weeks. They’ve dropped to 6th in points scored and probably lost any chance of a first round bye. With five wins they would have to have a pretty dismal spiral to miss out on playoffs but need to clean it up. RBs have started to get going but now their WRs have disappeared.`,
   },
@@ -48,7 +48,7 @@ export const powerRankings = {
     previousRank: 6,
     team: "Bills Mafia",
 
-    precision: 0.9,
+    precision: 0.5,
 
     summary: `After five solid weeks they put up a bit of a dud, though they move up in our rankings more because the previous #4 team has fallen off a bit of a cliff. Collecting QBs like infinity stones but still find themselves 6th in points scored at that position. Bowers have fallen off a bit the last two weeks, need him to get going again. Just 4.18pts out of wildcard`,
   },
@@ -68,7 +68,7 @@ export const powerRankings = {
     previousRank: 7,
     team: "Taka Taka Tires",
     
-    precision: 0.2,
+    precision: 0.4,
 
     summary: `Finally turned it around after four terrible weeks. Dak actually didn’t shrivel up under the lights for once, and their two WRs they got in trades totaled almost 40pts for them. If Saquon is done for the year they might have their FLEX spot figured out going forward. If they can get to playoffs could be a dark horse when Davante comes back. 36.8pts out of wildcard.`,
   },
@@ -78,7 +78,7 @@ export const powerRankings = {
     previousRank: 8,
     team: "WHO DEY",
 
-    precision: 0.1,
+    precision: 0.0,
 
     summary: `Four weeks in a row scoring less than half the league. Averaging about 120pts, but unfortunately in PPR that point total doesn’t get you very far. Hopefully Cook can get them going a bit, as they’ve been one of the worst RB teams this season. They’ve had the least bench points of any team this season which is a bit alarming. Still time to make up ground though, 77.72pts out of wildcard.`,
   },
