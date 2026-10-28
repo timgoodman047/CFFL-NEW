@@ -8,9 +8,9 @@ export const powerRankings = {
     previousRank: 2,
     team: "Short Board Champ",
 
-    precision: 1,
+    precision: 1.4,
 
-    summary: `Not a good week but only the second time they’ve finished near the bottom in scoring. They also had a ton of points on their bench that could’ve gotten them the win. Will need to keep their manager pants on if they want that 1st round bye. An off day for Henry and Puka, hopefully not many of those in store, though shouldn’t matter next week as they get to face off against the worst team.`,
+    summary: `Was playing the worst team this week and could’ve taken it easy, instead they went ahead and scored most points again. They aren’t really doing it in the normal way either, they’re 1st in W/T, FLEX, and DEF. McBride outscored every WR this week except two. They went from last in QB pts scored to 4th in three weeks, Maye is averaging 37.6pts thru that stretch.`,
   },
 
   {
@@ -18,9 +18,9 @@ export const powerRankings = {
     previousRank: 3,
     team: "Fuck You FantasyFootball",
     
-    precision: 1.5,
+    precision: 0.0,
 
-    summary: `Five players on bye and one hurt and they still put up most points of the week for the third time this year. KWIII is the lifeblood of this squad, but don’t want to take away from their stellar managing. A great QB pickup this week helped get them the win after the Eagles tried to kill Hurts. Brought in some RB reinforcements with a trade, we’ll see if that can get them back to #1.`,
+    summary: `Two of the last three weeks have been bad for them. After starting the year 1st in RB points they’ve now dropped to 6th, need one of their six RBs not named Walker to step up. JSN and Amon continue to dominate and are why they continue to outscore everyone at WR. Butker is now the K20 and might be time for him to get in the kitchen cause it doesn’t look like he belongs on the football field anymore.`,
   },
 
   {
@@ -28,9 +28,9 @@ export const powerRankings = {
     previousRank: 3,
     team: "Dirty Mike",
 
-    precision: 0.5,
+    precision: 1.5,
 
-    summary: `Took down the #1 team but had a kind of mediocre game. Its actually their 2nd week in a row scoring middle of the pack which will happen when you only get a total of 3.6pts out of your FLEX position in that time. Their 10th draft pick is now the WR5 and has to be on of the best picks of the draft. Averaging 22.6pts in the RB position which is 8th in the league.`,
+    summary: `Four weeks in a row now they’ve outscored half the league and own the longest winning streak of the league so far. They had to face two of the top teams in that run also, so not an easy schedule. On Allen’s bye week they scored the 3rd most points which is a very promising sign. If they can clean up their DEF and FLEX a they should be able to hang on to the 1st round bye.`,
   },
 
   {
@@ -40,7 +40,7 @@ export const powerRankings = {
 
     precision: 0.8,
 
-    summary: `Eeked out a win by just 0.4pts in a nailbiter. Their kicker once again failed them and Pollard looks like a lost cause. Two of their WRs are losing some targets to some hotter hands, will have to keep an eye on that. Turned it around on DEF and are now 2nd in that category. Get to face one of the weaker teams so they should be able to hang on to the #1 spot for at least another week.`,
+    summary: `2nd horrendous outcome out of the last four weeks. They’ve dropped to 6th in points scored and probably lost any chance of a first round bye. With five wins they would have to have a pretty dismal spiral to miss out on playoffs but need to clean it up. RBs have started to get going but now their WRs have disappeared.`,
   },
 
   {
@@ -50,7 +50,7 @@ export const powerRankings = {
 
     precision: 0.9,
 
-    summary: `The unfortunate recipient of the 0.4pt loss. They now own the biggest blowout and the littlest loss. They’ve outscored half the league five weeks in a row but have three unlucky losses in that stretch. If they had the first place teams schedule they’d only have one loss. Had the problem they had week 1, when the Falcons are a bit off they will struggle. Might be time to take Waddle out back and shoot him.`,
+    summary: `After five solid weeks they put up a bit of a dud, though they move up in our rankings more because the previous #4 team has fallen off a bit of a cliff. Collecting QBs like infinity stones but still find themselves 6th in points scored at that position. Bowers have fallen off a bit the last two weeks, need him to get going again. Just 4.18pts out of wildcard`,
   },
 
   {
@@ -60,7 +60,7 @@ export const powerRankings = {
 
     precision: 0.7,
 
-    summary: `Not the worst week, but not great either. Jags and Pat let them down this week. Sent one of their Chargers off in a trade, might want to get rid of the other one too, that whole team needs to be shot into the sun and forgotten. Made the right move keeping Jacobs who should start right away as Green Bay has had zero run game without him. Nabers is red hot now, averaging 24pts over the last three weeks. 11.9pts out of wildcard`,
+    summary: `The second hottest team over the last three weeks, though most of that average is tied up in their Week 5 throttling. Patty is failing them the last two weeks, after being 2nd in QB points two weeks ago they are now 9th. Maybe they’ll actually get Pat a receiver before the trade deadline. Williamson is averaging a mouth watering 18.8pts over his last three games.`,
   },
 
   {
@@ -70,7 +70,7 @@ export const powerRankings = {
     
     precision: 0.2,
 
-    summary: `4th bad week in a row, though they have a bit of an excuse this time with Gibbs on bye. Desperately need Lamar back because the embarrassment playing QB at Dallas ain’t cutting it. Unlikely Likely is now TE1 somehow. Looks like they wasted their 11th round pick on the K17. Adams is going to miss possibly the rest of fantasy season and they are already pretty thin at that position. 56pts out of wildcard`,
+    summary: `Finally turned it around after four terrible weeks. Dak actually didn’t shrivel up under the lights for once, and their two WRs they got in trades totaled almost 40pts for them. If Saquon is done for the year they might have their FLEX spot figured out going forward. If they can get to playoffs could be a dark horse when Davante comes back. 36.8pts out of wildcard.`,
   },
 
   {
@@ -80,7 +80,7 @@ export const powerRankings = {
 
     precision: 0.1,
 
-    summary: `Could’ve only beaten one team this week and luckily it was the team they were facing. They get a little bit of a pass since most of their top guys were on bye, but this is three bad weeks in a row now. White was a good pickup but their RBs are in shambles. MJH leaving Arizona should’ve seen an uptick in targets for Wilson it but wasn’t the case this week. 82.7pts out wildcard`,
+    summary: `Four weeks in a row scoring less than half the league. Averaging about 120pts, but unfortunately in PPR that point total doesn’t get you very far. Hopefully Cook can get them going a bit, as they’ve been one of the worst RB teams this season. They’ve had the least bench points of any team this season which is a bit alarming. Still time to make up ground though, 77.72pts out of wildcard.`,
   },
 
   {
@@ -90,7 +90,7 @@ export const powerRankings = {
 
     precision: 0.6,
 
-    summary: `Huge bounce back after least points last week. Last in W/T points and they got Pitts wasting away on their bench. Stafford and the Rams look cooked, still a couple decent QBs on the waivers, might be time to snag one. Doubs might be out awhile but Diggs could be getting a bunch of targets come his way. At 4-2 they are looking at a high possibility of making playoffs while being 9th in Points For.`,
+    summary: `Something happens when this owner makes trades, a flip switches and they just go on a tear. Two pretty good weeks in a row, and legitimately only need probably three more wins now to secure their playoff spot. They might have had the easiest schedule and three lucky wins, but its got to happen to someone why not them.`,
   },
 
   {
@@ -100,7 +100,7 @@ export const powerRankings = {
 
     precision: 0,
 
-    summary: `Not much to say here, but if there is a player on their team they are with 100% certainty getting a major injury. No top ten players on their team, barely even any top 20 players. Have scored less than 87pts four times now and are already 200.44pts out of wildcard. Also 117pts out of 9th place, might want to start trying some dresses on at this point.`,
+    summary: `Some positives: they didn’t score the least amount of points…end of list. 201pts out of wildcard, still winless, season is effectively over. Made a couple trades but not sure if a couple mid tier draft picks were worth the sale.`,
   },
 ]
 };
