@@ -1040,7 +1040,8 @@ teamsEnteringPlayoffs.map(
   </h2>
 
   <div>
-    Coming Soon...
+      Coming Soon...
+    </div>
   </div>
 </div>
 
