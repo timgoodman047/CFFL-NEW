@@ -1083,7 +1083,7 @@ Projected Playoff Teams
 (team, index) => (
 <div
 key={team.rosterId}
-className="border border-gray-700 rounded p-3 mb-2"
+className="border border-gray-700 rounded p-3 mb-6"
 >
 {index < 5
 ? `#${index + 1}`
@@ -1259,11 +1259,11 @@ className="border border-gray-700 rounded p-3 mb-2"
       return (
         <div
           key={rosterId}
-          className="border border-gray-700 rounded p-3 mb-2"
+          className="border border-gray-700 rounded p-3 mb-6"
         >
-          <div className="font-bold">
-            {team.team}
-          </div>
+          <div className="font-bold text-lg">
+  {team.team}
+</div>
 
 <div>
   Current Seed:
