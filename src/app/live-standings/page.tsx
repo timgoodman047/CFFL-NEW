@@ -225,9 +225,9 @@ export default function LiveStandingsPage() {
   .sort((a, b) => b.livePF - a.livePF)
   .map((team, index) => (
     <div
-      key={team.rosterId}
-      className="flex justify-between py-2 border-b border-gray-700"
-    >
+  key={team.rosterId}
+  className="py-3 border-b border-gray-700"
+>
       <span>
   {index + 1}. {team.team}
   {" "}
@@ -250,7 +250,7 @@ export default function LiveStandingsPage() {
         {chasingTeams.map((team) => (
          <div
   key={team.rosterId}
-  className="flex justify-between py-2 border-b border-gray-700"
+  className="grid grid-cols-[1fr_110px_90px] gap-4 py-2 border-b border-gray-700 items-center"
 >
   <span>{team.team}</span>
 
