@@ -1070,6 +1070,15 @@ teamsEnteringPlayoffs.map(
           {odds.toFixed(1)}
           {"%)"}
         </div>
+<div className="mt-10">
+  <h2 className="text-2xl font-bold mb-4 text-blue-500">
+    📈 Win / Loss Impact
+  </h2>
+
+  <div>
+    Coming Soon...
+  </div>
+</div>
       );
     })}
 </div>  
