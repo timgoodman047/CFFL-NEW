@@ -303,9 +303,166 @@ setProjectedScores(
 }
 
   function runMonteCarlo() {
-  console.log(
-    "Monte Carlo button clicked"
-  );
+  const simulations = 10000;
+
+  const playoffCounts: Record<
+    number,
+    number
+  > = {};
+
+  standings.forEach((team) => {
+    playoffCounts[team.rosterId] = 0;
+  });
+
+  for (
+    let sim = 0;
+    sim < simulations;
+    sim++
+  ) {
+    const simStandings =
+      standings.map((team) => ({
+        ...team,
+        simWins: team.wins,
+        simPF: team.pf,
+      }));
+
+    schedule.forEach((weekData) => {
+      weekData.matchups.forEach(
+        (matchup: any) => {
+          const team1 =
+            simStandings.find(
+              (t) =>
+                t.rosterId ===
+                matchup.team1.rosterId
+            );
+
+          const team2 =
+            simStandings.find(
+              (t) =>
+                t.rosterId ===
+                matchup.team2.rosterId
+            );
+
+          if (!team1 || !team2) return;
+
+          const team1Scores =
+            scoringHistory[
+              team1.rosterId
+            ] || [];
+
+          const team2Scores =
+            scoringHistory[
+              team2.rosterId
+            ] || [];
+
+          const team1Avg =
+            team1Scores.length > 0
+              ? getAverage(
+                  team1Scores
+                )
+              : 100;
+
+          const team2Avg =
+            team2Scores.length > 0
+              ? getAverage(
+                  team2Scores
+                )
+              : 100;
+
+          const team1Std =
+            team1Scores.length > 1
+              ? getStdDev(
+                  team1Scores
+                )
+              : 10;
+
+          const team2Std =
+            team2Scores.length > 1
+              ? getStdDev(
+                  team2Scores
+                )
+              : 10;
+
+          const team1Score =
+            team1Avg +
+            randomNormal() *
+              team1Std;
+
+          const team2Score =
+            team2Avg +
+            randomNormal() *
+              team2Std;
+
+          team1.simPF += team1Score;
+          team2.simPF += team2Score;
+
+          if (
+            team1Score >= team2Score
+          ) {
+            team1.simWins++;
+          } else {
+            team2.simWins++;
+          }
+        }
+      );
+    });
+
+    simStandings.sort((a, b) => {
+      if (
+        b.simWins !== a.simWins
+      ) {
+        return (
+          b.simWins - a.simWins
+        );
+      }
+
+      return (
+        b.simPF - a.simPF
+      );
+    });
+
+    const topFive =
+      simStandings.slice(0, 5);
+
+    const wildcard =
+      simStandings
+        .slice(5)
+        .sort(
+          (a, b) =>
+            b.simPF - a.simPF
+        )[0];
+
+    const playoffTeams = [
+      ...topFive,
+      wildcard,
+    ].filter(Boolean);
+
+    playoffTeams.forEach(
+      (team) => {
+        playoffCounts[
+          team.rosterId
+        ]++;
+      }
+    );
+  }
+
+  const odds: Record<
+    number,
+    number
+  > = {};
+
+  Object.keys(
+    playoffCounts
+  ).forEach((id) => {
+    odds[Number(id)] =
+      (playoffCounts[
+        Number(id)
+      ] /
+        simulations) *
+      100;
+  });
+
+  setPlayoffOdds(odds);
 }
   
 function autoPickByPF() {
@@ -806,9 +963,33 @@ className="border border-gray-700 rounded p-3 mb-2"
       🎲 Monte Carlo Playoff Odds
     </h2>
 
-    <div>
-      Results will appear here
-    </div>
+    <div className="space-y-2">
+  {[...standings]
+    .sort(
+      (a, b) =>
+        (playoffOdds[
+          b.rosterId
+        ] || 0) -
+        (playoffOdds[
+          a.rosterId
+        ] || 0)
+    )
+    .map((team) => (
+      <div
+        key={team.rosterId}
+        className="border border-gray-700 rounded p-2"
+      >
+        {team.team}
+        {" - "}
+        {(
+          playoffOdds[
+            team.rosterId
+          ] || 0
+        ).toFixed(1)}
+        %
+      </div>
+    ))}
+</div>
   </div>
 )}
  
