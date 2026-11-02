@@ -569,26 +569,6 @@ function calculateImpact() {
     );
   });
 }
-
-  standings.forEach((team) => {
-    const current =
-      playoffOdds[team.rosterId] || 0;
-
-    results[team.rosterId] = {
-      current,
-      win: Math.min(
-        current + 15,
-        100
-      ),
-      loss: Math.max(
-        current - 15,
-        0
-      ),
-    };
-  });
-
-  setImpactOdds(results);
-}
   
 function autoPickByPF() {
   const newPicks: Record<
