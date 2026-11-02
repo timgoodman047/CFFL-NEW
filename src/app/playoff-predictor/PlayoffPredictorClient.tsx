@@ -83,6 +83,18 @@ const [seedOdds, setSeedOdds] =
     >
   >({});
 
+  const [impactOdds, setImpactOdds] =
+  useState<
+    Record<
+      number,
+      {
+        current: number;
+        win: number;
+        loss: number;
+      }
+    >
+  >({});
+
  function selectWinner(
   week: number,
   matchupId: number,
@@ -507,6 +519,12 @@ Object.keys(
   setPlayoffOdds(odds);
 setSeedOdds(seedResults);
 }
+
+function calculateImpact() {
+  console.log(
+    "Calculate impact clicked"
+  );
+}
   
 function autoPickByPF() {
   const newPicks: Record<
@@ -853,6 +871,13 @@ const teamsLeavingPlayoffs =
   className="px-4 py-2 rounded bg-orange-600 text-white"
 >
   Run 10,000 Simulations
+</button>
+
+<button
+  onClick={calculateImpact}
+  className="px-4 py-2 rounded bg-cyan-600 text-white"
+>
+  Calculate Win/Loss Impact
 </button>
 </div>
       
