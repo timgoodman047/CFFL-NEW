@@ -1258,9 +1258,14 @@ className="border border-gray-700 rounded p-3 mb-6"
 
       return (
         <div
-          key={rosterId}
-          className="border border-gray-700 rounded p-3 mb-6"
-        >
+  key={rosterId}
+  style={{
+    border: "1px solid #374151",
+    borderRadius: "8px",
+    padding: "16px",
+    marginBottom: "24px",
+  }}
+>
           <div className="font-bold text-lg">
   {team.team}
 </div>
