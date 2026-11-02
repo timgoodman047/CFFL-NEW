@@ -136,23 +136,64 @@ strengthDiff * 0.4
 const probabilityB =
 100 - probabilityA;
 
-const projectedA = teamA.avgPPG;
-const projectedB = teamB.avgPPG;
- 
+const startersA =
+  game[0].starters ?? [];
+
+const startersB =
+  game[1].starters ?? [];
+
+const starterPointsA =
+  game[0].starters_points ?? [];
+
+const starterPointsB =
+  game[1].starters_points ?? [];
+
+const playedA =
+  starterPointsA.filter(
+    (p: number) => p > 0
+  ).length;
+
+const playedB =
+  starterPointsB.filter(
+    (p: number) => p > 0
+  ).length;
+
+const remainingA =
+  startersA.length - playedA;
+
+const remainingB =
+  startersB.length - playedB;
+
+const avgPlayerA =
+  teamA.avgPPG /
+  Math.max(startersA.length, 1);
+
+const avgPlayerB =
+  teamB.avgPPG /
+  Math.max(startersB.length, 1);
+
+const projectedA =
+  scoreA +
+  remainingA * avgPlayerA;
+
+const projectedB =
+  scoreB +
+  remainingB * avgPlayerB;
+
 return {
-teamA,
-teamB,
-scoreA,
-scoreB,
-projectedA,
-projectedB,
-margin: Math.abs(
-projectedA - projectedB
-),
-winner:
-projectedA >= projectedB
-? teamA
-: teamB,
+  teamA,
+  teamB,
+  scoreA,
+  scoreB,
+  projectedA,
+  projectedB,
+  margin: Math.abs(
+    projectedA - projectedB
+  ),
+  winner:
+    projectedA >= projectedB
+      ? teamA
+      : teamB,
 };
 });
 
