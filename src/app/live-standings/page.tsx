@@ -166,9 +166,9 @@ export default function LiveStandingsPage() {
     );
 
   const pfQualifier =
-    [...remainingTeams].sort(
-      (a, b) => b.pf - a.pf
-    )[0];
+  [...remainingTeams].sort(
+    (a, b) => b.livePF - a.livePF
+  )[0];
 
   const chasingTeams =
     remainingTeams
@@ -177,7 +177,7 @@ export default function LiveStandingsPage() {
           team.rosterId !==
           pfQualifier?.rosterId
       )
-      .sort((a, b) => b.livePF - a.livePF)[0];
+      .sort((a, b) => b.livePF - a.livePF);
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
@@ -232,7 +232,7 @@ export default function LiveStandingsPage() {
 </span>
 
       <span>
-        {team.livepf.toFixed(2)} PF
+        {team.livePF.toFixed(2)} PF
       </span>
     </div>
   ))}         
@@ -252,9 +252,9 @@ export default function LiveStandingsPage() {
   <span>{team.team}</span>
 
   <span>
-    {team.livepf.toFixed(2)} PF
+    {team.livePF.toFixed(2)} PF
     {" • "}
-    {(pfQualifier.livepf - team.livepf).toFixed(2)}
+    {(pfQualifier.livePF - team.livePF).toFixed(2)}
     {" back"}
   </span>
 </div> 
