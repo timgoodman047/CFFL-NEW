@@ -535,15 +535,40 @@ function runMonteCarlo() {
   );
 }
 
-function calculateImpact() {
-  const results: Record<
-    number,
-    {
-      current: number;
-      win: number;
-      loss: number;
+function getNextMatchup(
+  rosterId: number
+) {
+  for (const weekData of schedule) {
+    const matchup =
+      weekData.matchups.find(
+        (m: any) =>
+          m.team1.rosterId ===
+            rosterId ||
+          m.team2.rosterId ===
+            rosterId
+      );
+
+    if (matchup) {
+      return matchup;
     }
-  > = {};
+  }
+
+  return null;
+}
+
+function calculateImpact() {
+  standings.forEach((team) => {
+    const matchup =
+      getNextMatchup(
+        team.rosterId
+      );
+
+    console.log(
+      team.team,
+      matchup
+    );
+  });
+}
 
   standings.forEach((team) => {
     const current =
