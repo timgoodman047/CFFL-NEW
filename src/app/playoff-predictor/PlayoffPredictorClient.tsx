@@ -566,32 +566,15 @@ function calculateImpact() {
     }
   > = {};
 
-  standings.forEach((team) => {
-    const matchup =
-      getNextMatchup(
-        team.rosterId
-      );
-
-    console.log(
-      team.team,
-      matchup
-    );
-
-    const current =
-      playoffOdds[team.rosterId] || 0;
-
-    results[team.rosterId] = {
-      current,
-      win: Math.min(
-        current + 15,
-        100
-      ),
-      loss: Math.max(
-        current - 15,
-        0
-      ),
-    };
-  });
+  projectedStandings.forEach(
+    (team, index) => {
+      results[team.rosterId] = {
+        current: index + 1,
+        win: index + 1,
+        loss: index + 1,
+      };
+    }
+  );
 
   setImpactOdds(results);
 }
