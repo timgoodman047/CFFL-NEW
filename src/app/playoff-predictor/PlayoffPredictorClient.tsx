@@ -994,94 +994,91 @@ className="border border-gray-700 rounded p-3 mb-2"
 )}
  
 <div className="mt-6 rounded border p-4">
-<h2 className="mb-3 text-xl font-bold">
-Scenario Summary
-</h2>
- 
-<div className="mb-4">
-<h3 className="font-semibold text-green-600">
-IN
-</h3>
- 
-{teamsEnteringPlayoffs.length === 0 ? (
-<div>No changes</div>
-) : (
-teamsEnteringPlayoffs.map(
-(team) => (
-<div key={team.rosterId}>
-✅ {team.team}
-</div>
-)
-)
-)}
-</div>
- 
-<div>
-  <h3 className="font-semibold text-red-600">
-    OUT
-  </h3>
+  <h2 className="mb-3 text-xl font-bold">
+    Scenario Summary
+  </h2>
 
-  {teamsLeavingPlayoffs.length === 0 ? (
-    <div>No changes</div>
-  ) : (
-    teamsLeavingPlayoffs.map(
-      (team) => (
+  <div className="mb-4">
+    <h3 className="font-semibold text-green-600">
+      IN
+    </h3>
+
+    {teamsEnteringPlayoffs.length === 0 ? (
+      <div>No changes</div>
+    ) : (
+      teamsEnteringPlayoffs.map((team) => (
+        <div key={team.rosterId}>
+          ✅ {team.team}
+        </div>
+      ))
+    )}
+  </div>
+
+  <div>
+    <h3 className="font-semibold text-red-600">
+      OUT
+    </h3>
+
+    {teamsLeavingPlayoffs.length === 0 ? (
+      <div>No changes</div>
+    ) : (
+      teamsLeavingPlayoffs.map((team) => (
         <div key={team.rosterId}>
           ❌ {team.team}
         </div>
-      )
-    )
-  )}
-</div>
-
-<div className="mt-10">
-  <h2 className="text-2xl font-bold mb-4 text-green-500">
-    ✅ Clinching Scenarios
-  </h2>
-
-  <div className="space-y-2">
-    {[...standings]
-      .sort(
-        (a, b) =>
-          (playoffOdds[b.rosterId] || 0) -
-          (playoffOdds[a.rosterId] || 0)
-      )
-      .map((team) => {
-        const odds =
-          playoffOdds[team.rosterId] || 0;
-
-        let status = "⚠️ Alive";
-
-        if (odds >= 99.5) {
-          status = "✅ Clinched";
-        } else if (odds <= 0.5) {
-          status = "❌ Eliminated";
-        }
-
-        return (
-          <div
-            key={team.rosterId}
-            className="border border-gray-700 rounded p-2"
-          >
-            <strong>{team.team}</strong>
-            {" - "}
-            {status}
-            {" ("}
-            {odds.toFixed(1)}
-            {"%)"}
-          </div>
-        );
-      })}
+      ))
+    )}
   </div>
-</div>
 
-<div className="mt-10">
-  <h2 className="text-2xl font-bold mb-4 text-blue-500">
-    📈 Win / Loss Impact
-  </h2>
+  <div className="mt-10">
+    <h2 className="text-2xl font-bold mb-4 text-green-500">
+      ✅ Clinching Scenarios
+    </h2>
 
-  <div>
-    Coming Soon...
+    <div className="space-y-2">
+      {[...standings]
+        .sort(
+          (a, b) =>
+            (playoffOdds[b.rosterId] || 0) -
+            (playoffOdds[a.rosterId] || 0)
+        )
+        .map((team) => {
+          const odds =
+            playoffOdds[team.rosterId] || 0;
+
+          let status = "⚠️ Alive";
+
+          if (odds >= 99.5) {
+            status = "✅ Clinched";
+          } else if (odds <= 0.5) {
+            status = "❌ Eliminated";
+          }
+
+          return (
+            <div
+              key={team.rosterId}
+              className="border border-gray-700 rounded p-2"
+            >
+              <strong>{team.team}</strong>
+              {" - "}
+              {status}
+              {" ("}
+              {odds.toFixed(1)}
+              {"%)"}
+            </div>
+          );
+        })}
+    </div>
+  </div>
+
+  <div className="mt-10">
+    <h2 className="text-2xl font-bold mb-4 text-blue-500">
+      📈 Win / Loss Impact
+    </h2>
+
+    <div>
+      Coming Soon...
+    </div>
   </div>
 </div>
 
