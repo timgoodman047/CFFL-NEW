@@ -1032,9 +1032,16 @@ teamsLeavingPlayoffs.map(
 )
 )
 )}
+<<div className="mt-10">
+  <h2 className="text-2xl font-bold mb-4 text-green-500">
+    ✅ Clinching Scenarios
+  </h2>
+
+  <div>
+    Coming Soon...
+  </div>
 </div>
-</div>
- 
+
 </div>
 );
 }
