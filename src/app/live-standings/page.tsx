@@ -47,10 +47,11 @@ export default function LiveStandingsPage() {
   }
 
   const liveTeams = teams.map((team) => ({
-    ...team,
-    liveWins: team.wins,
-    liveLosses: team.losses,
-  }));
+  ...team,
+  liveWins: team.wins,
+  liveLosses: team.losses,
+  livePF: team.pf,
+}));
 
   const matchupGroups = new Map<number, any[]>();
 
@@ -82,6 +83,9 @@ export default function LiveStandingsPage() {
       );
 
       if (!teamA || !teamB) return;
+
+      teamA.livePF += game[0].points ?? 0;
+      teamB.livePF += game[1].points ?? 0;
 
       const scoreA = game[0].points ?? 0;
       const scoreB = game[1].points ?? 0;
@@ -147,7 +151,7 @@ export default function LiveStandingsPage() {
         );
       }
 
-      return b.pf - a.pf;
+      return b.livePF - a.livePF;
     })
     .slice(0, 5);
 
@@ -173,7 +177,7 @@ export default function LiveStandingsPage() {
           team.rosterId !==
           pfQualifier?.rosterId
       )
-      .sort((a, b) => b.pf - a.pf);
+      .sort((a, b) => b.livePF - a.livePF)[0];
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
@@ -193,7 +197,7 @@ export default function LiveStandingsPage() {
               className="flex justify-between py-2 border-b border-gray-700"
             >
               <span>
-  {index + 1}. {team.team} ({team.pf.toFixed(2)} PF)
+  {index + 1}. {team.team} ({team.livepf.toFixed(2)} PF)
 </span>
 
               <span>
@@ -214,18 +218,20 @@ export default function LiveStandingsPage() {
           </h2>
 
  {[pfQualifier, ...chasingTeams]
-  .sort((a, b) => b.pf - a.pf)
+  .sort((a, b) => b.livePF - a.livePF)
   .map((team, index) => (
     <div
       key={team.rosterId}
       className="flex justify-between py-2 border-b border-gray-700"
     >
       <span>
-        {index + 1}. {team.team}
-      </span>
+  {index + 1}. {team.team}
+  {" "}
+  ({team.liveWins}-{team.liveLosses})
+</span>
 
       <span>
-        {team.pf.toFixed(2)} PF
+        {team.livepf.toFixed(2)} PF
       </span>
     </div>
   ))}         
@@ -245,9 +251,9 @@ export default function LiveStandingsPage() {
   <span>{team.team}</span>
 
   <span>
-    {team.pf.toFixed(2)} PF
+    {team.livepf.toFixed(2)} PF
     {" • "}
-    {(pfQualifier.pf - team.pf).toFixed(2)}
+    {(pfQualifier.livepf - team.livepf).toFixed(2)}
     {" back"}
   </span>
 </div> 
