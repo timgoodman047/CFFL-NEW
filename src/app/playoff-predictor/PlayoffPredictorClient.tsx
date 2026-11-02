@@ -73,6 +73,16 @@ const [projectedScores, setProjectedScores] =
     {}
   );
 
+const [seedOdds, setSeedOdds] =
+  useState<
+    Record<
+      number,
+      {
+        first: number;
+      }
+    >
+  >({});
+
  function selectWinner(
   week: number,
   matchupId: number,
@@ -310,9 +320,15 @@ setProjectedScores(
     number
   > = {};
 
+  const firstSeedCounts: Record<
+  number,
+  number
+> = {};
+
   standings.forEach((team) => {
-    playoffCounts[team.rosterId] = 0;
-  });
+  playoffCounts[team.rosterId] = 0;
+  firstSeedCounts[team.rosterId] = 0;
+});
 
   for (
     let sim = 0;
@@ -421,6 +437,12 @@ setProjectedScores(
       );
     });
 
+    if (simStandings[0]) {
+  firstSeedCounts[
+    simStandings[0].rosterId
+  ]++;
+}
+
     const topFive =
       simStandings.slice(0, 5);
 
@@ -462,7 +484,28 @@ setProjectedScores(
       100;
   });
 
+  const seedResults: Record<
+  number,
+  {
+    first: number;
+  }
+> = {};
+
+Object.keys(
+  firstSeedCounts
+).forEach((id) => {
+  seedResults[Number(id)] = {
+    first:
+      (firstSeedCounts[
+        Number(id)
+      ] /
+        simulations) *
+      100,
+  };
+});
+
   setPlayoffOdds(odds);
+setSeedOdds(seedResults);
 }
   
 function autoPickByPF() {
@@ -990,6 +1033,32 @@ className="border border-gray-700 rounded p-3 mb-2"
       </div>
     ))}
 </div>
+  </div>
+)}
+
+{Object.keys(seedOdds).length > 0 && (
+  <div className="mt-10">
+    <h2 className="text-2xl font-bold mb-4">
+      👑 #1 Seed Odds
+    </h2>
+
+    {[...standings]
+      .sort(
+        (a, b) =>
+          (seedOdds[b.rosterId]?.first || 0) -
+          (seedOdds[a.rosterId]?.first || 0)
+      )
+      .map((team) => (
+        <div
+          key={team.rosterId}
+          className="border border-gray-700 rounded p-2 mb-2"
+        >
+          {team.team}
+          {" - "}
+          {(seedOdds[team.rosterId]?.first || 0).toFixed(1)}
+          %
+        </div>
+      ))}
   </div>
 )}
  
