@@ -1235,6 +1235,19 @@ className="border border-gray-700 rounded p-3 mb-2"
             {" "}
             {odds.loss.toFixed(1)}%
           </div>
+{odds.win >= 99.5 &&
+ odds.current < 99.5 && (
+  <div className="text-green-500 font-bold mt-2">
+    ✅ Clinches With Win
+  </div>
+)}
+
+{odds.loss <= 0.5 &&
+ odds.current > 0.5 && (
+  <div className="text-red-500 font-bold mt-2">
+    ❌ Eliminated With Loss
+  </div>
+)}
         </div>
       );
     }
