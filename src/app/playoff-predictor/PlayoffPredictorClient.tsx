@@ -521,9 +521,33 @@ setSeedOdds(seedResults);
 }
 
 function calculateImpact() {
-  console.log(
-    "Calculate impact clicked"
-  );
+  const results: Record<
+    number,
+    {
+      current: number;
+      win: number;
+      loss: number;
+    }
+  > = {};
+
+  standings.forEach((team) => {
+    const current =
+      playoffOdds[team.rosterId] || 0;
+
+    results[team.rosterId] = {
+      current,
+      win: Math.min(
+        current + 15,
+        100
+      ),
+      loss: Math.max(
+        current - 15,
+        0
+      ),
+    };
+  });
+
+  setImpactOdds(results);
 }
   
 function autoPickByPF() {
