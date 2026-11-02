@@ -193,8 +193,8 @@ export default function LiveStandingsPage() {
               className="flex justify-between py-2 border-b border-gray-700"
             >
               <span>
-                {index + 1}. {team.team}
-              </span>
+  {index + 1}. {team.team} ({team.pf.toFixed(2)} PF)
+</span>
 
               <span>
                 {team.wins}-{team.losses}
@@ -213,13 +213,22 @@ export default function LiveStandingsPage() {
             ⭐ Points For Qualifier
           </h2>
 
-          <div className="flex justify-between">
-            <span>{pfQualifier.team}</span>
+ {[pfQualifier, ...chasingTeams]
+  .sort((a, b) => b.pf - a.pf)
+  .map((team, index) => (
+    <div
+      key={team.rosterId}
+      className="flex justify-between py-2 border-b border-gray-700"
+    >
+      <span>
+        {index + 1}. {team.team}
+      </span>
 
-            <span>
-              {pfQualifier.pf.toFixed(2)}
-            </span>
-          </div>
+      <span>
+        {team.pf.toFixed(2)} PF
+      </span>
+    </div>
+  ))}         
         </div>
       )}
 
@@ -229,20 +238,19 @@ export default function LiveStandingsPage() {
         </h2>
 
         {chasingTeams.map((team) => (
-          <div
-            key={team.rosterId}
-            className="flex justify-between py-2 border-b border-gray-700"
-          >
-            <span>{team.team}</span>
+         <div
+  key={team.rosterId}
+  className="flex justify-between py-2 border-b border-gray-700"
+>
+  <span>{team.team}</span>
 
-            <span>
-              {(
-                pfQualifier.pf -
-                team.pf
-              ).toFixed(2)}
-              {" back"}
-            </span>
-          </div>
+  <span>
+    {team.pf.toFixed(2)} PF
+    {" • "}
+    {(pfQualifier.pf - team.pf).toFixed(2)}
+    {" back"}
+  </span>
+</div> 
         ))}
       </div>
     </div>
