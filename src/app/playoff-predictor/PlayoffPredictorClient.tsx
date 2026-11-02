@@ -1017,22 +1017,24 @@ teamsEnteringPlayoffs.map(
 </div>
  
 <div>
-<h3 className="font-semibold text-red-600">
-OUT
-</h3>
- 
-{teamsLeavingPlayoffs.length === 0 ? (
-<div>No changes</div>
-) : (
-teamsLeavingPlayoffs.map(
-(team) => (
-<div key={team.rosterId}>
-❌ {team.team}
+  <h3 className="font-semibold text-red-600">
+    OUT
+  </h3>
+
+  {teamsLeavingPlayoffs.length === 0 ? (
+    <div>No changes</div>
+  ) : (
+    teamsLeavingPlayoffs.map(
+      (team) => (
+        <div key={team.rosterId}>
+          ❌ {team.team}
+        </div>
+      )
+    )
+  )}
 </div>
-)
-)
-)}
-<<div className="mt-10">
+
+<div className="mt-10">
   <h2 className="text-2xl font-bold mb-4 text-green-500">
     ✅ Clinching Scenarios
   </h2>
