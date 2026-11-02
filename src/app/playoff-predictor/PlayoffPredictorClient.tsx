@@ -1247,36 +1247,46 @@ className="border border-gray-700 rounded p-3 mb-2"
             {team.team}
           </div>
 
-          <div>
-            Current:
-            {" "}
-            {odds.current.toFixed(1)}%
-          </div>
+<div>
+  Current Seed:
+  {" "}
+  #{odds.current}
+</div>
 
-          <div className="text-green-400">
-            If Win:
-            {" "}
-            {odds.win.toFixed(1)}%
-          </div>
+<div
+  className={
+    projectedPlayoffRosterIds.includes(
+      team.rosterId
+    )
+      ? "text-green-400"
+      : "text-red-400"
+  }
+>
+  Status:
+  {" "}
+  {projectedPlayoffRosterIds.includes(
+    team.rosterId
+  )
+    ? "✅ IN"
+    : "❌ OUT"}
+</div>   
 
-          <div className="text-red-400">
-            If Loss:
-            {" "}
-            {odds.loss.toFixed(1)}%
-          </div>
-{odds.win >= 99.5 &&
- odds.current < 99.5 && (
-  <div className="text-green-500 font-bold mt-2">
-    ✅ Clinches With Win
-  </div>
-)}
+<div className="text-gray-400">
+  Record:
+  {" "}
+  {projectedStandings.find(
+    (t) =>
+      t.rosterId ===
+      team.rosterId
+  )?.projectedWins}
+  -
+  {projectedStandings.find(
+    (t) =>
+      t.rosterId ===
+      team.rosterId
+  )?.projectedLosses}
+</div>
 
-{odds.loss <= 0.5 &&
- odds.current > 0.5 && (
-  <div className="text-red-500 font-bold mt-2">
-    ❌ Eliminated With Loss
-  </div>
-)}
         </div>
       );
     }
