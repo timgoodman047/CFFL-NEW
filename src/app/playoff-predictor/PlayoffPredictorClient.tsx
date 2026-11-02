@@ -68,6 +68,11 @@ const [projectedScores, setProjectedScores] =
     >
   >({})
 
+  const [playoffOdds, setPlayoffOdds] =
+  useState<Record<number, number>>(
+    {}
+  );
+
  function selectWinner(
   week: number,
   matchupId: number,
@@ -295,6 +300,12 @@ newPicks[
 setProjectedScores(
   newProjectedScores
 );
+}
+
+  function runMonteCarlo() {
+  console.log(
+    "Monte Carlo button clicked"
+  );
 }
   
 function autoPickByPF() {
@@ -630,13 +641,19 @@ const teamsLeavingPlayoffs =
     Auto Pick By PF
   </button>
 
-
   <button
     onClick={autoPickProjectedWinner}
     className="px-4 py-2 rounded bg-purple-600 text-white"
   >
     Auto Pick Projected Winner
   </button>
+
+<button
+  onClick={runMonteCarlo}
+  className="px-4 py-2 rounded bg-orange-600 text-white"
+>
+  Run 10,000 Simulations
+</button>
 </div>
       
       {schedule.map((weekData) => (
@@ -782,6 +799,18 @@ className="border border-gray-700 rounded p-3 mb-2"
 )
 )}
 </div>
+
+{Object.keys(playoffOdds).length > 0 && (
+  <div className="mt-10">
+    <h2 className="text-2xl font-bold mb-4">
+      🎲 Monte Carlo Playoff Odds
+    </h2>
+
+    <div>
+      Results will appear here
+    </div>
+  </div>
+)}
  
 <div className="mt-6 rounded border p-4">
 <h2 className="mb-3 text-xl font-bold">
