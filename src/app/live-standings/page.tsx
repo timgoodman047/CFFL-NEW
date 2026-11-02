@@ -181,31 +181,34 @@ export default function LiveStandingsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
-      <h1 className="text-4xl font-bold mb-6">
+      <h1 className="text-4xl font-bold mb-8">
         ⚡ Live Standings
       </h1>
 
       <div className="bg-gray-900 rounded-lg p-6 mb-6">
-        <h2 className="text-2xl font-bold text-green-500 mb-4">
+        <h2 className="text-2xl font-bold text-green-500 mb-6">
           👑 Record Qualifiers
         </h2>
 
         {recordQualifiers.map(
           (team, index) => (
             <div
-              key={team.rosterId}
-              className="flex justify-between py-2 border-b border-gray-700"
-            >
-              <span>
-  {index + 1}. {team.team} ({(team.livePF ?? 0).toFixed(2)} PF)
-</span>
+  key={team.rosterId}
+  className="py-3 border-b border-gray-700"
+>
+<div className="font-medium">
+  {index + 1}. {team.team}
+</div>
 
-              <span>
-                {team.wins}-{team.losses}
-                {" → "}
-                {team.liveWins}-
-                {team.liveLosses}
-              </span>
+<div className="text-sm text-gray-400 mt-1">
+  {(team.livePF ?? 0).toFixed(2)} PF
+</div>
+
+<div className="text-sm text-green-400 mt-1">
+  {team.wins}-{team.losses}
+  {" → "}
+  {team.liveWins}-{team.liveLosses}
+</div>              
             </div>
           )
         )}
@@ -213,7 +216,7 @@ export default function LiveStandingsPage() {
 
       {pfQualifier && (
         <div className="bg-gray-900 rounded-lg p-6 mb-6">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-4">
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6">
             ⭐ Points For Qualifier
           </h2>
 
@@ -240,7 +243,7 @@ export default function LiveStandingsPage() {
       )}
 
       <div className="bg-gray-900 rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-red-400 mb-4">
+        <h2 className="text-2xl font-bold text-red-400 mb-6">
           🔥 Chasing
         </h2>
 
