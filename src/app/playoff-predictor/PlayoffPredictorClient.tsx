@@ -1039,9 +1039,40 @@ teamsEnteringPlayoffs.map(
     ✅ Clinching Scenarios
   </h2>
 
-  <div>
-      Coming Soon...
-    </div>
+<div className="space-y-2">
+  {[...standings]
+    .sort(
+      (a, b) =>
+        (playoffOdds[b.rosterId] || 0) -
+        (playoffOdds[a.rosterId] || 0)
+    )
+    .map((team) => {
+      const odds =
+        playoffOdds[team.rosterId] || 0;
+
+      let status = "⚠️ Alive";
+
+      if (odds >= 99.5) {
+        status = "✅ Clinched";
+      } else if (odds <= 0.5) {
+        status = "❌ Eliminated";
+      }
+
+      return (
+        <div
+          key={team.rosterId}
+          className="border border-gray-700 rounded p-2"
+        >
+          <strong>{team.team}</strong>
+          {" - "}
+          {status}
+          {" ("}
+          {odds.toFixed(1)}
+          {"%)"}
+        </div>
+      );
+    })}
+</div>  
   </div>
 </div>
 
