@@ -557,6 +557,15 @@ function getNextMatchup(
 }
 
 function calculateImpact() {
+  const results: Record<
+    number,
+    {
+      current: number;
+      win: number;
+      loss: number;
+    }
+  > = {};
+
   standings.forEach((team) => {
     const matchup =
       getNextMatchup(
@@ -567,7 +576,24 @@ function calculateImpact() {
       team.team,
       matchup
     );
+
+    const current =
+      playoffOdds[team.rosterId] || 0;
+
+    results[team.rosterId] = {
+      current,
+      win: Math.min(
+        current + 15,
+        100
+      ),
+      loss: Math.max(
+        current - 15,
+        0
+      ),
+    };
   });
+
+  setImpactOdds(results);
 }
   
 function autoPickByPF() {
