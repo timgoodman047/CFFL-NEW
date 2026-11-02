@@ -323,8 +323,8 @@ setProjectedScores(
   newProjectedScores
 );
 }
-
-  function runMonteCarlo() {
+  
+  function simulatePlayoffOdds() {
   const simulations = 10000;
 
   const playoffCounts: Record<
@@ -516,8 +516,23 @@ Object.keys(
   };
 });
 
-  setPlayoffOdds(odds);
-setSeedOdds(seedResults);
+  return {
+  odds,
+  seedResults,
+};
+}
+
+function runMonteCarlo() {
+  const results =
+    simulatePlayoffOdds();
+
+  setPlayoffOdds(
+    results.odds
+  );
+
+  setSeedOdds(
+    results.seedResults
+  );
 }
 
 function calculateImpact() {
