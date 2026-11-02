@@ -568,11 +568,29 @@ function calculateImpact() {
 
   projectedStandings.forEach(
     (team, index) => {
-      results[team.rosterId] = {
-        current: index + 1,
-        win: index + 1,
-        loss: index + 1,
-      };
+      const currentSeed =
+  standings
+    .slice()
+    .sort((a, b) => {
+      if (b.wins !== a.wins) {
+        return b.wins - a.wins;
+      }
+
+      return b.pf - a.pf;
+    })
+    .findIndex(
+      (t) =>
+        t.rosterId ===
+        team.rosterId
+    ) + 1;
+
+results[team.rosterId] = {
+  current: index + 1,
+  win: currentSeed,
+  loss:
+    currentSeed -
+    (index + 1),
+};
     }
   );
 
@@ -1251,6 +1269,19 @@ className="border border-gray-700 rounded p-3 mb-2"
   Current Seed:
   {" "}
   #{odds.current}
+</div>
+
+<div>
+  Seed Change:
+  {" "}
+
+  {odds.loss > 0
+    ? `▲${odds.loss}`
+    : odds.loss < 0
+    ? `▼${Math.abs(
+        odds.loss
+      )}`
+    : "▬0"}
 </div>
 
 <div
