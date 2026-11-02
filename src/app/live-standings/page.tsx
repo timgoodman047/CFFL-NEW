@@ -197,7 +197,7 @@ export default function LiveStandingsPage() {
               className="flex justify-between py-2 border-b border-gray-700"
             >
               <span>
-  {index + 1}. {team.team} ({team.livepf.toFixed(2)} PF)
+  {index + 1}. {team.team} ({(team.livePF ?? 0).toFixed(2)} PF)
 </span>
 
               <span>
@@ -218,6 +218,7 @@ export default function LiveStandingsPage() {
           </h2>
 
  {[pfQualifier, ...chasingTeams]
+  .filter(Boolean)
   .sort((a, b) => b.livePF - a.livePF)
   .map((team, index) => (
     <div
