@@ -90,56 +90,17 @@ export default function LiveStandingsPage() {
       const scoreA = game[0].points ?? 0;
       const scoreB = game[1].points ?? 0;
 
-      const startersA =
-        game[0].starters ?? [];
-      const startersB =
-        game[1].starters ?? [];
+      const liveScoreA = scoreA;
 
-      const starterPointsA =
-        game[0].starters_points ?? [];
+const liveScoreB = scoreB;
 
-      const starterPointsB =
-        game[1].starters_points ?? [];
-
-      const playedA =
-        starterPointsA.filter(
-          (p: number) => p > 0
-        ).length;
-
-      const playedB =
-        starterPointsB.filter(
-          (p: number) => p > 0
-        ).length;
-
-      const remainingA =
-        startersA.length - playedA;
-
-      const remainingB =
-        startersB.length - playedB;
-
-      const avgPlayerA =
-        teamA.avgPPG /
-        Math.max(startersA.length, 1);
-
-      const avgPlayerB =
-        teamB.avgPPG /
-        Math.max(startersB.length, 1);
-
-      const projectedA =
-        scoreA +
-        remainingA * avgPlayerA;
-
-      const projectedB =
-        scoreB +
-        remainingB * avgPlayerB;
-
-      if (projectedA > projectedB) {
-        teamA.liveWins += 1;
-        teamB.liveLosses += 1;
-      } else if (projectedB > projectedA) {
-        teamB.liveWins += 1;
-        teamA.liveLosses += 1;
-      }
+if (liveScoreA > liveScoreB) {
+  teamA.liveWins += 1;
+  teamB.liveLosses += 1;
+} else if (liveScoreB > liveScoreA) {
+  teamB.liveWins += 1;
+  teamA.liveLosses += 1;
+}      
     }
   );
 
@@ -185,6 +146,10 @@ export default function LiveStandingsPage() {
         ⚡ Live Standings
       </h1>
 
+      <p className="text-gray-400 mb-8">
+  If games ended right now.
+</p>
+
       <div className="bg-gray-900 rounded-lg p-6 mb-6">
         <h2 className="text-2xl font-bold text-green-500 mb-6">
           👑 Record Qualifiers
@@ -205,8 +170,6 @@ export default function LiveStandingsPage() {
   </span>
 
   <span className="text-right text-green-400">
-    {team.wins}-{team.losses}
-    {" → "}
     {team.liveWins}-{team.liveLosses}
   </span>
 </div>            
