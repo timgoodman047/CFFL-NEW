@@ -1170,9 +1170,52 @@ className="border border-gray-700 rounded p-3 mb-2"
       📈 Win / Loss Impact
     </h2>
 
-    <div>
-      Coming Soon...
-    </div>
+    {Object.keys(impactOdds).length === 0 ? (
+  <div>
+    Click "Calculate Win/Loss Impact"
+  </div>
+) : (
+  Object.entries(impactOdds).map(
+    ([rosterId, odds]) => {
+      const team = standings.find(
+        (t) =>
+          t.rosterId ===
+          Number(rosterId)
+      );
+
+      if (!team) return null;
+
+      return (
+        <div
+          key={rosterId}
+          className="border border-gray-700 rounded p-3 mb-2"
+        >
+          <div className="font-bold">
+            {team.team}
+          </div>
+
+          <div>
+            Current:
+            {" "}
+            {odds.current.toFixed(1)}%
+          </div>
+
+          <div className="text-green-400">
+            If Win:
+            {" "}
+            {odds.win.toFixed(1)}%
+          </div>
+
+          <div className="text-red-400">
+            If Loss:
+            {" "}
+            {odds.loss.toFixed(1)}%
+          </div>
+        </div>
+      );
+    }
+  )
+)}
   </div>
 </div>
 
