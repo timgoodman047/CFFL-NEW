@@ -192,24 +192,24 @@ export default function LiveStandingsPage() {
 
         {recordQualifiers.map(
           (team, index) => (
-            <div
+<div
   key={team.rosterId}
-  className="py-3 border-b border-gray-700"
+  className="grid grid-cols-[minmax(0,1fr)_120px_90px] gap-4 py-2 border-b border-gray-700 items-center"
 >
-<div className="font-medium">
-  {index + 1}. {team.team}
-</div>
+  <span>
+    {index + 1}. {team.team}
+  </span>
 
-<div className="text-sm text-gray-400 mt-1">
-  {(team.livePF ?? 0).toFixed(2)} PF
-</div>
+  <span className="text-right text-gray-300">
+    {(team.livePF ?? 0).toFixed(2)} PF
+  </span>
 
-<div className="text-sm text-green-400 mt-1">
-  {team.wins}-{team.losses}
-  {" → "}
-  {team.liveWins}-{team.liveLosses}
-</div>              
-            </div>
+  <span className="text-right text-green-400">
+    {team.wins}-{team.losses}
+    {" → "}
+    {team.liveWins}-{team.liveLosses}
+  </span>
+</div>            
           )
         )}
       </div>
