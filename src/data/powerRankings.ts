@@ -1,6 +1,6 @@
 export const powerRankings = {
-  week: 6,
-  published: "October 21, 2026",
+  week: 8,
+  published: "November 5th, 2026",
 
   rankings: [
   {
@@ -10,7 +10,7 @@ export const powerRankings = {
 
     precision: 1.5,
 
-    summary: `Was playing the worst team this week and could’ve taken it easy, instead they went ahead and scored most points again. They aren’t really doing it in the normal way either, they’re 1st in W/T, FLEX, and DEF. McBride outscored every WR this week except two. They went from last in QB pts scored to 4th in three weeks, Maye is averaging 37.6pts thru that stretch.`,
+    summary: `Everybody keeps waiting for Short Board Champ to come back to earth, and every week they respond by reminding the league why they're still No. 1. This wasn't some free win either. Taka Taka Tires put up 125.8 points and still lost. When other teams need everything to break right, Short Board Champ just keeps rolling out another quality performance. They lead the league in points, lead the league in all-play wins, and currently look like the safest bet to be playing for a title in December.`,
   },
 
   {
@@ -20,7 +20,7 @@ export const powerRankings = {
     
     precision: -2.8,
 
-    summary: `Two of the last three weeks have been bad for them. After starting the year 1st in RB points they’ve now dropped to 6th, need one of their six RBs not named Walker to step up. JSN and Amon continue to dominate and are why they continue to outscore everyone at WR. Butker is now the K20 and might be time for him to get in the kitchen cause it doesn’t look like he belongs on the football field anymore.`,
+    summary: `This team is becoming the poster child for fantasy football frustration. Second in points scored. Third in all-play record. Loaded at wide receiver. Sitting at 4-4. The latest chapter was a 39-point beatdown at the hands of Bills Mafia. The ceiling is obvious, which somehow makes the inconsistency even more confusing. There are teams below them with better records and teams above them with fewer points. Nobody makes less sense than Fuck You FantasyFootball.`,
   },
 
   {
@@ -30,7 +30,7 @@ export const powerRankings = {
 
     precision: .10,
 
-    summary: `Four weeks in a row now they’ve outscored half the league and own the longest winning streak of the league so far. They had to face two of the top teams in that run also, so not an easy schedule. On Allen’s bye week they scored the 3rd most points which is a very promising sign. If they can clean up their DEF and FLEX a they should be able to hang on to the 1st round bye.`,
+    summary: `The winning streak is over, but dropping after a 0.14-point loss would feel more cruel than deserved. Dirty Mike continues to win the "good team that keeps ending up in weird games" award. Four of the last five weeks have been strong, and losing by less than a single catch from a backup tight end isn't exactly cause for panic. The bigger question is whether the supporting cast can keep carrying weight when Josh Allen isn't putting on a cape every Sunday.`,
   },
 
   {
@@ -40,7 +40,7 @@ export const powerRankings = {
 
     precision: 0.0,
 
-    summary: `2nd horrendous outcome out of the last four weeks. They’ve dropped to 6th in points scored and probably lost any chance of a first round bye. With five wins they would have to have a pretty dismal spiral to miss out on playoffs but need to clean it up. RBs have started to get going but now their WRs have disappeared.`,
+    summary: `A month ago The Locked Room looked like a first-round bye candidate. Today they look like a team actively trying to speedrun a collapse. A 72-point loss to WHO DEY isn't just a bad week, it's the kind of result that gets screenshotted and posted in league chat. The good news is the 5-3 record provides a cushion. The bad news is almost every trend is pointing in the wrong direction.`,
   },
 
   {
@@ -50,7 +50,7 @@ export const powerRankings = {
 
     precision: 1.0,
 
-    summary: `After five solid weeks they put up a bit of a dud, though they move up in our rankings more because the previous #4 team has fallen off a bit of a cliff. Collecting QBs like infinity stones but still find themselves 6th in points scored at that position. Bowers have fallen off a bit the last two weeks, need him to get going again. Just 4.18pts out of wildcard`,
+    summary: `Congratulations to Bills Mafia for finally getting some results that resemble the underlying numbers. The league's favorite 3-5 team hung 147.58 on Fuck You FantasyFootball and looked every bit like a playoff contender. This roster has spent half the season being smarter than its record, and now the wins need to follow. At just 3-5 they're still running out of runway, but nobody in the Wild Card race wants this team getting hot.`,
   },
 
   {
@@ -60,7 +60,7 @@ export const powerRankings = {
 
     precision: .9,
 
-    summary: `The second hottest team over the last three weeks, though most of that average is tied up in their Week 5 throttling. Patty is failing them the last two weeks, after being 2nd in QB points two weeks ago they are now 9th. Maybe they’ll actually get Pat a receiver before the trade deadline. Williamson is averaging a mouth watering 18.8pts over his last three games.`,
+    summary: `Red Kingdom did exactly what contenders are supposed to do when they face the league's lone winless team: end the game by halftime. The bigger story is that they're quietly becoming one of the hottest teams in the league. They're third in points scored and own the best three-week average in the league. If Patrick Mahomes ever remembers he's Patrick Mahomes, this ranking might end up looking too low.`,
   },
 
   {
@@ -70,7 +70,7 @@ export const powerRankings = {
     
     precision: 0.5,
 
-    summary: `Finally turned it around after four terrible weeks. Dak actually didn’t shrivel up under the lights for once, and their two WRs they got in trades totaled almost 40pts for them. If Saquon is done for the year they might have their FLEX spot figured out going forward. If they can get to playoffs could be a dark horse when Davante comes back. 36.8pts out of wildcard.`,
+    summary: `The most frustrating team in the league strikes again. They finally put together one of their best performances of the season, scored nearly 126 points, and still ran into the No. 1 team. Taka Taka Tires have been good enough to keep hanging around but haven't been good enough to stack wins. At 3-5 there's still time, and unlike a few teams around them, the numbers suggest they're not dead yet.`,
   },
 
   {
@@ -80,7 +80,7 @@ export const powerRankings = {
 
     precision: 0.9,
 
-    summary: `Four weeks in a row scoring less than half the league. Averaging about 120pts, but unfortunately in PPR that point total doesn’t get you very far. Hopefully Cook can get them going a bit, as they’ve been one of the worst RB teams this season. They’ve had the least bench points of any team this season which is a bit alarming. Still time to make up ground though, 77.72pts out of wildcard.`,
+    summary: `If you've been waiting for WHO DEY to wake up, they heard you. After spending a month hanging around the playoff picture, they exploded for 169.98 points, the highest score of the week, and absolutely ran The Locked Room out of the building. The concern all season has been a lack of weekly upside. That's no longer a concern. Now the question is whether this was a breakthrough or just a one-week detour from a very average season.`,
   },
 
   {
@@ -90,7 +90,7 @@ export const powerRankings = {
 
     precision: 0.3,
 
-    summary: `Something happens when this owner makes trades, a flip switches and they just go on a tear. Two pretty good weeks in a row, and legitimately only need probably three more wins now to secure their playoff spot. They might have had the easiest schedule and three lucky wins, but its got to happen to someone why not them.`,
+    summary: `At some point we need to stop calling it luck and start calling it performance art. Scheduled Dress Year is 6-2 despite ranking ninth in points scored and ninth in all-play record. This week's masterpiece was a 118.60 to 118.46 victory over Dirty Mike. That's not fantasy football. That's armed robbery. Nobody has squeezed more wins out of fewer points this season, and honestly, it's becoming impressive.`,
   },
 
   {
@@ -100,7 +100,7 @@ export const powerRankings = {
 
     precision: 0,
 
-    summary: `Some positives: they didn’t score the least amount of points…end of list. 201pts out of wildcard, still winless, season is effectively over. Made a couple trades but not sure if a couple mid tier draft picks were worth the sale.`,
+    summary: `Another week, another loss, another reminder that being projected to score 97 points is rarely a recipe for success. At 0-8, the playoff dream is basically a PowerPoint presentation at this point. The gap between Orangeman and the rest of the league isn't just the record. They're last in points scored, last in all-play, and now over 200 points out of the Wild Card race. The focus has shifted from making the playoffs to avoiding immortality for all the wrong reasons.`,
   },
 ]
 };
