@@ -58,7 +58,7 @@ export const powerRankings = {
     previousRank: 5,
     team: "Red Kingdom",
 
-    precision: 1.2,
+    precision: .9,
 
     summary: `The second hottest team over the last three weeks, though most of that average is tied up in their Week 5 throttling. Patty is failing them the last two weeks, after being 2nd in QB points two weeks ago they are now 9th. Maybe they’ll actually get Pat a receiver before the trade deadline. Williamson is averaging a mouth watering 18.8pts over his last three games.`,
   },
