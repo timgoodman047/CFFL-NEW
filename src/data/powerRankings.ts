@@ -1,6 +1,6 @@
 export const powerRankings = {
-  week: 8,
-  published: "November 5th, 2026",
+  week: 9,
+  published: "November 12th, 2026",
 
   rankings: [
   {
@@ -10,7 +10,7 @@ export const powerRankings = {
 
     precision: 1.5,
 
-    summary: `Everybody keeps waiting for Short Board Champ to come back to earth, and every week they respond by reminding the league why they're still No. 1. This wasn't some free win either. Taka Taka Tires put up 125.8 points and still lost. When other teams need everything to break right, Short Board Champ just keeps rolling out another quality performance. They lead the league in points, lead the league in all-play wins, and currently look like the safest bet to be playing for a title in December.`,
+    summary: `Short Board Champ has officially reached the stage where everyone is rooting for his downfall because they're tired of looking at him. First in points. First in all-play. Sitting at 7-2. Every week another manager talks himself into believing he's vulnerable, and every week he reminds the league there's a difference between hope and reality. Right now the biggest threat to this team is becoming so arrogant that he accidentally starts his kicker at flex.`,
   },
 
   {
@@ -20,7 +20,7 @@ export const powerRankings = {
     
     precision: -2.8,
 
-    summary: `This team is becoming the poster child for fantasy football frustration. Second in points scored. Third in all-play record. Loaded at wide receiver. Sitting at 4-4. The latest chapter was a 39-point beatdown at the hands of Bills Mafia. The ceiling is obvious, which somehow makes the inconsistency even more confusing. There are teams below them with better records and teams above them with fewer points. Nobody makes less sense than Fuck You FantasyFootball.`,
+    summary: `Nobody has accomplished less with more. Second in points. Fourth in all-play. Five spots outside where he'd be if fantasy football rewarded competence. Every week this roster scores enough to win a championship, then finds a creative new way to walk into a rake. At this point we're basically watching a Ferrari get driven into a lake every Sunday. The talent is undeniable. The execution belongs in a police report.`,
   },
 
   {
@@ -30,7 +30,7 @@ export const powerRankings = {
 
     precision: .10,
 
-    summary: `The winning streak is over, but dropping after a 0.14-point loss would feel more cruel than deserved. Dirty Mike continues to win the "good team that keeps ending up in weird games" award. Four of the last five weeks have been strong, and losing by less than a single catch from a backup tight end isn't exactly cause for panic. The bigger question is whether the supporting cast can keep carrying weight when Josh Allen isn't putting on a cape every Sunday.`,
+    summary: `Dirty Mike spent weeks acting like the league belonged to him. Then reality showed up with a folding chair. The roster is still stacked and the quarterbacks are still ridiculous, but the recent dip has taken some shine off the title-favorite talk. This is still a contender. It's just harder to call yourself the villain when you've lost the room and half the audience is laughing at you.`,
   },
 
   {
@@ -40,7 +40,7 @@ export const powerRankings = {
 
     precision: 0.0,
 
-    summary: `A month ago The Locked Room looked like a first-round bye candidate. Today they look like a team actively trying to speedrun a collapse. A 72-point loss to WHO DEY isn't just a bad week, it's the kind of result that gets screenshotted and posted in league chat. The good news is the 5-3 record provides a cushion. The bad news is almost every trend is pointing in the wrong direction.`,
+    summary: `The Locked Room is what happens when a team cashes every lucky check and then the bank finally calls. Five and four looks nice until you realize the recent performance has been a dumpster rolling downhill. Earlier this year people treated this team like a contender. Now they're checking the standings twice to make sure the record is real. A playoff spot remains likely. So does an immediate playoff exit.`,
   },
 
   {
@@ -50,7 +50,7 @@ export const powerRankings = {
 
     precision: 1.0,
 
-    summary: `Congratulations to Bills Mafia for finally getting some results that resemble the underlying numbers. The league's favorite 3-5 team hung 147.58 on Fuck You FantasyFootball and looked every bit like a playoff contender. This roster has spent half the season being smarter than its record, and now the wins need to follow. At just 3-5 they're still running out of runway, but nobody in the Wild Card race wants this team getting hot.`,
+    summary: `Fantasy football has never seen a team get kicked in the groin this many times. Fourth in scoring. Second in all-play. Somehow 4-5. If Bills Mafia had received even average scheduling luck he'd probably be competing for the one-seed. Instead, he's spent three months getting everybody's Super Bowl performance while other teams collect free wins against opponents scoring 87 points. Nobody with a pulse wants to see this team sneak into the playoffs.`,
   },
 
   {
@@ -60,7 +60,7 @@ export const powerRankings = {
 
     precision: .9,
 
-    summary: `Red Kingdom did exactly what contenders are supposed to do when they face the league's lone winless team: end the game by halftime. The bigger story is that they're quietly becoming one of the hottest teams in the league. They're third in points scored and own the best three-week average in the league. If Patrick Mahomes ever remembers he's Patrick Mahomes, this ranking might end up looking too low.`,
+    summary: `For half the season Red Kingdom looked like a team sleepwalking toward another disappointing finish. Then he remembered he's actually good at fantasy football. The recent numbers are elite, the running backs are carrying bodies off the field, and suddenly he's climbing the rankings like he found the difficulty settings. The bad news for the league is that confidence is returning. The bad news for Red Kingdom is we all remember what happened the last time expectations got high.`,
   },
 
   {
@@ -70,7 +70,7 @@ export const powerRankings = {
     
     precision: 0.5,
 
-    summary: `The most frustrating team in the league strikes again. They finally put together one of their best performances of the season, scored nearly 126 points, and still ran into the No. 1 team. Taka Taka Tires have been good enough to keep hanging around but haven't been good enough to stack wins. At 3-5 there's still time, and unlike a few teams around them, the numbers suggest they're not dead yet.`,
+    summary: `Tom changed his team name because changing the standings wasn't an option. Sixth in all-play. Seventh in power rankings. Three and six in actual games. That's genuinely impressive. Most bad teams are bad because they stink. This team is bad because the fantasy gods apparently have a personal grudge. Every week the metrics say contender, and every Tuesday the standings say "lol nope." If he misses the playoffs, he'll have a legitimate claim that the league owes him emotional damages.`,
   },
 
   {
@@ -80,7 +80,7 @@ export const powerRankings = {
 
     precision: 0.9,
 
-    summary: `If you've been waiting for WHO DEY to wake up, they heard you. After spending a month hanging around the playoff picture, they exploded for 169.98 points, the highest score of the week, and absolutely ran The Locked Room out of the building. The concern all season has been a lack of weekly upside. That's no longer a concern. Now the question is whether this was a breakthrough or just a one-week detour from a very average season.`,
+    summary: `WHO DEY has quietly become the guy nobody notices until he's standing behind them with a knife. Best three-week stretch in the league. Five wins. A roster that's suddenly clicking everywhere. While everyone else was arguing about contenders, WHO DEY simply started collecting victories. The only question is whether this is the beginning of a late-season surge or a heater that ends the second somebody points it out. Congratulations, we just pointed it out.`,
   },
 
   {
@@ -90,7 +90,7 @@ export const powerRankings = {
 
     precision: 0.3,
 
-    summary: `At some point we need to stop calling it luck and start calling it performance art. Scheduled Dress Year is 6-2 despite ranking ninth in points scored and ninth in all-play record. This week's masterpiece was a 118.60 to 118.46 victory over Dirty Mike. That's not fantasy football. That's armed robbery. Nobody has squeezed more wins out of fewer points this season, and honestly, it's becoming impressive.`,
+    summary: `Let's stop pretending. This team is the biggest fraud in CFFL history. Six and three with the ninth-best scoring output and ninth-best all-play record is the fantasy equivalent of winning a marathon on a Segway. Every advanced metric has looked at this roster and immediately called security. Scheduled Dress Year keeps winning games despite mountains of evidence suggesting he shouldn't. If luck were a roster position, he'd have the overall RB1.`,
   },
 
   {
@@ -100,7 +100,7 @@ export const powerRankings = {
 
     precision: 0,
 
-    summary: `Another week, another loss, another reminder that being projected to score 97 points is rarely a recipe for success. At 0-8, the playoff dream is basically a PowerPoint presentation at this point. The gap between Orangeman and the rest of the league isn't just the record. They're last in points scored, last in all-play, and now over 200 points out of the Wild Card race. The focus has shifted from making the playoffs to avoiding immortality for all the wrong reasons.`,
+    summary: `One win. Eight losses. Nine hundred points scored. There are abandoned Blockbuster locations showing more signs of life. At some point you stop talking about playoffs and start focusing on achievable goals, like breaking 100 points consistently or ruining somebody else's season. The championship dream is over. The best-case scenario now is becoming a cautionary tale for future generations of CFFL managers.`,
   },
 ]
 };
