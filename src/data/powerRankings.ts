@@ -66,7 +66,7 @@ export const powerRankings = {
   {
     rank: 7,
     previousRank: 7,
-    team: "Taka Taka Tires",
+    team: "Focused on Yahoo league.",
     
     precision: 0.5,
 
