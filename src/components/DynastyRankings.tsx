@@ -6,7 +6,7 @@ franchises
 .map((franchise) => {
  
 const dynastyScore =
-(franchise.championships * 300) +
+(franchise.championships.length * 300) +
 (franchise.playoffTrips * 20) +
 (franchise.winningPct * 100);
  
@@ -85,7 +85,7 @@ Dynasty Score:
 {franchise.dynastyScore
 ?.toFixed?.(1) ??
 (
-franchise.championships * 300 +
+franchise.championships.length * 300 +
 franchise.playoffTrips * 20 +
 franchise.winningPct * 100
 ).toFixed(1)}
