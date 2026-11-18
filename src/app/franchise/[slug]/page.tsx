@@ -58,6 +58,15 @@ export default async function FranchisePage({
           Trophy Case
         </h2>
 
+<div
+  style={{
+    marginBottom: "16px",
+    color: "#94a3b8",
+  }}
+>
+  Championship Seasons
+</div>
+
         <p>
           Championships:{" "}
           {franchise.championships.length}
