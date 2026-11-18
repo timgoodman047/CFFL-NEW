@@ -17,6 +17,7 @@ team: "Danny",
 {
 year: 2019,
 champion: "Tim",
+championSlug: "tim",
 team: "Chiefs 2020 Champs",
 runnerUp: "Danny",
 highestScore: 1750.02,
@@ -154,6 +155,7 @@ export const history = [
 {
 year: 2025,
 champion: "Chris",
+championSlug: "chris",
 team: "Short Board Champ",
 runnerUp: "Spencer",
 highestScore: 195.94,
@@ -206,6 +208,7 @@ notes:
 {
 year: 2024,
 champion: "Jeff",
+championSlug: "jeff",
 team: "Link?",
 runnerUp: "Chris",
 highestScore: 191.22,
@@ -258,6 +261,7 @@ notes:
 {
 year: 2023,
 champion: "Nick",
+championSlug: "nick",
 team: "Orangeman",
 runnerUp: "Spencer",
 highestScore: 206.96,
