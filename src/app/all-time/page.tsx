@@ -2,7 +2,9 @@ import { franchises } from "../../data/franchises";
  
 export default function AllTimePage() {
 const championships = [...franchises].sort(
-(a, b) => b.championships - a.championships
+(a, b) =>
+  b.championships.length -
+  a.championships.length
 );
  
 const playoffTrips = [...franchises].sort(
