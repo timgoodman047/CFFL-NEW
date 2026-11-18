@@ -171,11 +171,11 @@ Playoff Predictor
   </div>
 </Link>
  
-<Link href="/dashboard">
+<Link href="/museum">
   <div style={itemStyle}>
-📊 Dashboard
+    🏛️ Museum
     <br />
-    /dashboard
+    /museum
   </div>
 </Link>
  
