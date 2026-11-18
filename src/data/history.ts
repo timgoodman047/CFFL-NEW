@@ -122,8 +122,10 @@ team: "Danny",
 },
 {
 year: 2007,
-champion: "No Season",
+champion: "League Hiatus",
 team: "N/A",
+storyline:
+"No official CFFL season was played in 2007.",
 },
 {
 year: 2006,
