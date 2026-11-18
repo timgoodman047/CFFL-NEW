@@ -78,6 +78,63 @@ const nextYear =
     )}
   </div>
 
+  <div
+  style={{
+    background: "#111c2d",
+    padding: "24px",
+    borderRadius: "12px",
+    marginBottom: "24px",
+  }}
+>
+  <h2
+    style={{
+      color: "#22c55e",
+      marginBottom: "16px",
+    }}
+  >
+    Season Snapshot
+  </h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns:
+        "repeat(auto-fit,minmax(200px,1fr))",
+      gap: "16px",
+    }}
+  >
+    <StatCard
+      label="Champion"
+      value={season.champion}
+    />
+
+    <StatCard
+      label="Runner-Up"
+      value={season.runnerUp}
+    />
+
+    <StatCard
+      label="MVP"
+      value={season.mvp}
+    />
+
+    <StatCard
+      label="Highest Score"
+      value={season.highestScore}
+    />
+
+    <StatCard
+      label="Points Leader"
+      value={season.pointsLeader}
+    />
+
+    <StatCard
+      label="Sacko"
+      value={season.sacko}
+    />
+  </div>
+</div>
+
   <div>
     {nextYear && (
       <Link
@@ -224,6 +281,45 @@ function ListSection({
           {item}
         </div>
       ))}
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+}: {
+  label: string;
+  value: string | number;
+}) {
+  return (
+    <div
+      style={{
+        background: "#1b2a40",
+        padding: "16px",
+        borderRadius: "10px",
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          color: "#94a3b8",
+          fontSize: "14px",
+          marginBottom: "8px",
+        }}
+      >
+        {label}
+      </div>
+
+      <div
+        style={{
+          fontSize: "20px",
+          fontWeight: "bold",
+          color: "#22c55e",
+        }}
+      >
+        {value}
+      </div>
     </div>
   );
 }
