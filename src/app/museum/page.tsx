@@ -14,62 +14,79 @@ export default function MuseumPage() {
         padding: "24px",
       }}
     >
-      <div style={{ marginBottom: "32px" }}>
-        <h1
-          style={{
-            color: "#22c55e",
-            fontSize: "48px",
-            marginBottom: "8px",
-          }}
-        >
-          🏛️ CFFL Museum
-        </h1>
-
-        <p
-          style={{
-            color: "#94a3b8",
-            margin: 0,
-          }}
-        >
-          Preserving the complete history of the Cosines Fantasy Football League
-        </p>
-        <div
+<div
   style={{
-    display: "flex",
-    gap: "12px",
-    marginTop: "20px",
-    flexWrap: "wrap",
+    background: "#111c2d",
+    padding: "28px",
+    borderRadius: "16px",
+    marginBottom: "32px",
   }}
 >
-  <a
-    href="/season/2025"
+  <h1
     style={{
-      background: "#22c55e",
-      color: "#111827",
-      padding: "10px 16px",
-      borderRadius: "8px",
-      fontWeight: "bold",
-      textDecoration: "none",
+      color: "#22c55e",
+      fontSize: "48px",
+      marginBottom: "10px",
     }}
   >
-    Latest Champion
-  </a>
+    🏛️ CFFL Museum
+  </h1>
 
-  <a
-    href="/season/2019"
+  <p
+    style={{
+      color: "#94a3b8",
+      marginBottom: "24px",
+    }}
+  >
+    Preserving the complete history of the Cosines Fantasy Football League
+  </p>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns:
+        "repeat(auto-fit,minmax(180px,1fr))",
+      gap: "16px",
+    }}
+  >
+    <HeroStat label="Founded" value="2006" />
+    <HeroStat label="Seasons" value="19" />
+    <HeroStat label="Champions" value="8" />
+    <HeroStat label="Record Score" value="209.2" />
+  </div>
+
+  <div
     style={{
       background: "#1b2a40",
-      color: "white",
-      padding: "10px 16px",
-      borderRadius: "8px",
-      fontWeight: "bold",
-      textDecoration: "none",
+      padding: "20px",
+      borderRadius: "12px",
+      marginTop: "24px",
     }}
   >
-    Tim's Championship Season
-  </a>
-</div>
-      </div>
+    <div
+      style={{
+        color: "#94a3b8",
+        marginBottom: "8px",
+      }}
+    >
+      Defending Champion
+    </div>
+
+    <div
+      style={{
+        color: "#22c55e",
+        fontSize: "28px",
+        fontWeight: "bold",
+      }}
+    >
+      Chris
+    </div>
+
+    <div>
+      Short Board Champ
+    </div>
+  </div>
+</div>      
 
       <div
         style={{
@@ -87,5 +104,43 @@ export default function MuseumPage() {
         <RivalryTracker />
       </div>
     </main>
+  );
+}
+function HeroStat({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div
+      style={{
+        background: "#1b2a40",
+        padding: "18px",
+        borderRadius: "12px",
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          color: "#94a3b8",
+          fontSize: "14px",
+          marginBottom: "8px",
+        }}
+      >
+        {label}
+      </div>
+
+      <div
+        style={{
+          color: "#22c55e",
+          fontWeight: "bold",
+          fontSize: "24px",
+        }}
+      >
+        {value}
+      </div>
+    </div>
   );
 }
