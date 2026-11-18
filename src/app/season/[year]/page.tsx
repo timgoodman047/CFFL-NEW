@@ -1,5 +1,6 @@
 import { history } from "../../../data/history";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export default async function SeasonPage({
   params,
@@ -9,12 +10,29 @@ export default async function SeasonPage({
   const { year } = await params;
 
   const season = history.find(
-    (s) => s.year === Number(year)
-  );
+  (s) => s.year === Number(year)
+);
 
-  if (!season) {
-    notFound();
-  }
+if (!season) {
+  notFound();
+}
+
+const seasons = [...history]
+  .map((s) => s.year)
+  .sort((a, b) => a - b);
+
+const currentIndex =
+  seasons.indexOf(Number(year));
+
+const previousYear =
+  currentIndex > 0
+    ? seasons[currentIndex - 1]
+    : null;
+
+const nextYear =
+  currentIndex < seasons.length - 1
+    ? seasons[currentIndex + 1]
+    : null;
 
   return (
     <main
@@ -42,6 +60,34 @@ export default async function SeasonPage({
       >
         {season.storyline}
       </p>
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "24px",
+  }}
+>
+  <div>
+    {previousYear && (
+      <Link
+        href={`/season/${previousYear}`}
+      >
+        ← {previousYear}
+      </Link>
+    )}
+  </div>
+
+  <div>
+    {nextYear && (
+      <Link
+        href={`/season/${nextYear}`}
+      >
+        {nextYear} →
+      </Link>
+    )}
+  </div>
+</div>      
 
       <Section title="Champion">
         {season.champion}
