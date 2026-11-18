@@ -63,7 +63,7 @@ marginBottom: "10px",
  
 Championships:
 {" "}
-{franchise.championships}
+{franchise.championships.length}
  
 <br />
  
