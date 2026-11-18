@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HallOfChampions() {
 const champions = [
 { year: 2025, champion: "Chris" },
@@ -38,23 +40,44 @@ color: "#22c55e",
 </h2>
  
 {champions.map((season) => (
-<div
+<Link
 key={season.year}
+href={`/season/${season.year}`}
+style={{
+textDecoration: "none",
+color: "inherit",
+}}
+>
+<div
 style={{
 background: "#1b2a40",
 padding: "12px",
 borderRadius: "8px",
 marginBottom: "10px",
+cursor: "pointer",
+transition: "0.2s",
 }}
 >
 <strong>
-{season.year}
+🏆 {season.year}
 </strong>
- 
+
 <br />
- 
+
 Champion: {season.champion}
+
+<br />
+
+<span
+style={{
+color: "#22c55e",
+fontSize: "14px",
+}}
+>
+View Season →
+</span>
 </div>
+</Link>
 ))}
 </div>
 );
