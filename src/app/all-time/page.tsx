@@ -39,7 +39,7 @@ const dynastyRankings = [...franchises]
 .map((f) => ({
 ...f,
 dynastyScore:
-f.championships * 300 +
+  f.championships.length * 300 +
 f.playoffTrips * 20 +
 f.winningPct * 100,
 }))
