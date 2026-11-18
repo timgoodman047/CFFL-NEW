@@ -1,6 +1,7 @@
 "use client";
  
 import { useState } from "react";
+import Link from "next/link";
 import { history } from "../data/history";
  
 export default function SeasonBrowser() {
@@ -59,6 +60,12 @@ value={season.year}
 ))}
 </select>
  
+<Link
+href={`/season/${season.year}`}
+style={{
+textDecoration: "none",
+}}
+>
 <div
 style={{
 background: "#22c55e",
@@ -68,12 +75,14 @@ borderRadius: "8px",
 fontWeight: "bold",
 textAlign: "center",
 marginBottom: "15px",
+cursor: "pointer",
 }}
 >
-Season Archive URL:
+View Full Season Archive
 <br />
 /season/{season.year}
 </div>
+</Link>
  
 <SeasonCard
 title="🏆 Champion"
