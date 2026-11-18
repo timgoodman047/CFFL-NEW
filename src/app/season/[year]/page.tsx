@@ -147,8 +147,20 @@ const nextYear =
 </div>      
 
       <Section title="Champion">
-        {season.champion}
-      </Section>
+  {season.championSlug ? (
+    <a
+      href={`/franchise/${season.championSlug}`}
+      style={{
+        color: "#22c55e",
+        fontWeight: "bold",
+      }}
+    >
+      {season.champion}
+    </a>
+  ) : (
+    season.champion
+  )}
+</Section>
 
       <Section title="Team Name">
         {season.team}
