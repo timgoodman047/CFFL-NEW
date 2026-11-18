@@ -12,6 +12,9 @@ export const franchises = [
     moneyWon: "$3300",
     overallRecord: "120-88",
     sleeperTeam: "Tim",
+    yearsActive: 20,
+bestFinish: 1,
+notes: "",
     bio: "One of the most successful owners in league history.",
   },
 
@@ -28,6 +31,9 @@ export const franchises = [
     moneyWon: "$4400",
     overallRecord: "130-90",
     sleeperTeam: "Danny",
+    yearsActive: 20,
+bestFinish: 1,
+notes: "",
     bio: "Founding-era powerhouse and multi-time champion.",
   },
 
@@ -44,6 +50,9 @@ export const franchises = [
     moneyWon: "$2200",
     overallRecord: "62-38",
     sleeperTeam: "Orangeman",
+    yearsActive: 20,
+bestFinish: 1,
+notes: "",
     bio: "Back-to-back champion and modern dynasty threat.",
   },
 
@@ -60,6 +69,9 @@ export const franchises = [
     moneyWon: "$2200",
     overallRecord: "95-81",
     sleeperTeam: "Short Board Champ",
+    yearsActive: 20,
+bestFinish: 1,
+notes: "",
     bio: "Latest champion and perennial contender.",
   },
 ];
