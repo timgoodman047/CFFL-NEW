@@ -1,4 +1,6 @@
-export const franchises = [
+import { history } from "./history";
+
+const franchises = [
   {
     slug: "tim",
     owner: "Tim",
@@ -75,3 +77,14 @@ notes: "",
     bio: "Latest champion and perennial contender.",
   },
 ];
+
+export const franchises = franchiseData.map((franchise) => ({
+  ...franchise,
+  championships: history
+    .filter(
+      (season) =>
+        season.champion.toLowerCase() ===
+        franchise.owner.toLowerCase()
+    )
+    .map((season) => season.year),
+}));
