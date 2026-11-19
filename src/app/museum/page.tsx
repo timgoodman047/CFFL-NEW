@@ -97,11 +97,37 @@ export default function MuseumPage() {
         }}
       >
         <HallOfChampions />
-        <DynastyRankings />
-        <FranchiseProfiles />
-        <RecordBook />
-        <SeasonBrowser />
-        <div
+<DynastyRankings />
+<FranchiseProfiles />
+<RecordBook />
+<SeasonBrowser />
+
+<div
+  style={{
+    background: "#111c2d",
+    padding: "20px",
+    borderRadius: "12px",
+  }}
+>
+  <h2
+    style={{
+      color: "#22c55e",
+    }}
+  >
+    📅 Season Archive
+  </h2>
+
+  <a
+    href="/seasons"
+    style={{
+      color: "#22c55e",
+    }}
+  >
+    Browse Every Season →
+  </a>
+</div>
+
+<div
   style={{
     background: "#111c2d",
     padding: "20px",
@@ -125,7 +151,8 @@ export default function MuseumPage() {
     Browse All Franchises →
   </a>
 </div>
-        <RivalryTracker />
+
+<RivalryTracker />
       </div>
     </main>
   );
