@@ -1,6 +1,6 @@
 import { history } from "./history";
 
-const franchises = [
+const franchiseData = [
   {
     slug: "tim",
     owner: "Tim",
