@@ -72,19 +72,63 @@ export default async function FranchisePage({
           {franchise.championships.length}
         </p>
 
-        {franchise.championships.map((year) => (
-          <div
-            key={year}
-            style={{
-              background: "#1b2a40",
-              padding: "10px",
-              borderRadius: "8px",
-              marginBottom: "8px",
-            }}
-          >
-            🏆 {year}
-          </div>
-        ))}
+<p>
+  Seasons Active: {franchise.yearsActive}
+</p>
+
+<p>
+  Championship Rate:{" "}
+  {(
+    (franchise.championships.length /
+      franchise.yearsActive) *
+    100
+  ).toFixed(1)}
+  %
+</p>        
+
+        <div
+  style={{
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fill, minmax(140px, 1fr))",
+    gap: "12px",
+    marginTop: "16px",
+  }}
+>
+  {franchise.championships
+    .sort((a, b) => b - a)
+    .map((year) => (
+      <div
+        key={year}
+        style={{
+          background:
+            "linear-gradient(135deg,#d4af37,#f7e27c)",
+          color: "#111",
+          padding: "16px",
+          borderRadius: "12px",
+          fontWeight: "bold",
+          textAlign: "center",
+          boxShadow:
+            "0 4px 12px rgba(0,0,0,.25)",
+        }}
+      >
+        <div style={{ fontSize: "32px" }}>
+          🏆
+        </div>
+
+        <div>{year}</div>
+
+        <div
+          style={{
+            fontSize: "12px",
+            opacity: 0.75,
+          }}
+        >
+          Champion
+        </div>
+      </div>
+    ))}
+</div>
       </div>
     </main>
   );
