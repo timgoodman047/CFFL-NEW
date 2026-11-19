@@ -6,7 +6,7 @@ team: "Orangeman",
 },
 {
 year: 2021,
-champion: "The Other (Drew)",
+champion: "Drew + Drew",
 team: "The Other",
 },
 {
@@ -68,7 +68,7 @@ notes:
 },
 {
 year: 2018,
-champion: "The Other (Drew)",
+champion: "Drew + Drew",
 team: "The Other",
 },
 {
