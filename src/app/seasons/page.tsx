@@ -16,7 +16,7 @@ export default function SeasonsPage() {
           marginBottom: "24px",
         }}
       >
-        🏆 CFFL Seasons
+        🏆 CFFL Season Archive
       </h1>
 
       <div
@@ -37,12 +37,18 @@ export default function SeasonsPage() {
               color: "white",
             }}
           >
-            <strong>{season.year}</strong>
+            <div
+              style={{
+                fontSize: "22px",
+                fontWeight: "bold",
+              }}
+            >
+              {season.year}
+            </div>
 
             <div
               style={{
                 color: "#22c55e",
-                marginTop: "4px",
               }}
             >
               Champion: {season.champion}
@@ -51,7 +57,6 @@ export default function SeasonsPage() {
             <div
               style={{
                 color: "#94a3b8",
-                fontSize: "14px",
               }}
             >
               {season.team}
