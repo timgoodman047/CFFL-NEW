@@ -1,5 +1,6 @@
 import { franchises } from "../../../data/franchises";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export default async function FranchisePage({
   params,
@@ -98,23 +99,26 @@ export default async function FranchisePage({
   {franchise.championships
     .sort((a, b) => b - a)
     .map((year) => (
-      <div
-        key={year}
-        style={{
-          background:
-            "linear-gradient(135deg,#d4af37,#f7e27c)",
-          color: "#111",
-          padding: "16px",
-          borderRadius: "12px",
-          fontWeight: "bold",
-          textAlign: "center",
-          boxShadow:
-            "0 4px 12px rgba(0,0,0,.25)",
-        }}
-      >
+      <Link
+  key={year}
+  href={`/season/${year}`}
+  style={{
+    background:
+      "linear-gradient(135deg,#d4af37,#f7e27c)",
+    color: "#111",
+    padding: "16px",
+    borderRadius: "12px",
+    fontWeight: "bold",
+    textAlign: "center",
+    boxShadow:
+      "0 4px 12px rgba(0,0,0,.25)",
+    textDecoration: "none",
+    display: "block",
+  }}
+>
         <div style={{ fontSize: "32px" }}>
           🏆
-        </div>
+        </Link>
 
         <div>{year}</div>
 
