@@ -76,7 +76,6 @@ bestFinish: 1,
 notes: "",
     bio: "Latest champion and perennial contender.",
   },
-];
 
 {
   slug: "d",
@@ -362,6 +361,7 @@ notes: "",
   notes: "",
   bio: "Historic CFFL franchise owner.",
 },
+  ];
 
 export const franchises = franchiseData.map((franchise) => ({
   ...franchise,
