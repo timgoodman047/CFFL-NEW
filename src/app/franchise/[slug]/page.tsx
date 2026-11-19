@@ -118,19 +118,19 @@ export default async function FranchisePage({
 >
         <div style={{ fontSize: "32px" }}>
           🏆
-        </Link>
+        </div>
 
         <div>{year}</div>
 
         <div
-          style={{
-            fontSize: "12px",
-            opacity: 0.75,
-          }}
-        >
-          Champion
-        </div>
-      </div>
+    style={{
+      fontSize: "12px",
+      opacity: 0.75,
+    }}
+  >
+    Champion
+  </div>
+</Link>
     ))}
 </div>
       </div>
