@@ -139,6 +139,31 @@ export default function MuseumPage() {
       color: "#22c55e",
     }}
   >
+    🏆 Hall of Fame
+  </h2>
+
+  <a
+    href="/hall-of-fame"
+    style={{
+      color: "#22c55e",
+    }}
+  >
+    View All-Time Rankings →
+  </a>
+</div>
+
+<div
+  style={{
+    background: "#111c2d",
+    padding: "20px",
+    borderRadius: "12px",
+  }}
+>
+  <h2
+    style={{
+      color: "#22c55e",
+    }}
+  >
     🏆 Franchise Directory
   </h2>
 
