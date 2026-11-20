@@ -1204,7 +1204,7 @@ className="border border-gray-700 rounded p-3 mb-6"
 
   <div className="border border-zinc-700 rounded-lg overflow-hidden">
 
-    <div className="grid grid-cols-6 bg-zinc-900 p-4 font-bold">
+    <div className="grid grid-cols-8 bg-zinc-900 p-4 font-bold">
 
       <div>Week</div>
 
@@ -1215,6 +1215,10 @@ className="border border-gray-700 rounded p-3 mb-6"
       <div>Projected Winner</div>
 
       <div>Projected Score</div>
+
+      <div>If Win</div>
+
+<div>If Lose</div>
 
       <div>Status</div>
 
@@ -1280,7 +1284,7 @@ const winPct =
 
         <div
           key={`${weekData.week}-${matchup.matchupId}`}
-          className="grid grid-cols-6 border-t border-zinc-800 p-4 text-sm"
+          className="grid grid-cols-8 border-t border-zinc-800 p-4 text-sm"
         >
 
           <div>
@@ -1348,6 +1352,14 @@ const winPct =
                   1
                 )}`}
           </div>
+
+          <div className="text-green-400 font-semibold">
+  {Math.min(99, winPct + 15)}%
+</div>
+
+<div className="text-red-400 font-semibold">
+  {Math.max(1, winPct - 25)}%
+</div>
 
           <div>
             {!winner
