@@ -1196,6 +1196,32 @@ className="border border-gray-700 rounded p-3 mb-6"
 )}
 </div>
 
+<div className="mt-12">
+
+  <h2 className="text-3xl font-bold mb-4">
+    🛣️ Playoff Path
+  </h2>
+
+  <div className="border border-zinc-700 rounded-lg overflow-hidden">
+
+    <div className="grid grid-cols-5 bg-zinc-900 p-4 font-bold">
+
+      <div>Week</div>
+
+      <div>Matchup</div>
+
+      <div>Projected Winner</div>
+
+      <div>Projected Score</div>
+
+      <div>Status</div>
+
+    </div>
+
+  </div>
+
+</div>    
+
 {Object.keys(playoffOdds).length > 0 && (
   <div className="mt-10">
     <h2 className="text-2xl font-bold mb-4">
