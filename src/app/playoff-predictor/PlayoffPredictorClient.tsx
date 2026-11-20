@@ -904,6 +904,51 @@ const teamsLeavingPlayoffs =
   
   return (
   <div>
+
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+
+  <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
+    <div className="text-gray-400 text-sm">
+      Current Leader
+    </div>
+
+    <div className="text-2xl font-bold">
+      {projectedStandings[0]?.team}
+    </div>
+  </div>
+
+  <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
+    <div className="text-gray-400 text-sm">
+      Bubble Team
+    </div>
+
+    <div className="text-2xl font-bold">
+      {projectedStandings[5]?.team}
+    </div>
+  </div>
+
+  <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
+    <div className="text-gray-400 text-sm">
+      Teams In
+    </div>
+
+    <div className="text-2xl font-bold">
+      {projectedPlayoffTeams.length}
+    </div>
+  </div>
+
+  <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
+    <div className="text-gray-400 text-sm">
+      Simulations
+    </div>
+
+    <div className="text-2xl font-bold">
+      10,000
+    </div>
+  </div>
+
+</div>
+    
     <div className="mb-6 flex gap-3 flex-wrap">
   <button
   onClick={() => {
