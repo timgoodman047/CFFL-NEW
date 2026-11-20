@@ -1294,7 +1294,40 @@ const winPct =
           </div>
 
           <div>
-  {winPct}%
+
+  <div className="flex items-center gap-2">
+
+    <div className="w-20 bg-zinc-800 rounded-full h-2">
+
+      <div
+        className={
+          winPct >= 60
+            ? "bg-green-500 h-2 rounded-full"
+            : winPct >= 50
+            ? "bg-yellow-500 h-2 rounded-full"
+            : "bg-red-500 h-2 rounded-full"
+        }
+        style={{
+          width: `${winPct}%`
+        }}
+      />
+
+    </div>
+
+    <span
+      className={
+        winPct >= 60
+          ? "text-green-400 font-bold"
+          : winPct >= 50
+          ? "text-yellow-400 font-bold"
+          : "text-red-400 font-bold"
+      }
+    >
+      {winPct}%
+    </span>
+
+  </div>
+
 </div>
 
           <div>
