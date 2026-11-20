@@ -909,6 +909,23 @@ const selectedTeamSchedule =
         }))
   );
 
+ const selectedTeamProjection =
+  projectedStandings.find(
+    (team) =>
+      team.rosterId ===
+      selectedTeam
+  );
+
+const selectedTeamSeed =
+  projectedStandings.findIndex(
+    (team) =>
+      team.rosterId ===
+      selectedTeam
+  ) + 1;
+
+const selectedTeamOdds =
+  playoffOdds[selectedTeam] || 0; 
+
   const teamsEnteringPlayoffs =
   projectedStandings.filter(
     (team) =>
@@ -1005,6 +1022,52 @@ const teamsLeavingPlayoffs =
 
   </select>
 
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+
+  <div className="bg-black border border-zinc-700 rounded-lg p-4">
+
+    <div className="text-zinc-400 text-sm">
+      Playoff Odds
+    </div>
+
+    <div className="text-4xl font-bold text-green-400">
+      {selectedTeamOdds.toFixed(0)}%
+    </div>
+
+  </div>
+
+  <div className="bg-black border border-zinc-700 rounded-lg p-4">
+
+    <div className="text-zinc-400 text-sm">
+      Projected Record
+    </div>
+
+    <div className="text-4xl font-bold">
+
+      {selectedTeamProjection?.projectedWins}
+
+      -
+
+      {selectedTeamProjection?.projectedLosses}
+
+    </div>
+
+  </div>
+
+  <div className="bg-black border border-zinc-700 rounded-lg p-4">
+
+    <div className="text-zinc-400 text-sm">
+      Projected Seed
+    </div>
+
+    <div className="text-4xl font-bold text-yellow-400">
+      #{selectedTeamSeed}
+    </div>
+
+  </div>
+
+</div>  
+  
 </div>
 
 <div className="mb-10 border border-zinc-700 rounded-lg overflow-hidden">
