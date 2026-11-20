@@ -1218,6 +1218,69 @@ className="border border-gray-700 rounded p-3 mb-6"
 
     </div>
 
+{schedule.map((weekData) =>
+  weekData.matchups.map(
+    (matchup: any) => {
+
+      const winner =
+        picks[
+          `${weekData.week}-${matchup.matchupId}`
+        ];
+
+      const projected =
+        projectedScores[
+          `${weekData.week}-${matchup.matchupId}`
+        ];
+
+      return (
+
+        <div
+          key={`${weekData.week}-${matchup.matchupId}`}
+          className="grid grid-cols-5 border-t border-zinc-800 p-4 text-sm"
+        >
+
+          <div>
+            W{weekData.week}
+          </div>
+
+          <div>
+            {matchup.team1.team}
+            {" vs "}
+            {matchup.team2.team}
+          </div>
+
+          <div>
+            {!winner
+              ? "-"
+              : winner ===
+                matchup.team1.rosterId
+              ? matchup.team1.team
+              : matchup.team2.team}
+          </div>
+
+          <div>
+            {!projected
+              ? "-"
+              : `${projected.team1.toFixed(
+                  1
+                )}-${projected.team2.toFixed(
+                  1
+                )}`}
+          </div>
+
+          <div>
+            {!winner
+              ? "Waiting"
+              : "Scenario Set"}
+          </div>
+
+        </div>
+
+      );
+    }
+  )
+)}
+    
   </div>
 
 </div>    
