@@ -95,6 +95,11 @@ const [seedOdds, setSeedOdds] =
     >
   >({});
 
+  const [selectedTeam, setSelectedTeam] =
+  useState<number>(
+    standings[0]?.rosterId || 0
+  );
+
  function selectWinner(
   week: number,
   matchupId: number,
@@ -880,6 +885,30 @@ const projectedPlayoffRosterIds =
     (team) => team.rosterId
   );
 
+  const selectedTeamData =
+  standings.find(
+    (team) =>
+      team.rosterId ===
+      selectedTeam
+  );
+
+const selectedTeamSchedule =
+  schedule.flatMap(
+    (weekData) =>
+      weekData.matchups
+        .filter(
+          (matchup: any) =>
+            matchup.team1.rosterId ===
+              selectedTeam ||
+            matchup.team2.rosterId ===
+              selectedTeam
+        )
+        .map((matchup: any) => ({
+          week: weekData.week,
+          matchup,
+        }))
+  );
+
   const teamsEnteringPlayoffs =
   projectedStandings.filter(
     (team) =>
@@ -948,6 +977,35 @@ const teamsLeavingPlayoffs =
   </div>
 
 </div>
+
+<div className="mb-8 border border-zinc-700 rounded-lg p-6 bg-zinc-900">
+
+  <h2 className="text-2xl font-bold mb-4">
+    🛣️ Team Playoff Path
+  </h2>
+
+  <select
+    value={selectedTeam}
+    onChange={(e) =>
+      setSelectedTeam(
+        Number(e.target.value)
+      )
+    }
+    className="bg-black border border-zinc-700 rounded p-3 w-full md:w-96"
+  >
+
+    {standings.map((team) => (
+      <option
+        key={team.rosterId}
+        value={team.rosterId}
+      >
+        {team.team}
+      </option>
+    ))}
+
+  </select>
+
+</div>    
     
     <div className="mb-6 flex gap-3 flex-wrap">
   <button
