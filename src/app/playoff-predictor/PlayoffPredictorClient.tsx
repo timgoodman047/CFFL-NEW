@@ -1005,6 +1005,142 @@ const teamsLeavingPlayoffs =
 
   </select>
 
+</div>
+
+<div className="mb-10 border border-zinc-700 rounded-lg overflow-hidden">
+
+  <div className="bg-zinc-900 p-4 border-b border-zinc-700">
+
+    <h3 className="text-xl font-bold">
+      Remaining Schedule
+    </h3>
+
+  </div>
+
+  <table className="w-full">
+
+    <thead>
+
+      <tr className="border-b border-zinc-700 text-left">
+
+        <th className="p-3">Week</th>
+
+        <th className="p-3">Opponent</th>
+
+        <th className="p-3">Win Chance</th>
+
+        <th className="p-3">If Win</th>
+
+        <th className="p-3">If Lose</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      {selectedTeamSchedule.map(
+        ({ week, matchup }) => {
+
+          const opponent =
+            matchup.team1.rosterId ===
+            selectedTeam
+              ? matchup.team2
+              : matchup.team1;
+
+          const myScores =
+            scoringHistory[
+              selectedTeam
+            ] || [];
+
+          const oppScores =
+            scoringHistory[
+              opponent.rosterId
+            ] || [];
+
+          const myAvg =
+            myScores.length
+              ? getAverage(myScores)
+              : 100;
+
+          const oppAvg =
+            oppScores.length
+              ? getAverage(oppScores)
+              : 100;
+
+          const total =
+            myAvg + oppAvg;
+
+          const winPct =
+            Math.round(
+              (myAvg / total) *
+                100
+            );
+
+          return (
+
+            <tr
+              key={`${week}-${matchup.matchupId}`}
+              className="border-b border-zinc-800"
+            >
+
+              <td className="p-3">
+                W{week}
+              </td>
+
+              <td className="p-3 font-medium">
+                {opponent.team}
+              </td>
+
+              <td className="p-3">
+
+                <div className="flex items-center gap-3">
+
+                  <div className="w-24 bg-zinc-800 rounded-full h-2">
+
+                    <div
+                      className="bg-green-500 h-2 rounded-full"
+                      style={{
+                        width: `${winPct}%`,
+                      }}
+                    />
+
+                  </div>
+
+                  <span>
+                    {winPct}%
+                  </span>
+
+                </div>
+
+              </td>
+
+              <td className="p-3 text-green-400 font-bold">
+                {Math.min(
+                  99,
+                  winPct + 15
+                )}
+                %
+              </td>
+
+              <td className="p-3 text-red-400 font-bold">
+                {Math.max(
+                  1,
+                  winPct - 25
+                )}
+                %
+              </td>
+
+            </tr>
+
+          );
+        }
+      )}
+
+    </tbody>
+
+  </table>
+
 </div>    
     
     <div className="mb-6 flex gap-3 flex-wrap">
