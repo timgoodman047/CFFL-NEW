@@ -933,6 +933,10 @@ const selectedTeamCurrent =
       selectedTeam
   ); 
 
+  const selectedTeamName =
+  selectedTeamCurrent?.team ||
+  "Unknown Team";
+
   const teamsEnteringPlayoffs =
   projectedStandings.filter(
     (team) =>
@@ -1004,9 +1008,13 @@ const teamsLeavingPlayoffs =
 
 <div className="mb-8 border border-zinc-700 rounded-lg p-6 bg-zinc-900">
 
-  <h2 className="text-2xl font-bold mb-4">
-    🛣️ Team Playoff Path
-  </h2>
+  <h2 className="text-3xl font-bold mb-2">
+  🛣️ {selectedTeamName}
+</h2>
+
+<div className="text-zinc-400 mb-4">
+  Playoff Path Analysis
+</div>
 
   <select
     value={selectedTeam}
@@ -1080,8 +1088,8 @@ const teamsLeavingPlayoffs =
   <div className="bg-zinc-900 p-4 border-b border-zinc-700">
 
     <h3 className="text-xl font-bold">
-      Remaining Schedule
-    </h3>
+  Week By Week
+</h3>
 
   </div>
 
@@ -1156,9 +1164,37 @@ const teamsLeavingPlayoffs =
                 W{week}
               </td>
 
-              <td className="p-3 font-medium">
-                {opponent.team}
-              </td>
+              <td className="p-3">
+
+  <div className="font-semibold">
+    {opponent.team}
+  </div>
+
+  <div className="text-xs text-zinc-500">
+
+    Record:
+    {" "}
+    {
+      standings.find(
+        (t) =>
+          t.rosterId ===
+          opponent.rosterId
+      )?.wins
+    }
+
+    -
+
+    {
+      standings.find(
+        (t) =>
+          t.rosterId ===
+          opponent.rosterId
+      )?.losses
+    }
+
+  </div>
+
+</td>
 
               <td className="p-3">
 
