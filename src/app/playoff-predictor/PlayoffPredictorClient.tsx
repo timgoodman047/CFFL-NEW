@@ -996,6 +996,61 @@ const teamsLeavingPlayoffs =
   Calculate Win/Loss Impact
 </button>
 </div>
+
+{Object.keys(playoffOdds).length > 0 && (
+
+  <div className="mb-8 border border-zinc-700 rounded-lg p-6 bg-zinc-900">
+
+    <h2 className="text-2xl font-bold mb-4">
+      Playoff Outlook
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+      {[...standings]
+        .sort(
+          (a, b) =>
+            (playoffOdds[b.rosterId] || 0) -
+            (playoffOdds[a.rosterId] || 0)
+        )
+        .slice(0, 3)
+        .map((team) => (
+
+          <div
+            key={team.rosterId}
+            className="border border-zinc-700 rounded-lg p-4"
+          >
+
+            <div className="text-gray-400 text-sm">
+              Playoff Favorite
+            </div>
+
+            <div className="text-xl font-bold mt-2">
+              {team.team}
+            </div>
+
+            <div className="text-4xl font-bold text-green-400 mt-3">
+              {(playoffOdds[team.rosterId] || 0).toFixed(0)}%
+            </div>
+
+            <div className="w-full bg-zinc-800 rounded-full h-3 mt-4">
+              <div
+                className="bg-green-500 h-3 rounded-full"
+                style={{
+                  width: `${playoffOdds[team.rosterId] || 0}%`
+                }}
+              />
+            </div>
+
+          </div>
+
+        ))}
+
+    </div>
+
+  </div>
+
+)}
       
       {schedule.map((weekData) => (
         <div
