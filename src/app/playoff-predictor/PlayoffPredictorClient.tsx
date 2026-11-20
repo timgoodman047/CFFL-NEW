@@ -924,7 +924,14 @@ const selectedTeamSeed =
   ) + 1;
 
 const selectedTeamOdds =
-  playoffOdds[selectedTeam] || 0; 
+  playoffOdds[selectedTeam] || 0;
+
+const selectedTeamCurrent =
+  standings.find(
+    (team) =>
+      team.rosterId ===
+      selectedTeam
+  ); 
 
   const teamsEnteringPlayoffs =
   projectedStandings.filter(
@@ -1039,16 +1046,14 @@ const teamsLeavingPlayoffs =
   <div className="bg-black border border-zinc-700 rounded-lg p-4">
 
     <div className="text-zinc-400 text-sm">
-      Projected Record
+      Current Record
     </div>
 
     <div className="text-4xl font-bold">
 
-      {selectedTeamProjection?.projectedWins}
-
-      -
-
-      {selectedTeamProjection?.projectedLosses}
+      {selectedTeamCurrent?.wins}
+-
+{selectedTeamCurrent?.losses}
 
     </div>
 
