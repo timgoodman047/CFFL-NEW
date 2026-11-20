@@ -1204,175 +1204,195 @@ className="border border-gray-700 rounded p-3 mb-6"
 
   <div className="border border-zinc-700 rounded-lg overflow-hidden">
 
-    <div className="grid grid-cols-8 bg-zinc-900 p-4 font-bold">
+<div className="overflow-x-auto">
 
-      <div>Week</div>
+  <table className="w-full text-sm">
 
-      <div>Matchup</div>
+    <thead className="bg-zinc-900">
 
-      <div>Win %</div>
+      <tr>
 
-      <div>Projected Winner</div>
+        <th className="p-3 text-left">Week</th>
 
-      <div>Projected Score</div>
+        <th className="p-3 text-left">
+          Matchup
+        </th>
 
-      <div>If Win</div>
+        <th className="p-3 text-left">
+          Win %
+        </th>
 
-<div>If Lose</div>
+        <th className="p-3 text-left">
+          Winner
+        </th>
 
-      <div>Status</div>
+        <th className="p-3 text-left">
+          Score
+        </th>
 
-    </div>
+        <th className="p-3 text-left">
+          If Win
+        </th>
 
-{schedule.map((weekData) =>
-  weekData.matchups.map(
-    (matchup: any) => {
+        <th className="p-3 text-left">
+          If Lose
+        </th>
 
-      const winner =
-        picks[
-          `${weekData.week}-${matchup.matchupId}`
-        ];
+        <th className="p-3 text-left">
+          Status
+        </th>
 
-      const projected =
-        projectedScores[
-          `${weekData.week}-${matchup.matchupId}`
-        ];
+      </tr>
 
-      const team1 = standings.find(
-  (t) =>
-    t.rosterId ===
-    matchup.team1.rosterId
-);
+    </thead>
 
-const team2 = standings.find(
-  (t) =>
-    t.rosterId ===
-    matchup.team2.rosterId
-);
+    <tbody>
 
-const team1Scores =
-  scoringHistory[
-    matchup.team1.rosterId
-  ] || [];
+      {schedule.flatMap((weekData) =>
+        weekData.matchups.map(
+          (matchup: any) => {
 
-const team2Scores =
-  scoringHistory[
-    matchup.team2.rosterId
-  ] || [];
+            const winner =
+              picks[
+                `${weekData.week}-${matchup.matchupId}`
+              ];
 
-const team1Avg =
-  team1Scores.length > 0
-    ? getAverage(team1Scores)
-    : 0;
+            const projected =
+              projectedScores[
+                `${weekData.week}-${matchup.matchupId}`
+              ];
 
-const team2Avg =
-  team2Scores.length > 0
-    ? getAverage(team2Scores)
-    : 0;
-
-const total =
-  team1Avg + team2Avg;
-
-const winPct =
-  total > 0
-    ? Math.round(
-        (team1Avg / total) * 100
-      )
-    : 50;
-
-      return (
-
-        <div
-          key={`${weekData.week}-${matchup.matchupId}`}
-          className="grid grid-cols-8 border-t border-zinc-800 p-4 text-sm"
-        >
-
-          <div>
-            W{weekData.week}
-          </div>
-
-          <div>
-            {matchup.team1.team}
-            {" vs "}
-            {matchup.team2.team}
-          </div>
-
-          <div>
-
-  <div className="flex items-center gap-2">
-
-    <div className="w-20 bg-zinc-800 rounded-full h-2">
-
-      <div
-        className={
-          winPct >= 60
-            ? "bg-green-500 h-2 rounded-full"
-            : winPct >= 50
-            ? "bg-yellow-500 h-2 rounded-full"
-            : "bg-red-500 h-2 rounded-full"
-        }
-        style={{
-          width: `${winPct}%`
-        }}
-      />
-
-    </div>
-
-    <span
-      className={
-        winPct >= 60
-          ? "text-green-400 font-bold"
-          : winPct >= 50
-          ? "text-yellow-400 font-bold"
-          : "text-red-400 font-bold"
-      }
-    >
-      {winPct}%
-    </span>
-
-  </div>
-
-</div>
-
-          <div>
-            {!winner
-              ? "-"
-              : winner ===
+            const team1Scores =
+              scoringHistory[
                 matchup.team1.rosterId
-              ? matchup.team1.team
-              : matchup.team2.team}
-          </div>
+              ] || [];
 
-          <div>
-            {!projected
-              ? "-"
-              : `${projected.team1.toFixed(
-                  1
-                )}-${projected.team2.toFixed(
-                  1
-                )}`}
-          </div>
+            const team2Scores =
+              scoringHistory[
+                matchup.team2.rosterId
+              ] || [];
 
-          <div className="text-green-400 font-semibold">
-  {Math.min(99, winPct + 15)}%
-</div>
+            const team1Avg =
+              team1Scores.length > 0
+                ? getAverage(
+                    team1Scores
+                  )
+                : 0;
 
-<div className="text-red-400 font-semibold">
-  {Math.max(1, winPct - 25)}%
-</div>
+            const team2Avg =
+              team2Scores.length > 0
+                ? getAverage(
+                    team2Scores
+                  )
+                : 0;
 
-          <div>
-            {!winner
-              ? "Waiting"
-              : "Scenario Set"}
-          </div>
+            const total =
+              team1Avg + team2Avg;
 
-        </div>
+            const winPct =
+              total > 0
+                ? Math.round(
+                    (team1Avg /
+                      total) *
+                      100
+                  )
+                : 50;
 
-      );
-    }
-  )
-)}
+            return (
+
+              <tr
+                key={`${weekData.week}-${matchup.matchupId}`}
+                className="border-t border-zinc-800"
+              >
+
+                <td className="p-3">
+                  W{weekData.week}
+                </td>
+
+                <td className="p-3">
+                  {matchup.team1.team}
+                  <div className="text-zinc-500 text-xs">
+                    vs
+                  </div>
+                  {matchup.team2.team}
+                </td>
+
+                <td className="p-3">
+
+                  <div className="flex items-center gap-2">
+
+                    <div className="w-20 bg-zinc-800 rounded-full h-2">
+
+                      <div
+                        className="bg-green-500 h-2 rounded-full"
+                        style={{
+                          width: `${winPct}%`,
+                        }}
+                      />
+
+                    </div>
+
+                    <span>
+                      {winPct}%
+                    </span>
+
+                  </div>
+
+                </td>
+
+                <td className="p-3">
+                  {!winner
+                    ? "-"
+                    : winner ===
+                      matchup.team1.rosterId
+                    ? matchup.team1.team
+                    : matchup.team2.team}
+                </td>
+
+                <td className="p-3">
+                  {!projected
+                    ? "-"
+                    : `${projected.team1.toFixed(
+                        1
+                      )}-${projected.team2.toFixed(
+                        1
+                      )}`}
+                </td>
+
+                <td className="p-3 text-green-400 font-bold">
+                  {Math.min(
+                    99,
+                    winPct + 15
+                  )}
+                  %
+                </td>
+
+                <td className="p-3 text-red-400 font-bold">
+                  {Math.max(
+                    1,
+                    winPct - 25
+                  )}
+                  %
+                </td>
+
+                <td className="p-3">
+                  {!winner
+                    ? "Waiting"
+                    : "Scenario Set"}
+                </td>
+
+              </tr>
+
+            );
+          }
+        )
+      )}
+
+    </tbody>
+
+  </table>
+
+</div>    
     
   </div>
 
