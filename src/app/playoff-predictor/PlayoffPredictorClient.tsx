@@ -1214,19 +1214,40 @@ className="border border-gray-700 rounded p-3 mb-6"
         ] || 0)
     )
     .map((team) => (
-      <div
-        key={team.rosterId}
-        className="border border-gray-700 rounded p-2"
-      >
-        {team.team}
-        {" - "}
-        {(
+<div
+  key={team.rosterId}
+  className="border border-gray-700 rounded p-4"
+>
+
+  <div className="flex justify-between mb-2">
+    <span className="font-semibold">
+      {team.team}
+    </span>
+
+    <span>
+      {(playoffOdds[
+        team.rosterId
+      ] || 0).toFixed(1)}
+      %
+    </span>
+  </div>
+
+  <div className="w-full bg-zinc-800 rounded-full h-3">
+
+    <div
+      className="bg-green-500 h-3 rounded-full"
+      style={{
+        width: `${
           playoffOdds[
             team.rosterId
           ] || 0
-        ).toFixed(1)}
-        %
-      </div>
+        }%`
+      }}
+    />
+
+  </div>
+
+</div>      
     ))}
 </div>
   </div>
