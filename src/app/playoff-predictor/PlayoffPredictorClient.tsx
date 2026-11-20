@@ -1204,11 +1204,13 @@ className="border border-gray-700 rounded p-3 mb-6"
 
   <div className="border border-zinc-700 rounded-lg overflow-hidden">
 
-    <div className="grid grid-cols-5 bg-zinc-900 p-4 font-bold">
+    <div className="grid grid-cols-6 bg-zinc-900 p-4 font-bold">
 
       <div>Week</div>
 
       <div>Matchup</div>
+
+      <div>Win %</div>
 
       <div>Projected Winner</div>
 
@@ -1232,11 +1234,53 @@ className="border border-gray-700 rounded p-3 mb-6"
           `${weekData.week}-${matchup.matchupId}`
         ];
 
+      const team1 = standings.find(
+  (t) =>
+    t.rosterId ===
+    matchup.team1.rosterId
+);
+
+const team2 = standings.find(
+  (t) =>
+    t.rosterId ===
+    matchup.team2.rosterId
+);
+
+const team1Scores =
+  scoringHistory[
+    matchup.team1.rosterId
+  ] || [];
+
+const team2Scores =
+  scoringHistory[
+    matchup.team2.rosterId
+  ] || [];
+
+const team1Avg =
+  team1Scores.length > 0
+    ? getAverage(team1Scores)
+    : 0;
+
+const team2Avg =
+  team2Scores.length > 0
+    ? getAverage(team2Scores)
+    : 0;
+
+const total =
+  team1Avg + team2Avg;
+
+const winPct =
+  total > 0
+    ? Math.round(
+        (team1Avg / total) * 100
+      )
+    : 50;
+
       return (
 
         <div
           key={`${weekData.week}-${matchup.matchupId}`}
-          className="grid grid-cols-5 border-t border-zinc-800 p-4 text-sm"
+          className="grid grid-cols-6 border-t border-zinc-800 p-4 text-sm"
         >
 
           <div>
@@ -1248,6 +1292,10 @@ className="border border-gray-700 rounded p-3 mb-6"
             {" vs "}
             {matchup.team2.team}
           </div>
+
+          <div>
+  {winPct}%
+</div>
 
           <div>
             {!winner
